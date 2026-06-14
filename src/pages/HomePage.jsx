@@ -15,7 +15,6 @@ export default function HomePage() {
   return (
     <main id="main-content">
       <Hero />
-      <SectionDivider />
       <Suspense fallback={<SectionFallback />}>
         <FeaturedSpaces />
       </Suspense>

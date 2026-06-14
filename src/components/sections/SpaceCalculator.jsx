@@ -35,7 +35,7 @@ export default function SpaceCalculator() {
 
   return (
     <section ref={sectionRef} id="calculator" className="section-y-lg relative overflow-hidden bg-cream">
-      <div className="pointer-events-none absolute -left-16 top-1/4 h-48 w-48 rounded-full border border-gold/8" aria-hidden="true" />
+      <div className="pointer-events-none absolute -left-16 top-1/4 hidden h-48 w-48 rounded-full border border-gold/8 md:block" aria-hidden="true" />
 
       <div className="wrap calc-wrap">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-10">

@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { gsap, ScrollTrigger } from '../../utils/gsap';
 import { HERO_SLIDES } from '../../data/content';
+import CurvedSectionTransition from '../common/CurvedSectionTransition';
 
 const SLIDE_INTERVAL = 3000;
 
@@ -80,7 +81,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative h-[100dvh] min-h-screen w-full overflow-hidden bg-dark"
+      className="relative h-[100dvh] min-h-screen w-full overflow-x-hidden bg-dark"
     >
       <div className="absolute inset-0 h-full w-full">
         <div ref={imgWrapRef} className="absolute inset-0 h-full w-full will-change-transform">
@@ -98,7 +99,7 @@ export default function Hero() {
           ))}
         </div>
         <div className="absolute inset-0 bg-hero-veil" />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-dark/85 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-dark/70 to-transparent" />
       </div>
 
       <div className="wrap relative z-10 flex h-full flex-col justify-center pb-20 pt-24 md:pb-24 md:pt-28">
@@ -123,9 +124,9 @@ export default function Hero() {
               Luxury granite, premium furniture, and timeless interior concepts designed for sophisticated living.
             </p>
 
-            <div className="hero-body mt-9 flex flex-wrap gap-4 md:mt-11">
-              <a href="#materials" className="btn-solid">Explore Materials</a>
-              <a href="#calculator" className="btn-gold border-cream/25 text-cream">
+            <div className="hero-body mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 md:mt-11">
+              <a href="#materials" className="btn-solid w-full text-center sm:w-auto">Explore Materials</a>
+              <a href="#calculator" className="btn-gold w-full border-cream/25 text-center text-cream sm:w-auto">
                 <span>Estimate Investment</span>
               </a>
             </div>
@@ -133,12 +134,15 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex">
-        <span className="font-body text-[10px] uppercase tracking-[0.4em] text-cream/30">Scroll</span>
-        <div className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent" />
+      <CurvedSectionTransition />
+
+      <div className="absolute bottom-[clamp(5.5rem,13vw,8.5rem)] left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2">
+        <span className="font-body text-[10px] uppercase tracking-[0.4em] text-cream/30 max-md:hidden">Scroll</span>
+        <div className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent max-md:hidden" />
       </div>
 
-      <div className="grid-edge-right absolute bottom-8 z-10 hidden items-center gap-2 md:flex">
+      <div className="wrap absolute inset-x-0 bottom-[clamp(5.5rem,13vw,8.5rem)] z-10 flex items-center justify-center gap-2 px-6 md:justify-end md:px-0">
+        <div className="grid-edge-right flex items-center gap-2 md:static md:pr-0">
         {HERO_SLIDES.map((src, index) => (
           <button
             key={`hero-dot-${index}`}
@@ -150,6 +154,7 @@ export default function Hero() {
             }`}
           />
         ))}
+        </div>
       </div>
     </section>
   );

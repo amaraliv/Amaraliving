@@ -153,12 +153,12 @@ export default function Testimonials() {
         </motion.div>
 
         <div className="relative min-w-0 lg:col-span-8 xl:col-span-9">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-cream to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-cream to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-8 bg-gradient-to-r from-cream to-transparent md:block" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-8 bg-gradient-to-l from-cream to-transparent md:block" />
 
           <div
             ref={scrollerRef}
-            className="testimonial-track scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto px-0 pb-2 md:gap-5"
+            className="testimonial-track scrollbar-hide -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 md:mx-0 md:gap-5 md:px-0"
             aria-label="Client testimonials"
           >
             {TESTIMONIALS.map((testimonial, index) => (
@@ -167,7 +167,7 @@ export default function Testimonials() {
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
-                className="w-[min(86vw,390px)] shrink-0 snap-start md:w-[360px] xl:w-[390px] 2xl:w-[420px]"
+                className="w-[calc(100vw-3rem)] max-w-[390px] shrink-0 snap-center sm:w-[min(78vw,360px)] md:snap-start xl:w-[390px] 2xl:w-[420px]"
               >
                 <TestimonialCard testimonial={testimonial} />
               </div>

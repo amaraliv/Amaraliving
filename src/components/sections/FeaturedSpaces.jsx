@@ -10,13 +10,13 @@ export default function FeaturedSpaces() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.space-intro > *', {
-        y: 36,
+      gsap.from('.space-intro .space-intro-item', {
+        y: 28,
         opacity: 0,
         duration: 0.9,
         stagger: 0.1,
         ease: 'power3.out',
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 78%' },
+        scrollTrigger: { trigger: '.space-intro', start: 'top 88%' },
       });
 
       gsap.from('.space-dominant', {
@@ -54,20 +54,24 @@ export default function FeaturedSpaces() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="spaces" className="section-y-lg overflow-hidden bg-cream">
+    <section
+      ref={sectionRef}
+      id="spaces"
+      className="section-y-lg -mt-[clamp(3.5rem,9vw,7rem)] overflow-x-hidden bg-cream pt-[calc(clamp(3.5rem,9vw,7rem)+2.25rem)]"
+    >
       <div className="wrap space-intro section-head">
-        <div className="viewport-grid items-end">
-          <div className="lg:col-span-7">
-            <p className="eyebrow mb-3">Featured Spaces</p>
+        <div className="viewport-grid items-start lg:items-end">
+          <div className="space-intro-item lg:col-span-7">
+            <p className="eyebrow mb-3 leading-relaxed">Featured Spaces</p>
             <h2 className="heading-section">
               Curated<br /><span className="italic text-gold">Environments</span>
             </h2>
           </div>
-          <p className="font-body text-sm leading-relaxed text-ink/50 md:text-base lg:col-span-4 lg:col-start-9">
+          <p className="space-intro-item mt-4 font-body text-sm leading-relaxed text-ink/50 md:mt-0 md:text-base lg:col-span-4 lg:col-start-9">
             One featured composition with two supporting scenes — editorial pacing, generous whitespace, and layered depth.
           </p>
         </div>
-        <div className="mt-6 line-gold max-w-xl opacity-60" />
+        <div className="space-intro-item mt-6 line-gold max-w-xl opacity-60" />
       </div>
 
       <div className="wrap space-grid">
@@ -75,7 +79,7 @@ export default function FeaturedSpaces() {
           {/* Featured — ~30% shorter than before */}
           <div className="space-dominant depth-scene relative lg:col-span-8">
             <div className="depth-card depth-glint group relative overflow-hidden shadow-editorial">
-              <div className="aspect-[5/4] min-h-[380px] md:aspect-[16/10] md:min-h-[500px] lg:aspect-auto lg:h-[62vh] lg:min-h-[560px] lg:max-h-[720px]">
+              <div className="aspect-[4/3] min-h-[240px] sm:aspect-[16/10] sm:min-h-[320px] md:min-h-[420px] lg:aspect-auto lg:h-[62vh] lg:min-h-[560px] lg:max-h-[720px]">
                 <img
                   src={dominant.image}
                   alt={dominant.title}
@@ -86,7 +90,7 @@ export default function FeaturedSpaces() {
               <div className="absolute inset-0 bg-gradient-to-t from-dark/55 via-dark/5 to-transparent" />
             </div>
 
-            <div className="float-card depth-lift relative z-10 -mt-12 ml-5 mr-5 max-w-2xl p-6 md:-mt-14 md:ml-10 md:p-8 lg:absolute lg:bottom-10 lg:left-10 lg:ml-0 lg:mr-0 lg:-mt-0">
+            <div className="float-card depth-lift relative z-10 mx-4 -mt-8 max-w-none p-5 sm:mx-5 md:-mt-12 md:ml-10 md:mr-5 md:max-w-2xl md:p-8 lg:absolute lg:bottom-10 lg:left-10 lg:mx-0 lg:-mt-0">
               <p className="eyebrow mb-2">{dominant.tag}</p>
               <h3 className="font-display text-2xl text-dark md:text-3xl">{dominant.title}</h3>
               <p className="mt-3 max-w-xl font-body text-sm leading-relaxed text-ink/55 md:text-base">{dominant.description}</p>
@@ -99,7 +103,7 @@ export default function FeaturedSpaces() {
               <article key={space.id} className="space-support depth-scene group relative">
                 <div className={`relative ${i === 1 ? 'lg:-ml-6' : ''}`}>
                   <div className="depth-card depth-glint overflow-hidden shadow-editorial">
-                    <div className="aspect-[16/10] min-h-[240px] md:min-h-[285px] lg:min-h-[275px] 2xl:min-h-[330px]">
+                    <div className="aspect-[16/10] min-h-[200px] sm:min-h-[240px] md:min-h-[285px] lg:min-h-[275px] 2xl:min-h-[330px]">
                       <img
                         src={space.image}
                         alt={space.title}

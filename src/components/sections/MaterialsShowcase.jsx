@@ -41,14 +41,14 @@ export default function MaterialsShowcase() {
   return (
     <section ref={sectionRef} id="materials" className="section-y-sm bg-dark text-cream">
       <div className="wrap mat-intro section-head">
-        <div className="viewport-grid items-end">
+        <div className="viewport-grid items-start lg:items-end">
           <div className="lg:col-span-7">
             <p className="eyebrow mb-3">Materials</p>
             <h2 className="font-display text-section font-medium">
               Surfaces, Form<br /><span className="italic text-gold">&amp; Finish</span>
             </h2>
           </div>
-          <p className="font-body text-sm leading-relaxed text-cream/45 md:text-base lg:col-span-4 lg:col-start-9">
+          <p className="mt-4 font-body text-sm leading-relaxed text-cream/45 md:mt-0 md:text-base lg:col-span-4 lg:col-start-9">
             Explore our material disciplines, each selected to shape the character, permanence, and proportion of a room.
           </p>
         </div>
@@ -56,7 +56,7 @@ export default function MaterialsShowcase() {
 
       <div className="wrap mat-panel viewport-grid">
         {/* Image panel */}
-        <div className="mat-image-panel depth-scene relative min-h-[420px] overflow-hidden md:min-h-[540px] lg:col-span-8 lg:min-h-[620px]">
+        <div className="mat-image-panel depth-scene relative min-h-[280px] overflow-hidden sm:min-h-[340px] md:min-h-[420px] lg:col-span-8 lg:min-h-[620px]">
           <div className="absolute inset-0 border border-cream/10" aria-hidden="true" />
           <AnimatePresence mode="wait">
             <motion.div
@@ -98,7 +98,7 @@ export default function MaterialsShowcase() {
 
         {/* Accordion */}
         <div className="flex flex-col justify-center lg:col-span-4">
-          <p className="mb-5 font-body text-sm leading-relaxed text-cream/40">
+          <p className="mb-5 hidden font-body text-sm leading-relaxed text-cream/40 md:block">
             Explore our material disciplines — each selection shapes the character of a room.
           </p>
 
@@ -109,14 +109,16 @@ export default function MaterialsShowcase() {
               <button
                 key={item.id}
                 type="button"
+                onClick={() => setActive(i)}
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
-                className={`depth-card relative w-full cursor-default overflow-hidden border text-left transition-all duration-500 ${
-                    isActive
-                      ? 'border-gold/40 bg-cream/[0.04] pl-6 shadow-glow-sm'
-                      : 'border-cream/10 bg-transparent pl-4 hover:border-gold/20 hover:pl-5'
-                  }`}
-                >
+                aria-expanded={isActive}
+                className={`depth-card relative w-full cursor-pointer overflow-hidden border text-left transition-all duration-500 ${
+                  isActive
+                    ? 'border-gold/40 bg-cream/[0.04] pl-6 shadow-glow-sm'
+                    : 'border-cream/10 bg-transparent pl-4 hover:border-gold/20 hover:pl-5'
+                }`}
+              >
                   <div
                     className={`absolute bottom-0 left-0 top-0 w-0.5 transition-all duration-500 ${
                       isActive ? 'bg-gold' : 'bg-transparent'

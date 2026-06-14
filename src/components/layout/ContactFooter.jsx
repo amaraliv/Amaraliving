@@ -40,8 +40,8 @@ export default function ContactFooter() {
         <div className="foot-brand">
           <div className="foot-line mb-5 h-px w-full max-w-xs bg-gold/40" />
 
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-6 lg:items-start">
-            <div className="lg:col-span-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6 lg:items-start">
+            <div className="sm:col-span-2 lg:col-span-4">
               <h2 className="font-display text-3xl font-medium leading-tight md:text-4xl lg:text-[2.75rem]">
                 Amara <span className="italic text-gold">Living</span>
               </h2>

@@ -58,20 +58,31 @@ export default function CraftsmanshipStory() {
   return (
     <section ref={sectionRef} id="story" className="section-y bg-stone/40">
       <div className="wrap">
-        <div className="craft-head section-head viewport-grid">
+        <div className="craft-head section-head viewport-grid items-start lg:items-end">
           <div className="lg:col-span-7">
             <p className="eyebrow mb-3">Our Legacy</p>
             <h2 className="heading-section">
               16 Years of<br /><span className="italic text-gold">Craftsmanship</span>
             </h2>
           </div>
-          <p className="font-body text-sm leading-relaxed text-ink/55 md:text-base lg:col-span-4 lg:col-start-9 lg:pt-4">
+          <p className="mt-4 font-body text-sm leading-relaxed text-ink/55 md:mt-0 md:text-base lg:col-span-4 lg:col-start-9 lg:pt-4">
             From raw quarry to finished room — a journey measured in material integrity, artisan skill, and the patience of true luxury.
           </p>
         </div>
 
-        <div className="viewport-grid">
-          <div className="craft-track relative lg:col-span-4">
+        <div className="viewport-grid gap-8 lg:gap-10">
+          <div className="craft-visual depth-scene relative order-1 lg:order-2 lg:col-span-8">
+            <div className="depth-card depth-glint relative aspect-[16/10] min-h-[260px] overflow-hidden sm:min-h-[320px] md:min-h-[420px] lg:aspect-auto lg:min-h-[680px]">
+              <img src={IMG.craft} alt="Craftsmanship" className="craft-depth-img depth-media img-grade h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-dark/40 to-transparent" />
+            </div>
+            <div className="float-card depth-float relative mx-4 -mt-8 p-5 sm:mx-6 md:absolute md:-bottom-5 md:left-8 md:mx-0 md:max-w-sm md:p-7 lg:left-10">
+              <p className="font-display text-4xl font-light text-gold md:text-5xl">16</p>
+              <p className="mt-1 font-body text-xs uppercase tracking-[0.3em] text-ink/45">Years of Excellence</p>
+            </div>
+          </div>
+
+          <div className="craft-track relative order-2 lg:order-1 lg:col-span-4">
             <div ref={lineRef} className="absolute bottom-0 left-[7px] top-0 w-px origin-top bg-gold md:left-[11px]" />
             <div className="space-y-6 md:space-y-8">
               {TIMELINE.map((step, i) => (
@@ -86,17 +97,6 @@ export default function CraftsmanshipStory() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="craft-visual depth-scene relative lg:col-span-8">
-            <div className="depth-card depth-glint relative aspect-[4/5] min-h-[420px] overflow-hidden md:aspect-[16/10] md:min-h-[540px] lg:aspect-auto lg:min-h-[680px]">
-              <img src={IMG.craft} alt="Craftsmanship" className="craft-depth-img depth-media img-grade h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-dark/40 to-transparent" />
-            </div>
-            <div className="float-card depth-float absolute -bottom-5 left-6 right-6 p-5 md:left-10 md:max-w-sm md:p-7 lg:-left-10">
-              <p className="font-display text-5xl font-light text-gold">16</p>
-              <p className="mt-1 font-body text-xs uppercase tracking-[0.3em] text-ink/45">Years of Excellence</p>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useCallback, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { SURFACES } from '../../data/content';
 import {
   EASE_LUXURY,
@@ -9,8 +10,32 @@ import {
   tileReveal,
 } from '../../constants/animations';
 import SurfaceImage from '../ui/SurfaceImage';
+import SurfaceLightbox from '../ui/SurfaceLightbox';
 
 export default function SurfaceGallery() {
+  const [activeItem, setActiveItem] = useState(null);
+  const [originRect, setOriginRect] = useState(null);
+  const tileRefs = useRef({});
+
+  const openLightbox = useCallback((item) => {
+    const node = tileRefs.current[item.name];
+    if (!node) return;
+
+    const rect = node.getBoundingClientRect();
+    setOriginRect({
+      top: rect.top,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height,
+    });
+    setActiveItem(item);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setActiveItem(null);
+    setOriginRect(null);
+  }, []);
+
   return (
     <section id="surfaces" className="section-y-sm overflow-hidden bg-dark text-cream">
       <div className="wrap">
@@ -41,7 +66,7 @@ export default function SurfaceGallery() {
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           variants={gridContainer}
-          className="grid auto-rows-[240px] grid-cols-1 gap-5 sm:auto-rows-[280px] sm:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[250px] lg:gap-5 2xl:auto-rows-[300px]"
+          className="grid auto-rows-auto grid-cols-1 gap-5 sm:grid-cols-2 sm:auto-rows-[minmax(260px,auto)] lg:grid-cols-12 lg:auto-rows-[minmax(250px,auto)] lg:gap-5 2xl:auto-rows-[minmax(300px,auto)]"
         >
           {SURFACES.map((item) => (
             <motion.article
@@ -49,13 +74,23 @@ export default function SurfaceGallery() {
               variants={tileReveal}
               whileHover={{ rotateX: 3, rotateY: -3, y: -8, z: 32 }}
               transition={{ duration: 0.55, ease: EASE_LUXURY }}
-              className={`surface-tile depth-card depth-glint group relative overflow-hidden rounded-sm border border-cream/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-gold/40 hover:shadow-glow-sm ${item.span}`}
+              className={`surface-tile depth-card depth-glint group relative min-h-[240px] overflow-hidden rounded-sm border border-cream/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)] transition-all duration-500 hover:border-gold/40 hover:shadow-glow-sm ${item.span}`}
             >
-              <div className="absolute inset-0 overflow-hidden">
+              <button
+                type="button"
+                ref={(node) => {
+                  tileRefs.current[item.name] = node;
+                }}
+                onClick={() => openLightbox(item)}
+                className="absolute inset-0 z-20 block h-full w-full cursor-zoom-in text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70 focus-visible:ring-offset-2 focus-visible:ring-offset-dark"
+                aria-label={`View ${item.name} ${item.type} material`}
+              />
+
+              <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <SurfaceImage
                   src={item.image}
-                  alt={item.name}
-                  className="surface-tile-img depth-media img-grade h-full w-full object-cover"
+                  alt=""
+                  className="surface-tile-img depth-media img-grade h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
 
@@ -66,15 +101,15 @@ export default function SurfaceGallery() {
 
               <motion.div
                 variants={textReveal}
-                className="depth-lift absolute inset-0 flex flex-col justify-end"
+                className="depth-lift pointer-events-none absolute inset-0 flex min-h-0 flex-col justify-end"
               >
                 <div className="border-t border-cream/10 bg-dark/55 p-5 backdrop-blur-[2px] transition-colors duration-500 group-hover:border-gold/25 group-hover:bg-dark/70 md:p-7">
                   <span className="mb-2 inline-flex w-fit rounded-sm border border-gold/35 bg-dark/60 px-2.5 py-1 font-body text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">
                     {item.type}
                   </span>
-                  <h3 className="font-display text-xl text-cream md:text-2xl">{item.name}</h3>
+                  <h3 className="font-display text-xl leading-snug text-cream md:text-2xl">{item.name}</h3>
                   {item.description && (
-                    <p className="mt-2 max-w-md font-body text-sm leading-relaxed text-cream/85">
+                    <p className="mt-2 max-w-md font-body text-sm leading-relaxed text-cream/85 line-clamp-3 md:line-clamp-none">
                       {item.description}
                     </p>
                   )}
@@ -90,6 +125,17 @@ export default function SurfaceGallery() {
           ))}
         </motion.div>
       </div>
+
+      <AnimatePresence mode="wait">
+        {activeItem && originRect && (
+          <SurfaceLightbox
+            key={activeItem.name}
+            item={activeItem}
+            originRect={originRect}
+            onClose={closeLightbox}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

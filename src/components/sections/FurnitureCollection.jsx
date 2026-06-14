@@ -59,13 +59,13 @@ export default function FurnitureCollection() {
                 variants={cardReveal}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.4, ease: EASE_LUXURY }}
-                className={`group relative grid items-center gap-5 md:grid-cols-12 md:gap-8 ${
+                className={`group relative grid items-center gap-5 lg:grid-cols-12 lg:gap-8 ${
                   isEven ? '' : ''
                 }`}
               >
                 <div
-                  className={`relative overflow-hidden shadow-editorial md:col-span-7 ${
-                    isEven ? '' : 'md:col-start-6 md:row-start-1'
+                  className={`relative overflow-hidden shadow-editorial lg:col-span-7 ${
+                    isEven ? '' : 'lg:col-start-6 lg:row-start-1'
                   }`}
                 >
                   <div className="aspect-[16/10] min-h-[220px] overflow-hidden md:min-h-[280px] lg:min-h-[320px]">
@@ -90,8 +90,8 @@ export default function FurnitureCollection() {
                 </div>
 
                 <div
-                  className={`relative z-10 md:col-span-5 ${
-                    isEven ? 'md:pl-4' : 'md:col-start-1 md:row-start-1 md:pl-4 lg:pl-8'
+                  className={`relative z-10 hidden lg:col-span-5 lg:block ${
+                    isEven ? 'lg:pl-4' : 'lg:col-start-1 lg:row-start-1 lg:pl-4 xl:pl-8'
                   }`}
                 >
                   <span className="index-number mb-3 block font-display text-4xl leading-none md:text-5xl lg:text-6xl">
