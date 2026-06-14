@@ -1,26 +1,21 @@
 import { useRef, useEffect, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { HERO_SLIDES } from '../data/content';
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from '../../utils/gsap';
+import { HERO_SLIDES } from '../../data/content';
 
 const SLIDE_INTERVAL = 3000;
 
-export default function Hero({ loaded }) {
+export default function Hero() {
   const sectionRef = useRef(null);
   const imgWrapRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (!loaded) return undefined;
-
     const id = setInterval(() => {
       setActiveIndex((current) => (current + 1) % HERO_SLIDES.length);
     }, SLIDE_INTERVAL);
 
     return () => clearInterval(id);
-  }, [loaded]);
+  }, []);
 
   useEffect(() => {
     HERO_SLIDES.forEach((src) => {
@@ -30,8 +25,6 @@ export default function Hero({ loaded }) {
   }, []);
 
   useEffect(() => {
-    if (!loaded) return;
-
     const ctx = gsap.context(() => {
       gsap.from('.hero-accent', {
         scaleX: 0,
@@ -77,10 +70,11 @@ export default function Hero({ loaded }) {
           scrub: 1,
         },
       });
+      ScrollTrigger.refresh();
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [loaded]);
+  }, []);
 
   return (
     <section
@@ -107,7 +101,7 @@ export default function Hero({ loaded }) {
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-dark/85 to-transparent" />
       </div>
 
-      <div className="wrap relative z-10 flex h-full w-full flex-col justify-center pb-20 pt-24 md:pb-24 md:pt-28">
+      <div className="wrap relative z-10 flex h-full flex-col justify-center pb-20 pt-24 md:pb-24 md:pt-28">
         <div className="relative w-full">
           <div className="max-w-3xl lg:max-w-4xl">
             <div className="hero-accent mb-6 h-px w-16 bg-gold md:mb-8 md:w-20" />
@@ -144,7 +138,7 @@ export default function Hero({ loaded }) {
         <div className="h-10 w-px bg-gradient-to-b from-gold/60 to-transparent" />
       </div>
 
-      <div className="absolute bottom-8 right-6 z-10 hidden items-center gap-2 md:flex lg:right-10">
+      <div className="grid-edge-right absolute bottom-8 z-10 hidden items-center gap-2 md:flex">
         {HERO_SLIDES.map((src, index) => (
           <button
             key={`hero-dot-${index}`}

@@ -166,7 +166,6 @@ export const TESTIMONIALS = [
     quote:
       'We had been living with the same layout for twelve years and never quite felt at home in our own living room. Amara helped us choose a Calacatta marble feature wall and custom seating that actually fits how we use the space — evenings with family, not just for guests. The installers were meticulous about the veining alignment. It feels finished, finally.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 'granite-kitchen',
@@ -177,7 +176,6 @@ export const TESTIMONIALS = [
     quote:
       'My old laminate counters were staining every month. We went with Absolute Black granite through Amara — the edge detail on the island alone was worth the wait. They measured twice, templated on site, and the seam is nearly invisible. Cooking feels different now; the surface stays cool, wipes clean, and the kitchen looks like it belongs in a proper home, not a rental.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 'executive-workspace',
@@ -188,7 +186,6 @@ export const TESTIMONIALS = [
     quote:
       'We outgrew a generic co-working aesthetic and needed a boardroom that clients would remember without feeling ostentatious. Amara specified polished granite desktops and integrated shelving in dark walnut tones. Deadlines were tight — they coordinated fabrication and install across two floors without us chasing updates. Our team notices the difference every morning.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 'marble-entry',
@@ -199,7 +196,6 @@ export const TESTIMONIALS = [
     quote:
       'The foyer was the one room we kept postponing. Amara designed a marble console with brass inlay that sets the tone before you step into the house. What I appreciated most was honesty — they told us which stone would hold up to daily keys, bags, and monsoon moisture. Six months in, it still looks the day it was installed.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 'furniture-collection',
@@ -210,7 +206,6 @@ export const TESTIMONIALS = [
     quote:
       'We wanted pieces that would last beyond trends — a dining table, sideboards, and bedroom storage in one cohesive palette. Amara\'s furniture team worked from our floor plan and suggested proportions we would never have considered. Delivery was white-glove; not a scratch on the floors. Friends assume we hired an architect separately.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
   },
   {
     id: 'bathroom-surfaces',
@@ -221,6 +216,5 @@ export const TESTIMONIALS = [
     quote:
       'Renovating two bathrooms with young children meant we needed surfaces that could take daily wear. Amara recommended a honed granite vanity top and slip-resistant floor tiles that still look refined. Their site supervisor checked waterproofing before stone went in — small detail, but it gave us confidence. No callbacks, no surprises on the final invoice.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80',
   },
 ];

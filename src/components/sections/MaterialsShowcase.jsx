@@ -1,10 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from '../../utils/gsap';
 import { AnimatePresence, motion } from 'framer-motion';
-import { MATERIALS, IMG } from '../data/content';
-
-gsap.registerPlugin(ScrollTrigger);
+import { MATERIALS, IMG } from '../../data/content';
 
 export default function MaterialsShowcase() {
   const [active, setActive] = useState(0);
@@ -26,6 +23,17 @@ export default function MaterialsShowcase() {
         stagger: 0.12,
         scrollTrigger: { trigger: '.mat-panel', start: 'top 78%' },
       });
+      gsap.to('.mat-depth-img', {
+        yPercent: -8,
+        scale: 1.06,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.mat-image-panel',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+      });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -33,15 +41,22 @@ export default function MaterialsShowcase() {
   return (
     <section ref={sectionRef} id="materials" className="section-y-sm bg-dark text-cream">
       <div className="wrap mat-intro section-head">
-        <p className="eyebrow mb-3">Materials</p>
-        <h2 className="font-display text-section font-medium max-w-2xl">
-          Surfaces, Form<br /><span className="italic text-gold">&amp; Finish</span>
-        </h2>
+        <div className="viewport-grid items-end">
+          <div className="lg:col-span-7">
+            <p className="eyebrow mb-3">Materials</p>
+            <h2 className="font-display text-section font-medium">
+              Surfaces, Form<br /><span className="italic text-gold">&amp; Finish</span>
+            </h2>
+          </div>
+          <p className="font-body text-sm leading-relaxed text-cream/45 md:text-base lg:col-span-4 lg:col-start-9">
+            Explore our material disciplines, each selected to shape the character, permanence, and proportion of a room.
+          </p>
+        </div>
       </div>
 
-      <div className="wrap mat-panel grid gap-8 lg:grid-cols-12 lg:gap-10">
+      <div className="wrap mat-panel viewport-grid">
         {/* Image panel */}
-        <div className="relative overflow-hidden lg:col-span-7 lg:min-h-[400px]">
+        <div className="mat-image-panel depth-scene relative min-h-[420px] overflow-hidden md:min-h-[540px] lg:col-span-8 lg:min-h-[620px]">
           <div className="absolute inset-0 border border-cream/10" aria-hidden="true" />
           <AnimatePresence mode="wait">
             <motion.div
@@ -50,20 +65,20 @@ export default function MaterialsShowcase() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0"
+              className="depth-card depth-glint absolute inset-0"
             >
               <img
                 src={material.image}
                 alt={material.title}
                 data-view-space
-                className="img-grade h-full w-full object-cover"
+                className="mat-depth-img depth-media img-grade h-full w-full object-cover"
                 onError={(e) => { e.currentTarget.src = IMG.granite; }}
               />
             </motion.div>
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-t from-dark/75 via-dark/15 to-transparent" />
 
-          <div className="absolute bottom-0 left-0 right-0 p-7 md:p-10">
+          <div className="depth-lift absolute bottom-0 left-0 right-0 p-7 md:p-10 lg:p-12">
             <AnimatePresence mode="wait">
               <motion.div
                 key={material.id}
@@ -82,12 +97,12 @@ export default function MaterialsShowcase() {
         </div>
 
         {/* Accordion */}
-        <div className="flex flex-col justify-center lg:col-span-5">
+        <div className="flex flex-col justify-center lg:col-span-4">
           <p className="mb-5 font-body text-sm leading-relaxed text-cream/40">
             Explore our material disciplines — each selection shapes the character of a room.
           </p>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {MATERIALS.map((item, i) => {
               const isActive = active === i;
               return (
@@ -96,7 +111,7 @@ export default function MaterialsShowcase() {
                 type="button"
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
-                className={`relative w-full cursor-default overflow-hidden border text-left transition-all duration-500 ${
+                className={`depth-card relative w-full cursor-default overflow-hidden border text-left transition-all duration-500 ${
                     isActive
                       ? 'border-gold/40 bg-cream/[0.04] pl-6 shadow-glow-sm'
                       : 'border-cream/10 bg-transparent pl-4 hover:border-gold/20 hover:pl-5'
@@ -108,7 +123,7 @@ export default function MaterialsShowcase() {
                     }`}
                   />
 
-                  <div className="py-5 pr-5 md:py-6">
+                  <div className="py-6 pr-6 md:py-8">
                     <div className="flex items-center gap-4">
                       <span className={`font-body text-[10px] tracking-[0.35em] ${isActive ? 'text-gold' : 'text-cream/30'}`}>
                         0{i + 1}

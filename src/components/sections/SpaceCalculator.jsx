@@ -1,25 +1,24 @@
-import { useState, useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState, useRef, useEffect, useMemo } from 'react';
+import { gsap } from '../../utils/gsap';
 import { motion, AnimatePresence } from 'framer-motion';
-
-gsap.registerPlugin(ScrollTrigger);
-
-const RATE = 250;
-
-function fmt(n) {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
-}
+import { SURFACE_MATERIALS } from '../../constants/calculator';
+import { formatCurrency, formatNumber } from '../../utils/format';
 
 export default function SpaceCalculator() {
   const [length, setLength] = useState('');
   const [width, setWidth] = useState('');
+  const [materialId, setMaterialId] = useState(SURFACE_MATERIALS[0].id);
   const sectionRef = useRef(null);
+
+  const material = useMemo(
+    () => SURFACE_MATERIALS.find((item) => item.id === materialId) ?? SURFACE_MATERIALS[0],
+    [materialId],
+  );
 
   const l = parseFloat(length) || 0;
   const w = parseFloat(width) || 0;
   const area = l * w;
-  const cost = area * RATE;
+  const cost = area * material.rate;
   const ready = l > 0 && w > 0;
 
   useEffect(() => {
@@ -46,7 +45,8 @@ export default function SpaceCalculator() {
               Estimate Your<br /><span className="italic text-gold">Surface Investment</span>
             </h2>
             <p className="mt-4 max-w-sm font-body text-sm leading-relaxed text-ink/70">
-              Premium surface planning — enter dimensions for an instant estimate refined during your private consultation.
+              Select your surface material, enter dimensions, and receive an instant estimate in Indian Rupees —
+              refined during your private consultation.
             </p>
           </div>
 
@@ -59,10 +59,42 @@ export default function SpaceCalculator() {
                 <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-cream/80">
                   Surface Calculator
                 </p>
-                <span className="inline-flex items-center rounded-sm border border-gold/35 bg-gold/10 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
-                  {fmt(RATE)} / sq ft
-                </span>
+                <motion.span
+                  key={material.id}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="inline-flex items-center rounded-sm border border-gold/35 bg-gold/10 px-3 py-1 font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-gold"
+                >
+                  {formatCurrency(material.rate)} / sq ft
+                </motion.span>
               </div>
+
+              <fieldset className="mb-5">
+                <legend className="mb-3 font-body text-[11px] font-semibold uppercase tracking-[0.24em] text-gold">
+                  Select Material
+                </legend>
+                <div className="flex flex-wrap gap-2">
+                  {SURFACE_MATERIALS.map((item) => {
+                    const selected = item.id === materialId;
+
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setMaterialId(item.id)}
+                        aria-pressed={selected}
+                        className={`rounded-sm border px-3 py-2 font-body text-[11px] font-medium uppercase tracking-[0.14em] transition-all ${
+                          selected
+                            ? 'border-gold bg-gold/15 text-gold'
+                            : 'border-cream/20 bg-cream/[0.04] text-cream/60 hover:border-gold/35 hover:text-cream'
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </fieldset>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
@@ -112,7 +144,7 @@ export default function SpaceCalculator() {
                 <AnimatePresence mode="wait">
                   {ready ? (
                     <motion.div
-                      key="on"
+                      key={`${material.id}-${area}`}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
@@ -123,28 +155,19 @@ export default function SpaceCalculator() {
                         <p className="font-body text-[11px] font-semibold uppercase tracking-[0.24em] text-cream/60">
                           Total Area
                         </p>
-                        <motion.p
-                          key={area}
-                          initial={{ opacity: 0.4, y: 4 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="mt-2 font-display text-3xl text-cream md:text-4xl"
-                        >
-                          {area.toLocaleString('en-US', { maximumFractionDigits: 1 })}
+                        <p className="mt-2 font-display text-3xl text-cream md:text-4xl">
+                          {formatNumber(area, { maximumFractionDigits: 1 })}
                           <span className="ml-2 font-body text-sm text-cream/50">sq ft</span>
-                        </motion.p>
+                        </p>
                       </div>
                       <div>
                         <p className="font-body text-[11px] font-semibold uppercase tracking-[0.24em] text-cream/60">
                           Estimated Investment
                         </p>
-                        <motion.p
-                          key={cost}
-                          initial={{ opacity: 0.4, y: 4 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="mt-2 font-display text-3xl text-gold md:text-4xl"
-                        >
-                          {fmt(cost)}
-                        </motion.p>
+                        <p className="mt-2 font-display text-3xl text-gold md:text-4xl">
+                          {formatCurrency(cost)}
+                        </p>
+                        <p className="mt-1 font-body text-xs text-cream/45">{material.label} · indicative pricing</p>
                       </div>
                     </motion.div>
                   ) : (
@@ -156,7 +179,7 @@ export default function SpaceCalculator() {
                       className="flex min-h-[72px] items-center"
                     >
                       <p className="font-body text-sm text-cream/55">
-                        Enter length and width above to calculate your surface area and investment estimate.
+                        Choose a material and enter length & width to calculate area and estimated cost in ₹.
                       </p>
                     </motion.div>
                   )}

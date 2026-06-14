@@ -1,154 +1,103 @@
 # Amara Living
 
-A premium luxury brand website for **Amara Living** — specializing in granite, tiles, and furniture. Built with React, Vite, Tailwind CSS, and Framer Motion.
+Premium marketing website for **Amara Living** — granite, marble, designer tiles, and bespoke furniture for luxury residential and commercial interiors.
 
 ## Tech Stack
 
-- **React 18** + **Vite 6**
-- **Tailwind CSS 3**
-- **Framer Motion 11**
-- Google Fonts: Playfair Display, Inter, Poppins
+| Layer | Tools |
+| --- | --- |
+| Framework | React 18 |
+| Build | Vite 6 |
+| Styling | Tailwind CSS 3 |
+| Animation | Framer Motion 11, GSAP 3, Lenis |
+| Fonts | Playfair Display, Inter (Google Fonts) |
 
 ## Folder Structure
 
 ```
-amara-living/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx          # Fixed navigation with mobile menu
-│   │   ├── Hero.jsx            # Full-screen parallax hero
-│   │   ├── SectionHeader.jsx   # Reusable section heading
-│   │   ├── FeaturedSpaces.jsx  # 3 luxury space cards
-│   │   ├── CategoryShowcase.jsx # Granite, Furniture, Collections
-│   │   ├── SpaceCalculator.jsx # Live area & cost calculator
-│   │   ├── Testimonials.jsx    # Client testimonials
-│   │   └── Footer.jsx          # Contact & social links
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── index.html
-├── tailwind.config.js
-├── postcss.config.js
-├── vite.config.js
-└── package.json
+src/
+├── components/
+│   ├── common/          # Shared utilities (dividers, image hint)
+│   ├── layout/          # Navbar, footer
+│   ├── sections/        # Page sections (hero, gallery, calculator, etc.)
+│   └── ui/              # Reusable UI primitives (loader, stars, badges)
+├── pages/               # Route-level page compositions
+├── assets/              # Static assets (images, icons, fonts)
+├── data/                # Content constants and copy
+├── hooks/               # Custom React hooks and providers
+├── utils/               # Formatting and helpers
+├── constants/           # Navigation, animation tokens
+├── styles/              # Global CSS and Tailwind layers
+├── App.jsx
+└── main.jsx
 ```
 
 ## Installation
 
-### Prerequisites
+**Requirements:** Node.js 18+
 
-- [Node.js](https://nodejs.org/) 18 or later
-- npm (included with Node.js)
+```bash
+cd "Amara Living"
+npm install
+```
 
-### Steps
+## Development
 
-1. **Navigate to the project directory**
+```bash
+npm run dev
+```
 
-   ```bash
-   cd "Amara Living"
-   ```
+Open the URL shown in the terminal (default: `http://localhost:5173`).
 
-2. **Install dependencies**
+## Production Build
 
-   ```bash
-   npm install
-   ```
+```bash
+npm run build
+npm run preview
+```
 
-3. **Start the development server**
+Output is written to `dist/`.
 
-   ```bash
-   npm run dev
-   ```
+## Deployment
 
-4. **Open in browser**
+Works with any static host (Vercel, Netlify, Cloudflare Pages).
 
-   Visit the URL shown in the terminal (typically `http://localhost:5173`).
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Install command | `npm install` |
 
-## Available Scripts
+### Vercel (CLI)
 
-| Command           | Description                    |
-| ----------------- | ------------------------------ |
-| `npm run dev`     | Start development server       |
-| `npm run build`   | Build for production           |
-| `npm run preview` | Preview production build locally |
-
-## Design System
-
-| Token        | Value     | Usage                    |
-| ------------ | --------- | ------------------------ |
-| Background   | `#F8F5F2` | Page background (cream)  |
-| Text         | `#111827` | Primary text (charcoal)  |
-| Accent Gold  | `#D4AF37` | CTAs, labels, highlights |
-| Dark Sections| `#0F172A` | Navy sections, hero overlay |
-
-## Deployment on Vercel
-
-### Option 1: Vercel CLI
-
-1. Install the Vercel CLI globally:
-
-   ```bash
-   npm install -g vercel
-   ```
-
-2. Build the project locally (optional, to verify):
-
-   ```bash
-   npm run build
-   ```
-
-3. Deploy from the project root:
-
-   ```bash
-   vercel
-   ```
-
-4. Follow the prompts. Vercel auto-detects Vite and configures:
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-
-5. For production deployment:
-
-   ```bash
-   vercel --prod
-   ```
-
-### Option 2: GitHub Integration
-
-1. Push the project to a GitHub repository.
-
-2. Go to [vercel.com](https://vercel.com) and sign in.
-
-3. Click **Add New Project** and import your repository.
-
-4. Vercel will auto-detect the Vite framework. Confirm these settings:
-   - **Framework Preset:** Vite
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-   - **Install Command:** `npm install`
-
-5. Click **Deploy**. Your site will be live at a `*.vercel.app` URL.
-
-### Optional: vercel.json
-
-No custom configuration is required. Vite works out of the box with Vercel's default settings.
+```bash
+npm install -g vercel
+npm run build
+vercel --prod
+```
 
 ## Features
 
-- Full-screen hero with parallax scrolling
-- Scroll-triggered reveal animations (Framer Motion)
-- Hover zoom on image cards
-- Glassmorphism overlays on category cards
-- Live space calculator (Area = Length × Width, Cost = Area × $250)
-- Fully responsive layout (mobile, tablet, desktop)
-- Semantic HTML and accessible navigation
+- Full-screen hero with rotating imagery
+- Scroll-spy navigation with mobile menu
+- Lenis smooth scrolling + GSAP ScrollTrigger
+- Lazy-loaded below-the-fold sections
+- Surface gallery, materials accordion, investment calculator
+- Horizontal testimonial carousel
+- Accessible skip link, focus states, semantic landmarks
 
-## Images
+## Content
 
-All images are sourced from [Unsplash](https://unsplash.com) (royalty-free). Replace URLs in component files with your own assets for production.
+Section copy and image URLs live in `src/data/content.js`. Replace Unsplash URLs with client assets in `src/assets/images/` for production.
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
 
 ## License
 
-Private project — Amara Living.
+Private — Amara Living.

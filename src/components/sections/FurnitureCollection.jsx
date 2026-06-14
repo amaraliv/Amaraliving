@@ -1,32 +1,14 @@
 import { motion } from 'framer-motion';
-import { FURNITURE } from '../data/content';
-
-const ease = [0.22, 1, 0.36, 1];
-
-const headerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease } },
-};
-
-const lineGrow = {
-  hidden: { scaleX: 0, opacity: 0 },
-  visible: { scaleX: 1, opacity: 1, transition: { duration: 1, ease, delay: 0.3 } },
-};
-
-const listContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.18, delayChildren: 0.08 } },
-};
-
-const cardReveal = {
-  hidden: { opacity: 0, y: 56 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease } },
-};
+import { FURNITURE } from '../../data/content';
+import {
+  cardReveal,
+  EASE_LUXURY,
+  fadeUp,
+  fadeUpSoft,
+  headerContainer,
+  lineGrow,
+  listContainerWide,
+} from '../../constants/animations';
 
 export default function FurnitureCollection() {
   return (
@@ -39,20 +21,20 @@ export default function FurnitureCollection() {
           variants={headerContainer}
           className="section-head"
         >
-          <motion.p variants={fadeUp} className="eyebrow mb-3">
+          <motion.p variants={fadeUpSoft} className="eyebrow mb-3">
             Furniture
           </motion.p>
 
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="heading-section max-w-lg">
-              <motion.span variants={fadeUp} className="block">
+              <motion.span variants={fadeUpSoft} className="block">
                 Curated
               </motion.span>
               <motion.span variants={fadeUp} className="block italic text-gold">
                 Collections
               </motion.span>
             </h2>
-            <motion.p variants={fadeUp} className="max-w-sm font-body text-sm leading-relaxed text-ink/50">
+            <motion.p variants={fadeUpSoft} className="max-w-sm font-body text-sm leading-relaxed text-ink/50">
               Scroll through bespoke pieces — each designed to anchor a room in quiet, enduring luxury.
             </motion.p>
           </div>
@@ -65,7 +47,7 @@ export default function FurnitureCollection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
-          variants={listContainer}
+          variants={listContainerWide}
           className="flex flex-col gap-8 md:gap-10"
         >
           {FURNITURE.map((piece, i) => {
@@ -76,7 +58,7 @@ export default function FurnitureCollection() {
                 key={piece.title}
                 variants={cardReveal}
                 whileHover={{ y: -4 }}
-                transition={{ duration: 0.4, ease }}
+                transition={{ duration: 0.4, ease: EASE_LUXURY }}
                 className={`group relative grid items-center gap-5 md:grid-cols-12 md:gap-8 ${
                   isEven ? '' : ''
                 }`}
@@ -95,7 +77,7 @@ export default function FurnitureCollection() {
                       initial={{ scale: 1.06 }}
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.2, ease }}
+                      transition={{ duration: 1.2, ease: EASE_LUXURY }}
                       whileHover={{ scale: 1.04 }}
                     />
                   </div>
