@@ -76,6 +76,22 @@ npm run build
 vercel --prod
 ```
 
+### Disable Vercel Toolbar (popup on deploy)
+
+The **Vercel Toolbar** is injected by Vercel — not by this repo. It usually appears only when you are logged into Vercel as a team member.
+
+1. Open [vercel.com/dashboard](https://vercel.com/dashboard) → select **Amara Living**
+2. Go to **Settings** → **General**
+3. Find **Vercel Toolbar**
+4. Set **Preview** and **Production** to **Off**
+5. Redeploy (or push a new commit)
+
+This repo also sets `VERCEL_PREVIEW_FEEDBACK_ENABLED=0` in `vercel.json` to discourage the toolbar on preview URLs.
+
+**Quick hide (your browser only):** press `Ctrl + .` (Windows) or `⌘ + .` (Mac), or choose **Disable for Session** in the toolbar menu.
+
+Regular visitors to your live site do not see this toolbar unless Production toolbar is explicitly enabled in the dashboard.
+
 ## Features
 
 - Full-screen hero with rotating imagery

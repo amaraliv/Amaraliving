@@ -125,9 +125,9 @@ export default function Hero() {
             </p>
 
             <div className="hero-body mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 md:mt-11">
-              <a href="#materials" className="btn-solid w-full text-center sm:w-auto">Explore Materials</a>
+              <a href="#materials" className="btn-solid w-full text-center sm:w-auto">Explore Collections</a>
               <a href="#calculator" className="btn-gold w-full border-cream/25 text-center text-cream sm:w-auto">
-                <span>Estimate Investment</span>
+                <span>Book Consultation</span>
               </a>
             </div>
           </div>
