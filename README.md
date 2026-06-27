@@ -1,6 +1,6 @@
 # Amara Living
 
-Premium marketing website for **Amara Living** — granite, marble, designer tiles, and bespoke furniture for luxury residential and commercial interiors.
+Premium marketing website for **Amara Living** — granite, designer tiles, and bespoke furniture for luxury residential and commercial interiors.
 
 ## Tech Stack
 
