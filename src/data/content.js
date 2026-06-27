@@ -26,11 +26,11 @@ export const HERO_SLIDES = [
 export const MATERIALS = [
   {
     id: 'granite',
-    title: 'Granite & Marble',
+    title: 'Granite',
     subtitle: 'Surfaces of Permanence',
     description:
-      'Quarry-sourced granite and fine marble — selected for veining, finish, and the quiet authority they bring to architectural spaces.',
-    image: IMG.marble,
+      'Quarry-sourced granite — selected for its exceptional durability, rich natural pattern variations, custom edge finishes, and the quiet authority it brings to architectural spaces.',
+    image: IMG.granite,
   },
   {
     id: 'furniture',
@@ -76,7 +76,7 @@ export const SPACES = [
 ];
 
 export const TIMELINE = [
-  { title: 'Raw Material', text: 'Hand-selected granite, marble, and timber from trusted quarries and ateliers worldwide.' },
+  { title: 'Raw Material', text: 'Hand-selected granite and timber from trusted quarries and ateliers worldwide.' },
   { title: 'Design', text: 'Every surface and furnishing composed with architectural intent and material honesty.' },
   { title: 'Manufacturing', text: 'Precision cutting, finishing, and assembly by artisans across our Chennai and Madurai studios.' },
   { title: 'Installation', text: 'Meticulous on-site execution — seamless joints, level surfaces, structural integrity.' },
@@ -91,10 +91,10 @@ export const FURNITURE = [
     image: IMG.furniture,
   },
   {
-    title: 'Marble Console',
+    title: 'Granite Console',
     tag: 'Entry',
     description:
-      'Polished marble console with brass inlay — designed for entryways, creating an immediate sense of arrival and permanence.',
+      'Polished granite console with brass inlay — designed for entryways, creating an immediate sense of arrival and permanence.',
     image: IMG.furniture2,
   },
   {
@@ -120,9 +120,9 @@ export const SURFACES = [
     span: 'lg:col-span-7 lg:row-span-2',
   },
   {
-    type: 'Marble',
-    name: 'Calacatta Gold',
-    description: 'Warm gold veining across luminous white marble — the hallmark of European luxury kitchens and baths.',
+    type: 'Granite',
+    name: 'Imperial Gold',
+    description: 'Deep patterns of gold and black quartz crystals — an exceptionally durable and premium granite surface.',
     image: IMG.marble,
     span: 'lg:col-span-5',
   },
@@ -141,9 +141,9 @@ export const SURFACES = [
     span: 'lg:col-span-4',
   },
   {
-    type: 'Marble',
-    name: 'Statuario',
-    description: 'Dramatic grey veining on pure white — the classic choice for statement bathrooms and lobbies.',
+    type: 'Granite',
+    name: 'Viscon White',
+    description: 'Dramatic grey and white waves on a hard-wearing granite surface — perfect for luxury lobbies and walls.',
     image: IMG.livingRoom,
     span: 'lg:col-span-4 lg:row-span-2',
   },
@@ -164,7 +164,7 @@ export const TESTIMONIALS = [
     projectType: 'Luxury Living Room',
     category: 'Residential',
     quote:
-      'We had been living with the same layout for twelve years and never quite felt at home in our own living room. Amara helped us choose a Calacatta marble feature wall and custom seating that actually fits how we use the space — evenings with family, not just for guests. The installers were meticulous about the veining alignment. It feels finished, finally.',
+      'We had been living with the same layout for twelve years and never quite felt at home in our own living room. Amara helped us choose a Viscon White granite feature wall and custom seating that actually fits how we use the space — evenings with family, not just for guests. The installers were meticulous about the pattern alignment. It feels finished, finally.',
     rating: 5,
     image: IMG.livingRoom,
   },
@@ -191,13 +191,13 @@ export const TESTIMONIALS = [
     image: IMG.workspace,
   },
   {
-    id: 'marble-entry',
+    id: 'granite-entry',
     name: 'Meera Subramanian',
     location: 'Coimbatore',
-    projectType: 'Marble Entry Console',
+    projectType: 'Granite Entry Console',
     category: 'Entryway',
     quote:
-      'The foyer was the one room we kept postponing. Amara designed a marble console with brass inlay that sets the tone before you step into the house. What I appreciated most was honesty — they told us which stone would hold up to daily keys, bags, and monsoon moisture. Six months in, it still looks the day it was installed.',
+      'The foyer was the one room we kept postponing. Amara designed a granite console with brass inlay that sets the tone before you step into the house. What I appreciated most was honesty — they told us which stone would hold up to daily keys, bags, and monsoon moisture. Six months in, it still looks the day it was installed.',
     rating: 5,
     image: IMG.furniture2,
   },

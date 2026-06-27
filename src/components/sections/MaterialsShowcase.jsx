@@ -5,10 +5,10 @@ import { MATERIALS } from '../../data/content';
 
 const THUMBNAILS = [
   {
-    id: 'marble',
-    title: 'Italian Marble Collection',
-    subtitle: 'Italian Marble',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80',
+    id: 'granite',
+    title: 'Exotic Granite Collection',
+    subtitle: 'Exotic Granite',
+    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=400&q=80',
   },
   {
     id: 'furniture',
@@ -81,10 +81,10 @@ export default function MaterialsShowcase() {
             </p>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 flex flex-col justify-end relative mt-6 lg:mt-0">
-            {/* Subtle Marble Texture and Radial Glow Behind Thumbnails */}
+            {/* Subtle Granite Texture and Radial Glow Behind Thumbnails */}
             <div className="absolute -inset-4 pointer-events-none rounded-[24px] overflow-hidden" aria-hidden="true">
               <div 
-                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=5')] bg-cover opacity-[0.05] mix-blend-overlay"
+                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=400&q=5')] bg-cover opacity-[0.05] mix-blend-overlay"
               />
               <div 
                 className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.12)_0%,_transparent_75%)]"
@@ -104,8 +104,15 @@ export default function MaterialsShowcase() {
                   <button
                     key={thumb.id}
                     type="button"
-                    onClick={() => setActive(index)}
-                    title="View Collection"
+                    onClick={() => {
+                      if (isActive) {
+                        if (thumb.id === 'furniture') window.location.hash = '#/furniture';
+                        else if (thumb.id === 'tiles') window.location.hash = '#/tiles';
+                      } else {
+                        setActive(index);
+                      }
+                    }}
+                    title={isActive ? "Explore Collection" : "View Collection"}
                     className={`group relative flex-1 h-[140px] sm:h-[160px] lg:h-[180px] xl:h-[210px] rounded-[20px] overflow-hidden border transition-all duration-500 cursor-pointer ${
                       isActive 
                         ? 'border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.25)] opacity-100 scale-[1.02]' 
@@ -129,7 +136,7 @@ export default function MaterialsShowcase() {
                     
                     {/* Custom hover pointer badge */}
                     <div className="absolute top-2.5 right-2.5 bg-[#D4AF37] text-[#071B44] text-[7px] font-black tracking-widest px-1.5 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm leading-none z-20">
-                      VIEW
+                      {isActive && (thumb.id === 'furniture' || thumb.id === 'tiles') ? 'OPEN' : 'VIEW'}
                     </div>
 
                     {/* Text block */}
@@ -246,6 +253,15 @@ export default function MaterialsShowcase() {
                       <p className="font-body text-xs md:text-sm leading-relaxed text-cream/50">
                         {item.description}
                       </p>
+                      {(item.id === 'furniture' || item.id === 'tiles') && (
+                        <a
+                          href={item.id === 'furniture' ? '#/furniture' : '#/tiles'}
+                          className="inline-flex items-center gap-2 mt-4 font-body text-xs font-semibold uppercase tracking-[0.2em] text-gold hover:text-cream transition-colors group/cta"
+                        >
+                          Explore Collection
+                          <span className="inline-block transition-transform duration-300 group-hover/cta:translate-x-1">&rarr;</span>
+                        </a>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
