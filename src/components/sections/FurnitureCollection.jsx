@@ -34,9 +34,18 @@ export default function FurnitureCollection() {
                 Collections
               </motion.span>
             </h2>
-            <motion.p variants={fadeUpSoft} className="max-w-sm font-body text-sm leading-relaxed text-ink/50">
-              Scroll through bespoke pieces — each designed to anchor a room in quiet, enduring luxury.
-            </motion.p>
+            <div className="flex flex-col gap-3">
+              <motion.p variants={fadeUpSoft} className="max-w-sm font-body text-sm leading-relaxed text-ink/50">
+                Scroll through bespoke pieces — each designed to anchor a room in quiet, enduring luxury.
+              </motion.p>
+              <motion.a 
+                variants={fadeUpSoft} 
+                href="#/furniture" 
+                className="w-fit font-body text-[11px] font-bold uppercase tracking-[0.24em] text-[#b8941f] hover:text-[#081229] transition-colors"
+              >
+                Explore Full Collection &rarr;
+              </motion.a>
+            </div>
           </div>
 
           <motion.div variants={lineGrow} className="mt-5 line-gold max-w-xs origin-left opacity-50" />
@@ -64,7 +73,8 @@ export default function FurnitureCollection() {
                 }`}
               >
                 <div
-                  className={`relative overflow-hidden shadow-editorial lg:col-span-7 ${
+                  onClick={() => window.location.hash = '#/furniture'}
+                  className={`relative overflow-hidden shadow-editorial lg:col-span-7 cursor-pointer ${
                     isEven ? '' : 'lg:col-start-6 lg:row-start-1'
                   }`}
                 >
@@ -86,6 +96,12 @@ export default function FurnitureCollection() {
                     <p className="mb-1 font-body text-[11px] font-semibold uppercase tracking-[0.32em] text-gold">{piece.tag}</p>
                     <h3 className="font-display text-xl font-medium text-cream">{piece.title}</h3>
                     <p className="mt-2 font-body text-sm leading-relaxed text-cream/85">{piece.description}</p>
+                    <a
+                      href="#/furniture"
+                      className="inline-flex items-center gap-1.5 mt-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-gold hover:text-cream transition-colors"
+                    >
+                      Explore Collection &rarr;
+                    </a>
                   </div>
                 </div>
 
@@ -104,7 +120,13 @@ export default function FurnitureCollection() {
                   <p className="mt-4 font-body text-base leading-[1.75] text-ink/85">
                     {piece.description}
                   </p>
-                  <div className="mt-6 h-px w-12 bg-gold/70 transition-all duration-500 group-hover:w-20" />
+                  <a
+                    href="#/furniture"
+                    className="inline-flex items-center gap-2 mt-5 font-body text-[11px] font-bold uppercase tracking-[0.22em] text-gold hover:text-dark transition-colors"
+                  >
+                    Explore Collection &rarr;
+                  </a>
+                  <div className="mt-4 h-px w-12 bg-gold/70 transition-all duration-500 group-hover:w-20" />
                 </div>
               </motion.article>
             );

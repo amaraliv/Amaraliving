@@ -1,6 +1,8 @@
 export const NAV_LINKS = [
   { label: 'Spaces', href: '#spaces' },
   { label: 'Materials', href: '#materials' },
+  { label: 'Furniture', href: '#/furniture', isPage: true },
+  { label: 'Tiles', href: '#/tiles', isPage: true },
   { label: 'Story', href: '#story' },
   { label: 'Surfaces', href: '#surfaces' },
   { label: 'Contact', href: '#contact' },
@@ -13,7 +15,6 @@ export const PAGE_SECTIONS = [
   'story',
   'furniture',
   'surfaces',
-  'calculator',
   'testimonials',
   'contact',
 ];

@@ -155,7 +155,7 @@ export default function LeadershipVision() {
             <div className="parallax-depth-text relative z-10 pt-4 border-t border-stone/30">
               <span className="text-gold text-2xl font-display leading-none absolute -top-1 left-0">“</span>
               <p className="font-body text-xs md:text-sm leading-relaxed text-ink/75 italic pl-4">
-                Amara Living was founded with a simple belief — exceptional spaces begin with exceptional materials. Our mission is to bring together luxury marble, premium furniture, and timeless design under one trusted destination.
+                Amara Living was founded with a simple belief — exceptional spaces begin with exceptional materials. Our mission is to bring together luxury granite, premium furniture, and timeless design under one trusted destination.
               </p>
               
               {/* Signature reveal on hover */}

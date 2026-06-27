@@ -46,7 +46,7 @@ export default function ContactFooter() {
                 Amara <span className="italic text-gold">Living</span>
               </h2>
               <p className="mt-3 max-w-sm font-body text-sm leading-relaxed text-cream/65">
-                A premium destination for granite, marble, designer tiles, and bespoke furniture — curated,
+                A premium destination for granite, designer tiles, and bespoke furniture — curated,
                 fabricated, and installed for refined residential and commercial interiors across South India.
               </p>
               <p className="mt-3 font-body text-xs uppercase tracking-[0.24em] text-gold/75">

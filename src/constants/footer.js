@@ -7,7 +7,7 @@ export const FOOTER_STUDIOS = [
 
 export const FOOTER_COLLECTIONS = [
   'Granite Countertops',
-  'Marble & Natural Stone',
+  'Exotic Granite Surfaces',
   'Designer Floor & Wall Tiles',
   'Bespoke Furniture',
   'End-to-End Interior Finishing',

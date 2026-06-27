@@ -108,7 +108,7 @@ export default function CraftsmanshipStory() {
                   {
                     phase: '01',
                     title: 'RAW MATERIAL',
-                    text: 'Hand-selected granite, marble, and timber from trusted quarries and ateliers worldwide.',
+                    text: 'Hand-selected granite and timber from trusted quarries and ateliers worldwide.',
                     icon: (
                       <svg className="w-5 h-5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2 20L8 8L14 17L18 11L22 20H2Z" />
