@@ -39,6 +39,9 @@ const CATEGORIES = [
     description: 'Minimalist workspace furniture crafted for focus and utility.',
     image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
   },
+];
+
+const LIVING_GALLERY = [
   {
     title: 'Modular Wardrobes',
     description: 'Fitted closet structures featuring integrated warm LED grids.',
@@ -579,8 +582,11 @@ export default function FurniturePage() {
               )}
             </motion.div>
           </div>
-        )}
-      </AnimatePresence>
-    </div>
+          <a href="/#contact" className="btn-solid w-full text-center sm:w-auto">
+            Contact Amara
+          </a>
+        </div>
+      </section>
+    </main>
   );
 }
