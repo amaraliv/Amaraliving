@@ -3,7 +3,7 @@ import { gsap, ScrollTrigger } from '../../utils/gsap';
 import { HERO_SLIDES } from '../../data/content';
 import CurvedSectionTransition from '../common/CurvedSectionTransition';
 
-const SLIDE_INTERVAL = 3000;
+const SLIDE_INTERVAL = 5000;
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -61,14 +61,14 @@ export default function Hero() {
       });
 
       gsap.to(imgWrapRef.current, {
-        scale: 1.06,
-        yPercent: 8,
+        scale: 1.04,
+        yPercent: 6,
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
           end: 'bottom top',
-          scrub: 1,
+          scrub: 2,
         },
       });
       ScrollTrigger.refresh();

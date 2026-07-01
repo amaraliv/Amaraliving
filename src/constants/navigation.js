@@ -1,10 +1,8 @@
 export const NAV_LINKS = [
-  { label: 'Spaces', href: '#spaces' },
-  { label: 'Materials', href: '#materials' },
+  { label: 'Home', href: '#/', isPage: true },
   { label: 'Furniture', href: '#/furniture', isPage: true },
   { label: 'Tiles', href: '#/tiles', isPage: true },
-  { label: 'Story', href: '#story' },
-  { label: 'Surfaces', href: '#surfaces' },
+  { label: 'Granite', href: '#/granite', isPage: true },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -19,7 +17,7 @@ export const PAGE_SECTIONS = [
   'contact',
 ];
 
-const NAV_IDS = new Set(['spaces', 'materials', 'story', 'surfaces', 'contact']);
+const NAV_IDS = new Set(['contact']);
 
 export function resolveNavSection(sectionId) {
   if (NAV_IDS.has(sectionId)) return sectionId;
