@@ -582,11 +582,8 @@ export default function FurniturePage() {
               )}
             </motion.div>
           </div>
-          <a href="/#contact" className="btn-solid w-full text-center sm:w-auto">
-            Contact Amara
-          </a>
-        </div>
-      </section>
-    </main>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
