@@ -78,7 +78,7 @@ export const SPACES = [
 export const TIMELINE = [
   { title: 'Raw Material', text: 'Hand-selected granite and timber from trusted quarries and ateliers worldwide.' },
   { title: 'Design', text: 'Every surface and furnishing composed with architectural intent and material honesty.' },
-  { title: 'Manufacturing', text: 'Precision cutting, finishing, and assembly by artisans across our Chennai and Madurai studios.' },
+  { title: 'Manufacturing', text: 'Precision cutting, finishing, and assembly by artisans at our Chennai studio.' },
   { title: 'Installation', text: 'Meticulous on-site execution — seamless joints, level surfaces, structural integrity.' },
   { title: 'Luxury Living', text: 'Spaces reborn through stone, surface, and furniture working in quiet harmony.' },
 ];

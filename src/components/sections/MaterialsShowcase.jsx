@@ -92,7 +92,7 @@ export default function MaterialsShowcase() {
             </div>
 
             {/* Luxury Label */}
-            <span className="relative z-10 font-body text-[9px] font-bold tracking-[0.4em] text-[#D4AF37] mb-3">
+            <span className="relative z-10 font-body text-[9px] font-bold tracking-[0.4em] text-[#C9A84C] mb-3">
               CURATED COLLECTIONS
             </span>
 
@@ -115,8 +115,8 @@ export default function MaterialsShowcase() {
                     title={isActive ? "Explore Collection" : "View Collection"}
                     className={`group relative flex-1 h-[140px] sm:h-[160px] lg:h-[180px] xl:h-[210px] rounded-[20px] overflow-hidden border transition-all duration-500 cursor-pointer ${
                       isActive 
-                        ? 'border-[#D4AF37] shadow-[0_0_20px_rgba(212,175,55,0.25)] opacity-100 scale-[1.02]' 
-                        : 'border-white/5 opacity-60 hover:opacity-100 hover:border-[#D4AF37]/50 hover:scale-[1.01]'
+                        ? 'border-[#C9A84C] shadow-[0_0_20px_rgba(184,148,31,0.28)] opacity-100 scale-[1.02]' 
+                        : 'border-white/5 opacity-60 hover:opacity-100 hover:border-[#C9A84C]/50 hover:scale-[1.01]'
                     }`}
                   >
                     {/* Image inside thumbnail */}
@@ -131,17 +131,17 @@ export default function MaterialsShowcase() {
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     </div>
-                    {/* Navy Blue Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071B44]/90 via-[#071B44]/35 to-transparent transition-opacity duration-500 group-hover:opacity-90 rounded-[20px]" />
+                    {/* Dark Charcoal Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1008]/90 via-[#1A1008]/35 to-transparent transition-opacity duration-500 group-hover:opacity-90 rounded-[20px]" />
                     
                     {/* Custom hover pointer badge */}
-                    <div className="absolute top-2.5 right-2.5 bg-[#D4AF37] text-[#071B44] text-[7px] font-black tracking-widest px-1.5 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm leading-none z-20">
+                    <div className="absolute top-2.5 right-2.5 bg-[#C9A84C] text-[#F5F0E8] text-[7px] font-black tracking-widest px-1.5 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm leading-none z-20">
                       {isActive && (thumb.id === 'furniture' || thumb.id === 'tiles') ? 'OPEN' : 'VIEW'}
                     </div>
 
                     {/* Text block */}
                     <div className="absolute inset-x-0 bottom-0 p-3 flex flex-col items-start text-left z-10">
-                      <span className="font-body text-[7px] uppercase tracking-[0.2em] text-[#D4AF37] font-semibold mb-0.5 leading-none">
+                      <span className="font-body text-[7px] uppercase tracking-[0.2em] text-[#C9A84C] font-semibold mb-0.5 leading-none">
                         {thumb.subtitle}
                       </span>
                       <h4 className="font-display text-xs font-semibold text-[#F8F5F0] leading-tight">

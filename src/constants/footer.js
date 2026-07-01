@@ -1,8 +1,7 @@
 import { IconFacebook, IconInstagram, IconLinkedIn } from '../components/ui/FooterIcons';
 
 export const FOOTER_STUDIOS = [
-  { city: 'Chennai', region: 'Tamil Nadu, India' },
-  { city: 'Madurai', region: 'Tamil Nadu, India' },
+  { city: 'Chennai Showroom', region: 'No. 3, Seemathamman Nagar, Maduravoyal' },
 ];
 
 export const FOOTER_COLLECTIONS = [

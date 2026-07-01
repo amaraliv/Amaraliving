@@ -38,13 +38,13 @@ export default function FeaturedSpaces() {
 
       gsap.utils.toArray('.space-depth-img').forEach((img) => {
         gsap.to(img, {
-          yPercent: -7,
+          yPercent: -4,
           ease: 'none',
           scrollTrigger: {
             trigger: img,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1,
+            scrub: 2,
           },
         });
       });

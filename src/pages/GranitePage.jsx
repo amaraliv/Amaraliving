@@ -15,151 +15,151 @@ import { formatCurrency, formatNumber } from '../utils/format';
 
 const CATEGORIES = [
   {
-    title: 'Sofa Sets & Lounges',
-    description: 'Deep velvet and premium leather upholstery with sculpted profiles.',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=85',
+    title: 'Premium Granite',
+    description: 'Quarry-sourced slabs with near-zero porosity and intense patterns.',
+    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    title: 'Luxury Dining Tables',
-    description: 'Solid oak and marble dining tables proportioned for gatherings.',
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=85',
+    title: 'Exotic Quartzites',
+    description: 'Metallic crystal veins formed through deep subterranean pressure.',
+    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    title: 'Bedsteads & Storage',
-    description: 'Tufted headboards and granite-topped bedside credenzas.',
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=85',
+    title: 'Italian Marble',
+    description: 'Honed travertine and block-cut marbles from Carrara ateliers.',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    title: 'Entryway Consoles',
-    description: 'Polished stone top consoles reinforced with brushed brass bases.',
-    image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=85',
+    title: 'Travertine Blocks',
+    description: 'Rustic sand-filled travertine for warm neutral features.',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    title: 'Study Desks & Shelving',
-    description: 'Minimalist workspace furniture crafted for focus and utility.',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85',
+    title: 'Flamed Basalts',
+    description: 'Slip-resistant basalt surfaces for exterior driveways and patios.',
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    title: 'Modular Wardrobes',
-    description: 'Fitted closet structures featuring integrated warm LED grids.',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=85',
+    title: 'Feature Cladding Slabs',
+    description: 'Bespoke large format cladding elements for high-end lobbies.',
+    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85',
   },
 ];
 
 const PRODUCTS = [
   {
-    name: 'Velvet Lounge Sofa',
-    material: 'Sofa Sets & Lounges',
-    finish: 'Deep Upholstered',
-    color: 'Green',
-    size: '3-Seater (220cm)',
-    price: 85000,
-    outdoor: false,
-    badge: 'Best Seller',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=85',
-  },
-  {
-    name: 'Solid Oak Dining',
-    material: 'Luxury Dining Tables',
-    finish: 'Satin Hand-oiled',
-    color: 'Natural Oak',
-    size: '6-Seater (180cm)',
-    price: 68000,
-    outdoor: false,
-    badge: 'Signature Item',
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=85',
-  },
-  {
-    name: 'Granite Entry Console',
-    material: 'Entryway Consoles',
-    finish: 'Polished Brass Inlay',
+    name: 'Absolute Black',
+    material: 'Granite',
+    finish: 'Mirror Polished',
     color: 'Black',
-    size: '140cm x 40cm',
-    price: 42000,
-    outdoor: false,
-    badge: 'Exotic Base',
-    image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=85',
+    size: '180cm x 280cm',
+    price: 220,
+    outdoor: true,
+    badge: 'Obsidian Pure',
+    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=85',
   },
   {
-    name: 'Tufted King Bedstead',
-    material: 'Bedsteads & Storage',
-    finish: 'Tufted Velvet',
-    color: 'Beige',
-    size: 'King Size (180x200cm)',
-    price: 95000,
+    name: 'Imperial Gold',
+    material: 'Exotic Quartzites',
+    finish: 'Flame Brushed',
+    color: 'Gold',
+    size: '160cm x 310cm',
+    price: 310,
     outdoor: false,
     badge: 'Limited Yield',
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=85',
+    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=800&q=85',
   },
   {
-    name: 'Walnut Sideboard',
-    material: 'Bedsteads & Storage',
-    finish: 'Matte Oil Finish',
-    color: 'Brown',
-    size: '160cm x 50cm',
-    price: 54000,
+    name: 'Kashmir White',
+    material: 'Premium Granite',
+    finish: 'Satin Honed',
+    color: 'White',
+    size: '150cm x 290cm',
+    price: 185,
     outdoor: false,
-    badge: 'Classic Craft',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=85',
+    badge: 'Tamil Nadu Sourced',
+    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=85',
   },
   {
-    name: 'Executive Mahogany Desk',
-    material: 'Study Desks & Shelving',
-    finish: 'Piano Lacquer',
-    color: 'Mahogany',
-    size: '150cm x 75cm',
-    price: 48000,
+    name: 'Viscon Wave Grey',
+    material: 'Premium Granite',
+    finish: 'Polished',
+    color: 'Grey',
+    size: '170cm x 300cm',
+    price: 260,
+    outdoor: true,
+    badge: 'Wave Pattern',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Black Galaxy Spark',
+    material: 'Premium Granite',
+    finish: 'High Polish',
+    color: 'Black',
+    size: '180cm x 280cm',
+    price: 420,
     outdoor: false,
-    badge: 'Premium Studio',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85',
+    badge: 'Rare Constellation',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Pietra Grey Velvet',
+    material: 'Italian Marble',
+    finish: 'Matte Honed',
+    color: 'Grey',
+    size: '160cm x 320cm',
+    price: 490,
+    outdoor: false,
+    badge: 'Exotic Marble',
+    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=800&q=85',
   },
 ];
 
 const INSPIRATION = [
-  { tag: 'Living Room', title: 'Velvet Sofa Arrangement, Alibaug Penthouse', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=85' },
-  { tag: 'Dining Room', title: 'Solid Oak Dining layout, Coimbatore Residence', image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=85' },
-  { tag: 'Bedroom', title: 'King Tufted Headboard setup, Nungambakkam Foyer', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=85' },
-  { tag: 'Workspace', title: 'Mahogany Executive Table alignment, Corporate Suite', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85' },
-  { tag: 'Foyer', title: 'Polished Granite console table placement, Grand Lobby', image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Kitchen Counter', title: 'Absolute Black monolithic workspace, Alibaug', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Feature Wall', title: 'Imperial Gold fireplace surround, Chennai Penthouse', image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Atrium Floor', title: 'Viscon Wave bookmatched flooring, Corporate HQ', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Lobby Cladding', title: 'Black Galaxy elevator portals, Luxury Hotel', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Pool Surrounds', title: 'Flamed slip-resistant basalt steps, Beach Villa', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85' },
 ];
 
 const PROJECTS = [
   {
-    name: 'Alibaug Coast Dining Space',
-    material: 'Bespoke Solid Oak Dining & Seating',
-    location: 'Coastal Maharashtra',
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1200&q=85',
+    name: 'The Oberoi Atrium Lobby',
+    material: 'Viscon Wave & Absolute Black Slabs',
+    location: 'Chennai Central',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    name: 'Nungambakkam Duplex Foyer',
-    material: 'Custom Polished Granite Entrance Console Table',
-    location: 'Chennai Central',
-    image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=85',
+    name: 'Coimbatore Villa Fireplace',
+    material: 'Imperial Gold Custom Quartzite Cladding',
+    location: 'Race Course Road, Coimbatore',
+    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1200&q=85',
   },
 ];
 
 const BENEFITS = [
-  { title: 'Hand-Milled Joinery', desc: 'Crafted using traditional mortise and tenon joinery for maximum lifetime strength.', icon: Sparkles },
-  { title: 'FSC Certified Hardwoods', desc: 'Sustainable solid timbers selected for moisture tolerance and grain pattern.', icon: Compass },
-  { title: 'Stone Base Integration', desc: 'Designed to blend seamlessly with matching marble and granite accents.', icon: Layers },
-  { title: 'Stain-Resistant Fab', desc: 'Premium velvet and leather materials treated to resist surface moisture spills.', icon: Droplets },
-  { title: 'Custom Dimensions', desc: 'Millimetre-precision sizing custom-scaled to fit your floor layout plan.', icon: Flame },
-  { title: 'Structural Warranties', desc: 'Backed by a lifetime structural warranty on timber frames and joinery.', icon: ShieldCheck },
+  { title: 'Quarry Direct Selection', desc: 'Direct sourcing ensures structural block grading and vein consistency.', icon: Sparkles },
+  { title: 'Unique Formations', desc: 'No two slabs carry the same mineral crystallizations or wave movements.', icon: Compass },
+  { title: 'Extreme Hardness', desc: 'Mohs rating of 6–7 ensures resistance to blade cuts and high impacts.', icon: Layers },
+  { title: 'Heat Integrity', desc: 'Capable of handling hot pans up to 300°C without crack damage.', icon: Droplets },
+  { title: 'Acid & Stain Seal', desc: 'Sealed with deep penetration oleophobic layers for easy food prep.', icon: Flame },
+  { title: 'Lifetime Warranties', desc: 'Protected by our lifetime structural replacement certificates.', icon: ShieldCheck },
 ];
 
 const ACCORDIONS = [
-  { title: 'Timber Sourcing & Provenance', content: 'Our hardwoods are sourced from sustainable certified plantations: white oak from North America, walnut from Eastern Europe, and mahogany from local premium reserves. Every batch is kiln-dried to optimal moisture levels to prevent warping.' },
-  { title: 'Custom Sizing Limits', content: 'We custom manufacture pieces to order. Sofas can be scaled from 2-seater inline configurations up to expansive multi-angle modular lounges. Dining tables are built to lengths of up to 4 meters without center joints.' },
-  { title: 'Upholstery Selection', content: 'Choose from a curated deck of premium fabrics, including Belgian velvet, Belgian linen, and full-grain aniline leathers. All fabrics carry Martindale rub tests exceeding 40,000 cycles.' },
-  { title: 'Maintenance & Wood Care', content: 'For hand-oiled finishes, we recommend application of a natural beeswax wax layer every 12 months. Clean spillages instantly using a dry microfiber cloth. Avoid direct sun exposure to prevent wood dry shrinkage.' },
+  { title: 'Granite Quarrying Methods', content: 'Our granite slabs are block-cut directly from deep subterranean rock faces in Tamil Nadu and Rajasthan using diamond wire saws. Slabs are immediately calibrated and polished at our Chennai studio.' },
+  { title: 'Edge Profile Machining', content: 'We offer straight edge bevel, half-bullnose, full radius bullnose, and ogee profiles. Edges are machined on state-of-the-art Italian CNC machines and finished by hand polishing.' },
+  { title: 'Oleophobic Sealing Systems', content: 'Natural stones possess minor micro-pores. We seal all countertops with dual-coat nanotechnology impregnating sealers to prevent staining from red wine, lemon juice, or culinary oils.' },
+  { title: 'Countertop Thicknesses', content: 'Standard residential countertops use 18mm or 20mm solid slab materials. For a heavier monolithic aesthetic, we build custom mitred apron edge profiles from 40mm to 100mm.' },
 ];
 
 const TESTIMONIALS = [
-  { quote: 'The oak dining table is the heart of our dining room. The wood is warm to touch, and the joinery is absolutely immaculate.', author: 'Aravind Swamy', role: 'Dining Room, Chennai Duplex', rating: 5 },
-  { quote: 'Our modular velvet sofa is exceptionally comfortable. The fabric is highly stain-resistant and handles daily family use easily.', author: 'Meera & Raghavan', role: 'Living Room Lounge, Coimbatore', rating: 5 },
+  { quote: 'The Absolute Black island top is the centerpiece of our home. Cooking directly on stone that handles hot iron pans is incredible.', author: 'Siddharth & Meenakshi', role: 'Kitchen Island, Chennai', rating: 5 },
+  { quote: 'Viscon Wave slabs on our living room wall look like moving clouds. The installer matched the direction of the veins beautifully.', author: 'Vikram Sundaram', role: 'Living Room wall, Coimbatore', rating: 5 },
 ];
 
-export default function FurniturePage() {
+export default function GranitePage() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -170,46 +170,64 @@ export default function FurniturePage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   // ── FILTER STATES ──
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedMaterial, setSelectedMaterial] = useState('All');
   const [selectedFinish, setSelectedFinish] = useState('All');
   const [selectedColor, setSelectedColor] = useState('All');
+  const [selectedSize, setSelectedSize] = useState('All');
   const [selectedPrice, setSelectedPrice] = useState('All');
+  const [selectedUse, setSelectedUse] = useState('All');
 
   // Accordion state
   const [openAccordion, setOpenAccordion] = useState(0);
 
   // ── CALCULATOR STATES ──
-  const [calcSuite, setCalcSuite] = useState('living'); // 'living', 'dining', 'bedroom'
-  const [calcSizeFactor, setCalcSizeFactor] = useState('standard'); // 'standard', 'custom'
-  const [calcFabric, setCalcFabric] = useState('standard'); // 'standard', 'premium'
+  const [calcLength, setCalcLength] = useState('');
+  const [calcWidth, setCalcWidth] = useState('');
+  const [calcFinish, setCalcFinish] = useState('polished');
+  const [calcEdge, setCalcEdge] = useState('straight');
+  const [calcWaste, setCalcWaste] = useState(10);
   const [calcBookingOpen, setCalcBookingOpen] = useState(false);
   const [calcBookingName, setCalcBookingName] = useState('');
   const [calcBookingEmail, setCalcBookingEmail] = useState('');
   const [calcBookingSuccess, setCalcBookingSuccess] = useState(false);
 
-  const categories = ['All', 'Sofa Sets & Lounges', 'Luxury Dining Tables', 'Bedsteads & Storage', 'Entryway Consoles', 'Study Desks & Shelving', 'Modular Wardrobes'];
-  const finishes = ['All', 'Deep Upholstered', 'Satin Hand-oiled', 'Polished Brass Inlay', 'Tufted Velvet', 'Matte Oil Finish', 'Piano Lacquer'];
-  const colors = ['All', 'Green', 'Natural Oak', 'Black', 'Beige', 'Brown', 'Mahogany'];
+  const materials = ['All', 'Premium Granite', 'Exotic Quartzites', 'Italian Marble', 'Travertine Blocks', 'Flamed Basalts'];
+  const finishes = ['All', 'Mirror Polished', 'Flame Brushed', 'Satin Honed', 'Polished', 'High Polish', 'Matte Honed'];
+  const colors = ['All', 'Black', 'Gold', 'White', 'Grey'];
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter(p => {
-      if (selectedCategory !== 'All' && p.material !== selectedCategory) return false;
+      if (selectedMaterial !== 'All' && p.material !== selectedMaterial) return false;
       if (selectedFinish !== 'All' && p.finish !== selectedFinish) return false;
       if (selectedColor !== 'All' && p.color !== selectedColor) return false;
+      if (selectedSize !== 'All' && p.size !== selectedSize) return false;
+      if (selectedUse !== 'All') {
+        const wantsOutdoor = selectedUse === 'Outdoor';
+        if (p.outdoor !== wantsOutdoor) return false;
+      }
       if (selectedPrice !== 'All') {
-        if (selectedPrice === 'Under ₹50,000' && p.price >= 50000) return false;
-        if (selectedPrice === '₹50,000 - ₹80,000' && (p.price < 50000 || p.price > 80000)) return false;
-        if (selectedPrice === 'Over ₹80,000' && p.price <= 80000) return false;
+        if (selectedPrice === 'Under ₹250' && p.price >= 250) return false;
+        if (selectedPrice === '₹250 - ₹400' && (p.price < 250 || p.price > 400)) return false;
+        if (selectedPrice === 'Over ₹400' && p.price <= 400) return false;
       }
       return true;
     });
-  }, [selectedCategory, selectedFinish, selectedColor, selectedPrice]);
+  }, [selectedMaterial, selectedFinish, selectedColor, selectedSize, selectedUse, selectedPrice]);
 
   // Calculator Math
-  const suiteBasePrice = calcSuite === 'living' ? 75000 : calcSuite === 'dining' ? 58000 : 85000;
-  const sizeMultiplier = calcSizeFactor === 'standard' ? 1.0 : 1.25;
-  const fabricMultiplier = calcFabric === 'standard' ? 1.0 : 1.15;
-  const estTotalCost = suiteBasePrice * sizeMultiplier * fabricMultiplier;
+  const lenVal = parseFloat(calcLength) || 0;
+  const widVal = parseFloat(calcWidth) || 0;
+  const rawSqFt = lenVal * widVal;
+  const wasteMultiplier = 1 + calcWaste / 100;
+  const adjustedSqFt = rawSqFt * wasteMultiplier;
+  
+  const baseRate = 280; // granite avg rate
+  const edgeRate = calcEdge === 'straight' ? 0 : calcEdge === 'bevelled' ? 15 : calcEdge === 'bullnose' ? 25 : 40;
+  const perimeter = lenVal > 0 && widVal > 0 ? 2 * (lenVal + widVal) : 0;
+  const finishModifier = calcFinish === 'polished' ? 1 : calcFinish === 'honed' ? 0.95 : 1.1;
+
+  const totalCost = (adjustedSqFt * baseRate * finishModifier) + (perimeter * edgeRate);
+  const calcReady = lenVal > 0 && widVal > 0;
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
@@ -234,8 +252,8 @@ export default function FurniturePage() {
       <section className="relative h-[95dvh] flex items-center justify-center overflow-hidden bg-dark">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 w-full h-full">
           <img
-            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=90"
-            alt="Bespoke luxury velvet lounge sofa set inside modern living room"
+            src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=2400&q=90"
+            alt="Monolithic polished Absolute Black granite slab kitchen countertop background"
             className="w-full h-full object-cover img-grade filter brightness-50"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-dark/40 to-dark/80" />
@@ -243,13 +261,13 @@ export default function FurniturePage() {
 
         <div className="wrap relative z-10 text-center max-w-5xl">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-            <span className="eyebrow mb-6 tracking-[0.45em] text-[#C9A96E] block">Bespoke Furniture</span>
+            <span className="eyebrow mb-6 tracking-[0.45em] text-[#C9A96E] block">Stone of Permanence</span>
             <h1 className="font-display text-[clamp(2.5rem,6.5vw,6.5rem)] font-medium leading-[1.02] tracking-tight text-white mb-6">
-              Furniture &amp;<br />
-              <span className="italic font-normal text-[#C9A96E]">Crafted Living</span>
+              Premium Granite &amp;<br />
+              <span className="italic font-normal text-[#C9A96E]">Natural Stone</span>
             </h1>
             <p className="max-w-2xl mx-auto font-body text-base font-light leading-[1.8] text-white/80 mb-10">
-              Premium sofas, solid oak dining pieces, and consoles engineered with structural timber frames and natural stone bases.
+              Quarry-sourced block cuts selected for density, mineral crystallization, and silent authority in architectural spaces.
             </p>
             <a href="#categories" className="px-10 py-4 border border-white/20 bg-white/5 backdrop-blur-md text-white font-body text-[11px] font-semibold uppercase tracking-[0.3em] hover:bg-white hover:text-dark transition-all duration-500 shadow-2xl">
               Explore Collection
@@ -262,8 +280,8 @@ export default function FurniturePage() {
       <section id="categories" className="py-20 md:py-28 bg-[#FAF8F5]">
         <div className="wrap">
           <div className="mb-14 text-center max-w-3xl mx-auto">
-            <span className="eyebrow text-[#C9A96E] mb-3">Architectural Atelier</span>
-            <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark">Furniture Collections</h2>
+            <span className="eyebrow text-[#C9A96E] mb-3">Architectural Slabs</span>
+            <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark">Stone Varieties</h2>
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent mx-auto mt-6" />
           </div>
 
@@ -289,13 +307,13 @@ export default function FurniturePage() {
         <div className="wrap py-4 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-dark/70">
             <SlidersHorizontal className="w-4 h-4 text-[#C9A96E]" />
-            <span className="font-body text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9A96E]">Filter Furniture</span>
+            <span className="font-body text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9A96E]">Filter Granite</span>
           </div>
 
           <div className="flex flex-wrap gap-2.5">
-            <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
-              <option value="All">All Categories</option>
-              {categories.slice(1).map(c => <option key={c} value={c}>{c}</option>)}
+            <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
+              <option value="All">All Formats</option>
+              {materials.slice(1).map(m => <option key={m} value={m}>{m}</option>)}
             </select>
             <select value={selectedFinish} onChange={e => setSelectedFinish(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
               <option value="All">All Finishes</option>
@@ -307,9 +325,9 @@ export default function FurniturePage() {
             </select>
             <select value={selectedPrice} onChange={e => setSelectedPrice(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
               <option value="All">All Pricing</option>
-              <option value="Under ₹50,000">Under ₹50,000</option>
-              <option value="₹50,000 - ₹80,000">₹50,000 - ₹80,000</option>
-              <option value="Over ₹80,000">Over ₹80,000</option>
+              <option value="Under ₹250">Under ₹250 / sqft</option>
+              <option value="₹250 - ₹400">₹250 - ₹400 / sqft</option>
+              <option value="Over ₹400">Over ₹400 / sqft</option>
             </select>
           </div>
         </div>
@@ -330,15 +348,15 @@ export default function FurniturePage() {
                     <span className="font-body text-[10px] font-semibold text-[#C9A96E] uppercase tracking-wider">{prod.material}</span>
                     <div className="flex justify-between items-baseline">
                       <h3 className="font-display text-xl font-medium text-dark">{prod.name}</h3>
-                      <span className="font-display text-lg text-[#8B6914] font-semibold">₹{formatNumber(prod.price)}</span>
+                      <span className="font-display text-lg text-[#8B6914] font-semibold">₹{prod.price} <span className="text-[10px] font-body text-ink/40 font-normal">/ sqft</span></span>
                     </div>
                     <div className="mt-4 border-t border-ink/8 pt-3 grid grid-cols-2 gap-2 text-[11px] font-body text-ink/50">
                       <div>
-                        <span className="block text-[9px] uppercase tracking-wider text-ink/35">Scale Sizing</span>
+                        <span className="block text-[9px] uppercase tracking-wider text-ink/35">Slab Dimensions</span>
                         <span className="font-medium text-dark/80">{prod.size}</span>
                       </div>
                       <div>
-                        <span className="block text-[9px] uppercase tracking-wider text-ink/35">Base Material</span>
+                        <span className="block text-[9px] uppercase tracking-wider text-ink/35">Polished / Satin</span>
                         <span className="font-medium text-dark/80">{prod.finish}</span>
                       </div>
                     </div>
@@ -405,7 +423,7 @@ export default function FurniturePage() {
         <div className="wrap">
           <div className="viewport-grid items-start gap-12">
             <div className="lg:col-span-5">
-              <span className="eyebrow text-[#C9A96E] mb-3">Timber Matrix</span>
+              <span className="eyebrow text-[#C9A96E] mb-3">Slab Matrix</span>
               <h2 className="font-display text-4xl md:text-5xl font-medium leading-tight text-dark mb-6">Technical Specifications</h2>
               <div className="line-gold max-w-sm" />
             </div>
@@ -445,10 +463,10 @@ export default function FurniturePage() {
                     <img src={proj.image} alt={proj.name} className="w-full aspect-[16/10] object-cover shadow-xl border border-ink/10 img-grade" />
                   </div>
                   <div className={`lg:col-span-5 ${imageFirst ? '' : 'lg:order-1'}`}>
-                    <span className="font-body text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.25em] mb-3 block">Completed Joinery</span>
+                    <span className="font-body text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.25em] mb-3 block">Completed Slabs</span>
                     <h3 className="font-display text-3xl font-medium text-dark mb-4">{proj.name}</h3>
                     <div className="my-5 border-y border-ink/8 py-4 font-body text-xs text-ink/50 space-y-2">
-                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Timbers Sourced</span><span className="font-medium text-dark/80">{proj.material}</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Materials used</span><span className="font-medium text-dark/80">{proj.material}</span></div>
                       <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Location</span><span className="font-medium text-dark/80">{proj.location}</span></div>
                     </div>
                     <a href="/#contact" className="btn-gold w-full text-center justify-center"><span>Explore Case Study</span></a>
@@ -461,60 +479,71 @@ export default function FurniturePage() {
       </section>
 
       {/* ── CALCULATOR ── */}
-      <section id="furniture-calculator" className="py-20 md:py-28 bg-[#F2ECE5]">
+      <section id="granite-calculator" className="py-20 md:py-28 bg-[#F2ECE5]">
         <div className="wrap">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-4">
               <span className="eyebrow text-[#C9A96E] mb-3">Investment Plan</span>
-              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">Estimate Furniture</h2>
-              <p className="font-body text-sm leading-relaxed text-ink/60">Configure room sets, dimension scale factors, and textile deck ratings to compute indicative build budgets.</p>
+              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">Estimate Granite</h2>
+              <p className="font-body text-sm leading-relaxed text-ink/60">Calculate raw slab areas, layout buffer paddings, and custom linear perimeter edge profiling charges.</p>
             </div>
             <div className="lg:col-span-8 bg-white border border-[#C9A96E]/20 p-6 md:p-10 shadow-lg">
               <div className="grid gap-5 sm:grid-cols-3 mb-6">
                 <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Room Suite</label>
-                  <select value={calcSuite} onChange={e => setCalcSuite(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
-                    <option value="living">Living Suite (Sofa/Console)</option>
-                    <option value="dining">Dining Suite (Table/Chairs)</option>
-                    <option value="bedroom">Bedroom Suite (Bed/Credenza)</option>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Length (ft)</label>
+                  <input type="number" min="0" placeholder="0" value={calcLength} onChange={e => setCalcLength(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-4 py-3 text-lg font-display text-dark outline-none focus:border-[#C9A96E]" />
+                </div>
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Width (ft)</label>
+                  <input type="number" min="0" placeholder="0" value={calcWidth} onChange={e => setCalcWidth(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-4 py-3 text-lg font-display text-dark outline-none focus:border-[#C9A96E]" />
+                </div>
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Cutting Waste</label>
+                  <select value={calcWaste} onChange={e => setCalcWaste(parseInt(e.target.value))} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="5">5% (Minimal cut)</option>
+                    <option value="10">10% (Standard layout)</option>
+                    <option value="15">15% (Complex cut-outs)</option>
+                  </select>
+                </div>
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 mb-6">
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Surface Finish</label>
+                  <select value={calcFinish} onChange={e => setCalcFinish(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="polished">Mirror Polished</option>
+                    <option value="honed">Satin Honed</option>
+                    <option value="leathered">Tactile Leathered</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Scale / Dimensions</label>
-                  <select value={calcSizeFactor} onChange={e => setCalcSizeFactor(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
-                    <option value="standard">Standard Catalog Sizes</option>
-                    <option value="custom">Custom Bespoke Scaling (+25%)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Textile Deck</label>
-                  <select value={calcFabric} onChange={e => setCalcFabric(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
-                    <option value="standard">Standard Cotton/Linen</option>
-                    <option value="premium">Premium Velvet/Aniline Leather (+15%)</option>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Edge Profile</label>
+                  <select value={calcEdge} onChange={e => setCalcEdge(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="straight">Straight Edge (+₹0/lft)</option>
+                    <option value="bevelled">Bevelled Profile (+₹15/lft)</option>
+                    <option value="bullnose">Bullnose Radius (+₹25/lft)</option>
+                    <option value="ogee">Ogee Classic (+₹40/lft)</option>
                   </select>
                 </div>
               </div>
 
               <div className="border border-[#C9A96E]/20 bg-[#FAF8F5] p-5 mb-6">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  <div>
-                    <span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Base Price</span>
-                    <span className="font-display text-xl text-dark font-medium">{formatCurrency(suiteBasePrice)}</span>
-                  </div>
-                  <div>
-                    <span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Upholstery Spec</span>
-                    <span className="font-display text-xl text-dark font-medium capitalize">{calcFabric} rating</span>
-                  </div>
-                  <div>
-                    <span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Est. Custom Cost</span>
-                    <span className="font-display text-xl text-[#8B6914] font-semibold">{formatCurrency(estTotalCost)}</span>
-                  </div>
-                </div>
+                <AnimatePresence mode="wait">
+                  {calcReady ? (
+                    <motion.div key={`${rawSqFt}-${calcFinish}-${calcEdge}-${calcWaste}`} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Raw Slab</span><span className="font-display text-xl text-dark font-medium">{formatNumber(rawSqFt, { maximumFractionDigits: 1 })} sqft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">With Buffer</span><span className="font-display text-xl text-dark font-medium">{formatNumber(adjustedSqFt, { maximumFractionDigits: 1 })} sqft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Edge Perimeter</span><span className="font-display text-xl text-dark font-medium">{formatNumber(perimeter, { maximumFractionDigits: 1 })} lft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Est. Cost</span><span className="font-display text-xl text-[#8B6914] font-semibold">{formatCurrency(totalCost)}</span></div>
+                    </motion.div>
+                  ) : (
+                    <div className="text-center py-4 font-body text-xs text-ink/40">Enter slab dimensions to calculate.</div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-ink/8 pt-5">
-                <span className="font-body text-xs text-ink/40">Includes layout assembly drawing and fabric cuttings mailing.</span>
-                <button type="button" onClick={() => setCalcBookingOpen(true)} className="btn-solid w-full text-center sm:w-auto">Request Fabric Swatches</button>
+                <span className="font-body text-xs text-ink/40">Includes slab calibration and edge CNC polishing setup.</span>
+                <button type="button" onClick={() => setCalcBookingOpen(true)} className="btn-solid w-full text-center sm:w-auto">Book Slab Viewing</button>
               </div>
             </div>
           </div>
@@ -541,12 +570,12 @@ export default function FurniturePage() {
       {/* CTA Banner */}
       <section className="relative py-24 md:py-32 overflow-hidden bg-dark text-white text-center">
         <div className="absolute inset-0 w-full h-full">
-          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=90" alt="Fine upholstered furniture texture" className="w-full h-full object-cover img-grade filter brightness-[0.25]" />
+          <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=2400&q=90" alt="Fine granite countertop texture" className="w-full h-full object-cover img-grade filter brightness-[0.25]" />
           <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-dark" />
         </div>
         <div className="wrap relative z-10 max-w-4xl mx-auto">
           <span className="eyebrow text-[#C9A96E] mb-6 block">Bespoke Design Services</span>
-          <h2 className="font-display text-4xl md:text-6xl font-medium tracking-tight text-white mb-8">Bring Comfort Into Every Space</h2>
+          <h2 className="font-display text-4xl md:text-6xl font-medium tracking-tight text-white mb-8">Bring Permanence Into Every Space</h2>
           <a href="/#contact" className="px-10 py-4 border border-[#C9A96E] bg-[#C9A96E]/10 hover:bg-[#C9A96E] text-[#C9A96E] hover:text-white font-body text-[11px] font-semibold uppercase tracking-[0.3em] transition-all duration-500">Schedule Consultation</a>
         </div>
       </section>

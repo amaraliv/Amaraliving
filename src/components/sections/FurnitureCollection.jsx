@@ -41,7 +41,7 @@ export default function FurnitureCollection() {
               <motion.a 
                 variants={fadeUpSoft} 
                 href="#/furniture" 
-                className="w-fit font-body text-[11px] font-bold uppercase tracking-[0.24em] text-[#b8941f] hover:text-[#081229] transition-colors"
+                className="w-fit font-body text-[11px] font-bold uppercase tracking-[0.24em] text-[#C9A84C] hover:text-[#1A1008] transition-colors"
               >
                 Explore Full Collection &rarr;
               </motion.a>

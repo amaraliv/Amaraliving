@@ -1,682 +1,611 @@
-import { useState, useMemo, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { EASE_LUXURY } from '../constants/animations';
+import { useState, useMemo, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { 
+  ChevronDown, 
+  SlidersHorizontal, 
+  Sparkles, 
+  ShieldCheck, 
+  Flame, 
+  Droplets, 
+  Compass, 
+  Layers,
+  ArrowUpRight
+} from 'lucide-react';
 import { formatCurrency, formatNumber } from '../utils/format';
 
-const TILE_VARIETIES = [
+const CATEGORIES = [
   {
-    id: 'terrazzo-white',
-    name: 'Terrazzo White',
-    category: 'Terrazzo',
-    swatchColor: '#E6E3DF',
-    roomImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
-    description: 'Light grey base with hand-selected granite and quartz aggregate shards. Gives a crisp, contemporary Mediterranean vibe.',
-    size: '60cm x 60cm',
-    thickness: '18mm',
-    finish: 'Satin Honed',
-    origin: 'Verona, Italy',
-    sqFtPerTile: 3.88,
-    rate: 165,
+    title: 'Porcelain Tiles',
+    description: 'Sintered porcelain in grand architectural formats.',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    id: 'slate-grey',
-    name: 'Slate Grey',
-    category: 'Natural Slate',
-    swatchColor: '#4A4E52',
-    roomImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',
-    description: 'Fine-grained natural slate sourced from South Indian quarries. Characterized by subtle cleft texturing and deep carbon tones.',
-    size: '30cm x 60cm',
-    thickness: '12mm',
-    finish: 'Natural Cleft',
-    origin: 'Madurai, India',
-    sqFtPerTile: 1.94,
-    rate: 135,
+    title: 'Ceramic Tiles',
+    description: 'Moroccan Zellige clay and handcrafted artisanal glazes.',
+    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    id: 'emerald-zellige',
-    name: 'Emerald Zellige',
-    category: 'Handcrafted Clay',
-    swatchColor: '#0E5440',
-    roomImage: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85',
-    description: 'Traditional Moroccan hand-molded clay tiles. Each tile features slight organic surface waves and chromatic differences in deep emerald green.',
-    size: '10cm x 10cm',
-    thickness: '10mm',
-    finish: 'Glossy Translucent Glaze',
-    origin: 'Fes, Morocco',
-    sqFtPerTile: 0.11,
-    rate: 320,
+    title: 'Luxury Wall Tiles',
+    description: 'Textured matrices and gold-threaded mosaic panels.',
+    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    id: 'desert-sand',
-    name: 'Desert Sand',
-    category: 'Terracotta',
-    swatchColor: '#D99873',
-    roomImage: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85',
-    description: 'Warm, sun-baked clay terracotta tiles. Selected for high porosity, thermal cooling efficiency, and grounding texture.',
-    size: '30cm x 30cm',
-    thickness: '20mm',
-    finish: 'Matte Raw / Waxed',
-    origin: 'Chennai, India',
-    sqFtPerTile: 0.97,
-    rate: 110,
+    title: 'Handmade Mosaics',
+    description: 'Exquisitely crafted mosaic patterns.',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
   },
   {
-    id: 'calacatta-porcelain',
-    name: 'Calacatta Luxe',
-    category: 'Porcelain',
-    swatchColor: '#F5F5F5',
-    roomImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85',
-    description: 'High-density sintered porcelain reproducing Italian Calacatta veining. Perfect for seamless wall-to-floor layouts.',
-    size: '80cm x 160cm',
-    thickness: '9mm',
-    finish: 'Polished Mirror / Honed',
-    origin: 'Faenza, Italy',
-    sqFtPerTile: 13.78,
-    rate: 280,
-  }
+    title: 'Outdoor Tiling',
+    description: 'Slip-resistant split face and flamed stone surfaces.',
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85',
+  },
+  {
+    title: 'Terrazzo Tiles',
+    description: 'Satin honed terrazzo matrices from Verona.',
+    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=85',
+  },
 ];
 
-const SURFACE_MATERIALS = [
-  { id: 'granite', label: 'Granite', rate: 220 },
-  { id: 'designer-tiles', label: 'Designer Tiles', rate: 165 },
-  { id: 'premium-tiles', label: 'Premium Tiles', rate: 120 },
+const PRODUCTS = [
+  {
+    name: 'Calacatta Luxe',
+    material: 'Porcelain Tiles',
+    finish: 'Polished Mirror',
+    color: 'White',
+    size: '120cm x 240cm',
+    price: 280,
+    outdoor: false,
+    badge: 'Limited Edition',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Emerald Zellige',
+    material: 'Ceramic Tiles',
+    finish: 'Glossy Glaze',
+    color: 'Green',
+    size: '10cm x 10cm',
+    price: 320,
+    outdoor: false,
+    badge: 'Handcrafted',
+    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Verona White Terrazzo',
+    material: 'Terrazzo Tiles',
+    finish: 'Satin Honed',
+    color: 'White',
+    size: '60cm x 60cm',
+    price: 165,
+    outdoor: false,
+    badge: 'Verona Sourced',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Cobalt Moroccan Clay',
+    material: 'Ceramic Tiles',
+    finish: 'Glossy Glaze',
+    color: 'Blue',
+    size: '10cm x 10cm',
+    price: 310,
+    outdoor: false,
+    badge: 'Artisan Clay',
+    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Textured Gold Mosaic',
+    material: 'Luxury Wall Tiles',
+    finish: 'Metallic Satin',
+    color: 'Gold',
+    size: '30cm x 30cm',
+    price: 490,
+    outdoor: false,
+    badge: 'Exclusive',
+    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=85',
+  },
+  {
+    name: 'Madras Grey Slate',
+    material: 'Outdoor Tiling',
+    finish: 'Natural Cleft',
+    color: 'Grey',
+    size: '30cm x 60cm',
+    price: 135,
+    outdoor: true,
+    badge: 'Slip Resistant',
+    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85',
+  },
+];
+
+const INSPIRATION = [
+  { tag: 'Bathroom', title: 'Moroccan Zellige Suite, Nungambakkam', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Kitchen', title: 'Calacatta Backsplash, Alibaug Villa', image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Lobby', title: 'Terrazzo Flooring matrix, Atrium lobby', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Office', title: 'Minimalist Porcelain Wall cladding, Tech Hub', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=85' },
+  { tag: 'Villa Patio', title: 'Madras Slate Outdoor Pool Deck', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=85' },
+];
+
+const PROJECTS = [
+  {
+    name: 'Alibaug Seaside Penthouse',
+    material: 'Emerald Zellige Wall & Calacatta Porcelain Floor',
+    location: 'Coastal Maharashtra',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=85',
+  },
+  {
+    name: 'The Nungambakkam Club Foyer',
+    material: 'Verona White Terrazzo Grid Matrices',
+    location: 'Chennai Central',
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
+  },
+];
+
+const BENEFITS = [
+  { title: 'Premium Curation', desc: 'Hand-selected tiles chosen for layout patterns and dynamic glaze continuity.', icon: Sparkles },
+  { title: 'Quarry & Kiln Direct', desc: 'Imported clay and sintered porcelain from Fes, Verona, and Faenza.', icon: Compass },
+  { title: 'Scratch Proof Sintering', desc: 'High-density firing prevents surface scratches from micro-aggregates.', icon: Layers },
+  { title: 'Impermeable Seal', desc: 'Pre-treated surfaces with near-zero porosity, ideal for bathrooms.', icon: Droplets },
+  { title: 'Hygienic Maintenance', desc: 'Fungus-resistant grout matrices and simple soap-and-water cleanup.', icon: Flame },
+  { title: 'Lifetime Structural Integrity', desc: 'Resistant to glaze delamination, impact, and mineral colour fade.', icon: ShieldCheck },
+];
+
+const ACCORDIONS = [
+  { title: 'Moroccan Zellige Origin', content: 'Our handcrafted clay tiles are formed from raw clay extracted directly from ancient riverbeds near Fes, Morocco. Each tile is hand-molded and sun-baked before glaze firing, resulting in beautiful organic variations.' },
+  { title: 'Tile Sizes & Box Math', content: 'We package tiles in complete boxes to prevent transport chip damage. Small zellige clay tiles are packaged 50 pcs per box (covering ~5.5 sq ft), whereas large-format porcelain slabs are packed 2 pcs per box (covering ~27 sq ft).' },
+  { title: 'Recommended Grout Matrix', content: 'For professional installations, we recommend neutral non-sanded epoxy grout. Joint widths vary from 2mm (fine flush look for porcelain) to 5mm ( rustic traditional cleft spacing for slate and zellige clay).' },
+  { title: 'Maintenance & Sealing', content: 'Unfinished terracotta and natural slate require an application of a penetrating breathable sealer post-installation. Sintered porcelain and glossy glazed ceramics require no sealing.' },
+  { title: 'Tile Warranty Terms', content: 'All premium tiles carry a lifetime warranty against glaze cracks, solar colour fade, and base material delamination under standard residential environments.' },
+];
+
+const TESTIMONIALS = [
+  { quote: 'The zellige wall tiles are simply mesmerizing. The way the glossy surface catches the sunset light makes our kitchen feel alive.', author: 'Meera Subramanian', role: 'Coimbatore Residence', rating: 5 },
+  { quote: 'We went with the Calacatta porcelain tiles for the master bath. Seamless floor-to-wall tiling with 2mm joints was executed perfectly.', author: 'Karthik & Ananya R.', role: 'Bengaluru Villa', rating: 5 },
 ];
 
 export default function TilesPage() {
-  const [activeTileId, setActiveTileId] = useState(TILE_VARIETIES[0].id);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
 
-  // Calculator states
-  const [materialId, setMaterialId] = useState(SURFACE_MATERIALS[1].id); // starts with designer-tiles
-  const [length, setLength] = useState('');
-  const [width, setWidth] = useState('');
-  const [selectedTileSize, setSelectedTileSize] = useState('60x60'); // '60x60', '30x60', '10x10', '80x160'
-  const [groutWidth, setGroutWidth] = useState('3'); // '2', '3', '5' (mm)
-  const [wasteMargin, setWasteMargin] = useState(10); // 10%, 15%
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Consultation Modal Booking states
-  const [bookingModalOpen, setBookingModalOpen] = useState(false);
-  const [bookingName, setBookingName] = useState('');
-  const [bookingEmail, setBookingEmail] = useState('');
-  const [bookingMsg, setBookingMsg] = useState('');
-  const [bookingSuccess, setBookingSuccess] = useState(false);
+  // ── FILTER STATES ──
+  const [selectedMaterial, setSelectedMaterial] = useState('All');
+  const [selectedFinish, setSelectedFinish] = useState('All');
+  const [selectedColor, setSelectedColor] = useState('All');
+  const [selectedSize, setSelectedSize] = useState('All');
+  const [selectedPrice, setSelectedPrice] = useState('All');
+  const [selectedUse, setSelectedUse] = useState('All');
 
-  // Scroll to top on load
+  // Accordion state
+  const [openAccordion, setOpenAccordion] = useState(0);
+
+  // ── CALCULATOR STATES ──
+  const [calcLength, setCalcLength] = useState('');
+  const [calcWidth, setCalcWidth] = useState('');
+  const [calcGrout, setCalcGrout] = useState('3');
+  const [calcWaste, setCalcWaste] = useState(10);
+  const [calcTileSize, setCalcTileSize] = useState('60x60');
+  const [calcBookingOpen, setCalcBookingOpen] = useState(false);
+  const [calcBookingName, setCalcBookingName] = useState('');
+  const [calcBookingEmail, setCalcBookingEmail] = useState('');
+  const [calcBookingSuccess, setCalcBookingSuccess] = useState(false);
+
+  const materials = ['All', 'Porcelain Tiles', 'Ceramic Tiles', 'Terrazzo Tiles', 'Luxury Wall Tiles', 'Outdoor Tiling'];
+  const finishes = ['All', 'Polished Mirror', 'Glossy Glaze', 'Satin Honed', 'Metallic Satin', 'Natural Cleft'];
+  const colors = ['All', 'White', 'Green', 'Blue', 'Gold', 'Grey'];
+
+  const filteredProducts = useMemo(() => {
+    return PRODUCTS.filter(p => {
+      if (selectedMaterial !== 'All' && p.material !== selectedMaterial) return false;
+      if (selectedFinish !== 'All' && p.finish !== selectedFinish) return false;
+      if (selectedColor !== 'All' && p.color !== selectedColor) return false;
+      if (selectedSize !== 'All' && p.size !== selectedSize) return false;
+      if (selectedUse !== 'All') {
+        const wantsOutdoor = selectedUse === 'Outdoor';
+        if (p.outdoor !== wantsOutdoor) return false;
+      }
+      if (selectedPrice !== 'All') {
+        if (selectedPrice === 'Under ₹200' && p.price >= 200) return false;
+        if (selectedPrice === '₹200 - ₹350' && (p.price < 200 || p.price > 350)) return false;
+        if (selectedPrice === 'Over ₹350' && p.price <= 350) return false;
+      }
+      return true;
+    });
+  }, [selectedMaterial, selectedFinish, selectedColor, selectedSize, selectedUse, selectedPrice]);
+
+  // Calculator Math
+  const lenVal = parseFloat(calcLength) || 0;
+  const widVal = parseFloat(calcWidth) || 0;
+  const rawSqFt = lenVal * widVal;
+  const wasteMultiplier = 1 + calcWaste / 100;
+  const groutAdj = 1 - parseFloat(calcGrout) * 0.0015;
+  const adjustedArea = rawSqFt * wasteMultiplier * groutAdj;
+  
+  const tileCoverage = calcTileSize === '60x60' ? 3.88 : calcTileSize === '30x60' ? 1.94 : calcTileSize === '10x10' ? 0.11 : 13.78;
+  const perBox = calcTileSize === '60x60' ? 4 : calcTileSize === '30x60' ? 8 : calcTileSize === '10x10' ? 50 : 2;
+
+  const tilesNeeded = Math.ceil(adjustedArea / tileCoverage);
+  const boxesNeeded = Math.ceil(tilesNeeded / perBox);
+  const totalCost = adjustedArea * 210; // Avg tiles rate
+  const calcReady = lenVal > 0 && widVal > 0;
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    if (!calcBookingName || !calcBookingEmail) return;
+    setCalcBookingSuccess(true);
+    setTimeout(() => {
+      setCalcBookingSuccess(false);
+      setCalcBookingOpen(false);
+      setCalcBookingName('');
+      setCalcBookingEmail('');
+    }, 2500);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const activeTile = useMemo(() => {
-    return TILE_VARIETIES.find(t => t.id === activeTileId) || TILE_VARIETIES[0];
-  }, [activeTileId]);
-
-  const activeMaterial = useMemo(() => {
-    return SURFACE_MATERIALS.find(m => m.id === materialId) || SURFACE_MATERIALS[2];
-  }, [materialId]);
-
-  const isTileCalc = materialId.includes('tiles');
-
-  // Calculator Math
-  const l = parseFloat(length) || 0;
-  const w = parseFloat(width) || 0;
-  const rawArea = l * w;
-
-  // Waste multiplier
-  const wasteMultiplier = 1 + wasteMargin / 100;
-  
-  // Grout adjustment factor (only applies to tiles): 2mm ~ 1.002, 3mm ~ 1.004, 5mm ~ 1.008 (slightly reducing layout area needed)
-  const groutAdjustment = isTileCalc ? (1 - (parseFloat(groutWidth) * 0.0015)) : 1;
-  
-  const calculatedArea = rawArea * wasteMultiplier * groutAdjustment;
-
-  // Tile coverage math
-  const tileCoverageSqFt = useMemo(() => {
-    switch (selectedTileSize) {
-      case '60x60': return 3.88; // 0.6 * 0.6 m = 3.88 sq ft
-      case '30x60': return 1.94; // 0.3 * 0.6 m = 1.94 sq ft
-      case '10x10': return 0.11; // 0.1 * 0.1 m = 0.11 sq ft
-      case '80x160': return 13.78; // 0.8 * 1.6 m = 13.78 sq ft
-      default: return 3.88;
-    }
-  }, [selectedTileSize]);
-
-  const tilesNeeded = Math.ceil(calculatedArea / tileCoverageSqFt);
-  
-  // Package calculation (Assuming box coverage)
-  const tilesPerBox = useMemo(() => {
-    switch (selectedTileSize) {
-      case '60x60': return 4;  // 4 tiles = 15.52 sq ft
-      case '30x60': return 8;  // 8 tiles = 15.52 sq ft
-      case '10x10': return 50; // 50 tiles = 5.5 sq ft
-      case '80x160': return 2; // 2 tiles = 27.56 sq ft
-      default: return 4;
-    }
-  }, [selectedTileSize]);
-
-  const boxesNeeded = Math.ceil(tilesNeeded / tilesPerBox);
-  const totalCost = calculatedArea * activeMaterial.rate;
-
-  const calculatorReady = l > 0 && w > 0;
-
-  const handleBookingSubmit = (e) => {
-    e.preventDefault();
-    if (!bookingName || !bookingEmail) return;
-    setBookingSuccess(true);
-    setTimeout(() => {
-      setBookingSuccess(false);
-      setBookingModalOpen(false);
-      setBookingName('');
-      setBookingEmail('');
-      setBookingMsg('');
-    }, 2800);
-  };
-
   return (
-    <div className="min-h-screen bg-dark text-cream pt-24 pb-16">
-      {/* Background overlay glows */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div className="absolute top-1/3 left-0 w-[50vw] h-[50vw] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.06)_0%,transparent_70%)]" />
-        <div className="absolute bottom-10 right-0 w-[40vw] h-[40vw] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.02)_0%,transparent_60%)]" />
-      </div>
+    <div ref={containerRef} className="bg-[#FAF8F5] text-[#2A2A2A] overflow-hidden">
+      
+      {/* ── HERO SECTION ── */}
+      <section className="relative h-[95dvh] flex items-center justify-center overflow-hidden bg-dark">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0 w-full h-full">
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90"
+            alt="Artisan porcelain tiled wall in luxury interior lounge"
+            className="w-full h-full object-cover img-grade filter brightness-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-dark/40 to-dark/80" />
+        </motion.div>
 
-      <div className="wrap relative z-10">
-        {/* Back navigation */}
-        <div className="mb-8">
-          <a
-            href="#/"
-            className="inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.25em] text-gold hover:text-cream transition-colors group"
-          >
-            <span className="inline-block transition-transform duration-300 group-hover:-translate-x-1">&larr;</span>
-            Back to Home
-          </a>
-        </div>
-
-        {/* Hero header */}
-        <header className="mb-12 md:mb-16">
-          <p className="eyebrow mb-3 text-gold">Surface Atelier</p>
-          <div className="grid gap-6 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-8">
-              <h1 className="font-display text-[clamp(2.5rem,4.5vw,4.5rem)] font-medium leading-[1.05] tracking-tight">
-                Artisan Tiles &amp; <br />
-                <span className="italic text-gold">Porcelain Surfaces</span>
-              </h1>
-            </div>
-            <div className="md:col-span-4 md:col-start-9">
-              <p className="font-body text-sm leading-relaxed text-cream/50">
-                Textural details composed to elevate walls, backsplashes, and floor matrices. Handcrafted clays and sintered materials selected for performance and timeless aesthetic.
-              </p>
-            </div>
-          </div>
-          <div className="mt-8 line-gold max-w-xl origin-left" />
-        </header>
-
-        {/* SECTION: Interactive Visualizer */}
-        <section className="grid gap-8 lg:grid-cols-12 items-stretch mb-20">
-          {/* Left panel: Room Preview Image */}
-          <div className="lg:col-span-8 relative h-[350px] md:h-[450px] lg:h-[520px] rounded-2xl overflow-hidden border border-cream/10 bg-dark shadow-2xl">
-            <div className="absolute inset-0 z-20 border border-cream/5 rounded-2xl pointer-events-none" />
-            
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTile.id}
-                initial={{ opacity: 0, scale: 1.03 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0 w-full h-full"
-              >
-                <img
-                  src={activeTile.roomImage}
-                  alt={`${activeTile.name} in room scene`}
-                  className="w-full h-full object-cover img-grade"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/20 to-transparent" />
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Room Visualizer Active Label Overlay */}
-            <div className="absolute bottom-6 left-6 right-6 z-30 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-              <div>
-                <span className="font-body text-[9px] font-bold tracking-[0.25em] text-gold uppercase bg-dark/60 border border-gold/30 px-2 py-0.5 rounded-sm mb-2 inline-block">
-                  Live Visualizer Preview
-                </span>
-                <h3 className="font-display text-2xl text-cream md:text-3xl">
-                  {activeTile.name}
-                </h3>
-                <p className="font-body text-xs text-cream/75 max-w-md mt-1 leading-relaxed">
-                  {activeTile.description}
-                </p>
-              </div>
-              <div className="shrink-0">
-                <span className="text-sm font-body text-cream/50 block md:text-right">Material Pricing</span>
-                <span className="text-xl font-display text-gold">₹{activeTile.rate} <span className="text-xs font-body text-cream/60">/ sq ft</span></span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right panel: Swatch and info selector */}
-          <div className="lg:col-span-4 flex flex-col justify-between border border-cream/10 bg-cream/[0.02] p-6 md:p-8 rounded-2xl shadow-xl">
-            <div>
-              <span className="font-body text-[10px] font-bold tracking-widest text-gold uppercase block mb-3">
-                Select Tile Finish
-              </span>
-              <h2 className="font-display text-xl text-cream mb-6">
-                Interactive Swatches
-              </h2>
-
-              <div className="grid grid-cols-5 gap-3.5 mb-8">
-                {TILE_VARIETIES.map((t) => {
-                  const active = t.id === activeTileId;
-                  return (
-                    <button
-                      key={t.id}
-                      type="button"
-                      onClick={() => {
-                        setActiveTileId(t.id);
-                        // Pre-select appropriate tile size in calculator based on selected swatch
-                        if (t.id === 'emerald-zellige') setSelectedTileSize('10x10');
-                        else if (t.id === 'slate-grey') setSelectedTileSize('30x60');
-                        else if (t.id === 'calacatta-porcelain') setSelectedTileSize('80x160');
-                        else setSelectedTileSize('60x60');
-                      }}
-                      title={`Preview ${t.name}`}
-                      className={`relative aspect-square rounded-full border transition-all duration-300 ${
-                        active 
-                          ? 'border-gold scale-110 shadow-[0_0_12px_rgba(212,175,55,0.45)]' 
-                          : 'border-cream/25 hover:border-gold/60'
-                      }`}
-                      style={{ backgroundColor: t.swatchColor }}
-                    >
-                      {active && (
-                        <div className="absolute inset-1 rounded-full border border-dark opacity-50" />
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Technical Specifications */}
-              <div className="border-t border-cream/10 pt-6 space-y-4">
-                <span className="font-body text-[10px] font-bold tracking-widest text-gold uppercase block">
-                  Technical Specifications
-                </span>
-                
-                <div className="grid grid-cols-2 gap-y-3.5 text-xs font-body">
-                  <div>
-                    <span className="text-cream/45 block">Category</span>
-                    <span className="text-cream font-medium">{activeTile.category}</span>
-                  </div>
-                  <div>
-                    <span className="text-cream/45 block">Standard Size</span>
-                    <span className="text-cream font-medium">{activeTile.size}</span>
-                  </div>
-                  <div>
-                    <span className="text-cream/45 block">Thickness</span>
-                    <span className="text-cream font-medium">{activeTile.thickness}</span>
-                  </div>
-                  <div>
-                    <span className="text-cream/45 block">Surface Finish</span>
-                    <span className="text-cream font-medium leading-tight block">{activeTile.finish}</span>
-                  </div>
-                  <div className="col-span-2">
-                    <span className="text-cream/45 block">Studio Source / Origin</span>
-                    <span className="text-cream font-medium">{activeTile.origin}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <a
-              href="#contact"
-              onClick={() => {
-                // Return to home contact
-                window.location.hash = '#/contact';
-              }}
-              className="w-full text-center py-3.5 mt-8 bg-gold hover:bg-cream text-dark font-body text-[10px] font-bold uppercase tracking-[0.24em] rounded-sm transition-all shadow-md"
-            >
-              Order Sample Pack
+        <div className="wrap relative z-10 text-center max-w-5xl">
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+            <span className="eyebrow mb-6 tracking-[0.45em] text-[#C9A96E] block">Surfaces of Texture</span>
+            <h1 className="font-display text-[clamp(2.5rem,6.5vw,6.5rem)] font-medium leading-[1.02] tracking-tight text-white mb-6">
+              Artisan Tiles &amp;<br />
+              <span className="italic font-normal text-[#C9A96E]">Porcelain</span>
+            </h1>
+            <p className="max-w-2xl mx-auto font-body text-base font-light leading-[1.8] text-white/80 mb-10">
+              Hand-pressed Moroccan clays, Italian terrazzos, and sintered slabs designed with minimal tolerances for luxury environments.
+            </p>
+            <a href="#categories" className="px-10 py-4 border border-white/20 bg-white/5 backdrop-blur-md text-white font-body text-[11px] font-semibold uppercase tracking-[0.3em] hover:bg-white hover:text-dark transition-all duration-500 shadow-2xl">
+              Explore Collection
             </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── CATEGORIES ── */}
+      <section id="categories" className="py-20 md:py-28 bg-[#FAF8F5]">
+        <div className="wrap">
+          <div className="mb-14 text-center max-w-3xl mx-auto">
+            <span className="eyebrow text-[#C9A96E] mb-3">Architectural Kiln</span>
+            <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark">Tile Collections</h2>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent mx-auto mt-6" />
           </div>
-        </section>
 
-        {/* SECTION: Integrated Surface & Tile Calculator */}
-        <section id="calculator" className="border border-cream/10 rounded-2xl bg-cream/[0.01] p-6 md:p-10 relative overflow-hidden mb-8">
-          <div className="absolute -left-10 top-0 pointer-events-none w-[200px] h-[200px] bg-[radial-gradient(circle,rgba(212,175,55,0.03)_0%,transparent_70%)]" />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {CATEGORIES.map((cat, i) => (
+              <motion.div key={cat.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.05 }} className="group relative h-[420px] overflow-hidden cursor-pointer shadow-md">
+                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 img-grade" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/20 to-transparent" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <span className="font-body text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.35em] mb-2 block font-semibold">Series 0{i+1}</span>
+                  <h3 className="font-display text-2xl font-medium text-white mb-2">{cat.title}</h3>
+                  <p className="font-body text-xs text-white/70 leading-relaxed max-w-xs mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">{cat.description}</p>
+                  <div className="flex items-center gap-2 text-[#C9A96E] font-body text-[10px] font-bold uppercase tracking-[0.2em] transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">Explore Collection <ArrowUpRight className="w-3.5 h-3.5" /></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-            {/* Left Description Column */}
-            <div className="lg:col-span-4">
-              <p className="eyebrow text-gold mb-2.5">Investment</p>
-              <h2 className="font-display text-2xl md:text-3xl font-medium text-cream mb-4">
-                Estimate Your<br /><span className="italic text-gold">Surface Investment</span>
-              </h2>
-              <p className="font-body text-xs md:text-sm leading-relaxed text-cream/50">
-                Select your surface material, enter layout dimensions, and specify grout configurations. Receive an instant estimate tailored for luxury spaces.
-              </p>
-              <div className="mt-6 border-l-2 border-gold/45 pl-4 py-1.5 text-xs font-body italic text-cream/65">
-                Note: Standard slab calculations cover seamless granite placement. Tile layouts account for spacing cuts, joints, and packing boxes.
+      {/* ── STICKY FILTERS ── */}
+      <section className="sticky top-12 z-40 bg-white/95 border-y border-ink/8 backdrop-blur-md shadow-sm">
+        <div className="wrap py-4 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-dark/70">
+            <SlidersHorizontal className="w-4 h-4 text-[#C9A96E]" />
+            <span className="font-body text-[10px] font-semibold uppercase tracking-[0.25em] text-[#C9A96E]">Filter Tiles</span>
+          </div>
+
+          <div className="flex flex-wrap gap-2.5">
+            <select value={selectedMaterial} onChange={e => setSelectedMaterial(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
+              <option value="All">All Formats</option>
+              {materials.slice(1).map(m => <option key={m} value={m}>{m}</option>)}
+            </select>
+            <select value={selectedFinish} onChange={e => setSelectedFinish(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
+              <option value="All">All Finishes</option>
+              {finishes.slice(1).map(f => <option key={f} value={f}>{f}</option>)}
+            </select>
+            <select value={selectedColor} onChange={e => setSelectedColor(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
+              <option value="All">All Colors</option>
+              {colors.slice(1).map(c => <option key={c} value={c}>{c}</option>)}
+            </select>
+            <select value={selectedPrice} onChange={e => setSelectedPrice(e.target.value)} className="px-3.5 py-2 bg-[#FAF8F5] border border-ink/10 text-xs font-body text-dark/80 rounded-none outline-none focus:border-[#C9A96E] cursor-pointer">
+              <option value="All">All Pricing</option>
+              <option value="Under ₹200">Under ₹200 / sqft</option>
+              <option value="₹200 - ₹350">₹200 - ₹350 / sqft</option>
+              <option value="Over ₹350">Over ₹350 / sqft</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED GRID ── */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="wrap">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <AnimatePresence mode="popLayout">
+              {filteredProducts.map(prod => (
+                <motion.div key={prod.name} layout initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.96 }} transition={{ duration: 0.6 }} className="group relative bg-[#FAF8F5] border border-[#C9A96E]/10 p-4 hover:border-[#C9A96E]/40 transition-all duration-500 shadow-md">
+                  <div className="absolute top-6 left-6 z-10 bg-dark/75 border border-[#C9A96E]/40 backdrop-blur-md px-3 py-1 text-[9px] font-body font-semibold uppercase tracking-[0.25em] text-[#C9A96E]">{prod.badge}</div>
+                  <div className="relative aspect-[4/5] overflow-hidden bg-white mb-6">
+                    <img src={prod.image} alt={prod.name} className="w-full h-full object-cover img-grade transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <span className="font-body text-[10px] font-semibold text-[#C9A96E] uppercase tracking-wider">{prod.material}</span>
+                    <div className="flex justify-between items-baseline">
+                      <h3 className="font-display text-xl font-medium text-dark">{prod.name}</h3>
+                      <span className="font-display text-lg text-[#8B6914] font-semibold">₹{prod.price} <span className="text-[10px] font-body text-ink/40 font-normal">/ sqft</span></span>
+                    </div>
+                    <div className="mt-4 border-t border-ink/8 pt-3 grid grid-cols-2 gap-2 text-[11px] font-body text-ink/50">
+                      <div>
+                        <span className="block text-[9px] uppercase tracking-wider text-ink/35">Format Size</span>
+                        <span className="font-medium text-dark/80">{prod.size}</span>
+                      </div>
+                      <div>
+                        <span className="block text-[9px] uppercase tracking-wider text-ink/35">Glaze Finish</span>
+                        <span className="font-medium text-dark/80">{prod.finish}</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INSPIRATION ── */}
+      <section className="py-20 md:py-28 bg-[#FAF8F5]">
+        <div className="wrap">
+          <div className="mb-14 text-center max-w-3xl mx-auto">
+            <span className="eyebrow text-[#C9A96E] mb-3">Atmosphere Curation</span>
+            <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark">Inspiration Gallery</h2>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent mx-auto mt-6" />
+          </div>
+
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {INSPIRATION.map(ins => (
+              <div key={ins.title} className="group relative overflow-hidden bg-white border border-[#C9A96E]/10 p-3 shadow-md break-inside-avoid">
+                <div className="relative overflow-hidden aspect-[4/5] bg-dark">
+                  <img src={ins.image} alt={ins.title} className="w-full h-full object-cover img-grade transition-transform duration-1000 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6" />
+                </div>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                  <span className="font-body text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.25em] mb-2">{ins.tag}</span>
+                  <h3 className="font-display text-lg font-medium text-white">{ins.title}</h3>
+                </div>
+                <div className="p-3 flex items-center justify-between border-t border-ink/5 mt-2 bg-white">
+                  <span className="font-body text-[10px] font-bold text-ink/40 uppercase tracking-widest">{ins.tag}</span>
+                  <span className="font-body text-[11px] font-semibold text-dark/75">{ins.title.split(',')[1] || ins.title}</span>
+                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE US ── */}
+      <section className="py-20 md:py-28 bg-white border-y border-ink/5">
+        <div className="wrap">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {BENEFITS.map((b, idx) => {
+              const IconComp = b.icon;
+              return (
+                <div key={b.title} className="border border-[#C9A96E]/15 bg-[#FAF8F5] p-8 hover:border-[#C9A96E]/40 hover:bg-white transition-all duration-500 shadow-sm">
+                  <div className="w-12 h-12 border border-[#C9A96E]/20 bg-white flex items-center justify-center text-[#C9A96E] mb-6">
+                    <IconComp className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-display text-xl font-medium text-dark mb-3">{b.title}</h3>
+                  <p className="font-body text-xs text-ink/50 leading-relaxed">{b.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ACCORDION SPECS ── */}
+      <section className="py-20 md:py-28 bg-[#FAF8F5]">
+        <div className="wrap">
+          <div className="viewport-grid items-start gap-12">
+            <div className="lg:col-span-5">
+              <span className="eyebrow text-[#C9A96E] mb-3">Tiling Matrix</span>
+              <h2 className="font-display text-4xl md:text-5xl font-medium leading-tight text-dark mb-6">Technical Specifications</h2>
+              <div className="line-gold max-w-sm" />
             </div>
+            <div className="lg:col-span-7 space-y-4">
+              {ACCORDIONS.map((acc, idx) => {
+                const isOpen = openAccordion === idx;
+                return (
+                  <div key={acc.title} className="border border-[#C9A96E]/15 bg-white shadow-sm overflow-hidden">
+                    <button type="button" onClick={() => setOpenAccordion(isOpen ? -1 : idx)} className="w-full flex items-center justify-between p-6 text-left">
+                      <h3 className="font-display text-lg font-medium text-dark">{acc.title}</h3>
+                      <ChevronDown className={`w-4 h-4 text-[#C9A96E] transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} transition={{ duration: 0.45 }}>
+                          <div className="px-6 pb-6 pt-2 border-t border-ink/5 font-body text-xs leading-relaxed text-ink/60">{acc.content}</div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Right Form & Outputs Column */}
-            <div className="lg:col-span-8 bg-dark border border-cream/10 p-5 md:p-8 rounded-xl shadow-2xl relative">
-              <div className="absolute top-0 right-0 w-8 h-8 border-r border-t border-gold/40 pointer-events-none" />
-
-              {/* Material Selector Fieldset */}
-              <fieldset className="mb-6 border-b border-cream/10 pb-5">
-                <legend className="mb-3 font-body text-[10px] font-semibold uppercase tracking-[0.24em] text-gold">
-                  Select Material
-                </legend>
-                <div className="flex flex-wrap gap-2">
-                  {SURFACE_MATERIALS.map((item) => {
-                    const selected = item.id === materialId;
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        onClick={() => setMaterialId(item.id)}
-                        aria-pressed={selected}
-                        className={`rounded-sm border px-3 py-2 font-body text-[10px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
-                          selected
-                            ? 'border-gold bg-gold/15 text-gold shadow-glow-sm'
-                            : 'border-cream/20 bg-cream/[0.04] text-cream/60 hover:border-gold/35 hover:text-cream'
-                        }`}
-                      >
-                        {item.label}
-                      </button>
-                    );
-                  })}
+      {/* ── PROJECT SHOWCASE ── */}
+      <section className="py-20 md:py-28 bg-white border-t border-ink/5">
+        <div className="wrap">
+          <div className="space-y-20">
+            {PROJECTS.map((proj, idx) => {
+              const imageFirst = idx % 2 === 0;
+              return (
+                <div key={proj.name} className="grid gap-8 lg:grid-cols-12 items-center">
+                  <div className={`lg:col-span-7 ${imageFirst ? '' : 'lg:order-2'}`}>
+                    <img src={proj.image} alt={proj.name} className="w-full aspect-[16/10] object-cover shadow-xl border border-ink/10 img-grade" />
+                  </div>
+                  <div className={`lg:col-span-5 ${imageFirst ? '' : 'lg:order-1'}`}>
+                    <span className="font-body text-[10px] font-bold text-[#C9A96E] uppercase tracking-[0.25em] mb-3 block">Completed Tiling</span>
+                    <h3 className="font-display text-3xl font-medium text-dark mb-4">{proj.name}</h3>
+                    <div className="my-5 border-y border-ink/8 py-4 font-body text-xs text-ink/50 space-y-2">
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Material Sourced</span><span className="font-medium text-dark/80">{proj.material}</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Location</span><span className="font-medium text-dark/80">{proj.location}</span></div>
+                    </div>
+                    <a href="/#contact" className="btn-gold w-full text-center justify-center"><span>Explore Case Study</span></a>
+                  </div>
                 </div>
-              </fieldset>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mb-6">
-                {/* Length Input */}
+      {/* ── CALCULATOR ── */}
+      <section id="tile-calculator" className="py-20 md:py-28 bg-[#F2ECE5]">
+        <div className="wrap">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-4">
+              <span className="eyebrow text-[#C9A96E] mb-3">Investment Plan</span>
+              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">Estimate Tiling</h2>
+              <p className="font-body text-sm leading-relaxed text-ink/60">Configure room dimensions, layout joints, and waste buffer to compute total pieces and box packaging counts.</p>
+            </div>
+            <div className="lg:col-span-8 bg-white border border-[#C9A96E]/20 p-6 md:p-10 shadow-lg">
+              <div className="grid gap-5 sm:grid-cols-3 mb-6">
                 <div>
-                  <label htmlFor="tile-len" className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-2">
-                    Length (ft)
-                  </label>
-                  <input
-                    id="tile-len"
-                    type="number"
-                    min="0"
-                    placeholder="0"
-                    value={length}
-                    onChange={(e) => setLength(e.target.value)}
-                    className="w-full bg-cream/[0.05] border border-cream/20 px-4 py-3 text-lg font-display text-cream rounded-sm outline-none focus:border-gold"
-                  />
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Length (ft)</label>
+                  <input type="number" min="0" placeholder="0" value={calcLength} onChange={e => setCalcLength(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-4 py-3 text-lg font-display text-dark outline-none focus:border-[#C9A96E]" />
                 </div>
-
-                {/* Width Input */}
                 <div>
-                  <label htmlFor="tile-wid" className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-2">
-                    Width (ft)
-                  </label>
-                  <input
-                    id="tile-wid"
-                    type="number"
-                    min="0"
-                    placeholder="0"
-                    value={width}
-                    onChange={(e) => setWidth(e.target.value)}
-                    className="w-full bg-cream/[0.05] border border-cream/20 px-4 py-3 text-lg font-display text-cream rounded-sm outline-none focus:border-gold"
-                  />
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Width (ft)</label>
+                  <input type="number" min="0" placeholder="0" value={calcWidth} onChange={e => setCalcWidth(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-4 py-3 text-lg font-display text-dark outline-none focus:border-[#C9A96E]" />
                 </div>
-
-                {/* Waste Margin Selector */}
                 <div>
-                  <label htmlFor="waste-pct" className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-2">
-                    Waste &amp; Cutting Margin
-                  </label>
-                  <select
-                    id="waste-pct"
-                    value={wasteMargin}
-                    onChange={(e) => setWasteMargin(parseInt(e.target.value))}
-                    className="w-full bg-[#081229] border border-cream/20 px-3.5 py-3 text-xs font-body text-cream rounded-sm outline-none focus:border-gold"
-                  >
-                    <option value="10">10% (Straight lay grid)</option>
-                    <option value="15">15% (Diagonal / Herringbone)</option>
-                    <option value="5">5% (Simple slab borders)</option>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Cutting Waste</label>
+                  <select value={calcWaste} onChange={e => setCalcWaste(parseInt(e.target.value))} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="5">5% (Straight run)</option>
+                    <option value="10">10% (Standard grid)</option>
+                    <option value="15">15% (Herringbone)</option>
                   </select>
                 </div>
-
-                {/* Conditional Tile Inputs */}
-                {isTileCalc && (
-                  <>
-                    {/* Tile Size Selector */}
-                    <div>
-                      <label htmlFor="tile-sz" className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-2">
-                        Tile Format Size
-                      </label>
-                      <select
-                        id="tile-sz"
-                        value={selectedTileSize}
-                        onChange={(e) => setSelectedTileSize(e.target.value)}
-                        className="w-full bg-[#081229] border border-cream/20 px-3.5 py-3 text-xs font-body text-cream rounded-sm outline-none focus:border-gold"
-                      >
-                        <option value="60x60">60x60 cm (Terrazzo / Porcelain)</option>
-                        <option value="30x60">30x60 cm (Slate / Granite)</option>
-                        <option value="10x10">10x10 cm (Zellige Clay)</option>
-                        <option value="80x160">80x160 cm (Luxe Porcelain)</option>
-                      </select>
-                    </div>
-
-                    {/* Grout Width Selector */}
-                    <div>
-                      <label htmlFor="grout-sz" className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-2">
-                        Grout Joint Width
-                      </label>
-                      <select
-                        id="grout-sz"
-                        value={groutWidth}
-                        onChange={(e) => setGroutWidth(e.target.value)}
-                        className="w-full bg-[#081229] border border-cream/20 px-3.5 py-3 text-xs font-body text-cream rounded-sm outline-none focus:border-gold"
-                      >
-                        <option value="2">2 mm (Fine flush fit)</option>
-                        <option value="3">3 mm (Standard joint)</option>
-                        <option value="5">5 mm (Artisan rustique)</option>
-                      </select>
-                    </div>
-                  </>
-                )}
-
-                {/* Selected Swatch Mirror */}
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 mb-6">
                 <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-2">
-                    Current Rate
-                  </label>
-                  <div className="flex items-center gap-2.5 h-[46px] border border-cream/15 px-3.5 bg-cream/[0.02] rounded-sm text-xs font-body">
-                    <span className="text-gold font-semibold uppercase">{activeMaterial.label}</span>
-                    <span className="text-cream/50 ml-auto">₹{activeMaterial.rate} / sq ft</span>
-                  </div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Format Size</label>
+                  <select value={calcTileSize} onChange={e => setCalcTileSize(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="60x60">60×60 cm (Terrazzo)</option>
+                    <option value="30x60">30×60 cm (Slate)</option>
+                    <option value="10x10">10×10 cm (Moroccan Clay)</option>
+                    <option value="80x160">80×160 cm (Porcelain)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Grout Width</label>
+                  <select value={calcGrout} onChange={e => setCalcGrout(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="2">2 mm (Fine fit)</option>
+                    <option value="3">3 mm (Standard)</option>
+                    <option value="5">5 mm (Rustic)</option>
+                  </select>
                 </div>
               </div>
 
-              {/* Calculator output block */}
-              <div className="mt-6 border border-cream/10 bg-cream/[0.04] p-5 rounded-lg">
+              <div className="border border-[#C9A96E]/20 bg-[#FAF8F5] p-5 mb-6">
                 <AnimatePresence mode="wait">
-                  {calculatorReady ? (
-                    <motion.div
-                      key={`${activeMaterial.id}-${rawArea}-${selectedTileSize}-${groutWidth}-${wasteMargin}`}
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-xs font-body text-cream/70"
-                    >
-                      <div>
-                        <span className="text-cream/45 block mb-1">Layout Area</span>
-                        <span className="text-xl font-display text-cream block">{formatNumber(rawArea, { maximumFractionDigits: 1 })} <span className="text-xs font-body text-cream/50">sq ft</span></span>
-                      </div>
-                      
-                      {isTileCalc ? (
-                        <>
-                          <div>
-                            <span className="text-cream/45 block mb-1">Total Tiles Needed</span>
-                            <span className="text-xl font-display text-cream block">{formatNumber(tilesNeeded)} <span className="text-xs font-body text-cream/50">pcs</span></span>
-                            <span className="text-[10px] text-cream/40 leading-none">incl. {wasteMargin}% waste</span>
-                          </div>
-                          <div>
-                            <span className="text-cream/45 block mb-1">Boxes to Order</span>
-                            <span className="text-xl font-display text-cream block">{formatNumber(boxesNeeded)} <span className="text-xs font-body text-cream/50">boxes</span></span>
-                            <span className="text-[10px] text-cream/40 leading-none">({tilesPerBox} pcs / box)</span>
-                          </div>
-                        </>
-                      ) : (
-                        <div className="col-span-2">
-                          <span className="text-cream/45 block mb-1">Total Adjusted Slab Area</span>
-                          <span className="text-xl font-display text-cream block">{formatNumber(calculatedArea, { maximumFractionDigits: 1 })} <span className="text-xs font-body text-cream/50">sq ft</span></span>
-                          <span className="text-[10px] text-cream/40 leading-none">incl. {wasteMargin}% cut layout buffer</span>
-                        </div>
-                      )}
-
-                      <div>
-                        <span className="text-cream/45 block mb-1">Estimated Investment</span>
-                        <span className="text-xl font-display text-gold block">{formatCurrency(totalCost)}</span>
-                        <span className="text-[10px] text-cream/40 leading-none">indicative pricing</span>
-                      </div>
+                  {calcReady ? (
+                    <motion.div key={`${rawSqFt}-${calcGrout}-${calcWaste}`} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Layout Area</span><span className="font-display text-xl text-dark font-medium">{formatNumber(rawSqFt, { maximumFractionDigits: 1 })} sqft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Tiles Needed</span><span className="font-display text-xl text-dark font-medium">{formatNumber(tilesNeeded)} pcs</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Boxes Needed</span><span className="font-display text-xl text-dark font-medium">{formatNumber(boxesNeeded)} box</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Est. Cost</span><span className="font-display text-xl text-[#8B6914] font-semibold">{formatCurrency(totalCost)}</span></div>
                     </motion.div>
                   ) : (
-                    <div className="flex h-12 items-center justify-center">
-                      <p className="text-xs font-body text-cream/55">
-                        Please enter length and width dimensions to estimate surface cost in Indian Rupees.
-                      </p>
-                    </div>
+                    <div className="text-center py-4 font-body text-xs text-ink/40">Enter layout dimensions to calculate.</div>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* Book Consultation Button */}
-              <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-cream/5 pt-5">
-                <span className="text-xs font-body text-cream/45">
-                  Pre-fill calculator results in your advisory consultation inquiry.
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setBookingModalOpen(true)}
-                  className="px-6 py-3.5 bg-gold text-dark hover:bg-cream hover:text-dark font-body text-[10px] font-bold uppercase tracking-[0.24em] rounded-sm transition-all duration-300 shadow-md hover:shadow-glow-sm"
-                >
-                  Book Consultation
-                </button>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-ink/8 pt-5">
+                <span className="font-body text-xs text-ink/40">Includes layout recommendations and box delivery scheduling.</span>
+                <button type="button" onClick={() => setCalcBookingOpen(true)} className="btn-solid w-full text-center sm:w-auto">Request Samples</button>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      {/* Book Consultation Modal */}
-      <AnimatePresence>
-        {bookingModalOpen && (
-          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setBookingModalOpen(false)}
-              className="absolute inset-0 bg-dark/85 backdrop-blur-md"
-            />
-
-            {/* Modal Box */}
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, ease: EASE_LUXURY }}
-              className="relative w-full max-w-lg bg-dark border border-gold/30 rounded-xl overflow-hidden p-6 md:p-8 z-10 shadow-2xl"
-            >
-              <button
-                type="button"
-                onClick={() => setBookingModalOpen(false)}
-                className="absolute top-4 right-4 text-cream/50 hover:text-gold transition-colors font-body text-sm font-semibold"
-                aria-label="Close modal"
-              >
-                CLOSE
-              </button>
-
-              <p className="eyebrow text-gold mb-1">Consultation Scheduler</p>
-              <h3 className="font-display text-xl md:text-2xl text-cream mb-4">
-                Book Consultation
-              </h3>
-
-              {/* Estimate Details Box */}
-              <div className="bg-cream/[0.03] border border-cream/10 p-4 rounded-sm text-xs font-body text-cream/70 mb-5 space-y-1.5">
-                <div>
-                  <span className="text-gold font-bold uppercase tracking-wider text-[9px] mr-2">Selected Material:</span>
-                  <span className="text-cream font-medium">{activeMaterial.label}</span>
+      {/* Testimonials */}
+      <section className="py-20 md:py-28 bg-[#FAF8F5] border-t border-ink/5">
+        <div className="wrap">
+          <div className="grid gap-8 sm:grid-cols-2">
+            {TESTIMONIALS.map(t => (
+              <div key={t.author} className="bg-white border border-[#C9A96E]/15 p-8 shadow-sm flex flex-col justify-between h-72">
+                <p className="font-body text-sm italic leading-relaxed text-ink/70">"{t.quote}"</p>
+                <div className="border-t border-ink/5 pt-4 mt-6">
+                  <h4 className="font-display text-base font-medium text-dark">{t.author}</h4>
+                  <span className="font-body text-[10px] text-ink/40 uppercase tracking-widest">{t.role}</span>
                 </div>
-                {calculatorReady && (
-                  <>
-                    <div>
-                      <span className="text-gold font-bold uppercase tracking-wider text-[9px] mr-2">Dimensions:</span>
-                      <span className="text-cream font-medium">{length} ft x {width} ft ({formatNumber(rawArea, { maximumFractionDigits: 1 })} sq ft)</span>
-                    </div>
-                    <div>
-                      <span className="text-gold font-bold uppercase tracking-wider text-[9px] mr-2">Estimated Investment:</span>
-                      <span className="text-gold font-semibold">{formatCurrency(totalCost)}</span>
-                    </div>
-                  </>
-                )}
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {bookingSuccess ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="py-10 text-center"
-                >
-                  <span className="block text-4xl mb-4">✓</span>
-                  <p className="font-display text-lg text-gold mb-2">Consultation Booked</p>
-                  <p className="font-body text-xs text-cream/60">We will call/email you in the next 24 hours to confirm your designer slots.</p>
-                </motion.div>
+      {/* CTA Banner */}
+      <section className="relative py-24 md:py-32 overflow-hidden bg-dark text-white text-center">
+        <div className="absolute inset-0 w-full h-full">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90" alt="Fine mosaic tiled wall surface texture" className="w-full h-full object-cover img-grade filter brightness-[0.25]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-dark" />
+        </div>
+        <div className="wrap relative z-10 max-w-4xl mx-auto">
+          <span className="eyebrow text-[#C9A96E] mb-6 block">Bespoke Design Services</span>
+          <h2 className="font-display text-4xl md:text-6xl font-medium tracking-tight text-white mb-8">Bring Texture Into Every Space</h2>
+          <a href="/#contact" className="px-10 py-4 border border-[#C9A96E] bg-[#C9A96E]/10 hover:bg-[#C9A96E] text-[#C9A96E] hover:text-white font-body text-[11px] font-semibold uppercase tracking-[0.3em] transition-all duration-500">Schedule Consultation</a>
+        </div>
+      </section>
+
+      {/* Calculator Modal */}
+      <AnimatePresence>
+        {calcBookingOpen && (
+          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCalcBookingOpen(false)} className="absolute inset-0 bg-dark/70 backdrop-blur-sm" />
+            <motion.div initial={{ scale: 0.95, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.95, opacity: 0, y: 20 }} className="relative w-full max-w-md bg-white border border-[#C9A96E]/30 p-7 md:p-9 z-10 shadow-2xl">
+              <button type="button" onClick={() => setCalcBookingOpen(false)} className="absolute top-4 right-4 font-body text-xs font-bold uppercase tracking-widest text-ink/40 hover:text-[#C9A96E] transition-colors">Close ✕</button>
+              <h3 className="font-display text-2xl text-dark mb-4">Book a Consultation</h3>
+              {calcBookingSuccess ? (
+                <div className="py-10 text-center">
+                  <span className="block text-4xl mb-4 text-[#C9A96E]">✓</span>
+                  <p className="font-display text-lg text-dark">Request Received</p>
+                </div>
               ) : (
                 <form onSubmit={handleBookingSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="booking-name" className="block font-body text-[10px] uppercase tracking-widest text-gold mb-1">
-                      Full Name
-                    </label>
-                    <input
-                      id="booking-name"
-                      type="text"
-                      required
-                      placeholder="Meera Sundaram"
-                      value={bookingName}
-                      onChange={(e) => setBookingName(e.target.value)}
-                      className="w-full bg-cream/[0.05] border border-cream/20 px-3.5 py-2.5 text-sm font-body text-cream rounded-sm outline-none focus:border-gold"
-                    />
+                    <label className="block font-body text-[10px] uppercase tracking-widest text-[#C9A96E] mb-1">Full Name</label>
+                    <input type="text" required placeholder="Meera Sundaram" value={calcBookingName} onChange={e => setCalcBookingName(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-2.5 text-sm font-body text-dark outline-none focus:border-[#C9A96E]" />
                   </div>
                   <div>
-                    <label htmlFor="booking-email" className="block font-body text-[10px] uppercase tracking-widest text-gold mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      id="booking-email"
-                      type="email"
-                      required
-                      placeholder="meera@example.com"
-                      value={bookingEmail}
-                      onChange={(e) => setBookingEmail(e.target.value)}
-                      className="w-full bg-cream/[0.05] border border-cream/20 px-3.5 py-2.5 text-sm font-body text-cream rounded-sm outline-none focus:border-gold"
-                    />
+                    <label className="block font-body text-[10px] uppercase tracking-widest text-[#C9A96E] mb-1">Email Address</label>
+                    <input type="email" required placeholder="meera@example.com" value={calcBookingEmail} onChange={e => setCalcBookingEmail(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-2.5 text-sm font-body text-dark outline-none focus:border-[#C9A96E]" />
                   </div>
-                  <div>
-                    <label htmlFor="booking-msg" className="block font-body text-[10px] uppercase tracking-widest text-gold mb-1">
-                      Additional Site Notes (Optional)
-                    </label>
-                    <textarea
-                      id="booking-msg"
-                      rows="3"
-                      placeholder="Living room flooring project in Chennai. Looking to coordinate matching wall tiles."
-                      value={bookingMsg}
-                      onChange={(e) => setBookingMsg(e.target.value)}
-                      className="w-full bg-cream/[0.05] border border-cream/20 px-3.5 py-2.5 text-sm font-body text-cream rounded-sm outline-none focus:border-gold resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full text-center py-3.5 bg-gold hover:bg-gold/90 text-dark font-body text-[10px] font-bold uppercase tracking-[0.24em] rounded-sm transition-all shadow-md mt-4"
-                  >
-                    Confirm Booking Schedule
-                  </button>
+                  <button type="submit" className="btn-solid w-full text-center mt-2">Confirm Booking</button>
                 </form>
               )}
             </motion.div>

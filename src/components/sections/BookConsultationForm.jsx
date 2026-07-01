@@ -59,11 +59,7 @@ export default function BookConsultationForm() {
             <div className="border-t border-dark/10 pt-6 space-y-4 font-body text-xs text-ink/60">
               <div>
                 <span className="font-bold text-gold uppercase tracking-wider block mb-1">Chennai Atelier</span>
-                <span>12, Khader Nawaz Khan Rd, Nungambakkam · 10 AM - 8 PM</span>
-              </div>
-              <div>
-                <span className="font-bold text-gold uppercase tracking-wider block mb-1">Madurai Studio</span>
-                <span>45, Bypass Road, Madurai · 10 AM - 7 PM</span>
+                <span>No. 3, Seemathamman Nagar, Maduravoyal, Chennai · 10 AM - 8 PM</span>
               </div>
             </div>
           </div>
@@ -169,8 +165,7 @@ export default function BookConsultationForm() {
                           onChange={(e) => setLocation(e.target.value)}
                           className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         >
-                          <option value="Chennai Showroom">Chennai Showroom (K.N.K Rd)</option>
-                          <option value="Madurai Studio">Madurai Studio (Bypass Rd)</option>
+                          <option value="Chennai Showroom">Chennai Showroom (Maduravoyal)</option>
                           <option value="Virtual Consultation">Virtual Design Review (Zoom/Meet)</option>
                         </select>
                       </div>

@@ -50,7 +50,7 @@ export default function ContactFooter() {
                 fabricated, and installed for refined residential and commercial interiors across South India.
               </p>
               <p className="mt-3 font-body text-xs uppercase tracking-[0.24em] text-gold/75">
-                Est. 2010 · Chennai & Madurai
+                Est. 2010 · Chennai
               </p>
             </div>
 
@@ -89,12 +89,19 @@ export default function ContactFooter() {
               <div>
                 <p className="eyebrow mb-4">Get In Touch</p>
                 <div className="space-y-3">
-                  <FooterLink href="mailto:hello@amaraliving.com" icon={IconMail} label="Email">
-                    hello@amaraliving.com
+                  <FooterLink href="mailto:connect@amaraliv.com" icon={IconMail} label="General Inquiries">
+                    connect@amaraliv.com
                   </FooterLink>
-                  <FooterLink href="tel:+914412345678" icon={IconPhone} label="Phone">
-                    +91 44 1234 5678
+                  <FooterLink href="mailto:sales@amaraliv.com" icon={IconMail} label="Sales Department">
+                    sales@amaraliv.com
                   </FooterLink>
+                  <FooterLink href="tel:7397623509" icon={IconPhone} label="Mobile Contact">
+                    +91 73976 23509
+                  </FooterLink>
+                  <div className="text-[10px] font-body text-cream/40 pt-2 border-t border-cream/5">
+                    <span className="block text-gold/75 uppercase tracking-wider font-semibold mb-1">Tax Registration</span>
+                    GST: 33BRYPA3994H1ZB
+                  </div>
                 </div>
               </div>
 

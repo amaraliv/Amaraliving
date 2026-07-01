@@ -74,11 +74,11 @@ export default function CraftsmanshipStory() {
     <section 
       ref={sectionRef} 
       id="story" 
-      className="relative bg-[#070f21] text-cream py-16 md:py-24 lg:py-28 overflow-hidden"
+      className="relative bg-[#1A1008] text-cream py-16 md:py-24 lg:py-28 overflow-hidden"
     >
       {/* Background gradients */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.06)_0%,_transparent_55%)]" />
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom_left,_rgba(7,27,68,0.4)_0%,_transparent_60%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom_left,_rgba(26,16,8,0.6)_0%,_transparent_60%)]" />
 
       <div className="wrap">
         <div className="viewport-grid gap-10 lg:gap-14 items-start">
@@ -128,7 +128,7 @@ export default function CraftsmanshipStory() {
                   {
                     phase: '03',
                     title: 'MANUFACTURING',
-                    text: 'Precision cutting, finishing, and assembly by artisans across our Chennai and Madurai studios.',
+                    text: 'Precision cutting, finishing, and assembly by artisans at our Chennai studio.',
                     icon: (
                       <svg className="w-5 h-5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.43l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.991l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
@@ -158,7 +158,7 @@ export default function CraftsmanshipStory() {
                 ].map((step) => (
                   <div key={step.phase} className="craft-step relative flex items-start gap-5 z-10">
                     <div className="flex flex-col items-center shrink-0">
-                      <div className="h-10 w-10 rounded-full border border-gold/40 flex items-center justify-center bg-[#070f21] text-xs font-bold text-gold shadow-[0_0_15px_rgba(212,175,55,0.15)]">
+                      <div className="h-10 w-10 rounded-full border border-gold/40 flex items-center justify-center bg-[#1A1008] text-xs font-bold text-gold shadow-[0_0_15px_rgba(212,175,55,0.15)]">
                         {step.phase}
                       </div>
                     </div>
@@ -240,7 +240,7 @@ export default function CraftsmanshipStory() {
                 ].map((feat) => (
                   <div 
                     key={feat.title} 
-                    className="border border-gold/15 bg-[#0c1833] rounded-xl p-4 md:p-5 flex flex-col items-start gap-3.5 hover:border-gold/45 hover:shadow-[0_8px_30px_rgba(212,175,55,0.06)] transition-all duration-300"
+                    className="border border-gold/15 bg-[#241408] rounded-xl p-4 md:p-5 flex flex-col items-start gap-3.5 hover:border-gold/45 hover:shadow-[0_8px_30px_rgba(212,175,55,0.06)] transition-all duration-300"
                   >
                     <div className="h-10 w-10 rounded-lg border border-gold/30 bg-gold/5 flex items-center justify-center text-gold shadow-inner">
                       {feat.icon}
@@ -255,7 +255,7 @@ export default function CraftsmanshipStory() {
             </div>
 
             {/* Row 2: Wreath & Stat strip */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4 px-6 border border-gold/10 bg-[#0c1833]/30 rounded-xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4 px-6 border border-gold/10 bg-[#241408]/30 rounded-xl">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 shrink-0">
                   <svg className="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

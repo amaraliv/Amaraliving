@@ -3,13 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { NAV_LINKS } from '../../constants/navigation';
 import { IMG } from '../../data/content';
 import { EASE_LUXURY } from '../../constants/animations';
+import logoImg from '../../assets/images/amara-logo.png';
 
-// Map NAV_LINKS hrefs to high-res preview images for hover visual effect
 const PREVIEW_IMAGES = {
+  '#/': IMG.hero,
   '#spaces': IMG.livingRoom,
   '#materials': IMG.granite,
   '#/furniture': IMG.furniture,
   '#/tiles': IMG.tiles,
+  '#/granite': IMG.granite,
   '#story': IMG.concept,
   '#surfaces': IMG.granite,
   '#contact': IMG.kitchen,
@@ -49,14 +51,16 @@ export default function NavigationSidebar({ onClose, currentPath, isSubpage, act
         exit={{ x: '100%' }}
         transition={{ duration: 0.55, ease: EASE_LUXURY }}
         data-lenis-prevent
-        className="fixed right-0 top-0 bottom-0 z-[10001] w-full max-w-[460px] bg-[#071126] text-cream border-l border-cream/10 p-8 md:p-12 shadow-2xl flex flex-col justify-between overflow-y-auto"
+        className="fixed right-0 top-0 bottom-0 z-[10001] w-full max-w-[460px] bg-[#1A1008] text-cream border-l border-gold/20 p-8 md:p-12 shadow-2xl flex flex-col justify-between overflow-y-auto"
       >
         <div>
           {/* Header row */}
           <div className="flex items-center justify-between border-b border-cream/10 pb-6 mb-8">
-            <span className="font-display text-lg font-medium text-cream">
-              Amara <span className="italic text-gold">Living</span>
-            </span>
+            <img
+              src={logoImg}
+              alt="Amara Living"
+              className="h-12 object-contain brightness-0 invert"
+            />
 
             <button
               type="button"
@@ -143,7 +147,7 @@ export default function NavigationSidebar({ onClose, currentPath, isSubpage, act
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/90 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1008]/90 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
 
@@ -155,21 +159,22 @@ export default function NavigationSidebar({ onClose, currentPath, isSubpage, act
                 Studio Address
               </span>
               <span>
-                12, Khader Nawaz Khan Rd,<br />
-                Nungambakkam, Chennai<br />
-                Tamil Nadu - 600006
+                No. 3, Seemathamman Nagar,<br />
+                Maduravoyal, Chennai<br />
+                Tamil Nadu - 600095
               </span>
             </div>
             <div>
               <span className="text-gold font-bold uppercase tracking-widest block mb-1">
                 Inquiries
               </span>
-              <a href="mailto:design@amaraliving.in" className="hover:text-gold block transition-colors">
-                design@amaraliving.in
+              <a href="mailto:connect@amaraliv.com" className="hover:text-gold block transition-colors">
+                connect@amaraliv.com
               </a>
-              <a href="tel:+914424987654" className="hover:text-gold block transition-colors mt-0.5">
-                +91 44 2498 7654
+              <a href="tel:7397623509" className="hover:text-gold block transition-colors mt-0.5">
+                7397623509
               </a>
+              <span className="block mt-1 text-[8px] text-cream/40">GST: 33BRYPA3994H1ZB</span>
             </div>
           </div>
 
