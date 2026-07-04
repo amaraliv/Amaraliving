@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { EASE_LUXURY } from '../../constants/animations';
 
 export default function BookConsultationForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [date, setDate] = useState('');
-  const [location, setLocation] = useState('Chennai Showroom');
   const [details, setDetails] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -32,8 +29,6 @@ export default function BookConsultationForm() {
       setName('');
       setEmail('');
       setPhone('');
-      setDate('');
-      setLocation('Chennai Showroom');
       setDetails('');
       setInterests({ stone: false, tiles: false, furniture: false, design: false });
     }, 3500);
@@ -48,12 +43,12 @@ export default function BookConsultationForm() {
         <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-12">
           {/* Left info column */}
           <div className="lg:col-span-5">
-            <p className="eyebrow mb-2">Schedule</p>
+            <p className="eyebrow mb-2">Enquiry</p>
             <h2 className="heading-section mb-5">
-              Book a Private<br /><span className="italic text-gold">Design Consultation</span>
+              Request a Design<br /><span className="italic text-gold">Consultation</span>
             </h2>
             <p className="font-body text-sm leading-relaxed text-ink/75 max-w-md mb-6">
-              Arrange an in-person walkthrough at our design studios, or setup a virtual advisory slot. Meet with our designers to curate custom dimensions, select stone blocks, and coordinate textures.
+              Have a project in mind? Send us your requirements and details, and our design consultants will get back to you with custom materials recommendations, dimension scaling options, and layout advice.
             </p>
 
             <div className="border-t border-dark/10 pt-6 space-y-4 font-body text-xs text-ink/60">
@@ -72,23 +67,23 @@ export default function BookConsultationForm() {
 
               <div className="mb-6 border-b border-dark/10 pb-4">
                 <span className="font-body text-[10px] font-bold uppercase tracking-[0.24em] text-ink/50">
-                  Advisory Appointment Details
+                  Enquiry Details
                 </span>
               </div>
 
               <AnimatePresence mode="wait">
                 {success ? (
                   <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="py-12 text-center"
+                     key="success"
+                     initial={{ opacity: 0, scale: 0.95 }}
+                     animate={{ opacity: 1, scale: 1 }}
+                     exit={{ opacity: 0 }}
+                     className="py-12 text-center"
                   >
                     <span className="block text-5xl mb-4 text-gold">✓</span>
-                    <h3 className="font-display text-xl text-dark mb-2">Appointment Requested</h3>
+                    <h3 className="font-display text-xl text-dark mb-2">Request Submitted</h3>
                     <p className="font-body text-sm text-ink/60 max-w-sm mx-auto">
-                      Thank you. An Amara design specialist will reach out within 24 hours to confirm your preferred slot.
+                      Thank you. An Amara design specialist will reach out within 24 hours to assist with your request.
                     </p>
                   </motion.div>
                 ) : (
@@ -138,36 +133,6 @@ export default function BookConsultationForm() {
                           onChange={(e) => setPhone(e.target.value)}
                           className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         />
-                      </div>
-                      <div>
-                        <label htmlFor="form-date" className="block font-body text-[10px] font-semibold uppercase tracking-wider text-gold mb-1">
-                          Preferred Date
-                        </label>
-                        <input
-                          id="form-date"
-                          type="date"
-                          required
-                          value={date}
-                          onChange={(e) => setDate(e.target.value)}
-                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="form-loc" className="block font-body text-[10px] font-semibold uppercase tracking-wider text-gold mb-1">
-                          Consultation Mode / Location
-                        </label>
-                        <select
-                          id="form-loc"
-                          value={location}
-                          onChange={(e) => setLocation(e.target.value)}
-                          className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
-                        >
-                          <option value="Chennai Showroom">Chennai Showroom (Maduravoyal)</option>
-                          <option value="Virtual Consultation">Virtual Design Review (Zoom/Meet)</option>
-                        </select>
                       </div>
                       <div>
                         <span className="block font-body text-[10px] font-semibold uppercase tracking-wider text-gold mb-2">
@@ -220,7 +185,7 @@ export default function BookConsultationForm() {
                       </label>
                       <textarea
                         id="form-details"
-                        rows="3"
+                        rows="4"
                         placeholder="Please tell us a bit about your property, dimensions, or design needs..."
                         value={details}
                         onChange={(e) => setDetails(e.target.value)}
@@ -232,7 +197,7 @@ export default function BookConsultationForm() {
                       type="submit"
                       className="w-full text-center py-4 bg-gold text-dark hover:bg-dark hover:text-cream font-body text-[10px] font-bold uppercase tracking-[0.24em] rounded-sm transition-all duration-300 shadow-md mt-6"
                     >
-                      Book Appointment Slot
+                      Submit Enquiry
                     </button>
                   </form>
                 )}
