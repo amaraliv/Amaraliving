@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { label: 'Granite', href: '#/granite', isPage: true },
   { label: 'Company', href: '#/company', isPage: true },
   { label: 'Consultation', href: '#/consultation', isPage: true },
+  { label: 'Blog', href: '#/blog', isPage: true },
   { label: 'Contact', href: '#contact' },
 ];
 

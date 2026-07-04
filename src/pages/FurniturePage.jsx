@@ -231,9 +231,6 @@ export default function FurniturePage() {
             <p className="max-w-2xl mx-auto font-body text-base font-light leading-[1.8] text-white/80 mb-10">
               Premium sofas, solid oak dining pieces, and consoles engineered with structural timber frames and natural stone bases.
             </p>
-            <a href="#categories" className="px-10 py-4 border border-white/20 bg-white/5 backdrop-blur-md text-white font-body text-[11px] font-semibold uppercase tracking-[0.3em] hover:bg-white hover:text-dark transition-all duration-500 shadow-2xl">
-              Explore Collection
-            </a>
           </motion.div>
         </div>
       </section>
@@ -431,7 +428,6 @@ export default function FurniturePage() {
                       <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Timbers Sourced</span><span className="font-medium text-dark/80">{proj.material}</span></div>
                       <div><span className="block text-[9px] uppercase tracking-wider text-ink/35">Location</span><span className="font-medium text-dark/80">{proj.location}</span></div>
                     </div>
-                    <a href="/#contact" className="btn-gold w-full text-center justify-center"><span>Explore Case Study</span></a>
                   </div>
                 </div>
               );
@@ -468,7 +464,6 @@ export default function FurniturePage() {
         <div className="wrap relative z-10 max-w-4xl mx-auto">
           <span className="eyebrow text-[#C9A96E] mb-6 block">Bespoke Design Services</span>
           <h2 className="font-display text-4xl md:text-6xl font-medium tracking-tight text-white mb-8">Bring Comfort Into Every Space</h2>
-          <a href="/#contact" className="px-10 py-4 border border-[#C9A96E] bg-[#C9A96E]/10 hover:bg-[#C9A96E] text-[#C9A96E] hover:text-white font-body text-[11px] font-semibold uppercase tracking-[0.3em] transition-all duration-500">Schedule Consultation</a>
         </div>
       </section>
 

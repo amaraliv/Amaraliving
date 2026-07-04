@@ -74,11 +74,11 @@ export default function CraftsmanshipStory() {
     <section 
       ref={sectionRef} 
       id="story" 
-      className="relative bg-[#1A1008] text-cream py-16 md:py-24 lg:py-28 overflow-hidden"
+      className="relative bg-[#22262A] text-cream py-16 md:py-24 lg:py-28 overflow-hidden"
     >
       {/* Background gradients */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.06)_0%,_transparent_55%)]" />
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom_left,_rgba(26,16,8,0.6)_0%,_transparent_60%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom_left,_rgba(34, 38, 42,0.6)_0%,_transparent_60%)]" />
 
       <div className="wrap">
         <div className="viewport-grid gap-10 lg:gap-14 items-start">
@@ -158,7 +158,7 @@ export default function CraftsmanshipStory() {
                 ].map((step) => (
                   <div key={step.phase} className="craft-step relative flex items-start gap-5 z-10">
                     <div className="flex flex-col items-center shrink-0">
-                      <div className="h-10 w-10 rounded-full border border-gold/40 flex items-center justify-center bg-[#1A1008] text-xs font-bold text-gold shadow-[0_0_15px_rgba(212,175,55,0.15)]">
+                      <div className="h-10 w-10 rounded-full border border-gold/40 flex items-center justify-center bg-[#22262A] text-xs font-bold text-gold shadow-[0_0_15px_rgba(212,175,55,0.15)]">
                         {step.phase}
                       </div>
                     </div>
@@ -240,7 +240,7 @@ export default function CraftsmanshipStory() {
                 ].map((feat) => (
                   <div 
                     key={feat.title} 
-                    className="border border-gold/15 bg-[#241408] rounded-xl p-4 md:p-5 flex flex-col items-start gap-3.5 hover:border-gold/45 hover:shadow-[0_8px_30px_rgba(212,175,55,0.06)] transition-all duration-300"
+                    className="border border-gold/15 bg-[#1B1E21] rounded-xl p-4 md:p-5 flex flex-col items-start gap-3.5 hover:border-gold/45 hover:shadow-[0_8px_30px_rgba(212,175,55,0.06)] transition-all duration-300"
                   >
                     <div className="h-10 w-10 rounded-lg border border-gold/30 bg-gold/5 flex items-center justify-center text-gold shadow-inner">
                       {feat.icon}
@@ -255,7 +255,7 @@ export default function CraftsmanshipStory() {
             </div>
 
             {/* Row 2: Wreath & Stat strip */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4 px-6 border border-gold/10 bg-[#241408]/30 rounded-xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4 px-6 border border-gold/10 bg-[#1B1E21]/30 rounded-xl">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 shrink-0">
                   <svg className="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
