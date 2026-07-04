@@ -59,7 +59,7 @@ export default function Navbar() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite';
+  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite' || currentPath === '#/blog';
 
   return (
     <>
@@ -74,11 +74,11 @@ export default function Navbar() {
           className={`wrap flex items-center justify-between transition-all duration-500 ease-out ${scrolled ? 'py-0' : 'py-0 md:py-1'
             }`}
         >
-          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 -translate-y-7 -translate-x-8 transform" aria-label="Amara Living home">
+          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 -translate-y-3 -translate-x-8 transform" aria-label="Amara Living home">
             <img
               src={logoImg}
               alt="Amara Living"
-              className={`object-contain transition-all duration-500 h-24 md:h-[7.5rem] ${onHero ? 'brightness-0 invert' : ''}`}
+              className="object-contain transition-all duration-500 h-32 md:h-[9.5rem]"
             />
           </a>
 

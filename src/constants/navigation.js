@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { label: 'Furniture', href: '#/furniture', isPage: true },
   { label: 'Tiles', href: '#/tiles', isPage: true },
   { label: 'Granite', href: '#/granite', isPage: true },
+  { label: 'Blog', href: '#/blog', isPage: true },
   { label: 'Contact', href: '#contact' },
 ];
 
