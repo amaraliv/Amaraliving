@@ -181,14 +181,7 @@ export default function FurniturePage() {
   // Accordion state
   const [openAccordion, setOpenAccordion] = useState(0);
 
-  // ── CALCULATOR STATES ──
-  const [calcSuite, setCalcSuite] = useState('living'); // 'living', 'dining', 'bedroom'
-  const [calcSizeFactor, setCalcSizeFactor] = useState('standard'); // 'standard', 'custom'
-  const [calcFabric, setCalcFabric] = useState('standard'); // 'standard', 'premium'
-  const [calcBookingOpen, setCalcBookingOpen] = useState(false);
-  const [calcBookingName, setCalcBookingName] = useState('');
-  const [calcBookingEmail, setCalcBookingEmail] = useState('');
-  const [calcBookingSuccess, setCalcBookingSuccess] = useState(false);
+
 
   const categories = ['All', 'Sofa Sets & Lounges', 'Luxury Dining Tables', 'Bedsteads & Storage', 'Entryway Consoles', 'Study Desks & Shelving', 'Modular Wardrobes'];
   const finishes = ['All', 'Deep Upholstered', 'Satin Hand-oiled', 'Polished Brass Inlay', 'Tufted Velvet', 'Matte Oil Finish', 'Piano Lacquer'];
@@ -208,23 +201,7 @@ export default function FurniturePage() {
     });
   }, [selectedCategory, selectedFinish, selectedColor, selectedPrice]);
 
-  // Calculator Math
-  const suiteBasePrice = calcSuite === 'living' ? 75000 : calcSuite === 'dining' ? 58000 : 85000;
-  const sizeMultiplier = calcSizeFactor === 'standard' ? 1.0 : 1.25;
-  const fabricMultiplier = calcFabric === 'standard' ? 1.0 : 1.15;
-  const estTotalCost = suiteBasePrice * sizeMultiplier * fabricMultiplier;
 
-  const handleBookingSubmit = (e) => {
-    e.preventDefault();
-    if (!calcBookingName || !calcBookingEmail) return;
-    setCalcBookingSuccess(true);
-    setTimeout(() => {
-      setCalcBookingSuccess(false);
-      setCalcBookingOpen(false);
-      setCalcBookingName('');
-      setCalcBookingEmail('');
-    }, 2500);
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -463,66 +440,7 @@ export default function FurniturePage() {
         </div>
       </section>
 
-      {/* ── CALCULATOR ── */}
-      <section id="furniture-calculator" className="py-20 md:py-28 bg-[#F2ECE5]">
-        <div className="wrap">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-4">
-              <span className="eyebrow text-[#C9A96E] mb-3">Investment Plan</span>
-              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">Estimate Furniture</h2>
-              <p className="font-body text-sm leading-relaxed text-ink/60">Configure room sets, dimension scale factors, and textile deck ratings to compute indicative build budgets.</p>
-            </div>
-            <div className="lg:col-span-8 bg-white border border-[#C9A96E]/20 p-6 md:p-10 shadow-lg">
-              <div className="grid gap-5 sm:grid-cols-3 mb-6">
-                <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Room Suite</label>
-                  <select value={calcSuite} onChange={e => setCalcSuite(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
-                    <option value="living">Living Suite (Sofa/Console)</option>
-                    <option value="dining">Dining Suite (Table/Chairs)</option>
-                    <option value="bedroom">Bedroom Suite (Bed/Credenza)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Scale / Dimensions</label>
-                  <select value={calcSizeFactor} onChange={e => setCalcSizeFactor(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
-                    <option value="standard">Standard Catalog Sizes</option>
-                    <option value="custom">Custom Bespoke Scaling (+25%)</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Textile Deck</label>
-                  <select value={calcFabric} onChange={e => setCalcFabric(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
-                    <option value="standard">Standard Cotton/Linen</option>
-                    <option value="premium">Premium Velvet/Aniline Leather (+15%)</option>
-                  </select>
-                </div>
-              </div>
 
-              <div className="border border-[#C9A96E]/20 bg-[#FAF8F5] p-5 mb-6">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  <div>
-                    <span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Base Price</span>
-                    <span className="font-display text-xl text-dark font-medium">{formatCurrency(suiteBasePrice)}</span>
-                  </div>
-                  <div>
-                    <span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Upholstery Spec</span>
-                    <span className="font-display text-xl text-dark font-medium capitalize">{calcFabric} rating</span>
-                  </div>
-                  <div>
-                    <span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Est. Custom Cost</span>
-                    <span className="font-display text-xl text-[#8B6914] font-semibold">{formatCurrency(estTotalCost)}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-ink/8 pt-5">
-                <span className="font-body text-xs text-ink/40">Includes layout assembly drawing and fabric cuttings mailing.</span>
-                <button type="button" onClick={() => setCalcBookingOpen(true)} className="btn-solid w-full text-center sm:w-auto">Request Fabric Swatches</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials */}
       <section className="py-20 md:py-28 bg-[#FAF8F5] border-t border-ink/5">
@@ -554,36 +472,7 @@ export default function FurniturePage() {
         </div>
       </section>
 
-      {/* Calculator Modal */}
-      <AnimatePresence>
-        {calcBookingOpen && (
-          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCalcBookingOpen(false)} className="absolute inset-0 bg-dark/70 backdrop-blur-sm" />
-            <motion.div initial={{ scale: 0.95, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.95, opacity: 0, y: 20 }} className="relative w-full max-w-md bg-white border border-[#C9A96E]/30 p-7 md:p-9 z-10 shadow-2xl">
-              <button type="button" onClick={() => setCalcBookingOpen(false)} className="absolute top-4 right-4 font-body text-xs font-bold uppercase tracking-widest text-ink/40 hover:text-[#C9A96E] transition-colors">Close ✕</button>
-              <h3 className="font-display text-2xl text-dark mb-4">Book a Consultation</h3>
-              {calcBookingSuccess ? (
-                <div className="py-10 text-center">
-                  <span className="block text-4xl mb-4 text-[#C9A96E]">✓</span>
-                  <p className="font-display text-lg text-dark">Request Received</p>
-                </div>
-              ) : (
-                <form onSubmit={handleBookingSubmit} className="space-y-4">
-                  <div>
-                    <label className="block font-body text-[10px] uppercase tracking-widest text-[#C9A96E] mb-1">Full Name</label>
-                    <input type="text" required placeholder="Meera Sundaram" value={calcBookingName} onChange={e => setCalcBookingName(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-2.5 text-sm font-body text-dark outline-none focus:border-[#C9A96E]" />
-                  </div>
-                  <div>
-                    <label className="block font-body text-[10px] uppercase tracking-widest text-[#C9A96E] mb-1">Email Address</label>
-                    <input type="email" required placeholder="meera@example.com" value={calcBookingEmail} onChange={e => setCalcBookingEmail(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-2.5 text-sm font-body text-dark outline-none focus:border-[#C9A96E]" />
-                  </div>
-                  <button type="submit" className="btn-solid w-full text-center mt-2">Confirm Booking</button>
-                </form>
-              )}
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+
     </div>
   );
 }

@@ -12,6 +12,7 @@ const PREVIEW_IMAGES = {
   '#/furniture': IMG.furniture,
   '#/tiles': IMG.tiles,
   '#/granite': IMG.granite,
+  '#/company': IMG.workspace,
   '#story': IMG.concept,
   '#surfaces': IMG.granite,
   '#contact': IMG.kitchen,
