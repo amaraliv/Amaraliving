@@ -180,7 +180,16 @@ export default function GranitePage() {
   // Accordion state
   const [openAccordion, setOpenAccordion] = useState(0);
 
-
+  // ── CALCULATOR STATES ──
+  const [calcLength, setCalcLength] = useState('');
+  const [calcWidth, setCalcWidth] = useState('');
+  const [calcFinish, setCalcFinish] = useState('polished');
+  const [calcEdge, setCalcEdge] = useState('straight');
+  const [calcWaste, setCalcWaste] = useState(10);
+  const [calcBookingOpen, setCalcBookingOpen] = useState(false);
+  const [calcBookingName, setCalcBookingName] = useState('');
+  const [calcBookingEmail, setCalcBookingEmail] = useState('');
+  const [calcBookingSuccess, setCalcBookingSuccess] = useState(false);
 
   const materials = ['All', 'Premium Granite', 'Exotic Quartzites', 'Italian Marble', 'Travertine Blocks', 'Flamed Basalts'];
   const finishes = ['All', 'Mirror Polished', 'Flame Brushed', 'Satin Honed', 'Polished', 'High Polish', 'Matte Honed'];
@@ -205,7 +214,32 @@ export default function GranitePage() {
     });
   }, [selectedMaterial, selectedFinish, selectedColor, selectedSize, selectedUse, selectedPrice]);
 
+  // Calculator Math
+  const lenVal = parseFloat(calcLength) || 0;
+  const widVal = parseFloat(calcWidth) || 0;
+  const rawSqFt = lenVal * widVal;
+  const wasteMultiplier = 1 + calcWaste / 100;
+  const adjustedSqFt = rawSqFt * wasteMultiplier;
+  
+  const baseRate = 280; // granite avg rate
+  const edgeRate = calcEdge === 'straight' ? 0 : calcEdge === 'bevelled' ? 15 : calcEdge === 'bullnose' ? 25 : 40;
+  const perimeter = lenVal > 0 && widVal > 0 ? 2 * (lenVal + widVal) : 0;
+  const finishModifier = calcFinish === 'polished' ? 1 : calcFinish === 'honed' ? 0.95 : 1.1;
 
+  const totalCost = (adjustedSqFt * baseRate * finishModifier) + (perimeter * edgeRate);
+  const calcReady = lenVal > 0 && widVal > 0;
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    if (!calcBookingName || !calcBookingEmail) return;
+    setCalcBookingSuccess(true);
+    setTimeout(() => {
+      setCalcBookingSuccess(false);
+      setCalcBookingOpen(false);
+      setCalcBookingName('');
+      setCalcBookingEmail('');
+    }, 2500);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -440,7 +474,77 @@ export default function GranitePage() {
         </div>
       </section>
 
+      {/* ── CALCULATOR ── */}
+      <section id="granite-calculator" className="py-20 md:py-28 bg-[#F2ECE5]">
+        <div className="wrap">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-4">
+              <span className="eyebrow text-[#C9A96E] mb-3">Investment Plan</span>
+              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">Estimate Granite</h2>
+              <p className="font-body text-sm leading-relaxed text-ink/60">Calculate raw slab areas, layout buffer paddings, and custom linear perimeter edge profiling charges.</p>
+            </div>
+            <div className="lg:col-span-8 bg-white border border-[#C9A96E]/20 p-6 md:p-10 shadow-lg">
+              <div className="grid gap-5 sm:grid-cols-3 mb-6">
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Length (ft)</label>
+                  <input type="number" min="0" placeholder="0" value={calcLength} onChange={e => setCalcLength(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-4 py-3 text-lg font-display text-dark outline-none focus:border-[#C9A96E]" />
+                </div>
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Width (ft)</label>
+                  <input type="number" min="0" placeholder="0" value={calcWidth} onChange={e => setCalcWidth(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-4 py-3 text-lg font-display text-dark outline-none focus:border-[#C9A96E]" />
+                </div>
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Cutting Waste</label>
+                  <select value={calcWaste} onChange={e => setCalcWaste(parseInt(e.target.value))} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="5">5% (Minimal cut)</option>
+                    <option value="10">10% (Standard layout)</option>
+                    <option value="15">15% (Complex cut-outs)</option>
+                  </select>
+                </div>
+              </div>
+              <div className="grid gap-5 sm:grid-cols-2 mb-6">
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Surface Finish</label>
+                  <select value={calcFinish} onChange={e => setCalcFinish(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="polished">Mirror Polished</option>
+                    <option value="honed">Satin Honed</option>
+                    <option value="leathered">Tactile Leathered</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-body text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E] mb-2">Edge Profile</label>
+                  <select value={calcEdge} onChange={e => setCalcEdge(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-3 text-xs font-body text-dark outline-none focus:border-[#C9A96E]">
+                    <option value="straight">Straight Edge (+₹0/lft)</option>
+                    <option value="bevelled">Bevelled Profile (+₹15/lft)</option>
+                    <option value="bullnose">Bullnose Radius (+₹25/lft)</option>
+                    <option value="ogee">Ogee Classic (+₹40/lft)</option>
+                  </select>
+                </div>
+              </div>
 
+              <div className="border border-[#C9A96E]/20 bg-[#FAF8F5] p-5 mb-6">
+                <AnimatePresence mode="wait">
+                  {calcReady ? (
+                    <motion.div key={`${rawSqFt}-${calcFinish}-${calcEdge}-${calcWaste}`} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Raw Slab</span><span className="font-display text-xl text-dark font-medium">{formatNumber(rawSqFt, { maximumFractionDigits: 1 })} sqft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">With Buffer</span><span className="font-display text-xl text-dark font-medium">{formatNumber(adjustedSqFt, { maximumFractionDigits: 1 })} sqft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Edge Perimeter</span><span className="font-display text-xl text-dark font-medium">{formatNumber(perimeter, { maximumFractionDigits: 1 })} lft</span></div>
+                      <div><span className="block text-[9px] uppercase tracking-wider text-ink/35 mb-1">Est. Cost</span><span className="font-display text-xl text-[#8B6914] font-semibold">{formatCurrency(totalCost)}</span></div>
+                    </motion.div>
+                  ) : (
+                    <div className="text-center py-4 font-body text-xs text-ink/40">Enter slab dimensions to calculate.</div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-ink/8 pt-5">
+                <span className="font-body text-xs text-ink/40">Includes slab calibration and edge CNC polishing setup.</span>
+                <button type="button" onClick={() => setCalcBookingOpen(true)} className="btn-solid w-full text-center sm:w-auto">Book Slab Viewing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="py-20 md:py-28 bg-[#FAF8F5] border-t border-ink/5">
@@ -471,7 +575,36 @@ export default function GranitePage() {
         </div>
       </section>
 
-
+      {/* Calculator Modal */}
+      <AnimatePresence>
+        {calcBookingOpen && (
+          <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setCalcBookingOpen(false)} className="absolute inset-0 bg-dark/70 backdrop-blur-sm" />
+            <motion.div initial={{ scale: 0.95, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.95, opacity: 0, y: 20 }} className="relative w-full max-w-md bg-white border border-[#C9A96E]/30 p-7 md:p-9 z-10 shadow-2xl">
+              <button type="button" onClick={() => setCalcBookingOpen(false)} className="absolute top-4 right-4 font-body text-xs font-bold uppercase tracking-widest text-ink/40 hover:text-[#C9A96E] transition-colors">Close ✕</button>
+              <h3 className="font-display text-2xl text-dark mb-4">Book a Consultation</h3>
+              {calcBookingSuccess ? (
+                <div className="py-10 text-center">
+                  <span className="block text-4xl mb-4 text-[#C9A96E]">✓</span>
+                  <p className="font-display text-lg text-dark">Request Received</p>
+                </div>
+              ) : (
+                <form onSubmit={handleBookingSubmit} className="space-y-4">
+                  <div>
+                    <label className="block font-body text-[10px] uppercase tracking-widest text-[#C9A96E] mb-1">Full Name</label>
+                    <input type="text" required placeholder="Meera Sundaram" value={calcBookingName} onChange={e => setCalcBookingName(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-2.5 text-sm font-body text-dark outline-none focus:border-[#C9A96E]" />
+                  </div>
+                  <div>
+                    <label className="block font-body text-[10px] uppercase tracking-widest text-[#C9A96E] mb-1">Email Address</label>
+                    <input type="email" required placeholder="meera@example.com" value={calcBookingEmail} onChange={e => setCalcBookingEmail(e.target.value)} className="w-full border border-ink/15 bg-[#FAF8F5] px-3.5 py-2.5 text-sm font-body text-dark outline-none focus:border-[#C9A96E]" />
+                  </div>
+                  <button type="submit" className="btn-solid w-full text-center mt-2">Confirm Booking</button>
+                </form>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
