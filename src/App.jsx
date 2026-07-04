@@ -21,18 +21,18 @@ export default function App() {
       setCurrentPath(hash);
       
       // If it's a primary subpage or the home root, scroll to top instantly
-     if (
-  hash === '#/furniture' ||
-  hash === '#/tiles' ||
-  hash === '#/granite' ||
-  hash === '#/company' ||
-  hash === '#/consultation' ||
-  hash === '#/blog' ||
-  hash === '#/' ||
-  hash === ''
-) {
-  window.scrollTo(0, 0);
-}
+      if (
+        hash === '#/furniture' ||
+        hash === '#/tiles' ||
+        hash === '#/granite' ||
+        hash === '#/company' ||
+        hash === '#/consultation' ||
+        hash === '#/blog' ||
+        hash === '#/' ||
+        hash === ''
+      ) {
+        window.scrollTo(0, 0);
+      }
     };
 
     window.addEventListener('hashchange', handleHashChange);
