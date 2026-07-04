@@ -8,6 +8,8 @@ import HomePage from './pages/HomePage';
 import FurniturePage from './pages/FurniturePage';
 import TilesPage from './pages/TilesPage';
 import GranitePage from './pages/GranitePage';
+import ConsultationPage from './pages/ConsultationPage';
+import CompanyPage from './pages/CompanyPage';
 import BlogPage from './pages/BlogPage';
 
 export default function App() {
@@ -19,7 +21,16 @@ export default function App() {
       setCurrentPath(hash);
       
       // If it's a primary subpage or the home root, scroll to top instantly
-      if (hash === '#/furniture' || hash === '#/tiles' || hash === '#/granite' || hash === '#/blog' || hash === '#/' || hash === '') {
+      if (
+        hash === '#/furniture' ||
+        hash === '#/tiles' ||
+        hash === '#/granite' ||
+        hash === '#/company' ||
+        hash === '#/consultation' ||
+        hash === '#/blog' ||
+        hash === '#/' ||
+        hash === ''
+      ) {
         window.scrollTo(0, 0);
       }
     };
@@ -34,7 +45,7 @@ export default function App() {
   // Handle scrolling to sections when landing back on the home page via hashes like `#/spaces`
   useEffect(() => {
     const hash = currentPath;
-    if (hash.startsWith('#/') && hash !== '#/' && hash !== '#/furniture' && hash !== '#/tiles' && hash !== '#/granite' && hash !== '#/blog') {
+    if (hash.startsWith('#/') && hash !== '#/' && hash !== '#/furniture' && hash !== '#/tiles' && hash !== '#/granite' && hash !== '#/blog' && hash !== '#/company' && hash !== '#/consultation') {
       const elementId = hash.slice(2); // e.g. "spaces"
       const el = document.getElementById(elementId);
       if (el) {
@@ -48,6 +59,8 @@ export default function App() {
   const isFurniture = currentPath === '#/furniture';
   const isTiles = currentPath === '#/tiles';
   const isGranite = currentPath === '#/granite';
+  const isCompany = currentPath === '#/company';
+  const isConsultation = currentPath === '#/consultation';
   const isBlog = currentPath === '#/blog';
 
   return (
@@ -67,6 +80,10 @@ export default function App() {
         <TilesPage />
       ) : isGranite ? (
         <GranitePage />
+      ) : isCompany ? (
+        <CompanyPage />
+      ) : isConsultation ? (
+        <ConsultationPage />
       ) : isBlog ? (
         <BlogPage />
       ) : (
