@@ -45,8 +45,7 @@ export default function App() {
   // Handle scrolling to sections when landing back on the home page via hashes like `#/spaces`
   useEffect(() => {
     const hash = currentPath;
-    if (hash.startsWith('#/') && hash !== '#/' && hash !== '#/furniture' && hash !== '#/tiles' && hash !== '#/granite'&& hash !== '#/blog' && hash !== '#/company' && hash !== '#/consultation') {
-     {
+    if (hash.startsWith('#/') && hash !== '#/' && hash !== '#/furniture' && hash !== '#/tiles' && hash !== '#/granite' && hash !== '#/blog' && hash !== '#/company' && hash !== '#/consultation') {
       const elementId = hash.slice(2); // e.g. "spaces"
       const el = document.getElementById(elementId);
       if (el) {
@@ -54,7 +53,7 @@ export default function App() {
           el.scrollIntoView({ behavior: 'smooth' });
         }, 150);
       }
-    
+    }
   }, [currentPath]);
 
   const isFurniture = currentPath === '#/furniture';
