@@ -8,7 +8,6 @@ const MaterialsShowcase = lazy(() => import('../components/sections/MaterialsSho
 const CraftsmanshipStory = lazy(() => import('../components/sections/CraftsmanshipStory'));
 const FurnitureCollection = lazy(() => import('../components/sections/FurnitureCollection'));
 const SurfaceGallery = lazy(() => import('../components/sections/SurfaceGallery'));
-const SpaceCalculator = lazy(() => import('../components/sections/SpaceCalculator'));
 const Testimonials = lazy(() => import('../components/sections/Testimonials'));
 
 export default function HomePage() {
@@ -31,9 +30,7 @@ export default function HomePage() {
       <Suspense fallback={<SectionFallback />}>
         <SurfaceGallery />
       </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <SpaceCalculator />
-      </Suspense>
+
       <Suspense fallback={<SectionFallback />}>
         <Testimonials />
       </Suspense>

@@ -12,6 +12,7 @@ const PREVIEW_IMAGES = {
   '#/furniture': IMG.furniture,
   '#/tiles': IMG.tiles,
   '#/granite': IMG.granite,
+  '#/company': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85',
   '#story': IMG.concept,
   '#surfaces': IMG.granite,
   '#contact': IMG.kitchen,
@@ -51,7 +52,7 @@ export default function NavigationSidebar({ onClose, currentPath, isSubpage, act
         exit={{ x: '100%' }}
         transition={{ duration: 0.55, ease: EASE_LUXURY }}
         data-lenis-prevent
-        className="fixed right-0 top-0 bottom-0 z-[10001] w-full max-w-[460px] bg-[#22262A] text-cream border-l border-gold/20 p-8 md:p-12 shadow-2xl flex flex-col justify-between overflow-y-auto"
+        className="fixed right-0 top-0 bottom-0 z-[10001] w-full max-w-[460px] bg-[#1A1008] text-cream border-l border-gold/20 p-8 md:p-12 shadow-2xl flex flex-col justify-between overflow-y-auto"
       >
         <div>
           {/* Header row */}
@@ -147,7 +148,7 @@ export default function NavigationSidebar({ onClose, currentPath, isSubpage, act
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#22262A]/90 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1008]/90 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
 
