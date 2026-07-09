@@ -17,16 +17,16 @@
   }
 
   body {
-    background-color: #F4F2EC;
-    color: #2A2A2A;
+    background-color: #0B0B0B;
+    color: #F8F6F2;
     font-family: Inter, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: rgba(179, 159, 93, 0.28);
-    color: #22262A;
+    background-color: rgba(212, 175, 55, 0.30);
+    color: #F8F6F2;
   }
 }
 

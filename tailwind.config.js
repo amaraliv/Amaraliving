@@ -20,9 +20,9 @@ export default {
         body: ['Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        hero: ['clamp(3.25rem,7.5vw,7rem)', { lineHeight: '1.02', letterSpacing: '-0.03em' }],
-        section: ['clamp(2.25rem,4.5vw,4.75rem)', { lineHeight: '1.06', letterSpacing: '-0.02em' }],
-        display: ['clamp(4rem,10vw,9rem)', { lineHeight: '0.95', letterSpacing: '-0.03em' }],
+        hero: ['clamp(2.5rem,5.5vw,5.5rem)', { lineHeight: '1.04', letterSpacing: '-0.03em' }],
+        section: ['clamp(1.75rem,3.5vw,3.75rem)', { lineHeight: '1.08', letterSpacing: '-0.02em' }],
+        display: ['clamp(3rem,7.5vw,7rem)', { lineHeight: '0.97', letterSpacing: '-0.03em' }],
       },
       backgroundImage: {
         'hero-veil': 'linear-gradient(115deg, rgba(34, 38, 42,0.92) 0%, rgba(34, 38, 42,0.55) 48%, rgba(34, 38, 42,0.25) 100%)',

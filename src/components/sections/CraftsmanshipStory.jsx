@@ -89,7 +89,7 @@ export default function CraftsmanshipStory() {
               <span className="font-body text-xs md:text-sm font-semibold tracking-[0.4em] text-gold uppercase mb-3 block">
                 OUR LEGACY
               </span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] text-cream">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.1] text-cream">
                 16 Years of<br />
                 <span className="italic text-gold">Craftsmanship</span>
               </h2>
@@ -176,7 +176,7 @@ export default function CraftsmanshipStory() {
             </div>
 
             {/* Bottom Cursive text */}
-            <span className="font-display italic text-3xl text-gold/90 mt-12 block pl-2 font-light tracking-wide">
+            <span className="font-display italic text-2xl text-gold/90 mt-8 block pl-2 font-light tracking-wide">
               Built on trust. Crafted for life.
             </span>
           </div>

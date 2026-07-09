@@ -63,7 +63,7 @@ export default function FeaturedSpaces() {
         <div className="viewport-grid items-start lg:items-end">
           <div className="space-intro-item lg:col-span-7">
             <p className="eyebrow mb-3 leading-relaxed">Featured Spaces</p>
-            <h2 className="heading-section">
+            <h2 className="font-display text-3xl md:text-4xl font-medium leading-[1.1] text-dark">
               Curated<br /><span className="italic text-gold">Environments</span>
             </h2>
           </div>
