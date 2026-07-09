@@ -50,7 +50,7 @@ function TestimonialCard({ testimonial }) {
       </div>
 
       {/* Card Content block */}
-      <div className="flex-1 p-5 md:p-6 flex flex-col justify-between">
+      <div className="flex-1 p-4 md:p-5 flex flex-col justify-between">
         <div>
           <div className="mb-3.5 flex flex-wrap items-center gap-2">
             <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 font-body text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600">
@@ -63,7 +63,7 @@ function TestimonialCard({ testimonial }) {
             {projectType}
           </p>
 
-          <blockquote className="testimonial-quote-3d font-display text-sm font-light leading-relaxed text-dark md:text-base md:leading-relaxed">
+          <blockquote className="testimonial-quote-3d font-display text-xs font-light leading-relaxed text-dark md:text-sm md:leading-relaxed">
             &ldquo;{quote}&rdquo;
           </blockquote>
         </div>
@@ -180,7 +180,7 @@ export default function Testimonials() {
           onMouseLeave={() => setIsPaused(false)}
           className="lg:col-span-8 relative w-full flex flex-col items-center overflow-visible"
         >
-          <div className="relative w-full h-[520px] md:h-[560px] flex items-center justify-center overflow-visible">
+          <div className="relative w-full h-[420px] md:h-[450px] flex items-center justify-center overflow-visible">
             
             {/* Cards Stack */}
             <div className="relative w-full h-full flex items-center justify-center overflow-visible">
@@ -215,7 +215,7 @@ export default function Testimonials() {
                       if (info.offset.x < -60) goNext();
                       else if (info.offset.x > 60) goPrev();
                     }}
-                    className="absolute w-[88vw] max-w-[390px] h-[480px] md:h-[515px] flex shrink-0 cursor-grab active:cursor-grabbing select-none"
+                    className="absolute w-[80vw] max-w-[320px] h-[380px] md:h-[410px] flex shrink-0 cursor-grab active:cursor-grabbing select-none"
                   >
                     <TestimonialCard testimonial={testimonial} />
                   </motion.div>

@@ -52,7 +52,7 @@ export default function Navbar() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite' || currentPath === '#/consultation' || currentPath === '#/company';
+  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite' || currentPath === '#/consultation' || currentPath === '#/company' || currentPath === '#/blog';
 
   return (
     <>
@@ -60,18 +60,17 @@ export default function Navbar() {
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, delay: 0.3 }}
-        className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-500 ease-out ${scrolled ? 'border-b border-ink/8 bg-[#F5F0E8]/85 shadow-sm backdrop-blur-md' : 'bg-transparent'
+        className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-500 ease-out ${scrolled ? 'border-b border-ink/8 bg-[#F5F0E8]/85 shadow-sm backdrop-blur-md h-16' : 'bg-transparent h-24'
           }`}
       >
         <nav
-          className={`wrap flex items-center justify-between transition-all duration-500 ease-out ${scrolled ? 'py-0' : 'py-0 md:py-1'
-            }`}
+          className="wrap h-full flex items-center justify-between transition-all duration-500 ease-out"
         >
-          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 -translate-y-7 -translate-x-8 transform" aria-label="Amara Living home">
+          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 -translate-x-8 transform" aria-label="Amara Living home">
             <img
               src={logoImg}
               alt="Amara Living"
-              className={`object-contain transition-all duration-500 h-24 md:h-[7.5rem] ${onHero ? 'brightness-0 invert' : ''}`}
+              className={`object-contain transition-all duration-500 ${scrolled ? 'h-20' : 'h-28'}`}
             />
           </a>
 

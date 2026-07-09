@@ -73,7 +73,7 @@ export default function MaterialsShowcase() {
         <div className="grid gap-4 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <p className="eyebrow mb-2">Materials</p>
-            <h2 className="font-display text-[clamp(2.2rem,3.2vw,3.8rem)] font-medium leading-[1.08] text-cream mb-4">
+            <h2 className="font-display text-[clamp(1.8rem,2.6vw,3rem)] font-medium leading-[1.08] text-cream mb-4">
               Surfaces, Form<br /><span className="italic text-gold">&amp; Finish</span>
             </h2>
             <p className="font-body text-xs md:text-sm leading-relaxed text-cream/45 max-w-xl">
