@@ -1,6 +1,24 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowUpRight, MoveRight, Square, Layers, Droplets, Sun, Home, Wind } from 'lucide-react';
+import t1 from '../assets/tiles/tiles 1.jpg';
+import t2 from '../assets/tiles/2.jpg';
+import t3 from '../assets/tiles/3.jpg';
+import t4 from '../assets/tiles/4.jpg';
+import t5 from '../assets/tiles/5.jpg';
+import t6 from '../assets/tiles/6.jpg';
+import col1 from '../assets/tiles/AMARA_Image_01.jpg';
+import col2 from '../assets/tiles/AMARA_Image_07.png';
+import col3 from '../assets/tiles/tiles 1.jpg';
+import feat1 from '../assets/tiles/2.jpg';
+import feat2 from '../assets/tiles/3.jpg';
+import feat3 from '../assets/tiles/4.jpg';
+import gal1 from '../assets/tiles/5.jpg';
+import gal2 from '../assets/tiles/6.jpg';
+import gal3 from '../assets/tiles/AMARA_Image_01.jpg';
+import gal4 from '../assets/tiles/AMARA_Image_07.png';
+import gal5 from '../assets/tiles/tiles 1.jpg';
+import gal6 from '../assets/tiles/2.jpg';
 
 /* ─── data ─── */
 const PRODUCTS = [
@@ -9,7 +27,7 @@ const PRODUCTS = [
     name: 'Grand Format Porcelain Slab',
     category: 'PORCELAIN',
     desc: 'Seamless sintered porcelain panels mimicking natural Statuario veins.',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=90',
+    image: t1,
     specs: 'Sizes up to 160×320cm | Thickness: 6mm, 12mm',
   },
   {
@@ -17,7 +35,7 @@ const PRODUCTS = [
     name: 'Satin Venetian Terrazzo',
     category: 'TERRAZZO',
     desc: 'Venetian honed terrazzo tiles with small marble chips and satin texture.',
-    image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=800&q=90',
+    image: t2,
     specs: 'Size: 60×60cm | Thickness: 20mm',
   },
   {
@@ -25,7 +43,7 @@ const PRODUCTS = [
     name: 'Moroccan Glazed Zellige',
     category: 'ZELLIGE',
     desc: 'Handmade, double-fired glazed terracotta tiles with natural organic imperfections.',
-    image: 'https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=800&q=90',
+    image: t3,
     specs: 'Size: 10×10cm | 100% Handcrafted in Morocco',
   },
   {
@@ -33,7 +51,7 @@ const PRODUCTS = [
     name: 'Hexagonal Marble Mosaic',
     category: 'MOSAICS',
     desc: 'Premium Carrara and Nero Marquina marble chips mesh-mounted in hex rhythm.',
-    image: 'https://images.unsplash.com/photo-1523212569767-e9e98e2cd34f?auto=format&fit=crop&w=800&q=90',
+    image: t4,
     specs: 'Sheet Size: 30×30cm | Polished & Honed finishes',
   },
   {
@@ -41,7 +59,7 @@ const PRODUCTS = [
     name: 'Slate Grey Textured Tile',
     category: 'PORCELAIN',
     desc: 'Matte-finish structured porcelain slate tiles for high-traffic wet areas.',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=90',
+    image: t5,
     specs: 'Size: 80×160cm | R11 Slip-Rating',
   },
   {
@@ -49,7 +67,7 @@ const PRODUCTS = [
     name: 'Unglazed Terracotta Tile',
     category: 'ZELLIGE',
     desc: 'Natural unglazed terracotta tile panels displaying rich earthy shades.',
-    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=90',
+    image: t6,
     specs: 'Size: 15×15cm | Warm Terracotta Clay',
   },
 ];
@@ -84,9 +102,9 @@ function GoldRule({ className = '' }) {
 
 /* ─── data ─── */
 const COLLECTIONS = [
-  { id: '01', label: 'Porcelain', title: 'Grand Format Porcelain Tiles', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90' },
-  { id: '02', label: 'Mosaic', title: 'Artisanal Mosaic & Glass', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90' },
-  { id: '03', label: 'Terrazzo', title: 'Satin Honed Terrazzo', image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=90' },
+  { id: '01', label: 'Porcelain', title: 'Grand Format Porcelain Tiles', image: col1 },
+  { id: '02', label: 'Mosaic', title: 'Artisanal Mosaic & Glass', image: col2 },
+  { id: '03', label: 'Terrazzo', title: 'Satin Honed Terrazzo', image: col3 },
 ];
 
 const FEATURED = [
@@ -95,7 +113,7 @@ const FEATURED = [
     eyebrow: 'Architectural Scale',
     desc: 'Sintered at extreme temperatures, grand format porcelain tiles achieve a density and dimensional stability that no natural material can match. Available in 120×240cm panels, they create seamless, joint-minimal surfaces that define contemporary luxury interiors.',
     details: ['Sizes up to 160×320 cm', 'Polished, Matte & Satin Finishes', 'Near-Zero Water Absorption', 'Ideal for Floors, Walls & Facades'],
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90',
+    image: feat1,
     dark: true,
   },
   {
@@ -103,7 +121,7 @@ const FEATURED = [
     eyebrow: 'Artisanal Craftsmanship',
     desc: 'Each Zellige tile is individually formed by hand from Moroccan clay, fired in traditional kilns, and glazed with colour variations that make every installation unique. No two tiles are identical — and that imperfection is precisely what gives them their extraordinary beauty.',
     details: ['100% Handmade in Morocco', 'Colour Variation in Every Tile', 'Kitchen Splashbacks & Feature Walls', 'Bespoke Pattern Design Service'],
-    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1600&q=90',
+    image: feat2,
     dark: false,
   },
   {
@@ -111,7 +129,7 @@ const FEATURED = [
     eyebrow: 'Italian Heritage',
     desc: "Sourced from Verona's historic terrazzo ateliers, our honed terrazzo tiles carry centuries of craft. Marble, granite and glass chips are set in a cementitious matrix, then ground and polished to a silken smoothness that only improves with age and foot traffic.",
     details: ['Marble, Glass & Granite Chips', 'Custom Chip Blend Available', 'Floors, Countertops & Walls', 'Polished & Honed Finishes'],
-    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=90',
+    image: feat3,
     dark: true,
   },
 ];
@@ -133,12 +151,12 @@ const DESIGN_PRINCIPLES = [
 ];
 
 const GALLERY = [
-  { tag: 'Bathroom', title: 'Bookmatched Marble Bathroom, Chennai', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=90', tall: true },
-  { tag: 'Kitchen', title: 'Zellige Splashback Kitchen, Coimbatore', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=90', tall: false },
-  { tag: 'Living Room', title: 'Grand Format Floor, Bangalore Villa', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=90', tall: false },
-  { tag: 'Feature Wall', title: 'Geometric Mosaic, Luxury Hotel Lobby', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=90', tall: true },
-  { tag: 'Outdoor', title: 'Pool Deck, Kotagiri Estate', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=90', tall: false },
-  { tag: 'Terrazzo', title: 'Terrazzo Foyer, Nungambakkam', image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=90', tall: true },
+  { tag: 'Bathroom', title: 'Bookmatched Marble Bathroom, Chennai', image: gal1, tall: true },
+  { tag: 'Kitchen', title: 'Zellige Splashback Kitchen, Coimbatore', image: gal2, tall: false },
+  { tag: 'Living Room', title: 'Grand Format Floor, Bangalore Villa', image: gal3, tall: false },
+  { tag: 'Feature Wall', title: 'Geometric Mosaic, Luxury Hotel Lobby', image: gal4, tall: true },
+  { tag: 'Outdoor', title: 'Pool Deck, Kotagiri Estate', image: gal5, tall: false },
+  { tag: 'Terrazzo', title: 'Terrazzo Foyer, Nungambakkam', image: gal6, tall: true },
 ];
 
 /* ─── sub-components ─── */
@@ -468,6 +486,49 @@ export default function TilesPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CUSTOM DESIGN SERVICE ══ */}
+      <section className="bg-[#111111] py-20 md:py-28 border-t border-[#F8F6F2]/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(212,175,55,0.03),transparent_50%)]" aria-hidden="true" />
+        <div className="wrap relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Left Column: Text Content */}
+            <div>
+              <Reveal>
+                <Eyebrow>Bespoke Customization</Eyebrow>
+                <h2
+                  className="font-display text-[clamp(2rem,3.8vw,4.5rem)] font-medium leading-[0.98] tracking-tight text-[#F8F6F2] mb-8"
+                  style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
+                >
+                  Customize Your<br />
+                  <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Own Design</em>
+                </h2>
+                <GoldRule className="mb-8 max-w-xs" />
+                <p className="text-base text-[#A0A0A0] font-light leading-[1.9] mb-8 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  Need a custom layout, unique mosaic shapes, or glazed zellige in a specific Pantone shade? Our tile designers can manufacture bespoke commissions to match your project's architectural intent.
+                </p>
+                <p className="text-sm text-[#A0A0A0]/70 font-light leading-[1.9] mb-12 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  We collaborate with architects and interior designers to define customized joints, specify grout parameters, and fabricate unique terrazzo proportions for large-scale flooring and feature walls.
+                </p>
+                <GoldBtn href="#/consultation">Start Customizing</GoldBtn>
+              </Reveal>
+            </div>
+
+            {/* Right Column: Visual Showcase */}
+            <Reveal delay={0.2} className="relative bg-[#111111]">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[#D4AF37]/25">
+                <img
+                  src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&w=1200&q=90"
+                  alt="Custom glazed tile assembly"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[#0B0B0B]/30" />
+              </div>
+              <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#D4AF37]/10 pointer-events-none -z-10" />
+            </Reveal>
           </div>
         </div>
       </section>

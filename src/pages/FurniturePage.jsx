@@ -1,6 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowUpRight, Gem, Hammer, Ruler, Sparkles, Star, Users } from 'lucide-react';
+import f1 from '../assets/furniture/p007_01.jpg';
+import f2 from '../assets/furniture/p007_02.jpg';
+import f3 from '../assets/furniture/p007_03.jpg';
+import f4 from '../assets/furniture/p007_04.jpg';
+import f5 from '../assets/furniture/p007_05.jpg';
+import f6 from '../assets/furniture/p007_06.jpg';
+import sig1 from '../assets/furniture/p009_01.jpg';
+import sig2 from '../assets/furniture/p009_02.jpg';
+import sig3 from '../assets/furniture/p009_03.jpg';
+import gal1 from '../assets/furniture/p008_01.jpg';
+import gal2 from '../assets/furniture/p008_02.jpg';
+import gal3 from '../assets/furniture/p008_03.jpg';
+import gal4 from '../assets/furniture/p008_04.jpg';
+import gal5 from '../assets/furniture/p008_05.jpg';
+import gal6 from '../assets/furniture/p008_06.jpg';
+import show1 from '../assets/furniture/p010_01.jpg';
+import show2 from '../assets/furniture/p010_02.jpg';
 
 /* ─────────────────── DATA ─────────────────── */
 
@@ -10,7 +27,7 @@ const PRODUCTS = [
     name: 'Atelier Bouclé Sofa',
     category: 'SOFAS',
     desc: 'Deep bouclé upholstery with sculpted low lines and solid oak plinth.',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=90',
+    image: f1,
     specs: 'W: 240cm x D: 105cm x H: 72cm | Bouclé, White Oak',
   },
   {
@@ -18,7 +35,7 @@ const PRODUCTS = [
     name: 'Pierre Teak Lounge Chair',
     category: 'CHAIRS',
     desc: 'Mid-century lounge chair with hand-woven cane and dark leather upholstery.',
-    image: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=90',
+    image: f2,
     specs: 'W: 75cm x D: 82cm x H: 78cm | Solid Teak, Full-Grain Leather',
   },
   {
@@ -26,7 +43,7 @@ const PRODUCTS = [
     name: 'Monolith Oak Dining Table',
     category: 'TABLES',
     desc: 'Minimalist dining table crafted from solid French oak and stone bases.',
-    image: 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=90',
+    image: f3,
     specs: 'L: 280cm x W: 110cm x H: 75cm | French Oak, Black Granite',
   },
   {
@@ -34,7 +51,7 @@ const PRODUCTS = [
     name: 'Linea Walnut Platform Bed',
     category: 'BEDS & STORAGE',
     desc: 'American walnut floating bedstead with natural linen headboard.',
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=90',
+    image: f4,
     specs: 'King Size | American Walnut, Belgian Linen',
   },
   {
@@ -42,7 +59,7 @@ const PRODUCTS = [
     name: 'Basalt Credenza',
     category: 'BEDS & STORAGE',
     desc: 'Smoked oak storage console topped with leather-finished granite.',
-    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=90',
+    image: f5,
     specs: 'W: 180cm x D: 45cm x H: 75cm | Smoked Oak, Granite',
   },
   {
@@ -50,7 +67,7 @@ const PRODUCTS = [
     name: 'Travertine Slab Coffee Table',
     category: 'TABLES',
     desc: 'Minimal organic-shaped travertine top table with column base.',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=90',
+    image: f6,
     specs: 'W: 120cm x D: 120cm x H: 38cm | Honed Classico Travertine',
   },
 ];
@@ -86,24 +103,21 @@ const SIGNATURE = [
     title: 'Velvet Lounge Sofa',
     description:
       'Sculpted from sustainable solid beech frames and dressed in hand-selected Belgian velvet. Every curve is engineered for repose — deep enough to disappear into, elegant enough to anchor any room.',
-    image:
-      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=90',
+    image: sig1,
   },
   {
     eyebrow: 'The Dining Collection',
     title: 'Solid Oak Dining Table',
     description:
       'Hand-oiled white oak, cut in a single continuous slab and finished without centre joints. The grain tells the story of decades — a table that improves with every gathering held around it.',
-    image:
-      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=90',
+    image: sig2,
   },
   {
     eyebrow: 'The Bedroom Collection',
     title: 'Tufted King Bedstead',
     description:
       'Upholstered in linen-velvet with hand-placed diamond tufting. The recessed granite plinth base grounds the bed in architectural weight, while the headboard rises to command the room with quiet authority.',
-    image:
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=90',
+    image: sig3,
   },
 ];
 
@@ -118,37 +132,37 @@ const GALLERY = [
   {
     tag: 'Living Room',
     title: 'Alibaug Penthouse',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=90',
+    image: gal1,
     tall: true,
   },
   {
     tag: 'Dining',
     title: 'Coimbatore Residence',
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=90',
+    image: gal2,
     tall: false,
   },
   {
     tag: 'Bedroom',
     title: 'Nungambakkam Duplex',
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=90',
+    image: gal3,
     tall: false,
   },
   {
     tag: 'Study',
     title: 'Corporate Suite, OMR',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=90',
+    image: gal4,
     tall: true,
   },
   {
     tag: 'Foyer',
     title: 'Grand Lobby, Chennai',
-    image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=900&q=90',
+    image: gal5,
     tall: false,
   },
   {
     tag: 'Living',
     title: 'Besant Nagar Villa',
-    image: 'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=90',
+    image: gal6,
     tall: true,
   },
 ];
@@ -159,14 +173,14 @@ const SHOWCASE = [
     eyebrow: 'Interior Showcase',
     title: 'The Art of Considered Living',
     desc: 'A space is not merely furnished — it is composed. Each piece we place is chosen for its relationship to light, proportion, and the people who inhabit it.',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90',
+    image: show1,
   },
   {
     dark: false,
     eyebrow: 'Spatial Harmony',
     title: 'Where Architecture Meets Craft',
     desc: 'We believe furniture should feel inevitable — as if the room could not exist in any other form. Our bespoke process ensures every dimension serves the whole.',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=90',
+    image: show2,
   },
 ];
 
@@ -179,18 +193,6 @@ const WHY = [
   { icon: Users, label: 'Expert Consultation', desc: 'Dedicated interior design advisory.' },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote: 'The oak dining table is the heart of our home. The wood is warm to touch, and the joinery is absolutely immaculate. We receive compliments every single time we host.',
-    author: 'Aravind Swamy',
-    role: 'Dining Room — Chennai Duplex',
-  },
-  {
-    quote: 'Our velvet sofa is exceptionally comfortable. The craftsmanship is in a league of its own — it looks better in our living room than it did in any photograph.',
-    author: 'Meera & Raghavan',
-    role: 'Living Room — Coimbatore Residence',
-  },
-];
 
 /* ─────────────────── ANIMATION VARIANTS ─────────────────── */
 
@@ -648,69 +650,46 @@ export default function FurniturePage() {
 
 
 
-      {/* ══ 8. TESTIMONIALS ══ */}
-      <section className="bg-[#F8F6F2] py-20 md:py-28">
-        <div className="wrap">
-          <Reveal>
-            <div className="text-center mb-12 md:mb-16">
-              <Eyebrow>Client Voices</Eyebrow>
-              <h2
-                className="font-display text-[clamp(1.9rem,3.8vw,4rem)] font-medium leading-[1.05] tracking-tight text-[#0B0B0B] max-w-2xl mx-auto"
-                style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
-              >
-                Words from those who live in our spaces
-              </h2>
-            </div>
-          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.author} delay={i * 0.15}>
-                <div className="group relative border border-[#0B0B0B]/8 bg-white p-12 md:p-16 hover:border-[#D4AF37]/30 transition-colors duration-700">
-                  {/* Giant quote mark */}
-                  <span
-                    className="absolute top-8 left-12 text-[7rem] leading-none text-[#D4AF37]/15 select-none pointer-events-none"
-                    style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
-                    aria-hidden="true"
-                  >
-                    "
-                  </span>
+      {/* ══ CUSTOM DESIGN SERVICE ══ */}
+      <section className="bg-[#111111] py-20 md:py-28 border-t border-[#F8F6F2]/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(212,175,55,0.03),transparent_50%)]" aria-hidden="true" />
+        <div className="wrap relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Left Image */}
+            <Reveal className="relative lg:order-1 order-2">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[#D4AF37]/25">
+                <img
+                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=90"
+                  alt="Furniture custom drafting process"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-[#0B0B0B]/30" />
+              </div>
+              <div className="absolute -bottom-3 -left-3 w-full h-full border border-[#D4AF37]/10 pointer-events-none -z-10" />
+            </Reveal>
 
-                  <blockquote
-                    className="font-display text-2xl md:text-3xl font-medium leading-[1.4] text-[#0B0B0B] mb-10 relative z-10"
-                    style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}
-                  >
-                    {t.quote}
-                  </blockquote>
-
-                  <GoldRule className="mb-8" />
-
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <p
-                        className="font-medium text-sm text-[#0B0B0B] tracking-wide"
-                        style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-                      >
-                        {t.author}
-                      </p>
-                      <p
-                        className="text-[11px] uppercase tracking-[0.3em] text-[#A0A0A0] mt-1"
-                        style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-                      >
-                        {t.role}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Stars */}
-                  <div className="flex gap-1 mt-6">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className="w-3 h-3 fill-[#D4AF37] text-[#D4AF37]" />
-                    ))}
-                  </div>
-                </div>
+            {/* Right Text */}
+            <div className="lg:order-2 order-1">
+              <Reveal>
+                <Eyebrow>Bespoke Customization</Eyebrow>
+                <h2
+                  className="font-display text-[clamp(2rem,3.8vw,4.5rem)] font-medium leading-[0.98] tracking-tight text-[#F8F6F2] mb-8"
+                  style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
+                >
+                  Customize Your<br />
+                  <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Own Design</em>
+                </h2>
+                <GoldRule className="mb-8 max-w-xs" />
+                <p className="text-base text-[#A0A0A0] font-light leading-[1.9] mb-8 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  If our catalog doesn't match the exact volume, fabric texture, or timber species your room demands, we can engineer custom dimensions and specifications.
+                </p>
+                <p className="text-sm text-[#A0A0A0]/70 font-light leading-[1.9] mb-12 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  Work directly with our Chennai workshop to specify custom oak plinths, choose from curated Belgian velvet swatches, or adapt dimensions to your space's exact columns and entryways.
+                </p>
+                <GoldButton href="#/consultation">Start Customizing</GoldButton>
               </Reveal>
-            ))}
+            </div>
           </div>
         </div>
       </section>

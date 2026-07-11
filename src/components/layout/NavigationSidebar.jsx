@@ -13,6 +13,7 @@ const PREVIEW_IMAGES = {
   '#/tiles': IMG.tiles,
   '#/granite': IMG.granite,
   '#/company': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85',
+  '#/where-to-buy': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85',
   '#story': IMG.concept,
   '#surfaces': IMG.granite,
   '#contact': IMG.kitchen,

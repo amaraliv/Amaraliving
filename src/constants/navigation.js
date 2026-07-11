@@ -1,11 +1,10 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '#/', isPage: true },
-  { label: 'Furniture', href: '#/furniture', isPage: true },
-  { label: 'Tiles', href: '#/tiles', isPage: true },
-  { label: 'Granite', href: '#/granite', isPage: true },
+  { label: 'Our Collections', href: '#collections-modal', isModalTrigger: true },
   { label: 'Blog', href: '#/blog', isPage: true },
   { label: 'Company', href: '#/company', isPage: true },
   { label: 'Consultation', href: '#/consultation', isPage: true },
+  { label: 'Where to Buy', href: '#/where-to-buy', isPage: true },
   { label: 'Contact', href: '#contact' },
 ];
 
