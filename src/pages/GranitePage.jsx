@@ -1,6 +1,24 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowUpRight, MoveRight, Gem, Shield, Flame, Droplets, Mountain, Zap } from 'lucide-react';
+import g1 from '../assets/granite/AMARA_Image_10.jpg';
+import g2 from '../assets/granite/AMARA_Image_12.jpg';
+import g3 from '../assets/granite/AMARA_Image_13.jpg';
+import g4 from '../assets/granite/AMARA_Image_15.jpg';
+import g5 from '../assets/granite/AMARA_Image_17.jpg';
+import g6 from '../assets/granite/AMARA_Image_18.jpg';
+import col1 from '../assets/granite/AMARA_Image_19.jpg';
+import col2 from '../assets/granite/AMARA_Image_21.jpg';
+import col3 from '../assets/granite/Hawk_Image_17.jpg';
+import feat1 from '../assets/granite/Hawk_Image_18.jpg';
+import feat2 from '../assets/granite/Hawk_Image_19.jpg';
+import feat3 from '../assets/granite/Hawk_Image_20.jpg';
+import gal1 from '../assets/granite/Hawk_Image_21.jpg';
+import gal2 from '../assets/granite/Hawk_Image_22.jpg';
+import gal3 from '../assets/granite/Hawk_Image_23.jpg';
+import gal4 from '../assets/granite/Hawk_Image_24.jpg';
+import gal5 from '../assets/granite/Hawk_Image_26.jpg';
+import gal6 from '../assets/granite/Hawk_Image_27.jpg';
 
 /* ─── data ─── */
 const PRODUCTS = [
@@ -9,7 +27,7 @@ const PRODUCTS = [
     name: 'Absolute Black Granite',
     category: 'GRANITE',
     desc: 'Mirror-polished deep obsidian surface with exceptionally uniform tone.',
-    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=90',
+    image: g1,
     specs: 'Thickness: 20mm, 30mm | Finish: High Polish',
   },
   {
@@ -17,7 +35,7 @@ const PRODUCTS = [
     name: 'Taj Mahal Quartzite',
     category: 'QUARTZITE',
     desc: 'Soft ivory quartzite with subtle warm amber waves. Exceptionally hard.',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=90',
+    image: g2,
     specs: 'Thickness: 20mm | Finish: Honed, Satin',
   },
   {
@@ -25,7 +43,7 @@ const PRODUCTS = [
     name: 'Statuario White Marble',
     category: 'MARBLE',
     desc: 'Prestigious Italian white marble with signature bold charcoal grey veins.',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=90',
+    image: g3,
     specs: 'Thickness: 18mm | Finish: Mirror Polished',
   },
   {
@@ -33,7 +51,7 @@ const PRODUCTS = [
     name: 'Viscon White Granite',
     category: 'GRANITE',
     desc: 'Indian white granite with sweeping waves of ash grey and black crystal deposits.',
-    image: 'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800&q=90',
+    image: g4,
     specs: 'Thickness: 20mm | Finish: Leathered, Polished',
   },
   {
@@ -41,7 +59,7 @@ const PRODUCTS = [
     name: 'Blue Bahia Exotic',
     category: 'QUARTZITE',
     desc: 'Exotic Brazilian stone featuring rich sodalite blue crystals and gold flecks.',
-    image: 'https://images.unsplash.com/photo-1600607688229-472a15b69d2c?auto=format&fit=crop&w=800&q=90',
+    image: g5,
     specs: 'Thickness: 20mm | Finish: High Polish',
   },
   {
@@ -49,7 +67,7 @@ const PRODUCTS = [
     name: 'Kashmir Gold Granite',
     category: 'GRANITE',
     desc: 'Warm sandy-gold background with delicate garnet red spots and grey veining.',
-    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=90',
+    image: g6,
     specs: 'Thickness: 20mm | Finish: Polished, Honed',
   },
 ];
@@ -84,9 +102,9 @@ function GoldRule({ className = '' }) {
 
 /* ─── data ─── */
 const COLLECTIONS = [
-  { id: '01', label: 'Granite', title: 'Absolute Black & Exotic Granites', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1400&q=90', href: '#/granite' },
-  { id: '02', label: 'Quartzite', title: 'Crystal Quartzite & Metallic Veins', image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1400&q=90', href: '#/granite' },
-  { id: '03', label: 'Marble', title: 'Carrara & Italian Marble Slabs', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90', href: '#/granite' },
+  { id: '01', label: 'Granite', title: 'Absolute Black & Exotic Granites', image: col1, href: '#/granite' },
+  { id: '02', label: 'Quartzite', title: 'Crystal Quartzite & Metallic Veins', image: col2, href: '#/granite' },
+  { id: '03', label: 'Marble', title: 'Carrara & Italian Marble Slabs', image: col3, href: '#/granite' },
 ];
 
 const FEATURED = [
@@ -95,7 +113,7 @@ const FEATURED = [
     eyebrow: 'Premium Collection',
     desc: 'Sourced from deep subterranean quarries in South India, Absolute Black granite carries a near-zero porosity that makes it the ultimate surface for kitchen counters and bathroom vanities. Every slab is mirror-polished to a depth of reflection that reveals dimension rather than just surface.',
     details: ['Mirror Polished Finish', 'Near-Zero Porosity', 'Ideal for Countertops & Floors', 'Available: 180 × 280 cm'],
-    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=90',
+    image: feat1,
     dark: true,
   },
   {
@@ -103,7 +121,7 @@ const FEATURED = [
     eyebrow: 'Italian Heritage',
     desc: 'Honed from the legendary quarries of Carrara, each Calacatta slab is a singular geological event — no two veins are identical. We hand-select every block for figure, movement, and tonal balance before it is precision-cut for your project.',
     details: ['Book-Matched Slabs Available', 'Honed & Polished Finishes', 'Feature Walls & Flooring', 'Slab Size: 150 × 280 cm'],
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90',
+    image: feat2,
     dark: false,
   },
   {
@@ -111,7 +129,7 @@ const FEATURED = [
     eyebrow: 'Exotic Origins',
     desc: 'Formed under immense geological pressure, Brazilian quartzite contains metallic crystal veins of iron and mica that catch light differently at every hour of the day. Harder than granite, it is equally suited to exterior cladding and interior statement pieces.',
     details: ['Crystal & Metallic Veining', 'Harder Than Granite', 'Interior & Exterior Use', 'Custom Slab Cutting Available'],
-    image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1600&q=90',
+    image: feat3,
     dark: true,
   },
 ];
@@ -135,12 +153,12 @@ const ORIGINS = [
 const PROCESS = ['Quarry Selection', 'Block Extraction', 'Precision Cutting', 'Surface Finishing', 'Quality Inspection', 'On-Site Installation'];
 
 const GALLERY = [
-  { tag: 'Kitchen Counter', title: 'Absolute Black Kitchen, Chennai', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=90', tall: true },
-  { tag: 'Bathroom', title: 'Calacatta Vanity, Coimbatore', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=90', tall: false },
-  { tag: 'Feature Wall', title: 'Quartzite Statement Wall', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=900&q=90', tall: false },
-  { tag: 'Flooring', title: 'Italian Marble Foyer', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=90', tall: true },
-  { tag: 'Exterior', title: 'Cladding, Corporate Lobby', image: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=900&q=90', tall: false },
-  { tag: 'Countertop', title: 'Travertine Kitchen Island', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=90', tall: true },
+  { tag: 'Kitchen Counter', title: 'Absolute Black Kitchen, Chennai', image: gal1, tall: true },
+  { tag: 'Bathroom', title: 'Calacatta Vanity, Coimbatore', image: gal2, tall: false },
+  { tag: 'Feature Wall', title: 'Quartzite Statement Wall', image: gal3, tall: false },
+  { tag: 'Flooring', title: 'Italian Marble Foyer', image: gal4, tall: true },
+  { tag: 'Exterior', title: 'Cladding, Corporate Lobby', image: gal5, tall: false },
+  { tag: 'Countertop', title: 'Travertine Kitchen Island', image: gal6, tall: true },
 ];
 
 /* ─── sub-components ─── */

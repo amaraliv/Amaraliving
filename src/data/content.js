@@ -1,26 +1,43 @@
+import furnitureHeroImg from '../assets/furniture/00_hero.jpg';
+import tilesImg from '../assets/tiles/AMARA_Image_01.jpg';
+import graniteImg from '../assets/granite/Hawk_Image_04.jpg';
+import livingRoomImg from '../assets/furniture/p007_01.jpg';
+import workspaceImg from '../assets/furniture/p008_01.jpg';
+import kitchenImg from '../assets/furniture/p009_01.jpg';
+import marbleImg from '../assets/granite/Hawk_Image_06.jpg';
+import furnitureImg from '../assets/furniture/p010_01.jpg';
+import furniture2Img from '../assets/furniture/p011_01.jpg';
+import furniture3Img from '../assets/furniture/p012_01.jpg';
+import conceptImg from '../assets/furniture/p013_01.jpg';
+import craftImg from '../assets/furniture/p014_05.jpg';
+import sideboardImg from '../assets/furniture/p016_03.jpg';
+
+import heroBrand from '../assets/Homepage display/00_hero.jpg';
+import heroTiles from '../assets/Homepage display/Screenshot 2026-07-11 104213.png';
+import heroInterior from '../assets/Homepage display/Screenshot 2026-07-11 104434.png';
+import heroLibrary from '../assets/Homepage display/Screenshot 2026-07-11 104531.png';
+
 export const IMG = {
-  hero: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=90',
-  livingRoom: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=88',
-  workspace: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=88',
-  kitchen: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=88',
-  granite: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=88',
-  marble: 'https://images.unsplash.com/photo-1567226840607-8999f0550901?auto=format&fit=crop&w=1200&q=88',
-  tiles: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=88',
-  furniture: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=88',
-  furniture2: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1400&q=88',
-  furniture3: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=88',
-  concept: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=88',
-  craft: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=88',
-  sideboard: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=88',
+  hero: furnitureHeroImg,
+  livingRoom: livingRoomImg,
+  workspace: workspaceImg,
+  kitchen: kitchenImg,
+  granite: graniteImg,
+  marble: marbleImg,
+  tiles: tilesImg,
+  furniture: furnitureImg,
+  furniture2: furniture2Img,
+  furniture3: furniture3Img,
+  concept: conceptImg,
+  craft: craftImg,
+  sideboard: sideboardImg,
 };
 
 export const HERO_SLIDES = [
-  IMG.hero,
-  IMG.livingRoom,
-  IMG.kitchen,
-  IMG.concept,
-  IMG.workspace,
-  IMG.furniture,
+  heroBrand,
+  heroInterior,
+  heroTiles,
+  heroLibrary,
 ];
 
 export const MATERIALS = [

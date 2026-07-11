@@ -11,6 +11,7 @@ import GranitePage from './pages/GranitePage';
 import ConsultationPage from './pages/ConsultationPage';
 import CompanyPage from './pages/CompanyPage';
 import BlogPage from './pages/BlogPage';
+import WhereToBuyPage from './pages/WhereToBuyPage';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
@@ -21,7 +22,7 @@ export default function App() {
       setCurrentPath(hash);
       
       // If it's a primary subpage or the home root, scroll to top instantly
-      if (hash === '#/furniture' || hash === '#/tiles' || hash === '#/granite' || hash === '#/consultation' || hash === '#/company' || hash === '#/blog' || hash === '#/' || hash === '') {
+      if (hash === '#/furniture' || hash === '#/tiles' || hash === '#/granite' || hash === '#/consultation' || hash === '#/company' || hash === '#/blog' || hash === '#/where-to-buy' || hash === '#/' || hash === '') {
         window.scrollTo(0, 0);
       }
     };
@@ -53,6 +54,7 @@ export default function App() {
   const isConsultation = currentPath === '#/consultation';
   const isCompany = currentPath === '#/company';
   const isBlog = currentPath === '#/blog';
+  const isWhereToBuy = currentPath === '#/where-to-buy';
 
   return (
     <SmoothScroll>
@@ -77,6 +79,8 @@ export default function App() {
         <CompanyPage />
       ) : isBlog ? (
         <BlogPage />
+      ) : isWhereToBuy ? (
+        <WhereToBuyPage />
       ) : (
         <HomePage />
       )}

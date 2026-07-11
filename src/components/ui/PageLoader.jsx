@@ -14,7 +14,7 @@ export default function PageLoader() {
 
   return (
     <div
-      className="loader-screen fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-dark animate-loader-exit"
+      className="loader-screen fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#0B0B0B] animate-loader-exit"
       aria-live="polite"
       aria-label="Loading Amara Living"
     >

@@ -8,6 +8,15 @@ import {
 import { HERO_SLIDES, SPACES, MATERIALS, TIMELINE, IMG } from '../data/content';
 import CurvedSectionTransition from '../components/common/CurvedSectionTransition';
 import Testimonials from '../components/sections/Testimonials';
+import furnitureCategoryImg from '../assets/furniture/00_hero.jpg';
+import tilesCategoryImg from '../assets/tiles/AMARA_Image_01.jpg';
+import graniteCategoryImg from '../assets/granite/Hawk_Image_04.jpg';
+import homeGal1 from '../assets/granite/Hawk_Image_04.jpg';
+import homeGal2 from '../assets/furniture/p020_02.jpg';
+import homeGal3 from '../assets/furniture/p019_03.jpg';
+import homeGal4 from '../assets/granite/Hawk_Image_25.jpg';
+import homeGal5 from '../assets/tiles/tiles 1.jpg';
+import homeGal6 from '../assets/furniture/p019_04.jpg';
 
 /* ────────── THEME COLOURS ────────── */
 const C = {
@@ -68,9 +77,9 @@ function GoldRule({ className = '' }) {
 
 /* ────────── DATA ────────── */
 const FEATURED_CATEGORIES = [
-  { id: '01', label: 'Stone', title: 'Granite & Marble', href: '#/granite', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1400&q=90' },
-  { id: '02', label: 'Furniture', title: 'Bespoke Furniture', href: '#/furniture', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90' },
-  { id: '03', label: 'Tiles', title: 'Designer Tiles', href: '#/tiles', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90' },
+  { id: '01', label: 'Stone', title: 'Granite & Marble', href: '#/granite', image: graniteCategoryImg },
+  { id: '02', label: 'Furniture', title: 'Bespoke Furniture', href: '#/furniture', image: furnitureCategoryImg },
+  { id: '03', label: 'Tiles', title: 'Designer Tiles', href: '#/tiles', image: tilesCategoryImg },
 ];
 
 const WHY_ITEMS = [
@@ -494,12 +503,12 @@ export default function HomePage() {
 
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 px-4 md:px-6 space-y-3">
           {[
-            { tag: 'Living Room', title: 'Alibaug Penthouse', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=90', tall: true },
-            { tag: 'Dining', title: 'Coimbatore Residence', image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=90', tall: false },
-            { tag: 'Bedroom', title: 'Nungambakkam Duplex', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=90', tall: false },
-            { tag: 'Stone', title: 'Grand Lobby, Chennai', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=900&q=90', tall: true },
-            { tag: 'Kitchen', title: 'OMR Corporate Suite', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=90', tall: false },
-            { tag: 'Living', title: 'Besant Nagar Villa', image: 'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=90', tall: true },
+            { tag: 'Stone', title: 'Absolute Black Granite', image: homeGal1, tall: true },
+            { tag: 'Dining', title: 'Coimbatore Residence', image: homeGal2, tall: false },
+            { tag: 'Bedroom', title: 'Nungambakkam Duplex', image: homeGal3, tall: false },
+            { tag: 'Stone', title: 'Grand Lobby, Chennai', image: homeGal4, tall: true },
+            { tag: 'Kitchen', title: 'OMR Corporate Suite', image: homeGal5, tall: false },
+            { tag: 'Furniture', title: 'Bespoke Lounge Seating', image: homeGal6, tall: true },
           ].map((item, i) => (
             <Reveal key={item.title} delay={i * 0.07}>
               <div className="group relative overflow-hidden break-inside-avoid">
@@ -521,6 +530,53 @@ export default function HomePage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* ══ Where to Buy / Experience Centers Intro ══ */}
+      <section id="where-to-buy-intro" className="bg-[#111111] py-20 md:py-28 border-t border-[#F8F6F2]/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,175,55,0.04),transparent_50%)]" aria-hidden="true" />
+        <div className="wrap relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Left Column: Text Content */}
+            <div>
+              <Reveal>
+                <Eyebrow>Showrooms &amp; Contacts</Eyebrow>
+                <h2
+                  className="font-display text-[clamp(2rem,3.8vw,4.5rem)] font-medium leading-[0.98] tracking-tight text-[#F8F6F2] mb-8"
+                  style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
+                >
+                  Where to Experience<br />
+                  <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Amara Living</em>
+                </h2>
+                <GoldRule className="mb-10 max-w-xs" />
+                <p className="text-base text-[#A0A0A0] font-light leading-[1.9] mb-8 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  Touch the cold veining of our natural granite blocks, run your fingers over our handcrafted timber joints, and select the perfect bespoke details with our in-house consultants.
+                </p>
+                <p className="text-sm text-[#A0A0A0]/70 font-light leading-[1.9] mb-12 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  Visit our flagship Chennai Atelier or Madurai Experience Center. For national shipments and international projects in the Gulf and Southeast Asia, connect directly with our global liaison representatives.
+                </p>
+                <GoldBtn href="#/where-to-buy">Explore Showrooms &amp; Contacts</GoldBtn>
+              </Reveal>
+            </div>
+
+            {/* Right Column: Visual Showcase */}
+            <Reveal delay={0.2} className="relative bg-[#111111]">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[#D4AF37]/20">
+                <img
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=90"
+                  alt="Amara Living experience center showroom"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] block mb-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Flagship Studio</span>
+                  <h3 className="font-display text-xl font-medium text-white" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Chennai Atelier &amp; Stone Yard</h3>
+                </div>
+              </div>
+              <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#D4AF37]/10 pointer-events-none -z-10" />
+            </Reveal>
+          </div>
         </div>
       </section>
 
