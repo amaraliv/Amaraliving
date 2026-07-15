@@ -25,7 +25,7 @@ export default function PageLoader() {
             Amara <span className="italic text-gold">Living</span>
           </p>
           <p className="loader-logo-sub mt-4 font-body text-[11px] uppercase tracking-[0.45em] text-cream/40">
-            Luxury Interiors · Est. 2010
+            Luxury · Est. 2010
           </p>
         </div>
       </div>

@@ -160,10 +160,10 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="block text-[10px] font-semibold uppercase tracking-[0.45em] text-[#D4AF37] mb-8"
+              className="block text-[15px] font-semibold uppercase tracking-[0.45em] text-[#D4AF37] mb-8"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              Premium Since 2010
+              Established in 2010.
             </motion.p>
             <h1 className="mb-8 space-y-2">
               <div className="overflow-hidden">
@@ -185,7 +185,7 @@ export default function HomePage() {
                   className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#D4AF37] pb-3 pr-4"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}
                 >
-                  Of Distinctive Luxury
+                  That Matter
                 </motion.span>
               </div>
             </h1>
@@ -196,7 +196,8 @@ export default function HomePage() {
               className="max-w-md text-[#FAF6F0]/80 text-base font-light leading-[1.9] mb-12"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              Luxury granite & Tiles, premium furniture, and timeless interior concepts designed for sophisticated living.
+              Premium Tiles, Granite, Furniture & Complete Interior and Exterior Solutions.
+
             </motion.p>
           </div>
         </motion.div>
