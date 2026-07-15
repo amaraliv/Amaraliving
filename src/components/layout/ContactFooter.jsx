@@ -4,7 +4,6 @@ import { FOOTER_COLLECTIONS, FOOTER_SOCIAL, FOOTER_STUDIOS } from '../../constan
 import { IconMail, IconMapPin, IconPhone } from '../ui/FooterIcons';
 import FooterLink from '../ui/FooterLink';
 import logoImg from '../../assets/images/amara-logo.png';
-import contactBg from '../../assets/images/contact-bg.jpg';
 
 export default function ContactFooter() {
   const ref = useRef(null);
@@ -32,17 +31,8 @@ export default function ContactFooter() {
     <footer
       ref={ref}
       id="contact"
-      className="relative text-cream overflow-hidden border-t border-[#C8A35F]/20 backdrop-blur-[20px] bg-[#0A0A0A]/75 shadow-[inset_0_1px_0_0_rgba(200,163,95,0.1),0_-8px_32px_rgba(200,163,95,0.06)]"
-      style={{
-        backgroundImage: `url(${contactBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
+      className="relative text-cream overflow-hidden border-t border-[#C8A35F]/20 bg-[#0A0A0A] shadow-[inset_0_1px_0_0_rgba(200,163,95,0.1),0_-8px_32px_rgba(200,163,95,0.06)]"
     >
-      {/* Soft vertical dark-to-transparent gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/50 to-[#0A0A0A]/95 mix-blend-multiply" aria-hidden="true" />
-      
       {/* Subtle gold radial glow overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(200,163,95,0.06),transparent_60%)]" aria-hidden="true" />
 
@@ -50,24 +40,19 @@ export default function ContactFooter() {
         <div className="foot-brand">
           {/* 4 columns on desktop, 2 columns on tablet, 1 column on mobile */}
           <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start">
-            
+
             {/* Column 1: Logo & Company Description */}
             <div className="flex flex-col items-start lg:col-span-1">
               <div className="flex flex-col items-start">
                 <img
                   src={logoImg}
                   alt="Amara Living"
-                  className="h-28 md:h-32 lg:h-34 -ml-5 md:-ml-7 object-contain filter brightness-[1.05]"
+                  className="h-60 md:h-55 lg:h-45 -ml-2 md:-ml-3 -mt-6 md:-mt-8 object-contain filter brightness-[1.05]"
                 />
-                <h2
-                  className="font-display text-4xl md:text-5xl lg:text-[2.75rem] font-bold leading-none text-[#F8F6F2] -mt-1"
-                  style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
-                >
-                  Amara <span className="italic text-[#C8A35F] font-bold">Living</span>
-                </h2>
+
               </div>
-              <p className="mt-3 max-w-xs font-body text-sm leading-relaxed text-cream/80 font-medium">
-                Amara Living is a leading exporter of premium tiles, granite, and furniture from India.
+              <p className="-mt-6 md:-mt-8 max-w-xs font-body text-sm leading-relaxed text-cream/80 font-medium">
+                Amara Living is a leading exporter of premium tiles, granites, and furniture from India.
                 Since 2010, we have been delivering quality products to customers worldwide, backed by
                 reliable service, competitive pricing, and timely delivery.
               </p>
