@@ -7,7 +7,7 @@ export default function BookConsultationForm() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [date, setDate] = useState('');
-  const [location, setLocation] = useState('Chennai Showroom');
+  const [location, setLocation] = useState('Chennai Experience Center');
   const [details, setDetails] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -33,7 +33,7 @@ export default function BookConsultationForm() {
       setEmail('');
       setPhone('');
       setDate('');
-      setLocation('Chennai Showroom');
+      setLocation('Chennai Experience Center');
       setDetails('');
       setInterests({ stone: false, tiles: false, furniture: false, design: false });
     }, 3500);
@@ -165,7 +165,7 @@ export default function BookConsultationForm() {
                           onChange={(e) => setLocation(e.target.value)}
                           className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         >
-                          <option value="Chennai Showroom">Chennai Showroom (Maduravoyal)</option>
+                          <option value="Chennai Experience Center">Chennai Experience Center (Maduravoyal)</option>
                           <option value="Virtual Consultation">Virtual Design Review (Zoom/Meet)</option>
                         </select>
                       </div>

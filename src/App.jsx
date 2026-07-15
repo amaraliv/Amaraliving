@@ -1,17 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import SmoothScroll from './hooks/SmoothScroll';
 import PageLoader from './components/ui/PageLoader';
 import ImageViewHint from './components/common/ImageViewHint';
 import Navbar from './components/layout/Navbar';
 import ContactFooter from './components/layout/ContactFooter';
-import HomePage from './pages/HomePage';
-import FurniturePage from './pages/FurniturePage';
-import TilesPage from './pages/TilesPage';
-import GranitePage from './pages/GranitePage';
-import ConsultationPage from './pages/ConsultationPage';
-import CompanyPage from './pages/CompanyPage';
-import BlogPage from './pages/BlogPage';
-import WhereToBuyPage from './pages/WhereToBuyPage';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const FurniturePage = lazy(() => import('./pages/FurniturePage'));
+const TilesPage = lazy(() => import('./pages/TilesPage'));
+const GranitePage = lazy(() => import('./pages/GranitePage'));
+const ConsultationPage = lazy(() => import('./pages/ConsultationPage'));
+const CompanyPage = lazy(() => import('./pages/CompanyPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const WhereToBuyPage = lazy(() => import('./pages/WhereToBuyPage'));
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
@@ -67,23 +68,25 @@ export default function App() {
       </a>
       <ImageViewHint />
       <Navbar />
-      {isFurniture ? (
-        <FurniturePage />
-      ) : isTiles ? (
-        <TilesPage />
-      ) : isGranite ? (
-        <GranitePage />
-      ) : isConsultation ? (
-        <ConsultationPage />
-      ) : isCompany ? (
-        <CompanyPage />
-      ) : isBlog ? (
-        <BlogPage />
-      ) : isWhereToBuy ? (
-        <WhereToBuyPage />
-      ) : (
-        <HomePage />
-      )}
+      <Suspense fallback={<div className="min-h-screen bg-[#0B0B0B]" />}>
+        {isFurniture ? (
+          <FurniturePage />
+        ) : isTiles ? (
+          <TilesPage />
+        ) : isGranite ? (
+          <GranitePage />
+        ) : isConsultation ? (
+          <ConsultationPage />
+        ) : isCompany ? (
+          <CompanyPage />
+        ) : isBlog ? (
+          <BlogPage />
+        ) : isWhereToBuy ? (
+          <WhereToBuyPage />
+        ) : (
+          <HomePage />
+        )}
+      </Suspense>
       <ContactFooter />
 
       {/* Floating WhatsApp Action Button */}

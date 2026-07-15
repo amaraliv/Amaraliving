@@ -4,18 +4,13 @@ import { FOOTER_COLLECTIONS, FOOTER_SOCIAL, FOOTER_STUDIOS } from '../../constan
 import { IconMail, IconMapPin, IconPhone } from '../ui/FooterIcons';
 import FooterLink from '../ui/FooterLink';
 import logoImg from '../../assets/images/amara-logo.png';
+import contactBg from '../../assets/images/contact-bg.jpg';
 
 export default function ContactFooter() {
   const ref = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.foot-line', {
-        scaleX: 0,
-        transformOrigin: 'left',
-        duration: 1.2,
-        scrollTrigger: { trigger: ref.current, start: 'top 85%' },
-      });
       gsap.from('.foot-item', {
         y: 24,
         opacity: 0,
@@ -34,45 +29,68 @@ export default function ContactFooter() {
   }, []);
 
   return (
-    <footer ref={ref} id="contact" className="relative bg-dark text-cream">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(212,175,55,0.07),transparent_55%)]" aria-hidden="true" />
+    <footer
+      ref={ref}
+      id="contact"
+      className="relative text-cream overflow-hidden border-t border-[#C8A35F]/20 backdrop-blur-[20px] bg-[#0A0A0A]/75 shadow-[inset_0_1px_0_0_rgba(200,163,95,0.1),0_-8px_32px_rgba(200,163,95,0.06)]"
+      style={{
+        backgroundImage: `url(${contactBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Soft vertical dark-to-transparent gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0A0A]/50 to-[#0A0A0A]/95 mix-blend-multiply" aria-hidden="true" />
+      
+      {/* Subtle gold radial glow overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(200,163,95,0.06),transparent_60%)]" aria-hidden="true" />
 
-      <div className="wrap relative py-10 md:py-12 lg:py-14">
+      <div className="relative mx-auto w-full max-w-[1850px] px-4 sm:px-6 md:px-8 lg:px-10 pt-1 pb-5 md:pt-1.5 md:pb-7 lg:pt-2 lg:pb-8">
         <div className="foot-brand">
-          <div className="foot-line mb-5 h-px w-full max-w-xs bg-gold/40" />
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6 lg:items-start">
-            <div className="sm:col-span-2 lg:col-span-4">
-              <img
-                src={logoImg}
-                alt="Amara Living"
-                className="h-11 md:h-12 object-contain mb-4"
-              />
-              <h2 className="font-display text-3xl font-medium leading-tight md:text-4xl lg:text-[2.75rem]">
-                Amara <span className="italic text-gold">Living</span>
-              </h2>
-              <p className="mt-3 max-w-sm font-body text-sm leading-relaxed text-cream/65">
-                A premium destination for granite, designer tiles, and bespoke furniture — curated,
-                fabricated, and installed for refined residential and commercial interiors across South India.
+          {/* 4 columns on desktop, 2 columns on tablet, 1 column on mobile */}
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-start">
+            
+            {/* Column 1: Logo & Company Description */}
+            <div className="flex flex-col items-start lg:col-span-1">
+              <div className="flex flex-col items-start">
+                <img
+                  src={logoImg}
+                  alt="Amara Living"
+                  className="h-28 md:h-32 lg:h-34 -ml-5 md:-ml-7 object-contain filter brightness-[1.05]"
+                />
+                <h2
+                  className="font-display text-4xl md:text-5xl lg:text-[2.75rem] font-bold leading-none text-[#F8F6F2] -mt-1"
+                  style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
+                >
+                  Amara <span className="italic text-[#C8A35F] font-bold">Living</span>
+                </h2>
+              </div>
+              <p className="mt-3 max-w-xs font-body text-sm leading-relaxed text-cream/80 font-medium">
+                Amara Living is a leading exporter of premium tiles, granite, and furniture from India.
+                Since 2010, we have been delivering quality products to customers worldwide, backed by
+                reliable service, competitive pricing, and timely delivery.
               </p>
-              <p className="mt-3 font-body text-xs uppercase tracking-[0.24em] text-gold/75">
+              <p className="mt-2.5 font-body text-xs uppercase tracking-[0.24em] text-[#C8A35F] font-bold">
                 Est. 2010 · Chennai
               </p>
             </div>
 
-            <div className="foot-item grid gap-8 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4 lg:gap-6">
+            {/* Column 2: Experience Centers + Product Range stacked */}
+            <div className="flex flex-col gap-6 foot-item pt-6">
+              {/* Experience Centers */}
               <div>
-                <p className="eyebrow mb-4">Showrooms</p>
-                <ul className="space-y-3">
+                <p className="font-display text-sm tracking-[0.18em] text-[#C8A35F] uppercase font-bold mb-3">Experience Centers</p>
+                <ul className="space-y-2.5">
                   {FOOTER_STUDIOS.map((studio) => (
                     <li key={studio.city}>
-                      <div className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-cream/15 bg-cream/[0.04] text-gold/85">
-                          <IconMapPin />
+                      <div className="flex items-start gap-2.5">
+                        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#C8A35F]/25 bg-[#C8A35F]/[0.04] text-[#C8A35F] transition-all duration-300">
+                          <IconMapPin className="h-4 w-4 stroke-[1.5]" />
                         </span>
                         <div>
-                          <p className="font-body text-sm font-medium text-cream/85">{studio.city}</p>
-                          <p className="font-body text-xs text-cream/50">{studio.region}</p>
+                          <p className="font-body text-sm font-bold text-cream">{studio.city}</p>
+                          <p className="font-body text-xs text-cream/65 leading-relaxed mt-0.5">{studio.region}</p>
                         </div>
                       </div>
                     </li>
@@ -80,66 +98,71 @@ export default function ContactFooter() {
                 </ul>
               </div>
 
+              {/* Product Range — shifted below Experience Centers */}
               <div>
-                <p className="eyebrow mb-4">Product Range</p>
-                <ul className="space-y-2.5">
+                <p className="font-display text-sm tracking-[0.18em] text-[#C8A35F] uppercase font-bold mb-3">Product Range</p>
+                <ul className="space-y-2">
                   {FOOTER_COLLECTIONS.map((item) => (
-                    <li key={item} className="flex items-center gap-2 font-body text-sm text-cream/70">
-                      <span className="h-1 w-1 shrink-0 rounded-full bg-gold/70" aria-hidden="true" />
+                    <li key={item} className="group/item flex items-center gap-2 font-body text-sm font-semibold text-cream/85 hover:text-[#C8A35F] transition-colors duration-300 cursor-pointer">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#C8A35F]/70 group-hover/item:scale-125 transition-transform duration-300" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
+            </div>
 
-              <div>
-                <p className="eyebrow mb-4">Get In Touch</p>
-                <div className="space-y-3">
-                  <FooterLink href="mailto:connect@amaraliv.com" icon={IconMail} label="General Inquiries">
-                    connect@amaraliv.com
-                  </FooterLink>
-                  <FooterLink href="mailto:sales@amaraliv.com" icon={IconMail} label="Sales Department">
-                    sales@amaraliv.com
-                  </FooterLink>
-                  <FooterLink href="tel:7397623509" icon={IconPhone} label="Mobile Contact">
-                    +91 73976 23509
-                  </FooterLink>
-                  <div className="text-[10px] font-body text-cream/40 pt-2 border-t border-cream/5">
-                    <span className="block text-gold/75 uppercase tracking-wider font-semibold mb-1">Tax Registration</span>
-                    GST: 33BRYPA3994H1ZB
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <p className="eyebrow mb-4">Follow Us</p>
-                <p className="mb-4 font-body text-sm leading-relaxed text-cream/55">
-                  Project showcases, new arrivals, and design inspiration.
-                </p>
-                <div className="flex gap-2.5">
-                  {FOOTER_SOCIAL.map(({ label, href, icon: Icon }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={label}
-                      className="flex h-10 w-10 items-center justify-center rounded-sm border border-cream/15 bg-cream/[0.04] text-cream/60 transition-all hover:border-gold/40 hover:bg-gold/10 hover:text-gold hover:shadow-glow-sm"
-                    >
-                      <Icon />
-                    </a>
-                  ))}
+            {/* Column 3: Get In Touch */}
+            <div className="foot-item pl-6 md:pl-8 pt-6">
+              <p className="font-display text-sm tracking-[0.18em] text-[#C8A35F] uppercase font-bold mb-3">Get In Touch</p>
+              <div className="space-y-2">
+                <FooterLink href="mailto:connect@amaraliv.com" icon={IconMail} label="General Inquiries">
+                  connect@amaraliv.com
+                </FooterLink>
+                <FooterLink href="mailto:sales@amaraliv.com" icon={IconMail} label="Sales Department">
+                  sales@amaraliv.com
+                </FooterLink>
+                <FooterLink href="tel:7397623509" icon={IconPhone} label="Mobile Contact">
+                  +91 73976 23509
+                </FooterLink>
+                <div className="text-[10px] font-body text-cream/50 pt-2 border-t border-[#C8A35F]/15">
+                  <span className="block text-[#C8A35F] uppercase tracking-wider font-bold mb-0.5">Tax Registration</span>
+                  GST: 33BRYPA3994H1ZB
                 </div>
               </div>
             </div>
+
+            {/* Column 4: Follow Us */}
+            <div className="foot-item pt-6">
+              <p className="font-display text-sm tracking-[0.18em] text-[#C8A35F] uppercase font-bold mb-3">Follow Us</p>
+              <p className="mb-3 font-body text-sm font-medium leading-relaxed text-cream/70">
+                Project showcases, new arrivals, and design inspiration.
+              </p>
+              <div className="flex gap-3">
+                {FOOTER_SOCIAL.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[#C8A35F]/25 bg-[#C8A35F]/[0.04] text-[#C8A35F]/85 transition-all duration-300 hover:border-[#C8A35F]/70 hover:bg-[#C8A35F]/12 hover:text-[#C8A35F] hover:shadow-[0_0_14px_rgba(200,163,95,0.3)]"
+                  >
+                    <Icon className="h-4 w-4 stroke-[1.5]" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div className="foot-item mt-6 flex flex-col justify-between gap-3 border-t border-cream/10 pt-4 md:flex-row md:items-center">
-          <p className="font-body text-xs text-cream/40">
+        {/* Bottom copyright row with thin warm gold divider line */}
+        <div className="foot-item mt-4 pt-2.5 border-t border-[#C8A35F]/15 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-body text-xs text-cream/45">
             &copy; {new Date().getFullYear()} Amara Living. All rights reserved.
           </p>
-          <p className="font-body text-[10px] uppercase tracking-[0.32em] text-cream/35">
+          <p className="font-body text-[10px] uppercase tracking-[0.3em] text-[#C8A35F]/65 font-medium">
             Premium Surfaces & Furniture Since 2010
           </p>
         </div>

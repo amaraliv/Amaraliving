@@ -1,12 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
-import { gsap } from '../utils/gsap';
 import {
-  Gem, Hammer, Ruler, ArrowUpRight, Sparkles, Users,
-  MoveRight
+  Gem, Hammer, Ruler, ArrowUpRight, Sparkles, Users
 } from 'lucide-react';
-import { HERO_SLIDES, SPACES, MATERIALS, TIMELINE, IMG } from '../data/content';
-import CurvedSectionTransition from '../components/common/CurvedSectionTransition';
+import { HERO_SLIDES, SPACES, MATERIALS, IMG } from '../data/content';
 import Testimonials from '../components/sections/Testimonials';
 import furnitureCategoryImg from '../assets/furniture/00_hero.jpg';
 import tilesCategoryImg from '../assets/tiles/AMARA_Image_01.jpg';
@@ -17,15 +14,6 @@ import homeGal3 from '../assets/furniture/p019_03.jpg';
 import homeGal4 from '../assets/granite/Hawk_Image_25.jpg';
 import homeGal5 from '../assets/tiles/tiles 1.jpg';
 import homeGal6 from '../assets/furniture/p019_04.jpg';
-
-/* ────────── THEME COLOURS ────────── */
-const C = {
-  black: '#0B0B0B',
-  white: '#F8F6F2',
-  gold: '#D4AF37',
-  gray: '#A0A0A0',
-  darkPanel: '#111111',
-};
 
 /* ────────── ANIMATION HELPERS ────────── */
 function Reveal({ children, className = '', delay = 0 }) {
@@ -175,7 +163,7 @@ export default function HomePage() {
               className="block text-[10px] font-semibold uppercase tracking-[0.45em] text-[#D4AF37] mb-8"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              Premium Interiors — Since 2010
+              Premium Since 2010
             </motion.p>
             <h1 className="mb-8 space-y-2">
               <div className="overflow-hidden">
@@ -183,10 +171,10 @@ export default function HomePage() {
                   initial={{ y: '100%' }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                  className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[0.92] tracking-[-0.02em] text-[#F8F6F2]"
+                  className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#F8F6F2] pb-3 pr-4"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
-                  Crafting Luxury
+                  Crafting Spaces
                 </motion.span>
               </div>
               <div className="overflow-hidden">
@@ -194,10 +182,10 @@ export default function HomePage() {
                   initial={{ y: '100%' }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                  className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[0.92] tracking-[-0.02em] text-[#D4AF37]"
+                  className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#D4AF37] pb-3 pr-4"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}
                 >
-                  Spaces
+                  Of Distinctive Luxury
                 </motion.span>
               </div>
             </h1>
@@ -208,7 +196,7 @@ export default function HomePage() {
               className="max-w-md text-[#FAF6F0]/80 text-base font-light leading-[1.9] mb-12"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              Luxury granite, premium furniture, and timeless interiors — designed for sophisticated living.
+              Luxury granite & Tiles, premium furniture, and timeless interior concepts designed for sophisticated living.
             </motion.p>
           </div>
         </motion.div>
@@ -541,7 +529,7 @@ export default function HomePage() {
             {/* Left Column: Text Content */}
             <div>
               <Reveal>
-                <Eyebrow>Showrooms &amp; Contacts</Eyebrow>
+                <Eyebrow>Experience Centers &amp; Contacts</Eyebrow>
                 <h2
                   className="font-display text-[clamp(2rem,3.8vw,4.5rem)] font-medium leading-[0.98] tracking-tight text-[#F8F6F2] mb-8"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
@@ -556,7 +544,7 @@ export default function HomePage() {
                 <p className="text-sm text-[#A0A0A0]/70 font-light leading-[1.9] mb-12 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                   Visit our flagship Chennai Atelier or Madurai Experience Center. For national shipments and international projects in the Gulf and Southeast Asia, connect directly with our global liaison representatives.
                 </p>
-                <GoldBtn href="#/where-to-buy">Explore Showrooms &amp; Contacts</GoldBtn>
+                <GoldBtn href="#/where-to-buy">Explore Experience Centers &amp; Contacts</GoldBtn>
               </Reveal>
             </div>
 

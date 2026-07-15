@@ -422,7 +422,7 @@ export default function CompanyPage() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="font-body text-sm font-light leading-relaxed text-[#555555]">
-                  Amara Living operates its primary design studio, showroom, and stone processing site in **Chennai, Tamil Nadu**. Our delivery systems and expert deployment crew coordinate projects on site across South India and Maharashtra.
+                  Amara Living operates its primary design studio, experience center, and stone processing site in **Chennai, Tamil Nadu**. Our delivery systems and expert deployment crew coordinate projects on site across South India and Maharashtra.
                 </p>
               </Reveal>
 

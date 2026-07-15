@@ -532,7 +532,7 @@ export default function GranitePage() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-[#A0A0A0] text-sm font-light leading-[1.9] max-w-md mx-auto mb-12" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-              Our stone specialists guide you from first slab selection through final installation. Book a no-obligation consultation at our Chennai showroom or request samples delivered to your door.
+              Our stone specialists guide you from first slab selection through final installation. Book a no-obligation consultation at our Chennai Experience Center or request samples delivered to your door.
             </p>
           </Reveal>
           <Reveal delay={0.3}>

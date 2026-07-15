@@ -90,7 +90,7 @@ export default function Navbar() {
             <img
               src={logoImg}
               alt="Amara Living"
-              className={`object-contain transition-all duration-500 ${scrolled ? 'h-20' : 'h-28'}`}
+              className={`object-contain transition-all duration-500 ${scrolled ? 'h-12' : 'h-36'}`}
             />
           </a>
 

@@ -43,7 +43,7 @@ const SHOWROOMS = [
     hours: 'Monday - Saturday: 10:00 AM - 8:00 PM',
     mapUrl: 'https://maps.google.com/?q=Maduravoyal,+Chennai',
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85',
-    desc: 'Our primary design workshop and showroom. Here you can walk through physical installations, inspect uncut granite slabs, and consult with our master furniture artisans.',
+    desc: 'Our primary design workshop and experience center. Here you can walk through physical installations, inspect uncut granite slabs, and consult with our master furniture artisans.',
   },
   {
     city: 'Madurai Experience Center',
