@@ -267,7 +267,7 @@ export default function GranitePage() {
               <h2 className="font-display text-[clamp(2rem,4.5vw,5rem)] font-medium leading-[0.95] tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                 Curated from<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Nature's Archive</em>
               </h2>
-              <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] max-w-xs" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+              <p className="text-base md:text-lg text-[#555555] font-light leading-[1.8] max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Three distinct stone families — each with its own geological character and design language.
               </p>
             </div>

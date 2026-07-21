@@ -151,7 +151,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-md"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#0B0B0B]/60 backdrop-blur-md"
             onClick={() => setIsCollectionsOpen(false)}
           >
             {/* Modal Box */}
@@ -160,17 +160,17 @@ export default function Navbar() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-5xl mx-4 bg-[#111111] border border-[#D4AF37]/20 p-8 md:p-14 text-center overflow-hidden rounded-sm"
+              className="relative w-full max-w-5xl mx-4 bg-[#FAF6F0] border border-[#B8912A]/30 p-8 md:p-14 text-center overflow-hidden rounded-sm shadow-[0_40px_80px_-20px_rgba(11,11,11,0.5)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Gold Ambient Radial Glow */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05),transparent_70%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08),transparent_70%)] pointer-events-none" />
 
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setIsCollectionsOpen(false)}
-                className="absolute top-6 right-6 text-cream/50 hover:text-[#D4AF37] transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 group bg-transparent border-none cursor-pointer"
+                className="absolute top-6 right-6 text-[#6B6B6B] hover:text-[#9A7B1E] transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 group bg-transparent border-none cursor-pointer"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 Close
@@ -179,14 +179,14 @@ export default function Navbar() {
 
               {/* Header */}
               <div className="mb-10 relative z-10">
-                <span className="block text-[10px] font-semibold uppercase tracking-[0.4em] text-[#D4AF37] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <span className="block text-[10px] font-semibold uppercase tracking-[0.4em] text-[#9A7B1E] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Atelier Portfolios
                 </span>
                 <h2
-                  className="font-display text-3xl md:text-5xl font-medium tracking-tight text-white mb-5"
+                  className="font-display text-3xl md:text-5xl font-medium tracking-tight text-[#0B0B0B] mb-5"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
-                  Explore Our <span className="italic text-[#D4AF37]">Collections</span>
+                  Explore Our <span className="italic text-[#B8912A]">Collections</span>
                 </h2>
                 <div className="h-px bg-gradient-to-r from-transparent via-[#D4AF37]/45 to-transparent w-40 mx-auto" />
               </div>
@@ -208,22 +208,19 @@ export default function Navbar() {
               >
                 {[
                   {
-                    title: 'Furniture',
-                    desc: 'Bespoke sofas, dining tables, & crafted lounges.',
-                    image: furnitureImg,
-                    href: '#/furniture',
-                  },
-                  {
-                    title: 'Tiles',
-                    desc: 'Artisanal zellige, venetian terrazzo, & porcelain slabs.',
+                    title: 'Premium Tiles',
                     image: tilesImg,
                     href: '#/tiles',
                   },
                   {
-                    title: 'Granite',
-                    desc: 'Exotic quartzites, marble, & premium granites.',
+                    title: 'Natural Granites',
                     image: graniteImg,
                     href: '#/granite',
+                  },
+                  {
+                    title: 'Custom Handcrafted Furniture',
+                    image: furnitureImg,
+                    href: '#/furniture',
                   },
                 ].map((col) => (
                   <motion.div
@@ -236,7 +233,7 @@ export default function Navbar() {
                     <a
                       href={col.href}
                       onClick={() => setIsCollectionsOpen(false)}
-                      className="group block relative overflow-hidden bg-[#0B0B0B] border border-[#F8F6F2]/10 hover:border-[#D4AF37]/40 p-5 rounded-sm transition-all duration-500 hover:shadow-[0_15px_30px_rgba(0,0,0,0.5)] cursor-pointer"
+                      className="group block relative overflow-hidden bg-white border border-[#0B0B0B]/10 hover:border-[#B8912A]/60 p-5 rounded-sm transition-all duration-500 shadow-[0_8px_20px_-10px_rgba(11,11,11,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(11,11,11,0.25)] cursor-pointer"
                     >
                       {/* Image container */}
                       <div className="relative aspect-[4/3] overflow-hidden mb-5">
@@ -245,21 +242,18 @@ export default function Navbar() {
                           alt={col.title}
                           className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-[#0B0B0B]/30 group-hover:bg-[#0B0B0B]/10 transition-all duration-500" />
+                        <div className="absolute inset-0 bg-[#0B0B0B]/10 group-hover:bg-transparent transition-all duration-500" />
                       </div>
                       
-                      {/* Label & Details */}
+                      {/* Collection label */}
                       <h3
-                        className="font-display text-xl font-medium text-white mb-2 leading-none"
+                        className="font-display text-xl font-medium text-[#0B0B0B] group-hover:text-[#9A7B1E] leading-tight min-h-[2.5rem] flex items-center justify-center transition-colors duration-500"
                         style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                       >
                         {col.title}
                       </h3>
-                      <p className="text-xs text-[#A0A0A0] font-light leading-relaxed max-w-[200px] mx-auto group-hover:text-white transition-colors" style={{ fontFamily: 'Inter, sans-serif' }}>
-                        {col.desc}
-                      </p>
 
-                      <div className="mt-4 flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.2em] text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      <div className="mt-4 flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.2em] text-[#9A7B1E] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0" style={{ fontFamily: 'Inter, sans-serif' }}>
                         <span>Explore</span>
                         <ArrowUpRight className="w-3 h-3" />
                       </div>

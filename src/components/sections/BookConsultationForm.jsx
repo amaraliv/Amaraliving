@@ -166,7 +166,6 @@ export default function BookConsultationForm() {
                           className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         >
                           <option value="Chennai Experience Center">Chennai Experience Center (Maduravoyal)</option>
-                          <option value="Virtual Consultation">Virtual Design Review (Zoom/Meet)</option>
                         </select>
                       </div>
                       <div>

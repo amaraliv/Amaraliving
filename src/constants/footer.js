@@ -5,9 +5,9 @@ export const FOOTER_STUDIOS = [
 ];
 
 export const FOOTER_COLLECTIONS = [
-  'Timeless Tiles',
-  'Exquisite Granites',
-  'Custom Furniture',
+  'Premium Tiles',
+  'Natural Granites',
+  'Custom Handcrafted Furniture',
 ];
 
 export const FOOTER_SOCIAL = [
