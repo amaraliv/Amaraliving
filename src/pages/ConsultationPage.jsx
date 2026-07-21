@@ -26,13 +26,13 @@ export default function ConsultationPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="eyebrow text-[#C9A96E] mb-4 block">Bespoke Design Services</span>
+            <span className="eyebrow text-[#C9A96E] mb-4 block">Custom Design Services</span>
             <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
               Design Enquiry &amp;<br />
               <span className="italic font-normal text-[#C9A96E]">Consultation</span>
             </h1>
             <p className="max-w-2xl mx-auto font-body text-sm font-light leading-[1.8] text-white/70">
-              Share details about your space. Whether it is select granite stone slabs, custom tiling, or bespoke furniture, our specialists are ready to bring your vision to life.
+              Tell us about your space and requirements — from granite stone slabs to designer tiling and custom furniture — and our specialists will help bring your vision to life.
             </p>
           </motion.div>
         </div>

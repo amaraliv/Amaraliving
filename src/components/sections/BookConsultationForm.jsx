@@ -48,17 +48,16 @@ export default function BookConsultationForm() {
         <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-12">
           {/* Left info column */}
           <div className="lg:col-span-5">
-            <p className="eyebrow mb-2">Schedule</p>
             <h2 className="heading-section mb-5">
               Book a Private<br /><span className="italic text-gold">Design Consultation</span>
             </h2>
             <p className="font-body text-sm leading-relaxed text-ink/75 max-w-md mb-6">
-              Arrange an in-person walkthrough at our design studios, or setup a virtual advisory slot. Meet with our designers to curate custom dimensions, select stone blocks, and coordinate textures.
+              Arrange an in-person walkthrough at our Experience Center, or setup a virtual advisory slot. Meet with our designers to curate custom dimensions, select stone blocks, and coordinate textures.
             </p>
 
             <div className="border-t border-dark/10 pt-6 space-y-4 font-body text-xs text-ink/60">
               <div>
-                <span className="font-bold text-gold uppercase tracking-wider block mb-1">Chennai Atelier</span>
+                <span className="font-bold text-gold uppercase tracking-wider block mb-1"> Experience Center</span>
                 <span>No. 3, Seemathamman Nagar, Maduravoyal, Chennai · 10 AM - 8 PM</span>
               </div>
             </div>
@@ -165,7 +164,8 @@ export default function BookConsultationForm() {
                           onChange={(e) => setLocation(e.target.value)}
                           className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         >
-                          <option value="Chennai Experience Center">Chennai Experience Center (Maduravoyal)</option>
+                          <option value="Chennai Experience Center"> Experience Center (Maduravoyal)</option>
+                          <option value="Virtual Consultation">Virtual Design Review (Zoom/Meet)</option>
                         </select>
                       </div>
                       <div>
@@ -207,7 +207,7 @@ export default function BookConsultationForm() {
                               onChange={() => handleInterestChange('design')}
                               className="accent-gold h-3.5 w-3.5"
                             />
-                            Full Interiors
+                            Complete Space
                           </label>
                         </div>
                       </div>
