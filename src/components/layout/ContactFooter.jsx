@@ -57,7 +57,7 @@ export default function ContactFooter() {
                 reliable service, competitive pricing, and timely delivery.
               </p>
               <p className="mt-2.5 font-body text-xs uppercase tracking-[0.24em] text-[#C8A35F] font-bold">
-                Est. 2010 · Chennai
+                Est. 2010
               </p>
             </div>
 

@@ -12,11 +12,6 @@ import conceptImg from '../assets/furniture/p013_01.jpg';
 import craftImg from '../assets/furniture/p014_05.jpg';
 import sideboardImg from '../assets/furniture/p016_03.jpg';
 
-import heroBrand from '../assets/Homepage display/00_hero.jpg';
-import heroTiles from '../assets/Homepage display/Screenshot 2026-07-11 104213.png';
-import heroInterior from '../assets/Homepage display/Screenshot 2026-07-11 104434.png';
-import heroLibrary from '../assets/Homepage display/Screenshot 2026-07-11 104531.png';
-
 export const IMG = {
   hero: furnitureHeroImg,
   livingRoom: livingRoomImg,
@@ -33,11 +28,14 @@ export const IMG = {
   sideboard: sideboardImg,
 };
 
+/* HD hero backgrounds — furniture, tiles & granite */
 export const HERO_SLIDES = [
-  heroBrand,
-  heroInterior,
-  heroTiles,
-  heroLibrary,
+  'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=90', // furniture living room
+  'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=2400&q=90', // marble / granite surfaces
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90', // luxury interior furniture
+  'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2400&q=90', // modern tiled living space
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=90', // architectural stone & interiors
+  'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=90', // premium furniture seating
 ];
 
 export const MATERIALS = [
