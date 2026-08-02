@@ -92,12 +92,12 @@ export default function TeamMemberModal({ member, accent, onClose, triggerRef })
             role="dialog"
             aria-modal="true"
             aria-label={`${member?.name} profile`}
-            className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(11,11,11,0.4)]"
+            className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(11,11,11,0.4)] my-auto max-h-[90vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header gradient band */}
             <div
-              className="h-2 w-full"
+              className="h-2 w-full shrink-0"
               style={{ background: `linear-gradient(90deg, ${accent.from}, ${accent.to})` }}
             />
 
@@ -105,13 +105,13 @@ export default function TeamMemberModal({ member, accent, onClose, triggerRef })
             <button
               ref={closeButtonRef}
               onClick={onClose}
-              className="absolute top-5 right-5 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-[#F5F0EB] text-[#555] hover:bg-[#0B0B0B] hover:text-white transition-all duration-300"
+              className="absolute top-4 right-4 sm:top-5 sm:right-5 z-10 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#F5F0EB] text-[#555] hover:bg-[#0B0B0B] hover:text-white transition-all duration-300 border-none cursor-pointer"
               aria-label="Close profile modal"
             >
               <X size={16} />
             </button>
 
-            <div className="p-8 sm:p-10 flex flex-col sm:flex-row gap-8">
+            <div className="p-6 sm:p-10 flex flex-col sm:flex-row gap-6 sm:gap-8 overflow-y-auto flex-1">
               {/* Left column — photo + socials */}
               <div className="flex flex-col items-center sm:items-start gap-5 shrink-0">
                 <div

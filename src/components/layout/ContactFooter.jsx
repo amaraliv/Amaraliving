@@ -47,10 +47,10 @@ export default function ContactFooter() {
                 <img
                   src={logoImg}
                   alt="Amara Living"
-                  className="h-60 md:h-55 lg:h-45 -ml-2 md:-ml-3 -mt-6 md:-mt-8 object-contain filter brightness-[1.05]"
+                  className="h-36 sm:h-44 md:h-48 lg:h-40 -ml-2 md:-ml-3 -mt-2 md:-mt-6 object-contain filter brightness-[1.05]"
                 />
               </div>
-              <p className="-mt-6 md:-mt-8 max-w-xs font-body text-sm leading-[1.8] text-cream/75 font-normal" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+              <p className="-mt-2 md:-mt-4 max-w-xs font-body text-sm leading-[1.8] text-cream/75 font-normal" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Amara Living is a leading exporter of premium tiles, granites, and furniture from India.
                 Since 2010, we have been delivering quality products to customers worldwide, backed by
                 reliable service, competitive pricing, and timely delivery.
@@ -101,7 +101,7 @@ export default function ContactFooter() {
             </div>
 
             {/* Column 3: Get In Touch */}
-            <div className="foot-item pl-6 md:pl-8 pt-6">
+            <div className="foot-item pl-0 md:pl-8 pt-6">
               <p className="font-body text-xs tracking-[0.35em] text-[#D4AF37] uppercase font-semibold mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Get In Touch
               </p>
@@ -150,7 +150,7 @@ export default function ContactFooter() {
         </div>
 
         {/* Bottom copyright row with thin warm gold divider line */}
-        <div className="foot-item mt-6 pt-4 border-t border-[#D4AF37]/15 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="foot-item mt-6 pt-4 border-t border-[#D4AF37]/15 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
           <p className="font-body text-xs text-cream/50" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             &copy; {new Date().getFullYear()} Amara Living. All rights reserved.
           </p>

@@ -166,24 +166,24 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B]/35 via-transparent to-transparent z-10" />
         </motion.div>
 
-        <motion.div style={{ opacity: heroOpacity }} className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-32">
+        <motion.div style={{ opacity: heroOpacity }} className="relative z-10 h-full flex flex-col justify-end pb-12 sm:pb-24 md:pb-32">
           <div className="wrap">
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="block text-[15px] font-semibold uppercase tracking-[0.45em] text-[#D4AF37] mb-8"
+              className="block text-[12px] sm:text-[15px] font-semibold uppercase tracking-[0.35em] sm:tracking-[0.45em] text-[#D4AF37] mb-4 sm:mb-8"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               Est.2010
             </motion.p>
-            <h1 className="mb-8 space-y-2">
+            <h1 className="mb-6 sm:mb-8 space-y-2">
               <div className="overflow-hidden">
                 <motion.span
                   initial={{ y: '100%' }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-                  className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#F8F6F2] pb-3 pr-4"
+                  className="block font-display text-[clamp(2.1rem,7vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#F8F6F2] pb-2 sm:pb-3 pr-4"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
                   Crafting Spaces
@@ -194,7 +194,7 @@ export default function HomePage() {
                   initial={{ y: '100%' }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                  className="block font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#D4AF37] pb-3 pr-4"
+                  className="block font-display text-[clamp(2.1rem,7vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#D4AF37] pb-2 sm:pb-3 pr-4"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}
                 >
                   That Matter
@@ -205,7 +205,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
-              className="max-w-md text-[#FAF6F0]/80 text-base font-light leading-[1.9] mb-18"
+              className="max-w-md text-[#FAF6F0]/80 text-sm sm:text-base font-light leading-[1.8] sm:leading-[1.9] mb-6 sm:mb-10"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               Transforming Spaces with Premium Tiles, Granites,
@@ -222,15 +222,15 @@ export default function HomePage() {
         <div className="wrap py-0">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#F8F6F2]/5">
             {STATS.map((s, i) => (
-              <Reveal key={s.number} delay={i * 0.08} className="px-6 md:px-8 py-8 md:py-10 text-center flex flex-col items-center justify-center">
+              <Reveal key={s.number} delay={i * 0.08} className="px-3 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 text-center flex flex-col items-center justify-center">
                 <p
-                  className="font-display font-medium text-[#D4AF37] text-3xl md:text-4xl leading-none mb-2"
+                  className="font-display font-medium text-[#D4AF37] text-2xl sm:text-3xl md:text-4xl leading-none mb-2"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
                   {s.number}
                 </p>
                 {s.label ? (
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                     {s.label}
                   </p>
                 ) : null}
@@ -296,7 +296,7 @@ export default function HomePage() {
                 </p>
               </Reveal>
               <Reveal delay={0.2} className="mt-10">
-                <div className="grid grid-cols-3 gap-6 pt-10 border-t border-[#0B0B0B]/10">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-[#0B0B0B]/10">
                   {[
                     { num: '2010', label: 'Established Studio' },
                     { num: '1,200+', label: 'Projects Delivered' },

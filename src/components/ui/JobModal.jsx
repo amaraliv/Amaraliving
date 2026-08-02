@@ -56,23 +56,23 @@ export default function JobModal({ job, onClose }) {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           role="dialog"
           aria-modal="true"
-          className="relative w-full max-w-3xl bg-[#FAF6F0] rounded-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(11,11,11,0.5)] border border-[#D4AF37]/30 my-8 text-left"
+          className="relative w-full max-w-3xl bg-[#FAF6F0] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(11,11,11,0.5)] border border-[#D4AF37]/30 my-auto max-h-[90vh] flex flex-col text-left"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Top gold bar */}
-          <div className="h-1.5 w-full bg-gradient-to-r from-[#D4AF37] via-[#F5D97A] to-[#D4AF37]" />
+          <div className="h-1.5 w-full bg-gradient-to-r from-[#D4AF37] via-[#F5D97A] to-[#D4AF37] shrink-0" />
 
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-[#EFE8DF] text-[#555] hover:bg-[#0B0B0B] hover:text-white transition-all duration-300 border-none cursor-pointer"
+            className="absolute top-5 right-5 z-20 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#EFE8DF] text-[#555] hover:bg-[#0B0B0B] hover:text-white transition-all duration-300 border-none cursor-pointer"
             aria-label="Close modal"
           >
             <X size={16} />
           </button>
 
           {/* Modal Header */}
-          <div className="p-8 sm:p-10 border-b border-[#E8E2D9] bg-white">
+          <div className="p-6 sm:p-10 border-b border-[#E8E2D9] bg-white shrink-0">
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#B8912A] border border-[#D4AF37]/30">
                 {job.departmentLabel}
@@ -82,13 +82,13 @@ export default function JobModal({ job, onClose }) {
               </span>
             </div>
             <h2
-              className="font-display text-3xl sm:text-4xl font-semibold text-[#0B0B0B] mb-4"
+              className="font-display text-2xl sm:text-4xl font-semibold text-[#0B0B0B] mb-3 pr-8"
               style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
             >
               {job.title}
             </h2>
 
-            <div className="flex flex-wrap gap-6 text-xs text-[#666]" style={{ fontFamily: 'Inter, sans-serif' }}>
+            <div className="flex flex-wrap gap-4 sm:gap-6 text-xs text-[#666]" style={{ fontFamily: 'Inter, sans-serif' }}>
               <div className="flex items-center gap-1.5">
                 <MapPin size={13} className="text-[#D4AF37]" />
                 {job.location}
@@ -104,10 +104,10 @@ export default function JobModal({ job, onClose }) {
             </div>
 
             {/* Tab switch */}
-            <div className="flex items-center gap-2 mt-6 pt-4 border-t border-[#F0EBE3]">
+            <div className="flex items-center gap-2 mt-5 pt-4 border-t border-[#F0EBE3]">
               <button
                 onClick={() => setActiveTab('details')}
-                className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border-none cursor-pointer ${
+                className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all border-none cursor-pointer ${
                   activeTab === 'details'
                     ? 'bg-[#0B0B0B] text-white shadow-md'
                     : 'bg-[#EFE8DF] text-[#666] hover:text-[#0B0B0B]'
@@ -118,7 +118,7 @@ export default function JobModal({ job, onClose }) {
               </button>
               <button
                 onClick={() => setActiveTab('apply')}
-                className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border-none cursor-pointer ${
+                className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all border-none cursor-pointer ${
                   activeTab === 'apply'
                     ? 'bg-[#D4AF37] text-white shadow-md'
                     : 'bg-[#EFE8DF] text-[#666] hover:text-[#0B0B0B]'
@@ -131,7 +131,7 @@ export default function JobModal({ job, onClose }) {
           </div>
 
           {/* Modal Body */}
-          <div className="p-8 sm:p-10 max-h-[60vh] overflow-y-auto">
+          <div className="p-6 sm:p-10 overflow-y-auto flex-1">
             {activeTab === 'details' ? (
               <div className="space-y-8" style={{ fontFamily: 'Inter, sans-serif' }}>
                 {/* Summary */}
