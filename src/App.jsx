@@ -13,6 +13,8 @@ const ConsultationPage = lazy(() => import('./pages/ConsultationPage'));
 const CompanyPage = lazy(() => import('./pages/CompanyPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const WhereToBuyPage = lazy(() => import('./pages/WhereToBuyPage'));
+const OurPeoplePage = lazy(() => import('./pages/OurPeoplePage'));
+const CareerPage = lazy(() => import('./pages/CareerPage'));
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
@@ -23,7 +25,7 @@ export default function App() {
       setCurrentPath(hash);
       
       // If it's a primary subpage or the home root, scroll to top instantly
-      if (hash === '#/furniture' || hash === '#/tiles' || hash === '#/granite' || hash === '#/consultation' || hash === '#/company' || hash === '#/blog' || hash === '#/where-to-buy' || hash === '#/' || hash === '') {
+      if (hash === '#/furniture' || hash === '#/tiles' || hash === '#/granite' || hash === '#/consultation' || hash === '#/company' || hash === '#/blog' || hash === '#/where-to-buy' || hash === '#/our-people' || hash === '#/careers' || hash === '#/' || hash === '') {
         window.scrollTo(0, 0);
       }
     };
@@ -38,7 +40,7 @@ export default function App() {
   // Handle scrolling to sections when landing back on the home page via hashes like `#/spaces`
   useEffect(() => {
     const hash = currentPath;
-    if (hash.startsWith('#/') && hash !== '#/' && hash !== '#/furniture' && hash !== '#/tiles' && hash !== '#/granite' && hash !== '#/consultation' && hash !== '#/company' && hash !== '#/blog') {
+    if (hash.startsWith('#/') && hash !== '#/' && hash !== '#/furniture' && hash !== '#/tiles' && hash !== '#/granite' && hash !== '#/consultation' && hash !== '#/company' && hash !== '#/blog' && hash !== '#/careers') {
       const elementId = hash.slice(2); // e.g. "spaces"
       const el = document.getElementById(elementId);
       if (el) {
@@ -56,6 +58,8 @@ export default function App() {
   const isCompany = currentPath === '#/company';
   const isBlog = currentPath === '#/blog';
   const isWhereToBuy = currentPath === '#/where-to-buy';
+  const isOurPeople = currentPath === '#/our-people';
+  const isCareers = currentPath === '#/careers';
 
   return (
     <SmoothScroll>
@@ -83,6 +87,10 @@ export default function App() {
           <BlogPage />
         ) : isWhereToBuy ? (
           <WhereToBuyPage />
+        ) : isOurPeople ? (
+          <OurPeoplePage />
+        ) : isCareers ? (
+          <CareerPage />
         ) : (
           <HomePage />
         )}
@@ -91,7 +99,7 @@ export default function App() {
 
       {/* Floating WhatsApp Action Button */}
       <a
-        href="https://wa.me/914424987654?text=Hello%20Amara%20Living%2C%20I%20would%20like%20to%20inquire%20about%20your%20design%20services."
+        href="https://wa.me/917397623509?text=Hello%20Amara%20Living%2C%20I%20would%20like%20to%20inquire%20about%20your%20design%20services."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-cream border border-gold/40 shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4),0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(37,211,102,0.5),0_0_25px_rgba(212,175,55,0.25)] group"

@@ -164,8 +164,9 @@ export default function BookConsultationForm() {
                           onChange={(e) => setLocation(e.target.value)}
                           className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         >
-                          <option value="Experience Center"> Experience Center (Maduravoyal)</option>
-                          
+                          <option value="Experience Center"> Experience Center (Chennai)</option>
+                          <option value="Virtual Center">Virtual Design Review</option>
+
                         </select>
                       </div>
                       <div>

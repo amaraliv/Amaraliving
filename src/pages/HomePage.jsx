@@ -84,7 +84,7 @@ const STATS = [
   { number: '16+', label: 'Years of Legacy' },
   { number: '500+', label: 'Projects Completed' },
   { number: '300+', label: 'Happy Families' },
-  { number: 'Serving Clients Worldwide', label: '' },
+  { number: 'Worldwide', label: 'Serving Clients' },
 ];
 
 const TESTIMONIALS = [
@@ -95,18 +95,28 @@ const TESTIMONIALS = [
 
 const INTERIOR_SECTIONS = [
   {
-    dark: true,
-    eyebrow: 'The Furniture Collection',
-    title: 'Custom Handcrafted Furniture',
-    desc: 'Designed to your exact dimensions and aesthetic vision. We craft solid timber tables, premium seating, and signature casework detailed by hand and built to endure generations.',
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=90',
+    eyebrow: '01 — The Tile Collection',
+    title: 'Premium Designer Tiles',
+    desc: 'An exceptional library of imported porcelain, ceramic, and decorative tiles. Sourced from globally renowned manufacturers and curated to bring texture, depth, and refinement to wall and floor surfaces.',
+    image: tilesCategoryImg,
+    href: '#/tiles',
+    btnLabel: 'Tiles Collection',
   },
   {
-    dark: false,
-    eyebrow: 'The Material Collection',
-    title: 'Premium Tiles & Natural Granite',
-    desc: 'An exceptional library of imported porcelain tiles and hand-selected granite slabs. Sourced from the world\'s finest quarries and finished to perfection for sophisticated spaces.',
-    image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1600&q=90',
+    eyebrow: '02 — The Granite Collection',
+    title: 'Natural Granite & Stones',
+    desc: 'Hand-selected natural granite slabs and rare stone quarries. Precision cut, mirror-polished, and finished to perfection for luxurious countertops, feature walls, and grand structures.',
+    image: graniteCategoryImg,
+    href: '#/granite',
+    btnLabel: 'Granite Collection',
+  },
+  {
+    eyebrow: '03 — The Furniture Collection',
+    title: 'Custom Handcrafted Furniture',
+    desc: 'Designed to your exact dimensions and aesthetic vision. We craft solid timber tables, premium seating, and signature casework detailed by hand and built to endure generations.',
+    image: furnitureCategoryImg,
+    href: '#/furniture',
+    btnLabel: 'Furniture Collection',
   },
 ];
 
@@ -205,15 +215,6 @@ export default function HomePage() {
             </motion.p>
           </div>
         </motion.div>
-
-        {/* Scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-        >
-          <div className="h-14 w-px bg-gradient-to-b from-[#D4AF37]/60 to-transparent" />
-          <span className="text-[9px] uppercase tracking-[0.4em] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Scroll</span>
-        </motion.div>
       </section>
 
       {/* ══ 2. STATS BAR ══ */}
@@ -221,23 +222,102 @@ export default function HomePage() {
         <div className="wrap py-0">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#F8F6F2]/5">
             {STATS.map((s, i) => (
-              <Reveal key={s.label} delay={i * 0.08} className="px-8 py-10 text-center">
+              <Reveal key={s.number} delay={i * 0.08} className="px-6 md:px-8 py-8 md:py-10 text-center flex flex-col items-center justify-center">
                 <p
-                  className="font-display text-3xl md:text-4xl font-medium text-[#D4AF37] mb-2 leading-none"
+                  className="font-display font-medium text-[#D4AF37] text-3xl md:text-4xl leading-none mb-2"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
                   {s.number}
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.35em] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                  {s.label}
-                </p>
+                {s.label ? (
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                    {s.label}
+                  </p>
+                ) : null}
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ══ 3. FEATURED COLLECTIONS — LIGHT PREMIUM EDITORIAL GRID ══ */}
+      {/* ══ 3. OUR LEGACY & PHILOSOPHY ══ */}
+      <section id="story" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8 overflow-hidden">
+        <div className="wrap">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+            {/* Left — Design Studio Image */}
+            <Reveal className="lg:col-span-5 relative">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=90"
+                  alt="Amara Living Creative Drafting Studio"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8">
+                  <GoldRule className="mb-4" />
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Amara Living Design Studio</p>
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -left-4 w-full h-full border border-[#B8912A]/25 pointer-events-none" />
+            </Reveal>
+
+            {/* Right — Combined Text */}
+            <div className="lg:col-span-7 lg:py-8">
+              <Reveal>
+                <span
+                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
+                  style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E' }}
+                >
+                  Our Legacy
+                </span>
+                <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B] mb-8" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+                  16 Years of<br />
+                  <em style={{ color: '#B8912A', fontStyle: 'italic' }}>Craftsmanship</em>
+                </h2>
+                <GoldRule className="mb-10 max-w-xs" />
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="text-base text-[#2A2A2A] font-light leading-[1.9] mb-8 max-w-xl" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  From the finest raw materials to impeccable finishing, we craft timeless spaces that reflect elegance, quality, and a legacy you can trust.
+                </p>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <blockquote className="font-display text-xl md:text-2xl font-medium leading-[1.5] text-[#3A3A3A] mb-10 pl-6 border-l-2 border-[#B8912A]/60" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}>
+                  "Amara Living bridges architectural intent and material honesty. From locally selected quarries to our integrated Chennai workshop, our work is defined by precision and permanence."
+                </blockquote>
+              </Reveal>
+              <Reveal delay={0.16}>
+                <p className="text-sm text-[#555555] font-light leading-[1.9] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  Since 2010, Amara Living has operated with a singular focus: aligning raw natural materials with structural integrity. We believe that true luxury lies in the durability of joinery, the precise grain matching of stone slabs, and layouts tailored to organic living routines.
+                </p>
+                <p className="text-sm text-[#555555] font-light leading-[1.9]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  Our custom fabrication suite handles processing under one roof. Each slab of black granite or plank of walnut timber undergoes extensive kiln drying, surface sealing, and dry-matching before reaching installation. This keeps the execution flawless and the quality pristine.
+                </p>
+              </Reveal>
+              <Reveal delay={0.2} className="mt-10">
+                <div className="grid grid-cols-3 gap-6 pt-10 border-t border-[#0B0B0B]/10">
+                  {[
+                    { num: '2010', label: 'Established Studio' },
+                    { num: '1,200+', label: 'Projects Delivered' },
+                    { num: '40+', label: 'Master Artisans' }
+                  ].map(s => (
+                    <div key={s.label}>
+                      <p className="font-display text-2xl font-medium text-[#9A7B1E] mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{s.num}</p>
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-[#6B6B6B]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+              <Reveal delay={0.24} className="mt-10">
+                <GoldBtn href="#/company">About Amara Living</GoldBtn>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ 4. FEATURED COLLECTIONS — LIGHT PREMIUM EDITORIAL GRID ══ */}
       <section id="spaces" className="bg-[#FAF6F0] py-12 md:py-16 border-t border-[#0B0B0B]/5">
         <div className="wrap">
           <Reveal className="px-0 mb-10 md:mb-12">
@@ -250,8 +330,8 @@ export default function HomePage() {
                 Curated for<br />
                 <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Sophisticated Living</em>
               </h2>
-              <p className="text-lg md:text-xl text-[#555555] font-light leading-[1.8] max-w-md md:text-right pb-1" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                Three foundations of exceptional living — premium tiles, natural granites, and custom handcrafted furniture.
+              <p className="font-display text-2xl md:text-3xl lg:text-[2.2rem] font-medium text-[#2A2A2A] leading-[1.35] max-w-lg md:text-right pb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+                Three foundations of exceptional living — <em className="italic text-[#D4AF37]">premium tiles, natural granites, and custom handcrafted furniture.</em>
               </p>
             </div>
           </Reveal>
@@ -410,85 +490,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ══ 6. OUR LEGACY & PHILOSOPHY ══ */}
-      <section id="story" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8 overflow-hidden">
-        <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-
-            {/* Left — Design Studio Image */}
-            <Reveal className="lg:col-span-5 relative">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=90"
-                  alt="Amara Living Creative Drafting Studio"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8">
-                  <GoldRule className="mb-4" />
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Amara Living Design Studio</p>
-                </div>
-              </div>
-              <div className="absolute -bottom-4 -left-4 w-full h-full border border-[#B8912A]/25 pointer-events-none" />
-            </Reveal>
-
-            {/* Right — Combined Text */}
-            <div className="lg:col-span-7 lg:py-8">
-              <Reveal>
-                <span
-                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
-                  style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E' }}
-                >
-                  Our Legacy
-                </span>
-                <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B] mb-8" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                  16 Years of<br />
-                  <em style={{ color: '#B8912A', fontStyle: 'italic' }}>Craftsmanship</em>
-                </h2>
-                <GoldRule className="mb-10 max-w-xs" />
-              </Reveal>
-              <Reveal delay={0.08}>
-                <p className="text-base text-[#2A2A2A] font-light leading-[1.9] mb-8 max-w-xl" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                  From the finest raw materials to impeccable finishing, we craft timeless spaces that reflect elegance, quality, and a legacy you can trust.
-                </p>
-              </Reveal>
-              <Reveal delay={0.12}>
-                <blockquote className="font-display text-xl md:text-2xl font-medium leading-[1.5] text-[#3A3A3A] mb-10 pl-6 border-l-2 border-[#B8912A]/60" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}>
-                  "Amara Living bridges architectural intent and material honesty. From locally selected quarries to our integrated Chennai workshop, our work is defined by precision and permanence."
-                </blockquote>
-              </Reveal>
-              <Reveal delay={0.16}>
-                <p className="text-sm text-[#555555] font-light leading-[1.9] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                  Since 2010, Amara Living has operated with a singular focus: aligning raw natural materials with structural integrity. We believe that true luxury lies in the durability of joinery, the precise grain matching of stone slabs, and layouts tailored to organic living routines.
-                </p>
-                <p className="text-sm text-[#555555] font-light leading-[1.9]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                  Our custom fabrication suite handles processing under one roof. Each slab of black granite or plank of walnut timber undergoes extensive kiln drying, surface sealing, and dry-matching before reaching installation. This keeps the execution flawless and the quality pristine.
-                </p>
-              </Reveal>
-              <Reveal delay={0.2} className="mt-10">
-                <div className="grid grid-cols-3 gap-6 pt-10 border-t border-[#0B0B0B]/10">
-                  {[
-                    { num: '2010', label: 'Established Studio' },
-                    { num: '1,200+', label: 'Projects Delivered' },
-                    { num: '40+', label: 'Master Artisans' }
-                  ].map(s => (
-                    <div key={s.label}>
-                      <p className="font-display text-2xl font-medium text-[#9A7B1E] mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{s.num}</p>
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-[#6B6B6B]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{s.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-              <Reveal delay={0.24} className="mt-10">
-                <GoldBtn href="#/company">About Amara Living</GoldBtn>
-              </Reveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
 
       {/* ══ Where to Buy / Experience Centers Intro ══ */}
       <section id="where-to-buy-intro" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8 relative overflow-hidden">
@@ -705,7 +706,7 @@ function InteriorSection({ sc }) {
           <p className="text-base font-normal leading-[1.9] mb-12 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#2A2A2A' }}>
             {sc.desc}
           </p>
-          <GoldBtn href="#/consultation">Explore More</GoldBtn>
+          <GoldBtn href={sc.href || '#/consultation'}>Explore {sc.btnLabel || 'More'}</GoldBtn>
         </motion.div>
       </div>
     </section>
