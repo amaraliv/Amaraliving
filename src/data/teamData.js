@@ -31,7 +31,7 @@ export const TEAM_MEMBERS = [
     skills: ['React', 'Node.js', 'TypeScript', 'GSAP', 'TailwindCSS'],
     imageUrl: sahilImg,
     socials: [
-      { platform: 'linkedin', url: 'https://linkedin.com' },
+      { platform: 'linkedin', url: 'https://www.linkedin.com/in/sahil-bhagat-3a65b0299/' },
     ],
   },
   {
