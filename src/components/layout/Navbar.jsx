@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useLenis } from '../../hooks/SmoothScroll';
-import { NAV_LINKS, PAGE_SECTIONS, resolveNavSection } from '../../constants/navigation';
+import { NAV_LINKS, PAGE_SECTIONS, COMPANY_DROPDOWN_LINKS, resolveNavSection } from '../../constants/navigation';
 import logoImg from '../../assets/images/amara-logo.png';
 import furnitureImg from '../../assets/furniture/00_hero.jpg';
 import tilesImg from '../../assets/tiles/AMARA_Image_01.jpg';
@@ -14,37 +14,63 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState(null);
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
+  const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const companyMenuRef = useRef(null);
   const onHero = !scrolled;
 
   useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (companyMenuRef.current && !companyMenuRef.current.contains(e.target)) {
+        setIsCompanyOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
     setIsCollectionsOpen(false);
+    setIsCompanyOpen(false);
   }, [currentPath]);
 
   const updateScrollState = useCallback(() => {
     const currentScrollY = window.scrollY;
     setScrolled(currentScrollY > 70);
-
-    // Hide navbar on scroll down, show on scroll up
-    if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
-      setVisible(false);
-    } else {
-      setVisible(true);
-    }
+    setVisible(true);
     lastScrollY.current = currentScrollY;
 
-    const trigger = window.innerHeight * 0.32;
-    let currentSection = PAGE_SECTIONS[0];
+    const contactEl = document.getElementById('contact');
+    const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 120);
 
-    PAGE_SECTIONS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= trigger) {
-        currentSection = id;
+    if (contactEl && (contactEl.getBoundingClientRect().top <= window.innerHeight * 0.55 || isAtBottom)) {
+      setActiveSection('contact');
+      return;
+    }
+
+    const sections = [
+      { id: 'where-to-buy-intro', key: 'where-to-buy' },
+      { id: 'spaces', key: 'collections' },
+      { id: 'story', key: 'company' },
+      { id: 'hero', key: 'home' },
+    ];
+
+    const trigger = window.innerHeight * 0.45;
+    let found = 'home';
+
+    for (const sec of sections) {
+      const el = document.getElementById(sec.id);
+      if (el) {
+        const top = el.getBoundingClientRect().top;
+        if (top <= trigger) {
+          found = sec.key;
+          break;
+        }
       }
-    });
+    }
 
-    setActiveSection(resolveNavSection(currentSection));
+    setActiveSection(found);
   }, []);
 
   useEffect(() => {
@@ -72,25 +98,27 @@ export default function Navbar() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite' || currentPath === '#/consultation' || currentPath === '#/company' || currentPath === '#/blog' || currentPath === '#/where-to-buy';
+  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite' || currentPath === '#/consultation' || currentPath === '#/company' || currentPath === '#/blog' || currentPath === '#/where-to-buy' || currentPath === '#/our-people' || currentPath === '#/careers';
 
   return (
     <>
       <motion.header
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: visible ? 0 : -100, opacity: 1 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-500 ease-out ${scrolled ? 'border-b border-[#D4AF37]/15 bg-[#0B0B0B]/90 shadow-lg backdrop-blur-md h-16' : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent h-24'
+        className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-500 ease-out ${scrolled
+            ? 'border-b border-stone-200/80 bg-white/95 shadow-md backdrop-blur-md h-20'
+            : 'border-b border-stone-200/50 bg-white shadow-sm backdrop-blur-md h-24'
           }`}
       >
         <nav
           className="wrap h-full flex items-center justify-between transition-all duration-500 ease-out"
         >
-          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 -translate-x-8 transform" aria-label="Amara Living home">
+          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 transform -translate-x-4 md:translate-x-0" aria-label="Amara Living home">
             <img
               src={logoImg}
               alt="Amara Living"
-              className={`object-contain transition-all duration-500 ${scrolled ? 'h-12' : 'h-36'}`}
+              className={`object-contain transition-all duration-500 ${scrolled ? 'h-20 md:h-24' : 'h-28 md:h-36'}`}
             />
           </a>
 
@@ -99,12 +127,91 @@ export default function Navbar() {
               }`}
           >
             {NAV_LINKS.map((link) => {
+              const isHome = currentPath === '#/' || currentPath === '' || currentPath === '#hero';
               const isCollectionActive = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite';
-              const isActive = link.isModalTrigger
-                ? isCollectionActive
-                : (link.isPage
-                  ? currentPath === link.href
-                  : !isSubpage && activeSection === link.href.slice(1));
+              
+              let isActive = false;
+              if (link.isModalTrigger) {
+                isActive = (isHome && activeSection === 'collections') || isCollectionActive;
+              } else if (link.href === '#/') {
+                isActive = isHome && (activeSection === 'home' || !activeSection);
+              } else if (link.href === '#/where-to-buy') {
+                isActive = currentPath === '#/where-to-buy' || (isHome && activeSection === 'where-to-buy');
+              } else if (link.href === '#/company') {
+                isActive = currentPath === '#/company' || currentPath === '#/our-people' || currentPath === '#/blog' || currentPath === '#/careers' || (isHome && activeSection === 'company');
+              } else if (link.href === '#contact') {
+                isActive = (!isSubpage && activeSection === 'contact') || currentPath === '#/contact' || currentPath === '#contact';
+              } else if (link.isPage) {
+                isActive = currentPath === link.href;
+              }
+
+              if (link.isCompanyDropdown) {
+                const isCompanyActive = currentPath === '#/company' || currentPath === '#/our-people' || currentPath === '#/blog' || currentPath === '#/careers' || (isHome && activeSection === 'company');
+                return (
+                  <li key={link.href} ref={companyMenuRef} className="relative group/company">
+                    <button
+                      type="button"
+                      onClick={() => setIsCompanyOpen((prev) => !prev)}
+                      onMouseEnter={() => setIsCompanyOpen(true)}
+                      aria-expanded={isCompanyOpen}
+                      className={`group relative font-body font-medium uppercase tracking-[0.16em] transition-all duration-500 hover:-translate-y-0.5 flex items-center gap-1.5 bg-transparent border-none cursor-pointer ${
+                        scrolled ? 'text-xs xl:text-[13px]' : 'text-sm xl:text-[15px]'
+                      } ${isCompanyActive || isCompanyOpen ? 'text-[#B8912A] font-bold' : 'text-[#1A1A1A] hover:text-[#B8912A]'}`}
+                    >
+                      {link.label}
+                      <span className={`text-[8px] transition-transform duration-300 ${isCompanyOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}>▼</span>
+                      <span
+                        className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#B8912A] w-full transition-transform duration-300 origin-left scale-x-0 group-hover/company:scale-x-100 ${
+                          isCompanyActive || isCompanyOpen ? 'scale-x-100' : ''
+                        }`}
+                      />
+                    </button>
+
+                    {/* Company Dropdown Menu */}
+                    <AnimatePresence>
+                      {isCompanyOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 12, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.96 }}
+                          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#FAF6F0] border border-[#B8912A]/30 rounded-2xl p-2.5 shadow-[0_20px_50px_-10px_rgba(11,11,11,0.22)] backdrop-blur-md z-50 text-left"
+                          onMouseLeave={() => setIsCompanyOpen(false)}
+                        >
+                          <div className="flex flex-col gap-1">
+                            {COMPANY_DROPDOWN_LINKS.map((item) => (
+                              <a
+                                key={item.label}
+                                href={item.href}
+                                onClick={(e) => {
+                                  setIsCompanyOpen(false);
+                                  if (item.href === '#/our-people#careers') {
+                                    e.preventDefault();
+                                    window.location.hash = '#/our-people';
+                                    setTimeout(() => {
+                                      const el = document.querySelector('section:nth-last-child(2)') || document.getElementById('careers');
+                                      el?.scrollIntoView({ behavior: 'smooth' });
+                                    }, 250);
+                                  }
+                                }}
+                                className="group/item flex flex-col p-3 rounded-xl hover:bg-[#B8912A]/10 transition-all duration-200"
+                              >
+                                <span className="text-xs font-bold uppercase tracking-wider text-[#0B0B0B] group-hover/item:text-[#B8912A] transition-colors flex items-center justify-between">
+                                  {item.label}
+                                  <ArrowUpRight size={11} className="opacity-0 group-hover/item:opacity-100 transition-opacity text-[#B8912A]" />
+                                </span>
+                                <span className="text-[10px] text-[#777] font-normal mt-0.5" style={{ fontFamily: 'Inter, sans-serif' }}>
+                                  {item.desc}
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              }
 
               const href = link.isModalTrigger
                 ? '#/collections'
@@ -119,19 +226,49 @@ export default function Navbar() {
                     onClick={(e) => {
                       if (link.isModalTrigger) {
                         e.preventDefault();
-                        setIsCollectionsOpen(true);
+                        if (isHome) {
+                          const el = document.getElementById('spaces');
+                          if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                          } else {
+                            setIsCollectionsOpen(true);
+                          }
+                        } else {
+                          setIsCollectionsOpen(true);
+                        }
+                      } else if (isHome && link.href === '#/where-to-buy') {
+                        const el = document.getElementById('where-to-buy-intro');
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      } else if (isHome && link.href === '#/company') {
+                        const el = document.getElementById('story');
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      } else if (isHome && (link.href === '#/' || link.href === '#hero')) {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      } else if (isHome && link.href === '#contact') {
+                        const el = document.getElementById('contact');
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: 'smooth' });
+                        }
                       }
                     }}
                     aria-current={isActive ? 'true' : undefined}
                     className={`group relative font-body font-medium uppercase tracking-[0.16em] transition-all duration-500 hover:-translate-y-0.5 ${scrolled ? 'text-xs xl:text-[13px]' : 'text-sm xl:text-[15px]'
                       } ${isActive
-                        ? 'text-gold font-semibold'
-                        : 'text-cream/75 hover:text-gold'
+                        ? 'text-[#B8912A] font-bold'
+                        : 'text-[#1A1A1A] hover:text-[#B8912A]'
                       }`}
                   >
                     {link.label}
                     <span
-                      className={`absolute -bottom-1.5 left-0 h-[2px] bg-gold w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${isActive ? 'scale-x-100' : ''
+                      className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#B8912A] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${isActive ? 'scale-x-100' : ''
                         }`}
                     />
                   </a>

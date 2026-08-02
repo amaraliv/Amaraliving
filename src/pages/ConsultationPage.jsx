@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import BookConsultationForm from '../components/sections/BookConsultationForm';
+import Testimonials from '../components/sections/Testimonials';
 
 export default function ConsultationPage() {
   useEffect(() => {
@@ -28,8 +29,7 @@ export default function ConsultationPage() {
           >
             <span className="eyebrow text-[#C9A96E] mb-4 block">Custom Design Services</span>
             <h1 className="font-display text-4xl md:text-5xl font-medium tracking-tight text-white mb-6">
-              Design Enquiry &amp;<br />
-              <span className="italic font-normal text-[#C9A96E]">Consultation</span>
+              Design Your <span className="italic font-normal text-[#C9A96E]">Space</span>
             </h1>
             <p className="max-w-2xl mx-auto font-body text-sm font-light leading-[1.8] text-white/70">
               Tell us about your space and requirements — from granite stone slabs to designer tiling and custom furniture — and our specialists will help bring your vision to life.
@@ -46,6 +46,9 @@ export default function ConsultationPage() {
       >
         <BookConsultationForm />
       </motion.div>
+
+      {/* Testimonials ("Trusted By Clients") section */}
+      <Testimonials />
     </div>
   );
 }

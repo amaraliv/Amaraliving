@@ -1,11 +1,17 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '#/', isPage: true },
   { label: 'Our Collections', href: '#collections-modal', isModalTrigger: true },
-  { label: 'Blog', href: '#/blog', isPage: true },
-  { label: 'Company', href: '#/company', isPage: true },
-  { label: 'Consultation', href: '#/consultation', isPage: true },
+  { label: 'Company', href: '#/company', isCompanyDropdown: true },
+  { label: 'Design Your Space', href: '#/consultation', isPage: true },
   { label: 'Where to Buy', href: '#/where-to-buy', isPage: true },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact Us', href: '#contact' },
+];
+
+export const COMPANY_DROPDOWN_LINKS = [
+  { label: 'Company', href: '#/company', desc: 'Our story, philosophy & heritage' },
+  { label: 'Our People', href: '#/our-people', desc: 'Meet the team behind Amara' },
+  { label: 'Blog', href: '#/blog', desc: 'Design insights, trends & stories' },
+  { label: 'Careers', href: '#/careers', desc: 'Explore open positions & opportunities' },
 ];
 
 export const PAGE_SECTIONS = [
