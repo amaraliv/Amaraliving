@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Menu, X, ChevronDown } from 'lucide-react';
 import { useLenis } from '../../hooks/SmoothScroll';
 import { NAV_LINKS, PAGE_SECTIONS, COMPANY_DROPDOWN_LINKS, resolveNavSection } from '../../constants/navigation';
 import logoImg from '../../assets/images/amara-logo.png';
@@ -15,10 +15,24 @@ export default function Navbar() {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileCollectionsOpen, setIsMobileCollectionsOpen] = useState(false);
+  const [isMobileCompanyOpen, setIsMobileCompanyOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
   const companyMenuRef = useRef(null);
   const onHero = !scrolled;
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -33,6 +47,7 @@ export default function Navbar() {
   useEffect(() => {
     setIsCollectionsOpen(false);
     setIsCompanyOpen(false);
+    setIsMobileMenuOpen(false);
   }, [currentPath]);
 
   const updateScrollState = useCallback(() => {
@@ -277,8 +292,221 @@ export default function Navbar() {
             })}
           </ul>
 
+          {/* Mobile Hamburger Button */}
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="lg:hidden p-2 text-[#0B0B0B] hover:text-[#B8912A] transition-colors focus:outline-none bg-transparent border-none cursor-pointer"
+            aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+          >
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+
         </nav>
       </motion.header>
+
+      {/* Mobile Navigation Drawer */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9990] flex justify-end bg-[#0B0B0B]/70 backdrop-blur-md lg:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full max-w-xs sm:max-w-sm h-full bg-[#FAF6F0] border-l border-[#B8912A]/30 p-6 flex flex-col justify-between overflow-y-auto shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Drawer Top Header */}
+              <div>
+                <div className="flex items-center justify-between pb-6 border-b border-[#0B0B0B]/10">
+                  <a href="#/" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                    <img src={logoImg} alt="Amara Living" className="h-16 object-contain" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 text-[#666] hover:text-[#0B0B0B] transition-colors border-none bg-transparent cursor-pointer"
+                    aria-label="Close drawer"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <nav className="py-6 space-y-4">
+                  {/* Home */}
+                  <div>
+                    <a
+                      href="#/"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] py-2 transition-colors"
+                      style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                      Home
+                    </a>
+                  </div>
+
+                  {/* Collections Accordion */}
+                  <div className="border-b border-[#0B0B0B]/5 pb-3">
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileCollectionsOpen((prev) => !prev)}
+                      className="w-full flex items-center justify-between py-2 text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] transition-colors border-none bg-transparent cursor-pointer text-left"
+                      style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                      <span>Collections</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-300 ${isMobileCollectionsOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {isMobileCollectionsOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden pl-4 pt-2 space-y-2.5"
+                        >
+                          <a
+                            href="#/tiles"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                            style={{ fontFamily: 'Inter, sans-serif' }}
+                          >
+                            • Premium Tiles
+                          </a>
+                          <a
+                            href="#/granite"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                            style={{ fontFamily: 'Inter, sans-serif' }}
+                          >
+                            • Natural Granites
+                          </a>
+                          <a
+                            href="#/furniture"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                            style={{ fontFamily: 'Inter, sans-serif' }}
+                          >
+                            • Handcrafted Furniture
+                          </a>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Company Accordion */}
+                  <div className="border-b border-[#0B0B0B]/5 pb-3">
+                    <button
+                      type="button"
+                      onClick={() => setIsMobileCompanyOpen((prev) => !prev)}
+                      className="w-full flex items-center justify-between py-2 text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] transition-colors border-none bg-transparent cursor-pointer text-left"
+                      style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                      <span>Company</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-300 ${isMobileCompanyOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {isMobileCompanyOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden pl-4 pt-2 space-y-2.5"
+                        >
+                          {COMPANY_DROPDOWN_LINKS.map((item) => (
+                            <a
+                              key={item.label}
+                              href={item.href}
+                              onClick={(e) => {
+                                setIsMobileMenuOpen(false);
+                                if (item.href === '#/our-people#careers') {
+                                  e.preventDefault();
+                                  window.location.hash = '#/our-people';
+                                  setTimeout(() => {
+                                    const el = document.querySelector('section:nth-last-child(2)') || document.getElementById('careers');
+                                    el?.scrollIntoView({ behavior: 'smooth' });
+                                  }, 250);
+                                }
+                              }}
+                              className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                              style={{ fontFamily: 'Inter, sans-serif' }}
+                            >
+                              • {item.label}
+                            </a>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Where to Buy / Experience Centers */}
+                  <div>
+                    <a
+                      href="#/where-to-buy"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] py-2 transition-colors"
+                      style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                      Experience Centers
+                    </a>
+                  </div>
+
+                  {/* Contact Us */}
+                  <div>
+                    <a
+                      href="#contact"
+                      onClick={(e) => {
+                        setIsMobileMenuOpen(false);
+                        const el = document.getElementById('contact');
+                        if (el) {
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] py-2 transition-colors"
+                      style={{ fontFamily: 'Inter, sans-serif' }}
+                    >
+                      Contact Us
+                    </a>
+                  </div>
+                </nav>
+              </div>
+
+              {/* Drawer Bottom CTA */}
+              <div className="pt-6 border-t border-[#0B0B0B]/10 space-y-3">
+                <a
+                  href="#/consultation"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#B8912A] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-sm shadow-md hover:bg-[#0B0B0B] transition-colors"
+                  style={{ fontFamily: 'Inter, sans-serif' }}
+                >
+                  <span>Book Consultation</span>
+                  <ArrowUpRight size={14} />
+                </a>
+                <p className="text-[10px] text-center text-[#777] uppercase tracking-wider" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  Est. 2010 · Premium Surfaces &amp; Furniture
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Collections Modal Popup */}
       <AnimatePresence>

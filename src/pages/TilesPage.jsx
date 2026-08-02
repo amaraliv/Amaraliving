@@ -231,7 +231,7 @@ export default function TilesPage() {
           <div className="wrap">
             <motion.div initial={{ opacity: 0, y: 80 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}>
               <Eyebrow>Amara Living — Designer Tiles</Eyebrow>
-              <h1 className="font-display text-[clamp(2.8rem,6.5vw,7.5rem)] font-medium leading-[0.93] tracking-[-0.02em] text-[#F8F6F2] mb-6 max-w-5xl" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+              <h1 className="font-display text-[clamp(2.2rem,6.5vw,7.5rem)] font-medium leading-[0.93] tracking-[-0.02em] text-[#F8F6F2] mb-6 max-w-5xl" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                 Surface as<br />
                 <em className="text-[#D4AF37]" style={{ fontStyle: 'italic' }}>Architecture.</em>
               </h1>
@@ -288,7 +288,7 @@ export default function TilesPage() {
                   <div className="flex items-center justify-between mt-4 px-1">
                     <div>
                       <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.label}</span>
-                      <h3 className="font-display text-lg md:text-xl font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{col.title}</h3>
+                      <h3 className="font-display text-lg md:text-xl font-medium text-[#0B0B0B] mt-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{col.title}</h3>
                     </div>
                     <div className="w-7 h-7 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
                       <ArrowUpRight className="w-3 h-3" />
@@ -301,22 +301,25 @@ export default function TilesPage() {
         </div>
       </section>
 
-      {/* ══ 3. FEATURED TILES ══ */}
-      {FEATURED.map((piece, i) => <FeaturedTile key={piece.title} piece={piece} index={i} />)}
+      {/* ══ 3. FEATURED HIGHLIGHTS — ALTERNATING EDITORIAL SECTIONS ══ */}
+      {FEATURED.map((piece, i) => (
+        <FeaturedTile key={piece.title} piece={piece} index={i} />
+      ))}
 
-      {/* ══ 4. DESIGN PHILOSOPHY ══ */}
-      <section className="bg-[#111111] py-20 md:py-28 border-t border-[#F8F6F2]/5">
+      {/* ══ 4. DESIGN PHILOSOPHY & SPECIFICATION ══ */}
+      <section className="bg-[#0B0B0B] py-20 md:py-28 border-t border-[#F8F6F2]/5">
         <div className="wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <Reveal>
-              <Eyebrow>Our Design Philosophy</Eyebrow>
-              <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#F8F6F2] mb-6" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Tile is Not<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Background. It's Architecture.</em>
+              <Eyebrow>How We Specify</Eyebrow>
+              <h2 className="font-display text-[clamp(2.2rem,4.5vw,5rem)] font-medium leading-[0.98] tracking-tight text-[#F8F6F2] mb-8" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+                Principles of<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Tile Specification</em>
               </h2>
               <GoldRule className="mb-8 max-w-xs" />
-              <p className="text-sm text-[#A0A0A0] font-light leading-[1.9]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                Most designers select tiles after the room is designed. We believe surface selection should happen at the beginning — because pattern, texture, and scale define the spatial experience just as much as walls and furniture. Our tile consultants work alongside architects and interior designers from first sketch to final grout line.
+              <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] mb-10 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                Selecting tile is not merely picking a colour — it requires matching coefficient of friction, shade variation ratings, expansion joint geometry, and substrate compatibility. Our specification team manages every technical variable.
               </p>
+              <GoldBtn href="#/consultation">Consult Our Team</GoldBtn>
             </Reveal>
             <div className="space-y-0">
               {DESIGN_PRINCIPLES.map((p, i) => (
@@ -364,24 +367,19 @@ export default function TilesPage() {
         </div>
       </section>
 
-      {/* ══ 5.5 PRODUCT CATALOG — EASTERN EDITION STYLE ══ */}
-      <section id="catalog" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8">
+      {/* ══ 5.5 PRODUCT CATALOG — LIGHT THEME ══ */}
+      <section className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8">
         <div className="wrap">
-          <Reveal>
-            <Eyebrow>Tile Atelier</Eyebrow>
-            <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
-              <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Browse our <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Tile Catalog</em>
-              </h2>
-              <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] max-w-xs" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                Precision-engineered porcelain and artisan handmade tiles, selected for unmatched texture and architectural rhythm.
-              </p>
-            </div>
+          <Reveal className="mb-12">
+            <Eyebrow>Full Tile Catalog</Eyebrow>
+            <h2 className="font-display text-[clamp(2rem,4.5vw,5rem)] font-medium leading-[0.95] tracking-tight text-[#0B0B0B] mb-8" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+              All Products &amp;<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Architectural Specs</em>
+            </h2>
           </Reveal>
 
           {/* Filters - Eastern Edition style */}
           <Reveal delay={0.1}>
-            <div className="flex flex-wrap gap-2 md:gap-3 mb-16 border-b border-[#0B0B0B]/10 pb-8">
+            <div className="flex gap-2 md:gap-3 mb-16 border-b border-[#0B0B0B]/10 pb-8 overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 md:flex-wrap">
               {categories.map(cat => {
                 const count = cat === 'ALL' 
                   ? PRODUCTS.length 
@@ -391,7 +389,7 @@ export default function TilesPage() {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] border transition-all duration-300 ${
+                    className={`whitespace-nowrap px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] border transition-all duration-300 ${
                       active 
                         ? 'bg-[#0B0B0B] text-[#FAF6F0] border-[#0B0B0B]' 
                         : 'border-[#0B0B0B]/15 text-[#0B0B0B] hover:border-[#0B0B0B]'

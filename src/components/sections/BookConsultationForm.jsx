@@ -65,7 +65,7 @@ export default function BookConsultationForm() {
 
           {/* Right form column */}
           <div className="lg:col-span-7">
-            <div className="relative border border-dark/15 bg-white p-6 shadow-editorial md:p-8 lg:p-10 rounded-sm">
+            <div className="relative border border-dark/15 bg-white p-5 sm:p-7 md:p-8 lg:p-10 shadow-editorial rounded-sm">
               <div className="pointer-events-none absolute -right-3 -top-3 h-14 w-14 border border-gold/50" aria-hidden="true" />
               <div className="pointer-events-none absolute -bottom-2 -left-2 h-8 w-8 bg-gold/20" aria-hidden="true" />
 
@@ -104,7 +104,7 @@ export default function BookConsultationForm() {
                           placeholder="Aravind Kumar"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
+                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-3 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         />
                       </div>
                       <div>
@@ -118,7 +118,7 @@ export default function BookConsultationForm() {
                           placeholder="aravind@example.com"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
+                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-3 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         />
                       </div>
                     </div>
@@ -135,7 +135,7 @@ export default function BookConsultationForm() {
                           placeholder="+91 98765 43210"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
+                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-3 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         />
                       </div>
                       <div>
@@ -148,7 +148,7 @@ export default function BookConsultationForm() {
                           required
                           value={date}
                           onChange={(e) => setDate(e.target.value)}
-                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
+                          className="w-full bg-dark/[0.02] border border-dark/15 px-4 py-3 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         />
                       </div>
                     </div>
@@ -162,7 +162,7 @@ export default function BookConsultationForm() {
                           id="form-loc"
                           value={location}
                           onChange={(e) => setLocation(e.target.value)}
-                          className="w-full bg-white border border-dark/15 px-3 py-2.5 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
+                          className="w-full bg-white border border-dark/15 px-3 py-3 text-sm font-body text-dark rounded-sm outline-none focus:border-gold"
                         >
                           <option value="Experience Center"> Experience Center (Chennai)</option>
                           <option value="Virtual Center">Virtual Design Review</option>
@@ -173,13 +173,13 @@ export default function BookConsultationForm() {
                         <span className="block font-body text-[10px] font-semibold uppercase tracking-wider text-gold mb-2">
                           Areas of Interest
                         </span>
-                        <div className="grid grid-cols-2 gap-2 text-[10.5px] font-body text-ink/75">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-[11px] font-body text-ink/75">
                           <label className="flex items-center gap-1.5 cursor-pointer">
                             <input
                               type="checkbox"
                               checked={interests.stone}
                               onChange={() => handleInterestChange('stone')}
-                              className="accent-gold h-3.5 w-3.5"
+                              className="accent-gold h-4 w-4"
                             />
                             Granite Surfaces
                           </label>
@@ -188,7 +188,7 @@ export default function BookConsultationForm() {
                               type="checkbox"
                               checked={interests.tiles}
                               onChange={() => handleInterestChange('tiles')}
-                              className="accent-gold h-3.5 w-3.5"
+                              className="accent-gold h-4 w-4"
                             />
                             Tiles &amp; Walls
                           </label>
@@ -197,7 +197,7 @@ export default function BookConsultationForm() {
                               type="checkbox"
                               checked={interests.furniture}
                               onChange={() => handleInterestChange('furniture')}
-                              className="accent-gold h-3.5 w-3.5"
+                              className="accent-gold h-4 w-4"
                             />
                             Furniture
                           </label>
@@ -206,7 +206,7 @@ export default function BookConsultationForm() {
                               type="checkbox"
                               checked={interests.design}
                               onChange={() => handleInterestChange('design')}
-                              className="accent-gold h-3.5 w-3.5"
+                              className="accent-gold h-4 w-4"
                             />
                             Complete Space
                           </label>

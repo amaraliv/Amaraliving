@@ -76,7 +76,7 @@ function HeroSection() {
               hidden: { opacity: 0, y: 32, filter: 'blur(8px)' },
               visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
             }}
-            className="font-display text-[clamp(3.2rem,8.5vw,7.5rem)] font-semibold text-white leading-[0.9] tracking-tight mb-8"
+            className="font-display text-[clamp(2.2rem,8.5vw,7.5rem)] font-semibold text-white leading-[0.9] tracking-tight mb-8"
             style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
           >
             Build the Future <br />
@@ -205,12 +205,12 @@ export default function CareerPage() {
           </Reveal>
 
           {/* Department Filter Tabs */}
-          <Reveal className="flex flex-wrap gap-2.5 mb-12">
+          <Reveal className="flex gap-2.5 mb-12 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-hide md:overflow-visible">
             {DEPARTMENTS.map((dept) => (
               <button
                 key={dept.id}
                 onClick={() => setActiveDept(dept.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border-none cursor-pointer ${
+                className={`whitespace-nowrap px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border-none cursor-pointer ${
                   activeDept === dept.id
                     ? 'bg-[#0B0B0B] text-white shadow-md'
                     : 'bg-[#FAF6F0] border border-[#E8E2D9] text-[#666] hover:text-[#0B0B0B] hover:border-[#D4AF37]/50'
