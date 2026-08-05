@@ -4,6 +4,7 @@ import PageLoader from './components/ui/PageLoader';
 import ImageViewHint from './components/common/ImageViewHint';
 import Navbar from './components/layout/Navbar';
 import ContactFooter from './components/layout/ContactFooter';
+import Chatbot from './components/ui/Chatbot';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const FurniturePage = lazy(() => import('./pages/FurniturePage'));
@@ -96,6 +97,9 @@ export default function App() {
         )}
       </Suspense>
       <ContactFooter />
+
+      {/* Floating Chatbot Action Button & Window */}
+      <Chatbot />
 
       {/* Floating WhatsApp Action Button */}
       <a
