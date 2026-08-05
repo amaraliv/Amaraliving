@@ -7,6 +7,7 @@ import logoImg from '../../assets/images/amara-logo.png';
 import furnitureImg from '../../assets/furniture/00_hero.jpg';
 import tilesImg from '../../assets/tiles/AMARA_Image_01.jpg';
 import graniteImg from '../../assets/granite/Hawk_Image_04.jpg';
+import CompanyMegaMenu from './CompanyMegaMenu';
 
 export default function Navbar() {
   const lenis = useLenis();
@@ -174,7 +175,10 @@ export default function Navbar() {
                       } ${isCompanyActive || isCompanyOpen ? 'text-[#B8912A] font-bold' : 'text-[#1A1A1A] hover:text-[#B8912A]'}`}
                     >
                       {link.label}
-                      <span className={`text-[8px] transition-transform duration-300 ${isCompanyOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}>▼</span>
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform duration-300 ${isCompanyOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}
+                      />
                       <span
                         className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#B8912A] w-full transition-transform duration-300 origin-left scale-x-0 group-hover/company:scale-x-100 ${
                           isCompanyActive || isCompanyOpen ? 'scale-x-100' : ''
@@ -182,46 +186,13 @@ export default function Navbar() {
                       />
                     </button>
 
-                    {/* Company Dropdown Menu */}
+                    {/* Company Mega Menu */}
                     <AnimatePresence>
                       {isCompanyOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 12, scale: 0.96 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.96 }}
-                          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#FAF6F0] border border-[#B8912A]/30 rounded-2xl p-2.5 shadow-[0_20px_50px_-10px_rgba(11,11,11,0.22)] backdrop-blur-md z-50 text-left"
-                          onMouseLeave={() => setIsCompanyOpen(false)}
-                        >
-                          <div className="flex flex-col gap-1">
-                            {COMPANY_DROPDOWN_LINKS.map((item) => (
-                              <a
-                                key={item.label}
-                                href={item.href}
-                                onClick={(e) => {
-                                  setIsCompanyOpen(false);
-                                  if (item.href === '#/our-people#careers') {
-                                    e.preventDefault();
-                                    window.location.hash = '#/our-people';
-                                    setTimeout(() => {
-                                      const el = document.querySelector('section:nth-last-child(2)') || document.getElementById('careers');
-                                      el?.scrollIntoView({ behavior: 'smooth' });
-                                    }, 250);
-                                  }
-                                }}
-                                className="group/item flex flex-col p-3 rounded-xl hover:bg-[#B8912A]/10 transition-all duration-200"
-                              >
-                                <span className="text-xs font-bold uppercase tracking-wider text-[#0B0B0B] group-hover/item:text-[#B8912A] transition-colors flex items-center justify-between">
-                                  {item.label}
-                                  <ArrowUpRight size={11} className="opacity-0 group-hover/item:opacity-100 transition-opacity text-[#B8912A]" />
-                                </span>
-                                <span className="text-[10px] text-[#777] font-normal mt-0.5" style={{ fontFamily: 'Inter, sans-serif' }}>
-                                  {item.desc}
-                                </span>
-                              </a>
-                            ))}
-                          </div>
-                        </motion.div>
+                        <CompanyMegaMenu
+                          isOpen={isCompanyOpen}
+                          onClose={() => setIsCompanyOpen(false)}
+                        />
                       )}
                     </AnimatePresence>
                   </li>
@@ -241,16 +212,7 @@ export default function Navbar() {
                     onClick={(e) => {
                       if (link.isModalTrigger) {
                         e.preventDefault();
-                        if (isHome) {
-                          const el = document.getElementById('spaces');
-                          if (el) {
-                            el.scrollIntoView({ behavior: 'smooth' });
-                          } else {
-                            setIsCollectionsOpen(true);
-                          }
-                        } else {
-                          setIsCollectionsOpen(true);
-                        }
+                        setIsCollectionsOpen(true);
                       } else if (isHome && link.href === '#/where-to-buy') {
                         const el = document.getElementById('where-to-buy-intro');
                         if (el) {

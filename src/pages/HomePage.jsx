@@ -224,7 +224,11 @@ export default function HomePage() {
             {STATS.map((s, i) => (
               <Reveal key={s.number} delay={i * 0.08} className="px-3 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 text-center flex flex-col items-center justify-center">
                 <p
-                  className="font-display font-medium text-[#D4AF37] text-2xl sm:text-3xl md:text-4xl leading-none mb-2"
+                  className={`font-display font-medium text-[#D4AF37] leading-none mb-2 ${
+                    s.number === 'Worldwide'
+                      ? 'text-xl sm:text-2xl md:text-[30px]'
+                      : 'text-2xl sm:text-3xl md:text-4xl'
+                  }`}
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
                   {s.number}

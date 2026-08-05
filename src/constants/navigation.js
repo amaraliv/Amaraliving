@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 
 export const COMPANY_DROPDOWN_LINKS = [
   { label: 'Company', href: '#/company', desc: 'Our story, philosophy & heritage' },
-  { label: 'Our People', href: '#/our-people', desc: 'Meet the team behind Amara' },
+  { label: 'Our People', href: '#/our-people', desc: 'Meet our developers & team' },
   { label: 'Blog', href: '#/blog', desc: 'Design insights, trends & stories' },
   { label: 'Careers', href: '#/careers', desc: 'Explore open positions & opportunities' },
 ];
