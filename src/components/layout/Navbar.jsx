@@ -114,7 +114,7 @@ export default function Navbar() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const isSubpage = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite' || currentPath === '#/consultation' || currentPath === '#/company' || currentPath === '#/blog' || currentPath === '#/where-to-buy' || currentPath === '#/our-people' || currentPath === '#/careers';
+  const isSubpage = currentPath.startsWith('#/furniture') || currentPath.startsWith('#/tiles') || currentPath.startsWith('#/granite') || currentPath.startsWith('#/consultation') || currentPath.startsWith('#/company') || currentPath.startsWith('#/blog') || currentPath.startsWith('#/where-to-buy') || currentPath.startsWith('#/our-people') || currentPath.startsWith('#/careers');
 
   return (
     <>
@@ -144,7 +144,7 @@ export default function Navbar() {
           >
             {NAV_LINKS.map((link) => {
               const isHome = currentPath === '#/' || currentPath === '' || currentPath === '#hero';
-              const isCollectionActive = currentPath === '#/furniture' || currentPath === '#/tiles' || currentPath === '#/granite';
+              const isCollectionActive = currentPath.startsWith('#/furniture') || currentPath.startsWith('#/tiles') || currentPath.startsWith('#/granite');
               
               let isActive = false;
               if (link.isModalTrigger) {
@@ -152,13 +152,13 @@ export default function Navbar() {
               } else if (link.href === '#/') {
                 isActive = isHome && (activeSection === 'home' || !activeSection);
               } else if (link.href === '#/where-to-buy') {
-                isActive = currentPath === '#/where-to-buy' || (isHome && activeSection === 'where-to-buy');
+                isActive = currentPath.startsWith('#/where-to-buy') || (isHome && activeSection === 'where-to-buy');
               } else if (link.href === '#/company') {
-                isActive = currentPath === '#/company' || currentPath === '#/our-people' || currentPath === '#/blog' || currentPath === '#/careers' || (isHome && activeSection === 'company');
+                isActive = currentPath.startsWith('#/company') || currentPath.startsWith('#/our-people') || currentPath.startsWith('#/blog') || currentPath.startsWith('#/careers') || (isHome && activeSection === 'company');
               } else if (link.href === '#contact') {
                 isActive = (!isSubpage && activeSection === 'contact') || currentPath === '#/contact' || currentPath === '#contact';
               } else if (link.isPage) {
-                isActive = currentPath === link.href;
+                isActive = currentPath.startsWith(link.href);
               }
 
               if (link.isCompanyDropdown) {

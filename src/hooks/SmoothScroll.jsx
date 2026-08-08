@@ -14,11 +14,11 @@ export default function SmoothScroll({ children }) {
 
   useEffect(() => {
     const instance = new Lenis({
-      duration: 0.85,
+      duration: 0.6,
       easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
-      touchMultiplier: 1.2,
-      wheelMultiplier: 1.1,
+      touchMultiplier: 1.5,
+      wheelMultiplier: 1.4,
     });
 
     lenisRef.current = instance;

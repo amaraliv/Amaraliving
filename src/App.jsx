@@ -52,15 +52,15 @@ export default function App() {
     }
   }, [currentPath]);
 
-  const isFurniture = currentPath === '#/furniture';
-  const isTiles = currentPath === '#/tiles';
-  const isGranite = currentPath === '#/granite';
-  const isConsultation = currentPath === '#/consultation';
-  const isCompany = currentPath === '#/company';
-  const isBlog = currentPath === '#/blog';
-  const isWhereToBuy = currentPath === '#/where-to-buy';
-  const isOurPeople = currentPath === '#/our-people';
-  const isCareers = currentPath === '#/careers';
+  const isFurniture = currentPath.startsWith('#/furniture');
+  const isTiles = currentPath.startsWith('#/tiles');
+  const isGranite = currentPath.startsWith('#/granite');
+  const isConsultation = currentPath.startsWith('#/consultation');
+  const isCompany = currentPath.startsWith('#/company');
+  const isBlog = currentPath.startsWith('#/blog');
+  const isWhereToBuy = currentPath.startsWith('#/where-to-buy');
+  const isOurPeople = currentPath.startsWith('#/our-people');
+  const isCareers = currentPath.startsWith('#/careers');
 
   return (
     <SmoothScroll>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import BookConsultationForm from '../components/sections/BookConsultationForm';
+import ProjectsByAmara from '../components/sections/ProjectsByAmara';
 import Testimonials from '../components/sections/Testimonials';
 
 export default function ConsultationPage() {
@@ -46,6 +47,9 @@ export default function ConsultationPage() {
       >
         <BookConsultationForm />
       </motion.div>
+
+      {/* Projects By Amara Section */}
+      <ProjectsByAmara />
 
       {/* Testimonials ("Trusted By Clients") section */}
       <Testimonials />

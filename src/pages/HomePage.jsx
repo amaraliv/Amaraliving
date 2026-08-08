@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { HERO_SLIDES, SPACES, MATERIALS, IMG } from '../data/content';
 import Testimonials from '../components/sections/Testimonials';
+import ProjectsByAmara from '../components/sections/ProjectsByAmara';
 import furnitureCategoryImg from '../assets/furniture/00_hero.jpg';
 import tilesCategoryImg from '../assets/tiles/AMARA_Image_01.jpg';
 import graniteCategoryImg from '../assets/granite/Hawk_Image_04.jpg';
@@ -546,6 +547,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ══ 7.5 PROJECTS BY AMARA ══ */}
+      <ProjectsByAmara />
 
       {/* ══ 8. TESTIMONIALS ══ */}
       <Testimonials />
