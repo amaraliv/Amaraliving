@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useDragControls } from 'framer-motion';
-import { MessageSquare, X, Send, RotateCcw, Sparkles, Bot, User, ChevronRight, GripHorizontal } from 'lucide-react';
+import { MessageSquare, X, Send, RotateCcw, Sparkles, User, ChevronRight, GripHorizontal } from 'lucide-react';
 import { getBotResponse, WELCOME_MESSAGE, QUICK_ACTIONS } from '../../data/chatbotData';
+import radhikkaDp from '../../assets/people/Radhikka_DP.png';
 
 /**
  * Format current timestamp for chat message bubbles (e.g. "10:45 AM")
@@ -143,7 +144,7 @@ export default function Chatbot() {
             className="mb-2.5 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF8F5]/95 border border-[#B8941F]/40 text-[#2A2A2A] text-[11px] font-medium tracking-wide shadow-lg backdrop-blur-md select-none"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#B8941F] animate-pulse" />
-            <span>Chat with Amara Assistant</span>
+            <span>Chat with Radhikka</span>
           </motion.div>
         )}
 
@@ -152,7 +153,7 @@ export default function Chatbot() {
           whileHover={{ scale: 1.08, y: -2 }}
           whileTap={{ scale: 0.94 }}
           className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#FFFDF9] via-[#F4F2EC] to-[#EAE4D6] text-[#2A2A2A] border border-[#B8941F]/60 shadow-[0_10px_25px_-5px_rgba(184,148,31,0.35),0_0_20px_rgba(212,175,55,0.2)] transition-all duration-300 group"
-          aria-label={isOpen ? 'Close Chatbot' : 'Open Amara Living Support Chatbot'}
+          aria-label={isOpen ? 'Close Chatbot' : 'Open Radhikka Chatbot'}
           aria-expanded={isOpen}
         >
           {/* Subtle animated gold ping ring */}
@@ -214,8 +215,8 @@ export default function Chatbot() {
               className="relative px-5 py-3.5 bg-gradient-to-r from-[#F4F1EA] via-[#ECE7DC] to-[#F4F1EA] border-b border-[#B8941F]/25 flex items-center justify-between shrink-0 cursor-grab active:cursor-grabbing select-none"
             >
               <div className="flex items-center gap-3">
-                <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-[#B8941F]/20 to-[#B8941F]/10 border border-[#B8941F]/40 shadow-inner text-[#B8941F]">
-                  <Bot className="w-5 h-5" />
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#B8941F]/50 shadow-sm shrink-0">
+                  <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
                 </div>
                 <div>
@@ -223,7 +224,7 @@ export default function Chatbot() {
                     className="text-base font-medium tracking-wide text-[#2A2A2A] flex items-center gap-1.5"
                     style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
                   >
-                    Amara Assistant
+                    Radhikka
                     <Sparkles className="w-3.5 h-3.5 text-[#B8941F]" />
                   </h3>
                   <p className="text-[11px] text-[#666666] tracking-wider uppercase font-medium">
@@ -279,19 +280,15 @@ export default function Chatbot() {
                     }`}
                   >
                     {/* Avatar */}
-                    <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border ${
-                        msg.sender === 'user'
-                          ? 'bg-[#2A2A2A] border-[#2A2A2A] text-white'
-                          : 'bg-[#B8941F]/15 border-[#B8941F]/40 text-[#B8941F]'
-                      }`}
-                    >
-                      {msg.sender === 'user' ? (
+                    {msg.sender === 'user' ? (
+                      <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 border bg-[#2A2A2A] border-[#2A2A2A] text-white">
                         <User className="w-3.5 h-3.5" />
-                      ) : (
-                        <Bot className="w-3.5 h-3.5" />
-                      )}
-                    </div>
+                      </div>
+                    ) : (
+                      <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#B8941F]/40 shadow-xs">
+                        <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
+                      </div>
+                    )}
 
                     {/* Message Bubble */}
                     <div
@@ -347,8 +344,8 @@ export default function Chatbot() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2.5"
                 >
-                  <div className="w-7 h-7 rounded-full bg-[#B8941F]/15 border border-[#B8941F]/40 flex items-center justify-center text-[#B8941F]">
-                    <Bot className="w-3.5 h-3.5 animate-bounce" />
+                  <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#B8941F]/40">
+                    <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-white border border-[#E5E0D5] px-4 py-3 rounded-2xl rounded-tl-none flex items-center gap-1.5 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#B8941F] animate-pulse" />
