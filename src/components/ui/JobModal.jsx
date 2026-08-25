@@ -56,11 +56,11 @@ export default function JobModal({ job, onClose }) {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           role="dialog"
           aria-modal="true"
-          className="relative w-full max-w-3xl bg-[#FAF6F0] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(11,11,11,0.5)] border border-[#D4AF37]/30 my-auto max-h-[90vh] flex flex-col text-left"
+          className="relative w-full max-w-3xl bg-[#FAF6F0] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(11,11,11,0.5)] border border-[#C8102E]/30 my-auto max-h-[90vh] flex flex-col text-left"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Top gold bar */}
-          <div className="h-1.5 w-full bg-gradient-to-r from-[#D4AF37] via-[#F5D97A] to-[#D4AF37] shrink-0" />
+          <div className="h-1.5 w-full bg-gradient-to-r from-[#C8102E] via-[#E32B40] to-[#C8102E] shrink-0" />
 
           {/* Close button */}
           <button
@@ -74,7 +74,7 @@ export default function JobModal({ job, onClose }) {
           {/* Modal Header */}
           <div className="p-6 sm:p-10 border-b border-[#E8E2D9] bg-white shrink-0">
             <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#B8912A] border border-[#D4AF37]/30">
+              <span className="text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-[#C8102E]/10 text-[#C8102E] border border-[#C8102E]/30">
                 {job.departmentLabel}
               </span>
               <span className="text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-stone-100 text-stone-600">
@@ -90,15 +90,15 @@ export default function JobModal({ job, onClose }) {
 
             <div className="flex flex-wrap gap-4 sm:gap-6 text-xs text-[#666]" style={{ fontFamily: 'Inter, sans-serif' }}>
               <div className="flex items-center gap-1.5">
-                <MapPin size={13} className="text-[#D4AF37]" />
+                <MapPin size={13} className="text-[#C8102E]" />
                 {job.location}
               </div>
               <div className="flex items-center gap-1.5">
-                <Clock size={13} className="text-[#D4AF37]" />
+                <Clock size={13} className="text-[#C8102E]" />
                 {job.type}
               </div>
               <div className="flex items-center gap-1.5">
-                <Award size={13} className="text-[#D4AF37]" />
+                <Award size={13} className="text-[#C8102E]" />
                 {job.experience}
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function JobModal({ job, onClose }) {
                 onClick={() => setActiveTab('apply')}
                 className={`px-4 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all border-none cursor-pointer ${
                   activeTab === 'apply'
-                    ? 'bg-[#D4AF37] text-white shadow-md'
+                    ? 'bg-[#C8102E] text-white shadow-md'
                     : 'bg-[#EFE8DF] text-[#666] hover:text-[#0B0B0B]'
                 }`}
                 style={{ fontFamily: 'Inter, sans-serif' }}
@@ -136,7 +136,7 @@ export default function JobModal({ job, onClose }) {
               <div className="space-y-8" style={{ fontFamily: 'Inter, sans-serif' }}>
                 {/* Summary */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-[#B8912A] mb-2">
+                  <h3 className="text-xs font-bold uppercase tracking-[0.25em] text-[#C8102E] mb-2">
                     About The Role
                   </h3>
                   <p className="text-sm text-[#444] leading-[1.8]">{job.summary}</p>
@@ -150,7 +150,7 @@ export default function JobModal({ job, onClose }) {
                   <ul className="space-y-2.5">
                     {job.responsibilities.map((resp, i) => (
                       <li key={i} className="flex items-start gap-3 text-xs text-[#555] leading-[1.7]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mt-2 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C8102E] mt-2 shrink-0" />
                         {resp}
                       </li>
                     ))}
@@ -165,7 +165,7 @@ export default function JobModal({ job, onClose }) {
                   <ul className="space-y-2.5">
                     {job.requirements.map((req, i) => (
                       <li key={i} className="flex items-start gap-3 text-xs text-[#555] leading-[1.7]">
-                        <CheckCircle size={14} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                        <CheckCircle size={14} className="text-[#C8102E] shrink-0 mt-0.5" />
                         {req}
                       </li>
                     ))}
@@ -175,7 +175,7 @@ export default function JobModal({ job, onClose }) {
                 <div className="pt-4 border-t border-[#E8E2D9]">
                   <button
                     onClick={() => setActiveTab('apply')}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white bg-[#0B0B0B] hover:bg-[#D4AF37] transition-all duration-300 border-none cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-[0.2em] text-white bg-[#0B0B0B] hover:bg-[#C8102E] transition-all duration-300 border-none cursor-pointer"
                   >
                     Proceed to Application <ArrowRight size={14} />
                   </button>
@@ -189,7 +189,7 @@ export default function JobModal({ job, onClose }) {
                     animate={{ opacity: 1, scale: 1 }}
                     className="py-12 text-center space-y-4"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[#D4AF37]/15 text-[#B8912A] flex items-center justify-center mx-auto">
+                    <div className="w-16 h-16 rounded-full bg-[#C8102E]/15 text-[#C8102E] flex items-center justify-center mx-auto">
                       <CheckCircle size={36} />
                     </div>
                     <h3
@@ -203,7 +203,7 @@ export default function JobModal({ job, onClose }) {
                     </p>
                     <button
                       onClick={onClose}
-                      className="mt-6 px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#0B0B0B] hover:bg-[#D4AF37] transition-all border-none cursor-pointer"
+                      className="mt-6 px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#0B0B0B] hover:bg-[#C8102E] transition-all border-none cursor-pointer"
                     >
                       Close Window
                     </button>
@@ -221,7 +221,7 @@ export default function JobModal({ job, onClose }) {
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           placeholder="Jane Doe"
-                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#D4AF37] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E] transition-colors"
                         />
                       </div>
                       <div>
@@ -234,7 +234,7 @@ export default function JobModal({ job, onClose }) {
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="jane@example.com"
-                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#D4AF37] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E] transition-colors"
                         />
                       </div>
                     </div>
@@ -249,7 +249,7 @@ export default function JobModal({ job, onClose }) {
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 98765 43210"
-                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#D4AF37] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E] transition-colors"
                         />
                       </div>
                       <div>
@@ -262,7 +262,7 @@ export default function JobModal({ job, onClose }) {
                           value={formData.portfolio}
                           onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
                           placeholder="https://linkedin.com/in/jane or website"
-                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#D4AF37] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E] transition-colors"
                         />
                       </div>
                     </div>
@@ -276,14 +276,14 @@ export default function JobModal({ job, onClose }) {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Tell us briefly about your background and why you wish to join our studio..."
-                        className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#D4AF37] transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-[#D8D2CA] bg-white text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E] transition-colors resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-full text-xs font-bold uppercase tracking-[0.25em] text-white bg-gradient-to-r from-[#D4AF37] to-[#B8912A] hover:shadow-lg transition-all duration-300 border-none cursor-pointer flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-full text-xs font-bold uppercase tracking-[0.25em] text-white bg-gradient-to-r from-[#C8102E] to-[#C8102E] hover:shadow-lg transition-all duration-300 border-none cursor-pointer flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
                         <span>Submitting Application...</span>

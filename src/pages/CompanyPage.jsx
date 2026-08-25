@@ -33,7 +33,7 @@ function Reveal({ children, className = '', delay = 0 }) {
 
 function Eyebrow({ children }) {
   return (
-    <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
       {children}
     </span>
   );
@@ -41,7 +41,7 @@ function Eyebrow({ children }) {
 
 function GoldRule({ className = '' }) {
   return (
-    <div className={`h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent ${className}`} />
+    <div className={`h-px bg-gradient-to-r from-transparent via-[#C8102E]/50 to-transparent ${className}`} />
   );
 }
 
@@ -200,10 +200,10 @@ export default function CompanyPage() {
 
         <div className="wrap relative z-10 w-full text-center">
           <Reveal>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-5">Crafting Legacies</span>
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-5">Crafting Legacies</span>
             <h1 className="font-display text-[clamp(2.5rem,6vw,6.5rem)] font-medium leading-[0.95] tracking-tight text-[#FAF6F0] mb-8" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
               Our Identity &amp;<br />
-              <span className="italic font-normal text-[#D4AF37]">Structure</span>
+              <span className="italic font-normal text-[#C8102E]">Structure</span>
             </h1>
             <p className="max-w-2xl mx-auto text-sm font-light leading-[1.9] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Amara Living bridges architectural intent and material honesty. From locally selected quarries to our integrated Chennai workshop, our work is defined by precision and permanence.
@@ -213,7 +213,7 @@ export default function CompanyPage() {
       </section>
 
       {/* ── STICKY TAB BAR ── */}
-      <div className="sticky top-[70px] z-30 bg-[#FAF6F0]/90 backdrop-blur-md border-b border-[#D4AF37]/20">
+      <div className="sticky top-[70px] z-30 bg-[#FAF6F0]/90 backdrop-blur-md border-b border-[#C8102E]/20">
         <div className="wrap max-w-4xl flex items-center justify-between overflow-x-auto scrollbar-hide py-1">
           <div className="flex w-full justify-around min-w-[500px]">
             {[
@@ -228,7 +228,7 @@ export default function CompanyPage() {
                   key={tab.id}
                   onClick={() => scrollToSection(tab.id)}
                   className={`px-4 py-4 font-body text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 relative ${
-                    isActive ? 'text-[#D4AF37]' : 'text-[#0B0B0B]/60 hover:text-[#D4AF37]'
+                    isActive ? 'text-[#C8102E]' : 'text-[#0B0B0B]/60 hover:text-[#C8102E]'
                   }`}
                   style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                 >
@@ -236,7 +236,7 @@ export default function CompanyPage() {
                   {isActive && (
                     <motion.div
                       layoutId="activeCompanyTabLine"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D4AF37]"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#C8102E]"
                       transition={{ type: 'spring', stiffness: 350, damping: 28 }}
                     />
                   )}
@@ -257,7 +257,7 @@ export default function CompanyPage() {
               <Reveal>
                 <Eyebrow>The Philosophy</Eyebrow>
                 <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                  Bespoke Interiors Built For <span className="italic text-[#D4AF37]">Permanence</span>
+                  Bespoke Interiors Built For <span className="italic text-[#C8102E]">Permanence</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
@@ -271,17 +271,17 @@ export default function CompanyPage() {
 
               {/* Stats */}
               <Reveal delay={0.15}>
-                <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#D4AF37]/15 mt-6">
+                <div className="grid grid-cols-3 gap-4 pt-8 border-t border-[#C8102E]/15 mt-6">
                   <div>
-                    <p className="font-display text-2xl md:text-3xl font-semibold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>2010</p>
+                    <p className="font-display text-2xl md:text-3xl font-semibold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>2010</p>
                     <p className="font-body text-[9px] uppercase tracking-wider text-[#A0A0A0] mt-1">Established</p>
                   </div>
                   <div>
-                    <p className="font-display text-2xl md:text-3xl font-semibold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>1,200+</p>
+                    <p className="font-display text-2xl md:text-3xl font-semibold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>1,200+</p>
                     <p className="font-body text-[9px] uppercase tracking-wider text-[#A0A0A0] mt-1">Projects Delivered</p>
                   </div>
                   <div>
-                    <p className="font-display text-2xl md:text-3xl font-semibold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>40+</p>
+                    <p className="font-display text-2xl md:text-3xl font-semibold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>40+</p>
                     <p className="font-body text-[9px] uppercase tracking-wider text-[#A0A0A0] mt-1">Master Artisans</p>
                   </div>
                 </div>
@@ -291,7 +291,7 @@ export default function CompanyPage() {
             {/* Studio Image Card */}
             <div className="md:col-span-5 hidden md:block">
               <Reveal delay={0.2}>
-                <div className="rounded-md overflow-hidden aspect-[4/5] border border-[#D4AF37]/20 relative">
+                <div className="rounded-md overflow-hidden aspect-[4/5] border border-[#C8102E]/20 relative">
                   <img
                     src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"
                     alt="Creative drafting studio layout"
@@ -304,7 +304,7 @@ export default function CompanyPage() {
 
           {/* Values Grid */}
           <Reveal>
-            <div className="bg-[#FAF6F0] border border-[#D4AF37]/15 p-8 md:p-12 shadow-sm rounded-sm">
+            <div className="bg-[#FAF6F0] border border-[#C8102E]/15 p-8 md:p-12 shadow-sm rounded-sm">
               <div className="text-center max-w-xl mx-auto mb-12">
                 <Eyebrow>Our Foundations</Eyebrow>
                 <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
@@ -317,7 +317,7 @@ export default function CompanyPage() {
                   const IconComponent = val.icon;
                   return (
                     <div key={val.title} className="space-y-4">
-                      <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+                      <div className="w-10 h-10 rounded-full bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E]">
                         <IconComponent className="w-5 h-5" />
                       </div>
                       <h4 className="font-display text-lg font-semibold text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{val.title}</h4>
@@ -340,15 +340,15 @@ export default function CompanyPage() {
               </div>
             </Reveal>
 
-            <div className="relative border-l border-[#D4AF37]/30 pl-6 md:pl-10 max-w-3xl mx-auto space-y-12">
+            <div className="relative border-l border-[#C8102E]/30 pl-6 md:pl-10 max-w-3xl mx-auto space-y-12">
               {TIMELINE.map((item, idx) => (
                 <div key={item.year} className="relative group">
                   {/* Timeline dot */}
-                  <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-[#D4AF37] bg-[#FAF6F0] group-hover:bg-[#D4AF37] transition-colors duration-300" />
+                  <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-[#C8102E] bg-[#FAF6F0] group-hover:bg-[#C8102E] transition-colors duration-300" />
                   
                   <Reveal delay={idx * 0.05}>
                     <div className="space-y-1">
-                      <span className="font-display text-lg font-bold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{item.year}</span>
+                      <span className="font-display text-lg font-bold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{item.year}</span>
                       <h4 className="font-display text-base font-semibold text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{item.title}</h4>
                       <p className="font-body text-xs font-light leading-relaxed text-[#555555]">{item.desc}</p>
                     </div>
@@ -360,12 +360,12 @@ export default function CompanyPage() {
         </section>
 
         {/* 2. CREDENTIALS SECTION */}
-        <section id="credentials" className="scroll-mt-36 space-y-16 pt-8 border-t border-[#D4AF37]/15">
+        <section id="credentials" className="scroll-mt-36 space-y-16 pt-8 border-t border-[#C8102E]/15">
           <div className="text-center max-w-2xl mx-auto">
             <Reveal>
               <Eyebrow>Validated Quality</Eyebrow>
               <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Our Industry Standards <span className="italic text-[#D4AF37]">&amp; Credentials</span>
+                Our Industry Standards <span className="italic text-[#C8102E]">&amp; Credentials</span>
               </h2>
               <p className="font-body text-sm font-light leading-relaxed text-[#555555] mt-4">
                 We maintain regular external audits and support sustainable forest harvesting networks to ensure our bespoke outputs meet premium architectural specifications.
@@ -378,13 +378,13 @@ export default function CompanyPage() {
               const IconComponent = cert.icon;
               return (
                 <Reveal key={cert.title} delay={idx * 0.08}>
-                  <div className="bg-[#FAF6F0] border border-[#D4AF37]/20 rounded-md p-6 md:p-8 hover:border-[#D4AF37] transition-all duration-300 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(212,175,55,0.08)] flex flex-col md:flex-row gap-5">
-                    <div className="w-12 h-12 shrink-0 rounded-lg bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+                  <div className="bg-[#FAF6F0] border border-[#C8102E]/20 rounded-md p-6 md:p-8 hover:border-[#C8102E] transition-all duration-300 shadow-sm hover:shadow-[0_15px_30px_-10px_rgba(200,16,46,0.08)] flex flex-col md:flex-row gap-5">
+                    <div className="w-12 h-12 shrink-0 rounded-lg bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E]">
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <div className="space-y-2">
                       <h3 className="font-display text-lg font-semibold text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{cert.title}</h3>
-                      <p className="font-body text-[9px] font-bold tracking-widest text-[#D4AF37] uppercase">{cert.subtitle}</p>
+                      <p className="font-body text-[9px] font-bold tracking-widest text-[#C8102E] uppercase">{cert.subtitle}</p>
                       <p className="font-body text-xs font-light leading-relaxed text-[#555555] pt-1">{cert.desc}</p>
                     </div>
                   </div>
@@ -402,8 +402,8 @@ export default function CompanyPage() {
                   We offer detailed technical sheets, quarry certification records, and forest-to-project custody certificates upon professional request.
                 </p>
               </div>
-              <a href="#/consultation" className="group relative inline-flex items-center gap-3 overflow-hidden px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.25em] border border-[#D4AF37] text-[#D4AF37] hover:text-[#0B0B0B] transition-all duration-500">
-                <span className="absolute inset-0 origin-left scale-x-0 bg-[#D4AF37] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
+              <a href="#/consultation" className="group relative inline-flex items-center gap-3 overflow-hidden px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.25em] border border-[#C8102E] text-[#C8102E] hover:text-[#0B0B0B] transition-all duration-500">
+                <span className="absolute inset-0 origin-left scale-x-0 bg-[#C8102E] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
                 <span className="relative z-10 flex items-center gap-2">Request Data Sheet <ArrowUpRight className="w-3.5 h-3.5" /></span>
               </a>
             </div>
@@ -411,13 +411,13 @@ export default function CompanyPage() {
         </section>
 
         {/* 3. DOMESTIC PRESENCE SECTION */}
-        <section id="domestic" className="scroll-mt-36 space-y-16 pt-8 border-t border-[#D4AF37]/15">
+        <section id="domestic" className="scroll-mt-36 space-y-16 pt-8 border-t border-[#C8102E]/15">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
               <Reveal>
                 <Eyebrow>National Operations</Eyebrow>
                 <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                  Serving Prominent Locations Across <span className="italic text-[#D4AF37]">India</span>
+                  Serving Prominent Locations Across <span className="italic text-[#C8102E]">India</span>
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
@@ -430,7 +430,7 @@ export default function CompanyPage() {
               <Reveal delay={0.15}>
                 <div className="space-y-6 pt-4">
                   <div className="flex gap-4 items-start">
-                    <div className="w-8 h-8 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E] shrink-0">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
@@ -439,7 +439,7 @@ export default function CompanyPage() {
                     </div>
                   </div>
                   <div className="flex gap-4 items-start">
-                    <div className="w-8 h-8 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E] shrink-0">
                       <Compass className="w-4 h-4" />
                     </div>
                     <div>
@@ -452,7 +452,7 @@ export default function CompanyPage() {
             </div>
 
             {/* Showcase Image Card */}
-            <div className="h-[250px] md:h-[380px] rounded-lg overflow-hidden border border-[#D4AF37]/15 relative">
+            <div className="h-[250px] md:h-[380px] rounded-lg overflow-hidden border border-[#C8102E]/15 relative">
               <Reveal delay={0.2} className="w-full h-full">
                 <img
                   src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=85"
@@ -461,7 +461,7 @@ export default function CompanyPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/60 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-6 left-6 text-white z-10">
-                  <span className="block text-[8px] font-bold tracking-widest uppercase text-[#D4AF37] mb-1">Featured Showcase</span>
+                  <span className="block text-[8px] font-bold tracking-widest uppercase text-[#C8102E] mb-1">Featured Showcase</span>
                   <p className="font-display text-base font-medium" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Living Room, Coimbatore</p>
                 </div>
               </Reveal>
@@ -471,12 +471,12 @@ export default function CompanyPage() {
           {/* Domestic Gallery Grid */}
           <div className="space-y-8 pt-6">
             <Reveal>
-              <h3 className="font-display text-xl font-semibold text-[#0B0B0B] border-b border-[#D4AF37]/15 pb-4" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Selected Regional Installations</h3>
+              <h3 className="font-display text-xl font-semibold text-[#0B0B0B] border-b border-[#C8102E]/15 pb-4" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Selected Regional Installations</h3>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {DOMESTIC_PROJECTS.map((proj, idx) => (
                 <Reveal key={proj.name} delay={idx * 0.08}>
-                  <div className="group flex flex-col gap-4 bg-[#FAF6F0] border border-[#D4AF37]/15 p-5 hover:border-[#D4AF37] transition-all duration-300">
+                  <div className="group flex flex-col gap-4 bg-[#FAF6F0] border border-[#C8102E]/15 p-5 hover:border-[#C8102E] transition-all duration-300">
                     <div className="h-[200px] md:h-[240px] overflow-hidden rounded-sm relative bg-[#F0EDE8]">
                       <img
                         src={proj.image}
@@ -487,9 +487,9 @@ export default function CompanyPage() {
                     <div className="space-y-1">
                       <div className="flex justify-between items-start">
                         <h4 className="font-display text-base font-semibold text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{proj.name}</h4>
-                        <span className="font-body text-[9px] font-bold text-[#D4AF37] tracking-wider uppercase">{proj.location}</span>
+                        <span className="font-body text-[9px] font-bold text-[#C8102E] tracking-wider uppercase">{proj.location}</span>
                       </div>
-                      <p className="font-body text-xs font-semibold text-[#D4AF37]">{proj.type}</p>
+                      <p className="font-body text-xs font-semibold text-[#C8102E]">{proj.type}</p>
                       <p className="font-body text-xs font-light leading-relaxed text-[#555555] pt-2">{proj.desc}</p>
                     </div>
                   </div>
@@ -500,12 +500,12 @@ export default function CompanyPage() {
         </section>
 
         {/* 4. GLOBAL NETWORK SECTION */}
-        <section id="global" className="scroll-mt-36 space-y-16 pt-8 border-t border-[#D4AF37]/15">
+        <section id="global" className="scroll-mt-36 space-y-16 pt-8 border-t border-[#C8102E]/15">
           <div className="text-center max-w-2xl mx-auto">
             <Reveal>
               <Eyebrow>Global Scale</Eyebrow>
               <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Sourcing Worldwide &amp; Delivering <span className="italic text-[#D4AF37]">Abroad</span>
+                Sourcing Worldwide &amp; Delivering <span className="italic text-[#C8102E]">Abroad</span>
               </h2>
               <p className="font-body text-sm font-light leading-relaxed text-[#555555] mt-4">
                 Premium stones, timbers, and fabrics require international access. We maintain active partnerships with stone workshops and woodland reserves globally to import fine raw resources while exporting custom furnishings for selective clients.
@@ -517,7 +517,7 @@ export default function CompanyPage() {
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8 pt-4">
             {GLOBAL_SOCIETIES.map((item, idx) => (
               <Reveal key={item.region} delay={idx * 0.08}>
-                <div className="group bg-[#FAF6F0] border border-[#D4AF37]/15 overflow-hidden flex flex-col justify-between hover:border-[#D4AF37] transition-all duration-300">
+                <div className="group bg-[#FAF6F0] border border-[#C8102E]/15 overflow-hidden flex flex-col justify-between hover:border-[#C8102E] transition-all duration-300">
                   <div className="h-[160px] overflow-hidden bg-[#F0EDE8]">
                     <img
                       src={item.image}
@@ -527,9 +527,9 @@ export default function CompanyPage() {
                   </div>
                   <div className="p-6 space-y-3 flex-grow flex flex-col justify-between">
                     <div className="space-y-2">
-                      <h3 className="font-display text-lg font-semibold text-[#D4AF37] flex items-center justify-between" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+                      <h3 className="font-display text-lg font-semibold text-[#C8102E] flex items-center justify-between" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                         {item.region}
-                        <ArrowUpRight className="w-4 h-4 text-[#D4AF37]/60 group-hover:text-[#D4AF37] transition-colors" />
+                        <ArrowUpRight className="w-4 h-4 text-[#C8102E]/60 group-hover:text-[#C8102E] transition-colors" />
                       </h3>
                       <p className="font-body text-[9px] font-bold uppercase tracking-widest text-[#A0A0A0]">{item.type}</p>
                       <p className="font-body text-xs font-light leading-relaxed text-[#555555] pt-2">{item.desc}</p>
@@ -542,10 +542,10 @@ export default function CompanyPage() {
 
           {/* Metrics Board */}
           <Reveal>
-            <div className="bg-[#FAF6F0] border border-[#D4AF37]/20 p-8 md:p-12 shadow-sm rounded-sm">
+            <div className="bg-[#FAF6F0] border border-[#C8102E]/20 p-8 md:p-12 shadow-sm rounded-sm">
               <div className="grid md:grid-cols-2 gap-10 items-center">
                 <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
+                  <div className="w-12 h-12 rounded-lg bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E]">
                     <Globe className="w-6 h-6" />
                   </div>
                   <h3 className="font-display text-2xl font-medium tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>International Consultation Network</h3>
@@ -555,20 +555,20 @@ export default function CompanyPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white border border-[#D4AF37]/15 p-5 rounded-sm">
-                    <span className="font-display text-xl font-bold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>4 Countries</span>
+                  <div className="bg-white border border-[#C8102E]/15 p-5 rounded-sm">
+                    <span className="font-display text-xl font-bold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>4 Countries</span>
                     <p className="font-body text-[8px] uppercase tracking-wider text-[#A0A0A0] mt-1.5">Direct Procurement</p>
                   </div>
-                  <div className="bg-white border border-[#D4AF37]/15 p-5 rounded-sm">
-                    <span className="font-display text-xl font-bold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>100% Crated</span>
+                  <div className="bg-white border border-[#C8102E]/15 p-5 rounded-sm">
+                    <span className="font-display text-xl font-bold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>100% Crated</span>
                     <p className="font-body text-[8px] uppercase tracking-wider text-[#A0A0A0] mt-1.5">Export Freight Ready</p>
                   </div>
-                  <div className="bg-white border border-[#D4AF37]/15 p-5 rounded-sm">
-                    <span className="font-display text-xl font-bold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>24/7 Digital</span>
+                  <div className="bg-white border border-[#C8102E]/15 p-5 rounded-sm">
+                    <span className="font-display text-xl font-bold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>24/7 Digital</span>
                     <p className="font-body text-[8px] uppercase tracking-wider text-[#A0A0A0] mt-1.5">Design Collaboration</p>
                   </div>
-                  <div className="bg-[#FAF6F0] border border-[#D4AF37]/15 p-5 rounded-sm">
-                    <span className="font-display text-xl font-bold text-[#D4AF37]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Italian</span>
+                  <div className="bg-[#FAF6F0] border border-[#C8102E]/15 p-5 rounded-sm">
+                    <span className="font-display text-xl font-bold text-[#C8102E]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Italian</span>
                     <p className="font-body text-[8px] uppercase tracking-wider text-[#A0A0A0] mt-1.5">Class-A Carrara Marble</p>
                   </div>
                 </div>

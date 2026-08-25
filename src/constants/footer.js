@@ -5,9 +5,9 @@ export const FOOTER_STUDIOS = [
 ];
 
 export const FOOTER_COLLECTIONS = [
-  'Premium Tiles',
-  'Natural Granites',
-  'Custom Handcrafted Furniture',
+  'Amara Ceramics',
+  'Amara Natural Stone',
+  'Amara Furniture',
 ];
 
 export const FOOTER_SOCIAL = [

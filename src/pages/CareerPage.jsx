@@ -39,7 +39,7 @@ function HeroSection() {
       <div
         className="absolute bottom-0 left-0 w-[65vw] h-[65vh] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 0% 100%, rgba(212,175,55,0.14) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.14) 0%, transparent 65%)',
         }}
       />
       {/* Grid texture */}
@@ -65,7 +65,7 @@ function HeroSection() {
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
             }}
-            className="block text-[11px] font-bold uppercase tracking-[0.45em] text-[#D4AF37] mb-6"
+            className="block text-[11px] font-bold uppercase tracking-[0.45em] text-[#C8102E] mb-6"
             style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           >
             CAREERS AT AMARA LIVING
@@ -80,7 +80,7 @@ function HeroSection() {
             style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
           >
             Build the Future <br />
-            <em className="text-[#D4AF37] not-italic">of Luxury Living</em>
+            <em className="text-[#C8102E] not-italic">of Luxury Living</em>
           </motion.h1>
 
           <motion.p
@@ -107,7 +107,7 @@ function HeroSection() {
           Scroll to view openings
         </span>
         <motion.div
-          className="w-px h-10 bg-gradient-to-b from-[#D4AF37] to-transparent"
+          className="w-px h-10 bg-gradient-to-b from-[#C8102E] to-transparent"
           animate={{ scaleY: [1, 0.3, 1] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
         />
@@ -122,11 +122,11 @@ function BenefitsSection() {
     <section className="py-24 bg-[#FAF6F0] border-b border-[#E8E2D9]">
       <div className="w-full px-6 sm:px-12 lg:px-20">
         <Reveal className="max-w-3xl mb-16">
-          <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#D4AF37] mb-3" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+          <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#C8102E] mb-3" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             Life at Amara
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-[#0B0B0B] leading-tight" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-            Why You’ll Love <em className="text-[#D4AF37] not-italic">Working Here</em>
+            Why You’ll Love <em className="text-[#C8102E] not-italic">Working Here</em>
           </h2>
           <p className="text-sm text-[#666] leading-relaxed mt-4 max-w-lg" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             We empower our people with an environment that nurtures innovation, celebrates craftsmanship, and rewards excellence.
@@ -140,10 +140,10 @@ function BenefitsSection() {
               <Reveal key={benefit.title} delay={i * 0.08}>
                 <motion.div
                   whileHover={{ y: -6, transition: { type: 'spring', stiffness: 260, damping: 20 } }}
-                  className="bg-white border border-[#E8E2D9] hover:border-[#D4AF37]/50 rounded-3xl p-8 h-full flex flex-col justify-between shadow-[0_8px_30px_-10px_rgba(11,11,11,0.06)] hover:shadow-[0_20px_50px_-12px_rgba(212,175,55,0.15)] transition-all duration-500 group"
+                  className="bg-white border border-[#E8E2D9] hover:border-[#C8102E]/50 rounded-3xl p-8 h-full flex flex-col justify-between shadow-[0_8px_30px_-10px_rgba(11,11,11,0.06)] hover:shadow-[0_20px_50px_-12px_rgba(200,16,46,0.15)] transition-all duration-500 group"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#B8912A] mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#C8102E]/10 border border-[#C8102E]/30 flex items-center justify-center text-[#C8102E] mb-6 group-hover:scale-110 transition-transform duration-300">
                       <IconComponent size={20} />
                     </div>
                     <h3
@@ -192,11 +192,11 @@ export default function CareerPage() {
         <div className="w-full px-6 sm:px-12 lg:px-20">
           <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#D4AF37] mb-3" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+              <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#C8102E] mb-3" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Current Opportunities
               </span>
               <h2 className="font-display text-3xl md:text-5xl font-semibold text-[#0B0B0B] leading-tight" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Open <em className="text-[#D4AF37] not-italic">Positions</em>
+                Open <em className="text-[#C8102E] not-italic">Positions</em>
               </h2>
             </div>
             <p className="text-xs text-[#666] max-w-sm leading-relaxed" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -213,7 +213,7 @@ export default function CareerPage() {
                 className={`whitespace-nowrap px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border-none cursor-pointer ${
                   activeDept === dept.id
                     ? 'bg-[#0B0B0B] text-white shadow-md'
-                    : 'bg-[#FAF6F0] border border-[#E8E2D9] text-[#666] hover:text-[#0B0B0B] hover:border-[#D4AF37]/50'
+                    : 'bg-[#FAF6F0] border border-[#E8E2D9] text-[#666] hover:text-[#0B0B0B] hover:border-[#C8102E]/50'
                 }`}
                 style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
               >
@@ -232,7 +232,7 @@ export default function CareerPage() {
                   exit={{ opacity: 0, y: -15 }}
                   className="bg-[#FAF6F0] border border-[#E8E2D9] rounded-3xl p-12 text-center space-y-4 max-w-2xl mx-auto my-4"
                 >
-                  <div className="w-14 h-14 rounded-full bg-[#D4AF37]/15 text-[#B8912A] flex items-center justify-center mx-auto mb-2">
+                  <div className="w-14 h-14 rounded-full bg-[#C8102E]/15 text-[#C8102E] flex items-center justify-center mx-auto mb-2">
                     <Sparkles size={22} />
                   </div>
                   <h3
@@ -247,7 +247,7 @@ export default function CareerPage() {
                   <div className="pt-4">
                     <a
                       href="mailto:careers@amaraliv.com?subject=Spontaneous%20Application%20-%20Amara%20Living"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#0B0B0B] hover:bg-[#D4AF37] transition-all shadow-md"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#0B0B0B] hover:bg-[#C8102E] transition-all shadow-md"
                       style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                     >
                       Send Your Resume <Mail size={13} />
@@ -265,11 +265,11 @@ export default function CareerPage() {
                   >
                     <div
                       onClick={() => setSelectedJob(job)}
-                      className="group relative bg-[#FAF6F0] hover:bg-white border border-[#E8E2D9] hover:border-[#D4AF37] rounded-3xl p-8 transition-all duration-500 shadow-[0_6px_24px_-8px_rgba(11,11,11,0.05)] hover:shadow-[0_20px_50px_-12px_rgba(212,175,55,0.2)] cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                      className="group relative bg-[#FAF6F0] hover:bg-white border border-[#E8E2D9] hover:border-[#C8102E] rounded-3xl p-8 transition-all duration-500 shadow-[0_6px_24px_-8px_rgba(11,11,11,0.05)] hover:shadow-[0_20px_50px_-12px_rgba(200,16,46,0.2)] cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
                     >
                       <div className="space-y-3">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-[#D4AF37]/15 text-[#B8912A]">
+                          <span className="text-[9px] font-bold uppercase tracking-[0.3em] px-3 py-1 rounded-full bg-[#C8102E]/15 text-[#C8102E]">
                             {job.departmentLabel}
                           </span>
                           <span className="text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-stone-200/80 text-stone-700">
@@ -278,7 +278,7 @@ export default function CareerPage() {
                         </div>
 
                         <h3
-                          className="font-display text-2xl md:text-3xl font-semibold text-[#0B0B0B] group-hover:text-[#B8912A] transition-colors duration-300"
+                          className="font-display text-2xl md:text-3xl font-semibold text-[#0B0B0B] group-hover:text-[#C8102E] transition-colors duration-300"
                           style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                         >
                           {job.title}
@@ -289,8 +289,8 @@ export default function CareerPage() {
                         </p>
 
                         <div className="flex flex-wrap gap-5 text-xs text-[#777] pt-1" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                          <span className="flex items-center gap-1.5"><MapPin size={13} className="text-[#D4AF37]" /> {job.location}</span>
-                          <span className="flex items-center gap-1.5"><Award size={13} className="text-[#D4AF37]" /> {job.experience}</span>
+                          <span className="flex items-center gap-1.5"><MapPin size={13} className="text-[#C8102E]" /> {job.location}</span>
+                          <span className="flex items-center gap-1.5"><Award size={13} className="text-[#C8102E]" /> {job.experience}</span>
                         </div>
                       </div>
 
@@ -300,7 +300,7 @@ export default function CareerPage() {
                             e.stopPropagation();
                             setSelectedJob(job);
                           }}
-                          className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#0B0B0B] group-hover:bg-[#D4AF37] transition-all duration-300 border-none cursor-pointer shadow-md"
+                          className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#0B0B0B] group-hover:bg-[#C8102E] transition-all duration-300 border-none cursor-pointer shadow-md"
                           style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                         >
                           View Role & Apply <ArrowUpRight size={14} />
@@ -327,24 +327,24 @@ export default function CareerPage() {
 
         <div className="relative z-10 max-w-3xl mx-auto px-6">
           <Reveal>
-            <div className="w-14 h-14 rounded-full bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center mx-auto mb-6">
+            <div className="w-14 h-14 rounded-full bg-[#C8102E]/15 text-[#C8102E] flex items-center justify-center mx-auto mb-6">
               <Mail size={24} />
             </div>
-            <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#D4AF37] mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+            <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#C8102E] mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Spontaneous Applications
             </span>
             <h2
               className="font-display text-3xl md:text-5xl font-semibold text-white mb-6 leading-tight"
               style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
             >
-              Don't See Your <em className="text-[#D4AF37] not-italic">Dream Role?</em>
+              Don't See Your <em className="text-[#C8102E] not-italic">Dream Role?</em>
             </h2>
             <p className="text-sm font-light text-[#999] leading-[1.9] mb-10 max-w-lg mx-auto" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               We are always eager to connect with exceptionally talented architects, designers, developers, and visionaries. Send your resume and portfolio directly to us.
             </p>
             <a
               href="mailto:careers@amaraliv.com?subject=Spontaneous%20Application%20-%20Amara%20Living"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] text-white bg-gradient-to-r from-[#D4AF37] to-[#B8912A] hover:shadow-[0_10px_30px_-5px_rgba(212,175,55,0.5)] transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] text-white bg-gradient-to-r from-[#C8102E] to-[#C8102E] hover:shadow-[0_10px_30px_-5px_rgba(200,16,46,0.5)] transition-all duration-300"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               Email Your Resume <Mail size={14} />

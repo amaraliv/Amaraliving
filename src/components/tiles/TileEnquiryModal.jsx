@@ -63,7 +63,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
 
           {submitted ? (
             <div className="py-12 text-center flex flex-col items-center">
-              <CheckCircle2 className="w-16 h-16 text-[#B8941F] mb-4 animate-bounce" />
+              <CheckCircle2 className="w-16 h-16 text-[#C8102E] mb-4 animate-bounce" />
               <h3 className="text-2xl font-light text-[#0B0B0B] font-display mb-2">
                 Enquiry Submitted!
               </h3>
@@ -73,7 +73,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
             </div>
           ) : (
             <div>
-              <span className="text-[10px] font-semibold tracking-[0.35em] text-[#B8941F] uppercase block mb-1">
+              <span className="text-[10px] font-semibold tracking-[0.35em] text-[#C8102E] uppercase block mb-1">
                 Direct Specification Enquiry
               </span>
               <h3
@@ -102,7 +102,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#B8941F]"
+                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#C8102E]"
                       />
                     </div>
                   </div>
@@ -119,7 +119,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
                         placeholder="+91 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#B8941F]"
+                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#C8102E]"
                       />
                     </div>
                   </div>
@@ -137,7 +137,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#B8941F]"
+                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#C8102E]"
                       />
                     </div>
                   </div>
@@ -154,7 +154,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
                         placeholder="Mumbai, Bangalore, etc."
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#B8941F]"
+                        className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 pl-10 pr-4 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#C8102E]"
                       />
                     </div>
                   </div>
@@ -168,7 +168,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
                     <select
                       value={formData.quantity}
                       onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                      className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 px-3 text-xs text-[#0B0B0B] focus:outline-none focus:border-[#B8941F]"
+                      className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 px-3 text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E]"
                     >
                       <option value="Under 500 sq.ft">Under 500 sq.ft</option>
                       <option value="500 - 1500 sq.ft">500 - 1500 sq.ft</option>
@@ -184,7 +184,7 @@ export default function TileEnquiryModal({ tile, onClose }) {
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                      className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 px-3 text-xs text-[#0B0B0B] focus:outline-none focus:border-[#B8941F]"
+                      className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2.5 px-3 text-xs text-[#0B0B0B] focus:outline-none focus:border-[#C8102E]"
                     >
                       <option value="Residential">Residential Villa / Apartment</option>
                       <option value="Commercial">Commercial Office / Hotel</option>
@@ -202,14 +202,14 @@ export default function TileEnquiryModal({ tile, onClose }) {
                     placeholder="Specific shade preferences or delivery timeline..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2 px-3 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#B8941F]"
+                    className="w-full bg-[#FAF8F5] border border-black/10 rounded-xl py-2 px-3 text-xs text-[#0B0B0B] placeholder-neutral-400 focus:outline-none focus:border-[#C8102E]"
                   />
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row gap-3">
                   <button
                     type="submit"
-                    className="flex-1 py-3.5 rounded-xl bg-[#0B0B0B] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#B8941F] transition-all flex items-center justify-center gap-2 shadow-md"
+                    className="flex-1 py-3.5 rounded-xl bg-[#0B0B0B] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#C8102E] transition-all flex items-center justify-center gap-2 shadow-md"
                   >
                     <Send className="w-3.5 h-3.5" />
                     Submit Formal Enquiry

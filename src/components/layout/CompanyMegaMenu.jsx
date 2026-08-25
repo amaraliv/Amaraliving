@@ -135,7 +135,7 @@ export default function CompanyMegaMenu({ isOpen, onClose }) {
                 className="group flex items-start gap-3.5 p-3 rounded-xl bg-transparent border-l-4 border-l-transparent hover:border-l-[#C79A3B] hover:bg-[#F8F2E6] transition-all duration-250 cursor-pointer outline-none focus:ring-2 focus:ring-[#C79A3B]/40 text-left"
               >
                 {/* Small luxury icon */}
-                <div className="w-8 h-8 rounded-full bg-[#F2ECE0] border border-[#E7DED0] flex items-center justify-center text-[#B8912A] group-hover:scale-110 group-hover:text-[#C79A3B] shrink-0 transition-all duration-250 mt-0.5 shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-[#F2ECE0] border border-[#E7DED0] flex items-center justify-center text-[#C8102E] group-hover:scale-110 group-hover:text-[#C79A3B] shrink-0 transition-all duration-250 mt-0.5 shadow-sm">
                   <Icon className="w-4 h-4" />
                 </div>
 

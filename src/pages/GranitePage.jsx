@@ -86,18 +86,18 @@ function Reveal({ children, className = '', delay = 0 }) {
   );
 }
 function Eyebrow({ children }) {
-  return <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{children}</span>;
+  return <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{children}</span>;
 }
 function GoldBtn({ children, href = '#/consultation' }) {
   return (
-    <a href={href} className="group relative inline-flex items-center gap-3 overflow-hidden px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.3em] border border-[#D4AF37] text-[#D4AF37] hover:text-[#0B0B0B] transition-all duration-700" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-      <span className="absolute inset-0 origin-left scale-x-0 bg-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
+    <a href={href} className="group relative inline-flex items-center gap-3 overflow-hidden px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.3em] border border-[#C8102E] text-[#C8102E] hover:text-[#0B0B0B] transition-all duration-700" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+      <span className="absolute inset-0 origin-left scale-x-0 bg-[#C8102E] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" />
       <span className="relative z-10 flex items-center gap-3">{children}<ArrowUpRight className="w-3.5 h-3.5" /></span>
     </a>
   );
 }
 function GoldRule({ className = '' }) {
-  return <div className={`h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent ${className}`} />;
+  return <div className={`h-px bg-gradient-to-r from-transparent via-[#C8102E]/50 to-transparent ${className}`} />;
 }
 
 /* ─── data ─── */
@@ -193,7 +193,7 @@ function FeaturedSlab({ piece, index }) {
             <ul className={`space-y-2 mb-10`}>
               {piece.details.map(d => (
                 <li key={d} className="flex items-center gap-3 text-xs" style={{ fontFamily: 'Inter, system-ui, sans-serif', color: textSub }}>
-                  <span className="w-4 h-px bg-[#D4AF37]" />
+                  <span className="w-4 h-px bg-[#C8102E]" />
                   {d}
                 </li>
               ))}
@@ -237,7 +237,7 @@ export default function GranitePage() {
               <Eyebrow>Amara Living — Natural Stone</Eyebrow>
               <h1 className="font-display text-[clamp(2.8rem,6.5vw,7.5rem)] font-medium leading-[0.93] tracking-[-0.02em] text-[#F8F6F2] mb-6 max-w-5xl" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                 Natural Stone.<br />
-                <em className="text-[#D4AF37]" style={{ fontStyle: 'italic' }}>Timeless Presence.</em>
+                <em className="text-[#C8102E]" style={{ fontStyle: 'italic' }}>Timeless Presence.</em>
               </h1>
               <p className="text-[#A0A0A0] text-sm font-light leading-[1.9] max-w-md mb-10" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Hand-selected granite, marble and quartzite sourced from the world's finest quarries — cut, finished, and installed with uncompromising precision.
@@ -253,7 +253,7 @@ export default function GranitePage() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-          <div className="h-14 w-px bg-gradient-to-b from-[#D4AF37]/60 to-transparent" />
+          <div className="h-14 w-px bg-gradient-to-b from-[#C8102E]/60 to-transparent" />
           <span className="text-[9px] uppercase tracking-[0.4em] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Scroll</span>
         </motion.div>
       </section>
@@ -265,7 +265,7 @@ export default function GranitePage() {
             <Eyebrow>Stone Collections</Eyebrow>
             <div className="flex items-end justify-between flex-wrap gap-6">
               <h2 className="font-display text-[clamp(2rem,4.5vw,5rem)] font-medium leading-[0.95] tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Curated from<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Nature's Archive</em>
+                Curated from<br /><em style={{ color: '#C8102E', fontStyle: 'italic' }}>Nature's Archive</em>
               </h2>
               <p className="text-base md:text-lg text-[#555555] font-light leading-[1.8] max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Three distinct stone families — each with its own geological character and design language.
@@ -280,22 +280,22 @@ export default function GranitePage() {
               <Reveal key={col.id} delay={i * 0.1}>
                 <a href={col.href} className="group block cursor-pointer">
                   {/* Clean image box */}
-                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/40 transition-all duration-500 aspect-[4/3]">
+                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#C8102E]/10 group-hover:border-[#C8102E]/40 transition-all duration-500 aspect-[4/3]">
                     <img
                       src={col.image}
                       alt={col.title}
                       className="w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-[#0B0B0B]/0 group-hover:bg-[#0B0B0B]/15 transition-all duration-500" />
-                    <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.35em] text-[#D4AF37]/60" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.id}</span>
+                    <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.35em] text-[#C8102E]/60" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.id}</span>
                   </div>
                   {/* Label below */}
                   <div className="flex items-center justify-between mt-4 px-1">
                     <div>
-                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.label}</span>
+                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.label}</span>
                       <h3 className="font-display text-lg md:text-xl font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{col.title}</h3>
                     </div>
-                    <div className="w-7 h-7 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
+                    <div className="w-7 h-7 rounded-full border border-[#C8102E]/30 flex items-center justify-center text-[#C8102E] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
                       <ArrowUpRight className="w-3 h-3" />
                     </div>
                   </div>
@@ -315,7 +315,7 @@ export default function GranitePage() {
           <Reveal>
             <Eyebrow>Global Sourcing</Eyebrow>
             <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#F8F6F2] mb-4" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-              Stones From the World's<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Finest Origins</em>
+              Stones From the World's<br /><em style={{ color: '#C8102E', fontStyle: 'italic' }}>Finest Origins</em>
             </h2>
             <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] max-w-xl mb-16" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               We travel to quarries directly — not to warehouses. Every origin is visited, every supplier vetted, every block examined before it arrives at our facility.
@@ -325,7 +325,7 @@ export default function GranitePage() {
             {ORIGINS.map((origin, i) => (
               <Reveal key={origin.region} delay={i * 0.08}>
                 <div className="border-b border-r border-[#F8F6F2]/8 p-10 hover:bg-[#F8F6F2]/[0.02] transition-colors duration-500">
-                  <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-3" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{origin.region}</span>
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-3" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{origin.region}</span>
                   <h3 className="font-display text-xl font-medium text-[#F8F6F2] mb-2" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{origin.stones}</h3>
                   <GoldRule className="my-4 max-w-[80px]" />
                   <p className="text-sm text-[#A0A0A0] font-light leading-[1.85]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{origin.desc}</p>
@@ -343,7 +343,7 @@ export default function GranitePage() {
             <div className="text-center mb-14">
               <Eyebrow>The Case for Natural Stone</Eyebrow>
               <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#F8F6F2] max-w-3xl mx-auto" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Why Natural Stone<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Outlasts Everything Else</em>
+                Why Natural Stone<br /><em style={{ color: '#C8102E', fontStyle: 'italic' }}>Outlasts Everything Else</em>
               </h2>
             </div>
           </Reveal>
@@ -353,8 +353,8 @@ export default function GranitePage() {
               return (
                 <Reveal key={item.label} delay={i * 0.07}>
                   <div className="group border-b border-r border-[#F8F6F2]/8 p-10 hover:bg-[#F8F6F2]/[0.025] transition-colors duration-700">
-                    <div className="mb-8 w-10 h-10 flex items-center justify-center border border-[#D4AF37]/25 group-hover:border-[#D4AF37]/60 transition-all duration-500">
-                      <Icon className="w-4 h-4 text-[#D4AF37]" strokeWidth={1.2} />
+                    <div className="mb-8 w-10 h-10 flex items-center justify-center border border-[#C8102E]/25 group-hover:border-[#C8102E]/60 transition-all duration-500">
+                      <Icon className="w-4 h-4 text-[#C8102E]" strokeWidth={1.2} />
                     </div>
                     <h3 className="font-display text-xl font-medium text-[#F8F6F2] mb-3" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{item.label}</h3>
                     <p className="text-sm text-[#A0A0A0] font-light leading-relaxed" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{item.desc}</p>
@@ -372,14 +372,14 @@ export default function GranitePage() {
           <Reveal className="mb-14">
             <Eyebrow>From Quarry to Installation</Eyebrow>
             <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#F8F6F2] max-w-2xl" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-              Our End-to-End<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Stone Process</em>
+              Our End-to-End<br /><em style={{ color: '#C8102E', fontStyle: 'italic' }}>Stone Process</em>
             </h2>
           </Reveal>
           <div className="space-y-0">
             {PROCESS.map((step, i) => (
               <Reveal key={step} delay={i * 0.06}>
                 <div className="flex items-center gap-6 py-5 border-t border-[#F8F6F2]/8 first:border-t-0">
-                  <span className="text-[10px] font-medium tracking-[0.38em] text-[#D4AF37]/50 shrink-0 w-8" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>0{i + 1}</span>
+                  <span className="text-[10px] font-medium tracking-[0.38em] text-[#C8102E]/50 shrink-0 w-8" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>0{i + 1}</span>
                   <div className="h-px flex-1 bg-[#F8F6F2]/8" />
                   <span className="font-display text-xl font-medium text-[#F8F6F2]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{step}</span>
                 </div>
@@ -397,7 +397,7 @@ export default function GranitePage() {
             <Eyebrow>Stone Atelier</Eyebrow>
             <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
               <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Browse our <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Stone Catalog</em>
+                Browse our <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Stone Catalog</em>
               </h2>
               <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] max-w-xs" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Hand-selected natural slabs from prestigious global origins, cut and polished with architectural precision.
@@ -437,7 +437,7 @@ export default function GranitePage() {
               <Reveal key={prod.id} delay={i * 0.08}>
                 <div className="group cursor-pointer">
                   {/* Image container on neutral background */}
-                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/40 transition-all duration-500 aspect-[4/3] flex items-center justify-center p-4">
+                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#C8102E]/10 group-hover:border-[#C8102E]/40 transition-all duration-500 aspect-[4/3] flex items-center justify-center p-4">
                     <img
                       src={prod.image}
                       alt={prod.name}
@@ -447,7 +447,7 @@ export default function GranitePage() {
                   </div>
                   {/* Specifications below */}
                   <div className="mt-5 px-1">
-                    <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                    <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                       {prod.category}
                     </span>
                     <h3 className="font-display text-lg md:text-xl font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
@@ -474,9 +474,9 @@ export default function GranitePage() {
           <Reveal>
             <div className="flex items-end justify-between flex-wrap gap-6">
               <div>
-                <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Installed Projects</span>
+                <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Installed Projects</span>
                 <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[0.98] tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                  Stone Surfaces<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>In the Real World</em>
+                  Stone Surfaces<br /><em style={{ color: '#C8102E', fontStyle: 'italic' }}>In the Real World</em>
                 </h2>
               </div>
               <GoldBtn href="#/consultation">Get a Quote</GoldBtn>
@@ -491,7 +491,7 @@ export default function GranitePage() {
               <Reveal key={item.title} delay={i * 0.07}>
                 <div className="group cursor-pointer">
                   {/* Image box */}
-                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/40 transition-all duration-500 aspect-[4/3]">
+                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#C8102E]/10 group-hover:border-[#C8102E]/40 transition-all duration-500 aspect-[4/3]">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -503,10 +503,10 @@ export default function GranitePage() {
                   {/* Label row below image */}
                   <div className="flex items-center justify-between mt-4 px-1">
                     <div>
-                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{item.tag}</span>
+                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{item.tag}</span>
                       <h3 className="font-display text-base md:text-lg font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{item.title}</h3>
                     </div>
-                    <div className="w-7 h-7 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
+                    <div className="w-7 h-7 rounded-full border border-[#C8102E]/30 flex items-center justify-center text-[#C8102E] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
                       <ArrowUpRight className="w-3 h-3" />
                     </div>
                   </div>
@@ -518,27 +518,27 @@ export default function GranitePage() {
       </section>
 
       {/* ══ 8. CTA ══ */}
-      <section className="relative bg-[#0B0B0B] py-28 md:py-40 overflow-hidden border-t border-[#F8F6F2]/5">
-        <div className="absolute inset-0 opacity-15">
+      <section className="relative bg-[#FAF6F0] py-28 md:py-40 overflow-hidden border-t border-[#0B0B0B]/10">
+        <div className="absolute inset-0 opacity-5">
           <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=2400&q=80" alt="" aria-hidden="true" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/80 to-[#0B0B0B]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0] via-[#FAF6F0]/80 to-[#FAF6F0]" />
         </div>
         <div className="wrap relative z-10 text-center">
           <Reveal><Eyebrow>Begin Your Stone Journey</Eyebrow></Reveal>
           <Reveal delay={0.1}>
-            <h2 className="font-display text-[clamp(2.2rem,5vw,6rem)] font-medium leading-[0.93] tracking-tight text-[#F8F6F2] mb-6 max-w-4xl mx-auto" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-              Let's Find Your<br /><em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Perfect Stone</em>
+            <h2 className="font-display text-[clamp(2.2rem,5vw,6rem)] font-medium leading-[0.93] tracking-tight text-[#111111] mb-6 max-w-4xl mx-auto" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+              Let's Find Your<br /><em style={{ color: '#C8102E', fontStyle: 'italic' }}>Perfect Stone</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-[#A0A0A0] text-sm font-light leading-[1.9] max-w-md mx-auto mb-12" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+            <p className="text-[#555555] text-sm font-light leading-[1.9] max-w-md mx-auto mb-12" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Our stone specialists guide you from first slab selection through final installation. Book a no-obligation consultation at our Chennai Experience Center or request samples delivered to your door.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <GoldBtn href="#/consultation">Book Consultation</GoldBtn>
-              <a href="tel:7397623509" className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.3em] text-[#A0A0A0] hover:text-[#F8F6F2] transition-colors duration-500 border border-[#F8F6F2]/10 hover:border-[#F8F6F2]/30" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+              <a href="tel:7397623509" className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.3em] text-[#111111] hover:text-[#C8102E] transition-colors duration-500 border border-[#0B0B0B]/20 hover:border-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 +91 7397623509
               </a>
             </div>

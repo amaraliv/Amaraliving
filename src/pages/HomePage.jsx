@@ -8,13 +8,7 @@ import Testimonials from '../components/sections/Testimonials';
 import ProjectsByAmara from '../components/sections/ProjectsByAmara';
 import furnitureCategoryImg from '../assets/furniture/00_hero.jpg';
 import tilesCategoryImg from '../assets/tiles/AMARA_Image_01.jpg';
-import graniteCategoryImg from '../assets/granite/Hawk_Image_04.jpg';
-import homeGal1 from '../assets/granite/Hawk_Image_04.jpg';
-import homeGal2 from '../assets/furniture/p020_02.jpg';
-import homeGal3 from '../assets/furniture/p019_03.jpg';
-import homeGal4 from '../assets/granite/Hawk_Image_25.jpg';
-import homeGal5 from '../assets/tiles/tiles 1.jpg';
-import homeGal6 from '../assets/furniture/p019_04.jpg';
+import graniteCategoryImg from '../assets/granite/AMARA_Image_10.jpg';
 
 /* ────────── ANIMATION HELPERS ────────── */
 function Reveal({ children, className = '', delay = 0 }) {
@@ -36,7 +30,7 @@ function Reveal({ children, className = '', delay = 0 }) {
 function Eyebrow({ children, light = false }) {
   return (
     <span
-      className={`block text-[10px] font-semibold uppercase tracking-[0.42em] mb-5 ${light ? 'text-[#D4AF37]' : 'text-[#D4AF37]'}`}
+      className={`block text-[10px] font-semibold uppercase tracking-[0.42em] mb-5 ${light ? 'text-[#C8102E]' : 'text-[#C8102E]'}`}
       style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
     >
       {children}
@@ -48,10 +42,10 @@ function GoldBtn({ children, href = '#/consultation', dark = false }) {
   return (
     <a
       href={href}
-      className={`group relative inline-flex items-center gap-3 overflow-hidden px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] border border-[#D4AF37] transition-all duration-700 ${dark ? 'text-[#D4AF37] hover:text-[#0B0B0B]' : 'text-[#D4AF37] hover:text-[#0B0B0B]'}`}
+      className={`group relative inline-flex items-center gap-3 overflow-hidden px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] border border-[#C8102E] transition-all duration-700 ${dark ? 'text-[#C8102E] hover:text-[#0B0B0B]' : 'text-[#C8102E] hover:text-[#0B0B0B]'}`}
       style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
     >
-      <span className="absolute inset-0 origin-left scale-x-0 bg-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" aria-hidden="true" />
+      <span className="absolute inset-0 origin-left scale-x-0 bg-[#C8102E] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100" aria-hidden="true" />
       <span className="relative z-10 flex items-center gap-3">
         {children}
         <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -61,15 +55,14 @@ function GoldBtn({ children, href = '#/consultation', dark = false }) {
 }
 
 function GoldRule({ className = '' }) {
-  return <div className={`h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent ${className}`} />;
+  return <div className={`h-px bg-gradient-to-r from-transparent via-[#C8102E]/50 to-transparent ${className}`} />;
 }
 
 /* ────────── DATA ────────── */
 const FEATURED_CATEGORIES = [
-  { id: '01', label: 'Tiles', title: 'Premium Tiles', href: '#/tiles', image: tilesCategoryImg },
-  { id: '02', label: 'Stone', title: 'Natural Granites', href: '#/granite', image: graniteCategoryImg },
-  { id: '03', label: 'Furniture', title: 'Custom Handcrafted Furniture', href: '#/furniture', image: furnitureCategoryImg },
-
+  { id: '01', label: 'Tiles', title: 'Amara Ceramics', href: '#/tiles', image: tilesCategoryImg },
+  { id: '02', label: 'Granite', title: 'Amara Natural Stone', href: '#/granite', image: graniteCategoryImg },
+  { id: '03', label: 'Furniture', title: 'Amara Furniture', href: '#/furniture', image: furnitureCategoryImg },
 ];
 
 const WHY_ITEMS = [
@@ -96,28 +89,28 @@ const TESTIMONIALS = [
 
 const INTERIOR_SECTIONS = [
   {
-    eyebrow: '01 — The Tile Collection',
+    eyebrow: '01 — Amara Ceramics',
     title: 'Premium Designer Tiles',
     desc: 'An exceptional library of imported porcelain, ceramic, and decorative tiles. Sourced from globally renowned manufacturers and curated to bring texture, depth, and refinement to wall and floor surfaces.',
     image: tilesCategoryImg,
     href: '#/tiles',
-    btnLabel: 'Tiles Collection',
+    btnLabel: 'Amara Ceramics',
   },
   {
-    eyebrow: '02 — The Granite Collection',
+    eyebrow: '02 — Amara Natural Stone',
     title: 'Natural Granite & Stones',
     desc: 'Hand-selected natural granite slabs and rare stone quarries. Precision cut, mirror-polished, and finished to perfection for luxurious countertops, feature walls, and grand structures.',
     image: graniteCategoryImg,
     href: '#/granite',
-    btnLabel: 'Granite Collection',
+    btnLabel: 'Amara Natural Stone',
   },
   {
-    eyebrow: '03 — The Furniture Collection',
+    eyebrow: '03 — Amara Furniture',
     title: 'Custom Handcrafted Furniture',
     desc: 'Designed to your exact dimensions and aesthetic vision. We craft solid timber tables, premium seating, and signature casework detailed by hand and built to endure generations.',
     image: furnitureCategoryImg,
     href: '#/furniture',
-    btnLabel: 'Furniture Collection',
+    btnLabel: 'Amara Furniture',
   },
 ];
 
@@ -173,7 +166,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="block text-[12px] sm:text-[15px] font-semibold uppercase tracking-[0.35em] sm:tracking-[0.45em] text-[#D4AF37] mb-4 sm:mb-8"
+              className="block text-[12px] sm:text-[15px] font-semibold uppercase tracking-[0.35em] sm:tracking-[0.45em] text-[#C8102E] mb-4 sm:mb-8"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               Est.2010
@@ -195,7 +188,7 @@ export default function HomePage() {
                   initial={{ y: '100%' }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                  className="block font-display text-[clamp(2.1rem,7vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#D4AF37] pb-2 sm:pb-3 pr-4"
+                  className="block font-display text-[clamp(2.1rem,7vw,6rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#C8102E] pb-2 sm:pb-3 pr-4"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}
                 >
                   That Matter
@@ -225,7 +218,7 @@ export default function HomePage() {
             {STATS.map((s, i) => (
               <Reveal key={s.number} delay={i * 0.08} className="px-3 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 text-center flex flex-col items-center justify-center">
                 <p
-                  className={`font-display font-medium text-[#D4AF37] leading-none mb-2 ${
+                  className={`font-display font-medium text-[#C8102E] leading-none mb-2 ${
                     s.number === 'Worldwide'
                       ? 'text-xl sm:text-2xl md:text-[30px]'
                       : 'text-2xl sm:text-3xl md:text-4xl'
@@ -261,24 +254,24 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">
                   <GoldRule className="mb-4" />
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Amara Living Design Studio</p>
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Amara Living Design Studio</p>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -left-4 w-full h-full border border-[#B8912A]/25 pointer-events-none" />
+              <div className="absolute -bottom-4 -left-4 w-full h-full border border-[#C8102E]/25 pointer-events-none" />
             </Reveal>
 
             {/* Right — Combined Text */}
             <div className="lg:col-span-7 lg:py-8">
               <Reveal>
                 <span
-                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
-                  style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E' }}
+                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6 text-[#C8102E]"
+                  style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                 >
                   Our Legacy
                 </span>
                 <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B] mb-8" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                   16 Years of<br />
-                  <em style={{ color: '#B8912A', fontStyle: 'italic' }}>Craftsmanship</em>
+                  <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Craftsmanship</em>
                 </h2>
                 <GoldRule className="mb-10 max-w-xs" />
               </Reveal>
@@ -288,7 +281,7 @@ export default function HomePage() {
                 </p>
               </Reveal>
               <Reveal delay={0.12}>
-                <blockquote className="font-display text-xl md:text-2xl font-medium leading-[1.5] text-[#3A3A3A] mb-10 pl-6 border-l-2 border-[#B8912A]/60" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}>
+                <blockquote className="font-display text-xl md:text-2xl font-medium leading-[1.5] text-[#3A3A3A] mb-10 pl-6 border-l-2 border-[#C8102E]/60" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', fontStyle: 'italic' }}>
                   "Amara Living bridges architectural intent and material honesty. From locally selected quarries to our integrated Chennai workshop, our work is defined by precision and permanence."
                 </blockquote>
               </Reveal>
@@ -308,7 +301,7 @@ export default function HomePage() {
                     { num: '40+', label: 'Master Artisans' }
                   ].map(s => (
                     <div key={s.label}>
-                      <p className="font-display text-2xl font-medium text-[#9A7B1E] mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{s.num}</p>
+                      <p className="font-display text-2xl font-medium text-[#C8102E] mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{s.num}</p>
                       <p className="text-[10px] uppercase tracking-[0.3em] text-[#6B6B6B]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{s.label}</p>
                     </div>
                   ))}
@@ -333,10 +326,10 @@ export default function HomePage() {
                 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
               >
                 Curated for<br />
-                <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Sophisticated Living</em>
+                <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Sophisticated Living</em>
               </h2>
               <p className="font-display text-2xl md:text-3xl lg:text-[2.2rem] font-medium text-[#2A2A2A] leading-[1.35] max-w-lg md:text-right pb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Three foundations of exceptional living — <em className="italic text-[#D4AF37]">premium tiles, natural granites, and custom handcrafted furniture.</em>
+                Three foundations of exceptional living — <em className="italic text-[#C8102E]">premium tiles, natural granites, and custom handcrafted furniture.</em>
               </p>
             </div>
           </Reveal>
@@ -346,7 +339,7 @@ export default function HomePage() {
               <Reveal key={cat.id} delay={i * 0.1}>
                 <a href={cat.href} className="group block relative cursor-pointer">
                   {/* Image container */}
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#FAF6F0] border border-[#D4AF37]/10 rounded-sm mb-4">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[#FAF6F0] border border-[#C8102E]/10 rounded-sm mb-4">
                     <img
                       src={cat.image}
                       alt={cat.title}
@@ -358,7 +351,7 @@ export default function HomePage() {
                   {/* Text Details below the image */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between border-b border-[#0B0B0B]/10 pb-3">
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                         {cat.label}
                       </span>
                       <span className="text-[11px] font-medium tracking-[0.35em] text-[#0B0B0B]/40" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -368,12 +361,12 @@ export default function HomePage() {
 
                     <div className="flex items-end justify-between gap-4 pt-1">
                       <h3
-                        className="font-display text-2xl md:text-3xl font-medium text-[#0B0B0B] leading-tight group-hover:text-[#D4AF37] transition-colors duration-500"
+                        className="font-display text-2xl md:text-3xl font-medium text-[#0B0B0B] leading-tight group-hover:text-[#C8102E] transition-colors duration-500"
                         style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                       >
                         {cat.title}
                       </h3>
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full border border-[#0B0B0B]/10 group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37] text-[#0B0B0B] group-hover:text-[#FAF6F0] transition-all duration-500 shrink-0">
+                      <div className="flex items-center justify-center w-8 h-8 rounded-full border border-[#0B0B0B]/10 group-hover:border-[#C8102E] group-hover:bg-[#C8102E] text-[#0B0B0B] group-hover:text-[#FAF6F0] transition-all duration-500 shrink-0">
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
@@ -390,69 +383,12 @@ export default function HomePage() {
         <InteriorSection key={sc.title} sc={sc} index={i} />
       ))}
 
-      {/* ══ 5. PROJECT GALLERY — LIGHT THEME ══ */}
-      <section id="surfaces" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/5">
-        <div className="wrap mb-14">
-          <Reveal>
-            <div className="flex items-end justify-between flex-wrap gap-6">
-              <div>
-                <span
-                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
-                  style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E' }}
-                >
-                  Project Gallery
-                </span>
-                <h2
-                  className="font-display text-[clamp(2.4rem,5.5vw,6rem)] font-medium leading-[0.98] tracking-tight text-[#0B0B0B]"
-                  style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
-                >
-                  Spaces We've<br />
-                  <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Transformed</em>
-                </h2>
-              </div>
-              <GoldBtn href="#/company">View All Projects</GoldBtn>
-            </div>
-          </Reveal>
-        </div>
-
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-3 px-4 md:px-6 space-y-3">
-          {[
-            { tag: 'Stone', title: 'Absolute Black Granite', image: homeGal1, tall: true },
-            { tag: 'Dining', title: 'Coimbatore Residence', image: homeGal2, tall: false },
-            { tag: 'Bedroom', title: 'Nungambakkam Duplex', image: homeGal3, tall: false },
-            { tag: 'Stone', title: 'Grand Lobby, Chennai', image: homeGal4, tall: true },
-            { tag: 'Kitchen', title: 'OMR Corporate Suite', image: homeGal5, tall: false },
-            { tag: 'Furniture', title: 'Bespoke Lounge Seating', image: homeGal6, tall: true },
-          ].map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.07}>
-              <div className="group relative overflow-hidden break-inside-avoid rounded-sm">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={`w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 ${item.tall ? 'aspect-[3/4]' : 'aspect-[4/3]'}`}
-                />
-                <div className="absolute inset-0 bg-[#0B0B0B]/0 group-hover:bg-[#0B0B0B]/55 transition-all duration-700 flex flex-col justify-end p-8">
-                  <div className="translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                    <span className="block text-[10px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37] mb-2" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                      {item.tag}
-                    </span>
-                    <h3 className="font-display text-xl font-medium text-[#F8F6F2]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* ══ 6. WHY CHOOSE AMARA LIVING ══ */}
       <section id="why" className="relative bg-[#FAF6F0] pt-16 pb-24 md:pt-20 md:pb-28 border-t border-[#0B0B0B]/8 overflow-hidden">
         {/* Ambient gold glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at center top, rgba(212, 175, 55, 0.10) 0%, transparent 65%)' }}
+          style={{ background: 'radial-gradient(ellipse at center top, rgba(200, 16, 46, 0.10) 0%, transparent 65%)' }}
         />
         {/* Watermark */}
         <span
@@ -473,8 +409,8 @@ export default function HomePage() {
           <Reveal>
             <div className="text-left mb-12 md:mb-16">
               <span
-                className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
-                style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E' }}
+                className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6 text-[#C8102E]"
+                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
               >
                 The Amara Standard
               </span>
@@ -482,9 +418,9 @@ export default function HomePage() {
                 className="font-display text-[clamp(2.2rem,4.5vw,5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B]"
                 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
               >
-                Why Choose <em style={{ color: '#A8821F', fontStyle: 'italic', textShadow: '0 2px 12px rgba(184, 145, 42, 0.25)' }}>Amara Living</em>
+                Why Choose <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Amara Living</em>
               </h2>
-              <div className="h-[2px] w-32 mt-8" style={{ background: 'linear-gradient(90deg, #B8912A 0%, transparent 100%)' }} />
+              <div className="h-[2px] w-32 mt-8" style={{ background: 'linear-gradient(90deg, #C8102E 0%, transparent 100%)' }} />
             </div>
           </Reveal>
 
@@ -498,15 +434,15 @@ export default function HomePage() {
 
       {/* ══ Where to Buy / Experience Centers Intro ══ */}
       <section id="where-to-buy-intro" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,175,55,0.08),transparent_50%)]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(200,16,46,0.08),transparent_50%)]" aria-hidden="true" />
         <div className="wrap relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left Column: Text Content */}
             <div>
               <Reveal>
                 <span
-                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
-                  style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E' }}
+                  className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6 text-[#C8102E]"
+                  style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                 >
                   Experience Centers &amp; Contacts
                 </span>
@@ -515,7 +451,7 @@ export default function HomePage() {
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
                   Where to Experience<br />
-                  <em style={{ color: '#B8912A', fontStyle: 'italic' }}>Amara Living</em>
+                  <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Amara Living</em>
                 </h2>
                 <GoldRule className="mb-10 max-w-xs" />
                 <p className="text-base text-[#2A2A2A] font-light leading-[1.9] mb-8 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -530,7 +466,7 @@ export default function HomePage() {
 
             {/* Right Column: Visual Showcase */}
             <Reveal delay={0.2} className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden border border-[#B8912A]/30">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[#C8102E]/30">
                 <img
                   src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=90"
                   alt="Amara Living experience center showroom"
@@ -538,11 +474,11 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] block mb-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Flagship Studio</span>
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#C8102E] block mb-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Flagship Studio</span>
                   <h3 className="font-display text-xl font-medium text-white" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>Chennai Atelier &amp; Stone Yard</h3>
                 </div>
               </div>
-              <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#B8912A]/25 pointer-events-none -z-10" />
+              <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#C8102E]/25 pointer-events-none -z-10" />
             </Reveal>
           </div>
         </div>
@@ -555,10 +491,10 @@ export default function HomePage() {
       <Testimonials />
 
       {/* ══ 9. CTA ══ */}
-      <section className="relative bg-[#0B0B0B] py-20 md:py-28 overflow-hidden border-t border-[#F8F6F2]/5">
-        <div className="absolute inset-0 opacity-15">
+      <section className="relative bg-[#FAF6F0] py-20 md:py-28 overflow-hidden border-t border-[#0B0B0B]/10">
+        <div className="absolute inset-0 opacity-5">
           <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=80" alt="" aria-hidden="true" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/80 to-[#0B0B0B]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0] via-[#FAF6F0]/80 to-[#FAF6F0]" />
         </div>
         <div className="wrap relative z-10 text-center">
           <Reveal>
@@ -566,15 +502,15 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2
-              className="font-display text-[clamp(2.2rem,5vw,6rem)] font-medium leading-[0.93] tracking-tight text-[#F8F6F2] mb-8 max-w-5xl mx-auto"
+              className="font-display text-[clamp(2.2rem,5vw,6rem)] font-medium leading-[0.93] tracking-tight text-[#111111] mb-8 max-w-5xl mx-auto"
               style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
             >
               Let's Create Your<br />
-              <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Dream Space</em>
+              <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Dream Space</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-[#A0A0A0] text-base font-light leading-[1.9] max-w-md mx-auto mb-14" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+            <p className="text-[#555555] text-base font-light leading-[1.9] max-w-md mx-auto mb-14" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Our design consultants work with you from concept to completion — every piece, every surface, every detail considered.
             </p>
           </Reveal>
@@ -583,7 +519,7 @@ export default function HomePage() {
               <GoldBtn href="#/consultation">Book Consultation</GoldBtn>
               <a
                 href="tel:7397623509"
-                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] text-[#A0A0A0] hover:text-[#F8F6F2] transition-colors duration-500 border border-[#F8F6F2]/10 hover:border-[#F8F6F2]/30"
+                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] text-[#111111] hover:text-[#C8102E] transition-colors duration-500 border border-[#0B0B0B]/20 hover:border-[#C8102E]"
                 style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
               >
                 +91 7397623509
@@ -611,7 +547,7 @@ function WhyCard({ item, index }) {
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
       whileHover={{ y: -6 }}
-      className="group relative p-8 md:p-10 rounded-sm overflow-hidden border border-[#0B0B0B]/[0.10] hover:border-[#D4AF37]/70 transition-all duration-700 hover:shadow-[0_24px_48px_-16px_rgba(11,11,11,0.18),0_8px_20px_-8px_rgba(184,145,42,0.12)]"
+      className="group relative p-8 md:p-10 rounded-sm overflow-hidden border border-[#0B0B0B]/[0.10] hover:border-[#C8102E]/70 transition-all duration-700 hover:shadow-[0_24px_48px_-16px_rgba(11,11,11,0.18),0_8px_20px_-8px_rgba(184,145,42,0.12)]"
       style={{
         background: 'linear-gradient(160deg, #FFFDF9 0%, #F5EFE5 100%)',
         boxShadow: '0 12px 28px -14px rgba(11, 11, 11, 0.12), 0 2px 6px rgba(11, 11, 11, 0.05)',
@@ -620,7 +556,7 @@ function WhyCard({ item, index }) {
       {/* Hover glow sweep */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-        style={{ background: 'radial-gradient(circle at 20% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 55%)' }}
+        style={{ background: 'radial-gradient(circle at 20% 0%, rgba(200, 16, 46, 0.12) 0%, transparent 55%)' }}
       />
       {/* Ghost number */}
       <span
@@ -628,21 +564,21 @@ function WhyCard({ item, index }) {
         style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: 'rgba(11, 11, 11, 0.14)' }}
         aria-hidden="true"
       >
-        <span className="group-hover:text-[#B8912A]/60 transition-colors duration-700">{number}</span>
+        <span className="group-hover:text-[#C8102E]/60 transition-colors duration-700">{number}</span>
       </span>
 
       <div className="relative z-10">
         {/* Icon */}
         <div
-          className="relative w-14 h-14 mb-6 flex items-center justify-center border border-[#B8912A]/60 group-hover:border-[#B8912A] transition-all duration-500 overflow-hidden"
+          className="relative w-14 h-14 mb-6 flex items-center justify-center border border-[#C8102E]/60 group-hover:border-[#C8102E] transition-all duration-500 overflow-hidden"
           style={{ boxShadow: '0 4px 10px -4px rgba(184, 145, 42, 0.35)' }}
         >
-          <span className="absolute inset-0 origin-bottom scale-y-0 bg-[#D4AF37] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100" aria-hidden="true" />
-          <Icon className="relative z-10 w-5 h-5 text-[#9A7B1E] group-hover:text-[#0B0B0B] transition-colors duration-500" strokeWidth={1.6} />
+          <span className="absolute inset-0 origin-bottom scale-y-0 bg-[#C8102E] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100" aria-hidden="true" />
+          <Icon className="relative z-10 w-5 h-5 text-[#C8102E] group-hover:text-white transition-colors duration-500" strokeWidth={1.6} />
         </div>
 
         <h3
-          className="font-display text-2xl md:text-[1.8rem] font-semibold text-[#141414] group-hover:text-[#9A7B1E] transition-colors duration-500"
+          className="font-display text-2xl md:text-[1.8rem] font-semibold text-[#141414] group-hover:text-[#C8102E] transition-colors duration-500"
           style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
         >
           {item.label}
@@ -651,7 +587,7 @@ function WhyCard({ item, index }) {
 
       {/* Animated bottom rule */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden" aria-hidden="true">
-        <span className="block h-full w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-r from-[#D4AF37] via-[#D4AF37]/60 to-transparent" />
+        <span className="block h-full w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-r from-[#C8102E] via-[#C8102E]/60 to-transparent" />
       </div>
     </motion.div>
   );
@@ -665,26 +601,20 @@ function InteriorSection({ sc }) {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="relative min-h-[85vh] overflow-hidden flex items-center border-t border-[#0B0B0B]/8" style={{ backgroundColor: '#FAF6F0' }}>
+    <section ref={ref} className="relative min-h-[85vh] overflow-hidden flex items-center border-t border-[#0B0B0B]/8 bg-[#0B0B0B]">
       <motion.div style={{ y: imgY }} className="absolute inset-0 w-full h-[115%] -top-[7.5%]">
-        {/* Image dimmed with brightness filter for better text readability */}
+        {/* Full clarity crisp product image */}
         <img
           src={sc.image}
           alt={sc.title}
           className="w-full h-full object-cover"
-          style={{ filter: 'brightness(0.45) saturate(0.9)' }}
         />
-        {/* Strong cream gradient covering text zone, fading to transparent on right */}
+        {/* Subtle dark scrim for legibility without white blur haze */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'linear-gradient(to right, rgba(240, 234, 224, 0.93) 0%, rgba(240, 234, 224, 0.82) 38%, rgba(240, 234, 224, 0.42) 62%, rgba(240, 234, 224, 0.06) 100%)'
+            background: 'linear-gradient(to right, rgba(11, 11, 11, 0.85) 0%, rgba(11, 11, 11, 0.55) 40%, rgba(11, 11, 11, 0.15) 75%, transparent 100%)'
           }}
-        />
-        {/* Subtle bottom fade to anchor the section */}
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(to top, rgba(240, 234, 224, 0.60) 0%, transparent 45%)' }}
         />
       </motion.div>
 
@@ -695,23 +625,23 @@ function InteriorSection({ sc }) {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-2xl"
         >
-          {/* Eyebrow — gold, bold, clearly visible */}
+          {/* Eyebrow — brand red, bold, clearly visible */}
           <span
-            className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6"
-            style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#9A7B1E', textShadow: '0 1px 2px rgba(250, 246, 240, 0.8)' }}
+            className="block text-[15px] md:text-[17px] font-bold uppercase tracking-[0.42em] mb-6 text-[#C8102E]"
+            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           >
             {sc.eyebrow}
           </span>
-          {/* Main heading — deep dark charcoal */}
+          {/* Main heading — crisp cream white text */}
           <h2
-            className="font-display text-[clamp(1.9rem,4vw,4.5rem)] font-medium leading-[0.98] tracking-tight mb-8"
-            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif', color: '#0B0B0B' }}
+            className="font-display text-[clamp(2.2rem,4.5vw,5rem)] font-medium leading-[0.98] tracking-tight mb-8 text-[#FAF6F0]"
+            style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
           >
             {sc.title}
           </h2>
-          <div className="h-px w-24 mb-8" style={{ background: 'linear-gradient(90deg, #D4AF37 0%, transparent 100%)' }} />
-          {/* Description — dark, readable */}
-          <p className="text-base font-normal leading-[1.9] mb-12 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#2A2A2A' }}>
+          <div className="h-px w-24 mb-8 bg-gradient-to-r from-[#C8102E] to-transparent" />
+          {/* Description — clear legible light text */}
+          <p className="text-base font-light leading-[1.9] mb-12 max-w-md text-[#D8D8D8]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             {sc.desc}
           </p>
           <GoldBtn href={sc.href || '#/consultation'}>Explore {sc.btnLabel || 'More'}</GoldBtn>

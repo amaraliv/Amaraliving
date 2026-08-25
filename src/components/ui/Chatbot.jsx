@@ -141,10 +141,10 @@ export default function Chatbot() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
-            className="mb-2.5 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF8F5]/95 border border-[#B8941F]/40 text-[#2A2A2A] text-[11px] font-medium tracking-wide shadow-lg backdrop-blur-md select-none"
+            className="mb-2.5 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF8F5]/95 border border-[#C8102E]/40 text-[#2A2A2A] text-[11px] font-medium tracking-wide shadow-lg backdrop-blur-md select-none"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#B8941F] animate-pulse" />
-            <span>Chat with Radhikka</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#C8102E] animate-pulse" />
+            <span>Chat with Anika</span>
           </motion.div>
         )}
 
@@ -152,12 +152,12 @@ export default function Chatbot() {
           onClick={handleToggleOpen}
           whileHover={{ scale: 1.08, y: -2 }}
           whileTap={{ scale: 0.94 }}
-          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#FFFDF9] via-[#F4F2EC] to-[#EAE4D6] text-[#2A2A2A] border border-[#B8941F]/60 shadow-[0_10px_25px_-5px_rgba(184,148,31,0.35),0_0_20px_rgba(212,175,55,0.2)] transition-all duration-300 group"
-          aria-label={isOpen ? 'Close Chatbot' : 'Open Radhikka Chatbot'}
+          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#FFFDF9] via-[#F4F2EC] to-[#EAE4D6] text-[#2A2A2A] border border-[#C8102E]/60 shadow-[0_10px_25px_-5px_rgba(200,16,46,0.35),0_0_20px_rgba(200,16,46,0.2)] transition-all duration-300 group"
+          aria-label={isOpen ? 'Close Chatbot' : 'Open Anika Chatbot'}
           aria-expanded={isOpen}
         >
           {/* Subtle animated gold ping ring */}
-          <span className="absolute inset-0 rounded-full border border-[#B8941F]/40 animate-ping opacity-30" />
+          <span className="absolute inset-0 rounded-full border border-[#C8102E]/40 animate-ping opacity-30" />
 
           <AnimatePresence mode="wait">
             {isOpen ? (
@@ -179,9 +179,9 @@ export default function Chatbot() {
                 transition={{ duration: 0.2 }}
                 className="relative"
               >
-                <MessageSquare className="w-6 h-6 text-[#B8941F] fill-[#B8941F]/20 group-hover:fill-[#B8941F]/40 transition-colors" />
+                <MessageSquare className="w-6 h-6 text-[#C8102E] fill-[#C8102E]/20 group-hover:fill-[#C8102E]/40 transition-colors" />
                 {/* Active indicator dot */}
-                <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#B8941F] border-2 border-white" />
+                <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#C8102E] border-2 border-white" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -207,16 +207,16 @@ export default function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.94 }}
             transition={{ type: 'spring', damping: 25, stiffness: 280 }}
-            className="fixed bottom-24 sm:bottom-24 right-4 sm:right-6 left-4 sm:left-auto z-[9999] w-[calc(100vw-2rem)] sm:w-[400px] h-[550px] max-h-[82vh] flex flex-col rounded-3xl overflow-hidden bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#B8941F]/40 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.18),0_0_35px_rgba(184,148,31,0.15)] font-body text-[#2A2A2A] overscroll-contain"
+            className="fixed bottom-24 sm:bottom-24 right-4 sm:right-6 left-4 sm:left-auto z-[9999] w-[calc(100vw-2rem)] sm:w-[400px] h-[550px] max-h-[82vh] flex flex-col rounded-3xl overflow-hidden bg-[#FAF8F5]/95 backdrop-blur-xl border border-[#C8102E]/40 shadow-[0_25px_70px_-15px_rgba(0,0,0,0.18),0_0_35px_rgba(200,16,46,0.15)] font-body text-[#2A2A2A] overscroll-contain"
           >
             {/* Header Bar - Draggable handle */}
             <div
               onPointerDown={(e) => dragControls.start(e)}
-              className="relative px-5 py-3.5 bg-gradient-to-r from-[#F4F1EA] via-[#ECE7DC] to-[#F4F1EA] border-b border-[#B8941F]/25 flex items-center justify-between shrink-0 cursor-grab active:cursor-grabbing select-none"
+              className="relative px-5 py-3.5 bg-gradient-to-r from-[#F4F1EA] via-[#ECE7DC] to-[#F4F1EA] border-b border-[#C8102E]/25 flex items-center justify-between shrink-0 cursor-grab active:cursor-grabbing select-none"
             >
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#B8941F]/50 shadow-sm shrink-0">
-                  <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#C8102E]/50 shadow-sm shrink-0">
+                  <img src={radhikkaDp} alt="Anika" className="w-full h-full object-cover" />
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
                 </div>
                 <div>
@@ -224,8 +224,8 @@ export default function Chatbot() {
                     className="text-base font-medium tracking-wide text-[#2A2A2A] flex items-center gap-1.5"
                     style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
                   >
-                    Radhikka
-                    <Sparkles className="w-3.5 h-3.5 text-[#B8941F]" />
+                    Anika
+                    <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
                   </h3>
                   <p className="text-[11px] text-[#666666] tracking-wider uppercase font-medium">
                     Furniture • Granite • Tiles
@@ -267,7 +267,7 @@ export default function Chatbot() {
               data-lenis-prevent-touch="true"
               onWheel={handleScrollContainerWheel}
               onTouchMove={handleScrollContainerTouch}
-              className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-4 bg-[#FAFAF7] scrollbar-thin scrollbar-thumb-[#B8941F]/20"
+              className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-4 bg-[#FAFAF7] scrollbar-thin scrollbar-thumb-[#C8102E]/20"
             >
               {messages.map((msg) => (
                 <div key={msg.id} className="space-y-3">
@@ -285,7 +285,7 @@ export default function Chatbot() {
                         <User className="w-3.5 h-3.5" />
                       </div>
                     ) : (
-                      <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#B8941F]/40 shadow-xs">
+                      <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#C8102E]/40 shadow-xs">
                         <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
                       </div>
                     )}
@@ -294,7 +294,7 @@ export default function Chatbot() {
                     <div
                       className={`max-w-[80%] rounded-2xl px-4 py-3 text-xs leading-relaxed ${
                         msg.sender === 'user'
-                          ? 'bg-gradient-to-r from-[#B8941F] to-[#D4AF37] text-white font-medium rounded-tr-none shadow-md'
+                          ? 'bg-gradient-to-r from-[#C8102E] to-[#C8102E] text-white font-medium rounded-tr-none shadow-md'
                           : 'bg-white border border-[#E5E0D5] text-[#2A2A2A] rounded-tl-none shadow-sm'
                       }`}
                     >
@@ -325,10 +325,10 @@ export default function Chatbot() {
                           <button
                             key={action}
                             onClick={() => handleQuickActionClick(action)}
-                            className="group flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] bg-white hover:bg-[#F4F1EA] border border-[#DDD8CD] hover:border-[#B8941F] text-[#2A2A2A] hover:text-[#B8941F] transition-all duration-200 shadow-sm active:scale-95 font-medium"
+                            className="group flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] bg-white hover:bg-[#F4F1EA] border border-[#DDD8CD] hover:border-[#C8102E] text-[#2A2A2A] hover:text-[#C8102E] transition-all duration-200 shadow-sm active:scale-95 font-medium"
                           >
                             <span>{action}</span>
-                            <ChevronRight className="w-3 h-3 text-[#B8941F] group-hover:translate-x-0.5 transition-transform" />
+                            <ChevronRight className="w-3 h-3 text-[#C8102E] group-hover:translate-x-0.5 transition-transform" />
                           </button>
                         ))}
                       </div>
@@ -344,17 +344,17 @@ export default function Chatbot() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2.5"
                 >
-                  <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#B8941F]/40">
+                  <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#C8102E]/40">
                     <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-white border border-[#E5E0D5] px-4 py-3 rounded-2xl rounded-tl-none flex items-center gap-1.5 shadow-sm">
-                    <span className="w-2 h-2 rounded-full bg-[#B8941F] animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-[#C8102E] animate-pulse" />
                     <span
-                      className="w-2 h-2 rounded-full bg-[#B8941F] animate-pulse"
+                      className="w-2 h-2 rounded-full bg-[#C8102E] animate-pulse"
                       style={{ animationDelay: '0.2s' }}
                     />
                     <span
-                      className="w-2 h-2 rounded-full bg-[#B8941F] animate-pulse"
+                      className="w-2 h-2 rounded-full bg-[#C8102E] animate-pulse"
                       style={{ animationDelay: '0.4s' }}
                     />
                   </div>
@@ -365,7 +365,7 @@ export default function Chatbot() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-3 bg-[#F4F1EA] border-t border-[#B8941F]/20 flex items-center gap-2 shrink-0">
+            <div className="p-3 bg-[#F4F1EA] border-t border-[#C8102E]/20 flex items-center gap-2 shrink-0">
               <input
                 ref={inputRef}
                 type="text"
@@ -373,13 +373,13 @@ export default function Chatbot() {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask about products, granite, tiles, delivery..."
-                className="flex-1 bg-white text-[#2A2A2A] text-xs px-4 py-3 rounded-xl border border-[#DDD8CD] focus:border-[#B8941F] focus:outline-none placeholder-[#888888] transition-all shadow-inner"
+                className="flex-1 bg-white text-[#2A2A2A] text-xs px-4 py-3 rounded-xl border border-[#DDD8CD] focus:border-[#C8102E] focus:outline-none placeholder-[#888888] transition-all shadow-inner"
                 aria-label="Type your message"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={!inputValue.trim() || isTyping}
-                className="p-3 rounded-xl bg-[#B8941F] hover:bg-[#D4AF37] text-white font-medium disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 transition-all shadow-md flex items-center justify-center shrink-0"
+                className="p-3 rounded-xl bg-[#C8102E] hover:bg-[#C8102E] text-white font-medium disabled:opacity-40 disabled:cursor-not-allowed active:scale-95 transition-all shadow-md flex items-center justify-center shrink-0"
                 aria-label="Send message"
               >
                 <Send className="w-4 h-4" />
