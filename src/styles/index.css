@@ -25,7 +25,7 @@
   }
 
   ::selection {
-    background-color: rgba(212, 175, 55, 0.30);
+    background-color: rgba(200, 16, 46, 0.30);
     color: #F8F6F2;
   }
 }
@@ -83,7 +83,7 @@
 
   .eyebrow {
     @apply font-body text-[11px] font-semibold uppercase tracking-[0.38em];
-    color: #d8b235ff;
+    color: #C8102E;
     line-height: 1.5;
   }
 
@@ -129,7 +129,7 @@
   .depth-scene:hover .depth-card,
   .depth-card:hover {
     transform: rotateX(3deg) rotateY(-4deg) translate3d(0, -10px, 36px);
-    box-shadow: 0 36px 90px -24px rgba(34, 38, 42, 0.42), 0 0 44px rgba(184, 148, 31, 0.14);
+    box-shadow: 0 36px 90px -24px rgba(34, 38, 42, 0.42), 0 0 44px rgba(200, 16, 46, 0.20);
   }
 
   .depth-scene:hover .depth-card::before,
@@ -167,7 +167,7 @@
     position: absolute;
     inset: -20% -60%;
     pointer-events: none;
-    background: linear-gradient(105deg, transparent 42%, rgba(184, 148, 31, 0.18) 50%, transparent 58%);
+    background: linear-gradient(105deg, transparent 42%, rgba(200, 16, 46, 0.20) 50%, transparent 58%);
     opacity: 0;
     transform: translateX(-35%);
     animation: luxeSheen 5.5s ease-in-out infinite;
@@ -181,15 +181,15 @@
 
   .btn-gold {
     @apply relative inline-flex items-center overflow-hidden px-8 py-3.5 font-body text-[11px] font-medium uppercase tracking-[0.28em];
-    border: 1px solid #B8941F;
-    color: #B8941F;
+    border: 1px solid #C8102E;
+    color: #C8102E;
     transition: box-shadow 0.5s, color 0.4s;
   }
 
   .btn-gold::before {
     content: '';
     @apply absolute inset-0;
-    background: #B8941F;
+    background: #C8102E;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
@@ -202,7 +202,7 @@
 
   .btn-gold:hover {
     color: #F4F2EC;
-    box-shadow: 0 0 40px rgba(184, 148, 31, 0.26);
+    box-shadow: 0 0 40px rgba(200, 16, 46, 0.35);
   }
 
   .btn-gold span {
@@ -211,21 +211,21 @@
 
   .btn-solid {
     @apply inline-flex items-center px-8 py-3.5 font-body text-[11px] font-medium uppercase tracking-[0.28em];
-    background: #B8941F;
+    background: #C8102E;
     color: #F4F2EC;
-    border: 1px solid #B8941F;
+    border: 1px solid #C8102E;
     transition: box-shadow 0.5s;
   }
 
   .btn-solid:hover {
-    box-shadow: 0 0 50px rgba(184, 148, 31, 0.38);
+    box-shadow: 0 0 50px rgba(200, 16, 46, 0.45);
   }
 
   .btn-solid:focus-visible,
   .btn-gold:focus-visible,
   a:focus-visible,
   button:focus-visible {
-    outline: 2px solid rgba(184, 148, 31, 0.65);
+    outline: 2px solid rgba(200, 16, 46, 0.65);
     outline-offset: 3px;
   }
 
@@ -249,13 +249,13 @@
   }
 
   .index-number {
-    color: rgba(184, 148, 31, 0.55);
-    -webkit-text-stroke: 1px rgba(184, 148, 31, 0.35);
+    color: rgba(200, 16, 46, 0.60);
+    -webkit-text-stroke: 1px rgba(200, 16, 46, 0.40);
   }
 
   .line-gold {
     @apply h-px w-full;
-    background: linear-gradient(90deg, transparent, rgba(184, 148, 31, 0.58), transparent);
+    background: linear-gradient(90deg, transparent, rgba(200, 16, 46, 0.65), transparent);
   }
 
   .bg-testimonials-gradient {
@@ -269,7 +269,7 @@
   }
 
   .testimonial-card-3d:hover {
-    box-shadow: 0 35px 60px -15px rgba(184, 148, 31, 0.18), 0 10px 25px -5px rgba(34, 38, 42, 0.07);
+    box-shadow: 0 35px 60px -15px rgba(200, 16, 46, 0.22), 0 10px 25px -5px rgba(34, 38, 42, 0.07);
   }
 
   .testimonial-quote-3d {

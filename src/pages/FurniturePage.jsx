@@ -235,13 +235,13 @@ function GoldButton({ children, href = '#/consultation', light = false }) {
       href={href}
       className={`group relative inline-flex items-center gap-3 overflow-hidden px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] transition-all duration-700 ${
         light
-          ? 'border border-[#D4AF37] text-[#D4AF37] hover:text-[#0B0B0B]'
-          : 'border border-[#D4AF37] text-[#D4AF37] hover:text-[#0B0B0B]'
+          ? 'border border-[#C8102E] text-[#C8102E] hover:text-[#0B0B0B]'
+          : 'border border-[#C8102E] text-[#C8102E] hover:text-[#0B0B0B]'
       }`}
       style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
     >
       <span
-        className="absolute inset-0 origin-left scale-x-0 bg-[#D4AF37] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
+        className="absolute inset-0 origin-left scale-x-0 bg-[#C8102E] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100"
         aria-hidden="true"
       />
       <span className="relative z-10 flex items-center gap-3">
@@ -256,7 +256,7 @@ function GoldButton({ children, href = '#/consultation', light = false }) {
 function Eyebrow({ children }) {
   return (
     <span
-      className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-5"
+      className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-5"
       style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
     >
       {children}
@@ -268,7 +268,7 @@ function Eyebrow({ children }) {
 function GoldRule({ className = '' }) {
   return (
     <div
-      className={`h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent ${className}`}
+      className={`h-px bg-gradient-to-r from-transparent via-[#C8102E]/60 to-transparent ${className}`}
     />
   );
 }
@@ -327,7 +327,7 @@ export default function FurniturePage() {
                 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
               >
                 Crafted for<br />
-                <em className="font-normal text-[#D4AF37] not-italic" style={{ fontStyle: 'italic' }}>
+                <em className="font-normal text-[#C8102E] not-italic" style={{ fontStyle: 'italic' }}>
                   Timeless Living
                 </em>
               </h1>
@@ -347,7 +347,7 @@ export default function FurniturePage() {
               transition={{ delay: 2, duration: 1 }}
               className="absolute bottom-10 right-14 hidden md:flex flex-col items-center gap-3"
             >
-              <div className="w-px h-16 bg-gradient-to-b from-transparent to-[#D4AF37]/60" />
+              <div className="w-px h-16 bg-gradient-to-b from-transparent to-[#C8102E]/60" />
               <span className="text-[9px] uppercase tracking-[0.4em] text-[#A0A0A0] rotate-90 origin-center translate-y-8">
                 Scroll
               </span>
@@ -360,7 +360,7 @@ export default function FurniturePage() {
       <section className="bg-[#FAF6F0] py-16 md:py-20">
         <div className="wrap mb-12">
           <Reveal>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Shop Our Collections</span>
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>Shop Our Collections</span>
             <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Heritage craftsmanship, locally sourced materials, and timeless design — the grounding vision for Amara Living.
             </p>
@@ -372,7 +372,7 @@ export default function FurniturePage() {
               <Reveal key={col.id} delay={i * 0.1}>
                 <div className="group cursor-pointer">
                   {/* Clean image box on neutral bg */}
-                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/40 transition-all duration-500 aspect-[3/4]">
+                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#C8102E]/10 group-hover:border-[#C8102E]/40 transition-all duration-500 aspect-[3/4]">
                     <img
                       src={col.image}
                       alt={col.title}
@@ -380,15 +380,15 @@ export default function FurniturePage() {
                     />
                     <div className="absolute inset-0 bg-[#0B0B0B]/0 group-hover:bg-[#0B0B0B]/15 transition-all duration-500" />
                     {/* Number tag */}
-                    <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.35em] text-[#D4AF37]/60" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.id}</span>
+                    <span className="absolute top-4 left-4 text-[9px] font-medium tracking-[0.35em] text-[#C8102E]/60" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.id}</span>
                   </div>
                   {/* Label below */}
                   <div className="flex items-center justify-between mt-4 px-1">
                     <div>
-                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.label}</span>
+                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{col.label}</span>
                       <h3 className="font-display text-base md:text-lg font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{col.title}</h3>
                     </div>
-                    <div className="w-7 h-7 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
+                    <div className="w-7 h-7 rounded-full border border-[#C8102E]/30 flex items-center justify-center text-[#C8102E] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
                       <ArrowUpRight className="w-3 h-3" />
                     </div>
                   </div>
@@ -441,7 +441,7 @@ export default function FurniturePage() {
                   Design is not decoration.<br />
                   <em
                     className="not-italic"
-                    style={{ color: '#D4AF37', fontStyle: 'italic' }}
+                    style={{ color: '#C8102E', fontStyle: 'italic' }}
                   >
                     It is intention.
                   </em>
@@ -468,7 +468,7 @@ export default function FurniturePage() {
                           </p>
                         </div>
                         <span
-                          className="text-[10px] font-medium tracking-[0.35em] text-[#D4AF37]/60 shrink-0 mt-1"
+                          className="text-[10px] font-medium tracking-[0.35em] text-[#C8102E]/60 shrink-0 mt-1"
                           style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                         >
                           0{i + 1}
@@ -494,7 +494,7 @@ export default function FurniturePage() {
                 <div className="absolute bottom-8 left-8 right-8">
                   <GoldRule className="mb-4" />
                   <p
-                    className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37]"
+                    className="text-[10px] uppercase tracking-[0.35em] text-[#C8102E]"
                     style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                   >
                     Amara Living — Atelier 2026
@@ -502,7 +502,7 @@ export default function FurniturePage() {
                 </div>
               </div>
               {/* Decorative offset border */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#D4AF37]/20 pointer-events-none" />
+              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#C8102E]/20 pointer-events-none" />
             </Reveal>
           </div>
         </div>
@@ -515,7 +515,7 @@ export default function FurniturePage() {
             <Eyebrow>Studio Pieces</Eyebrow>
             <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
               <h2 className="font-display text-[clamp(2rem,4vw,4.5rem)] font-medium leading-[1.0] tracking-tight text-[#0B0B0B]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                Browse our <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Collections</em>
+                Browse our <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Collections</em>
               </h2>
               <p className="text-sm text-[#A0A0A0] font-light leading-[1.9] max-w-xs" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                 Handcrafted bespoke pieces, proportioned with architectural intent and raw material honesty.
@@ -555,7 +555,7 @@ export default function FurniturePage() {
               <Reveal key={prod.id} delay={i * 0.08}>
                 <div className="group cursor-pointer">
                   {/* Image container on neutral background */}
-                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/40 transition-all duration-500 aspect-[4/3] flex items-center justify-center p-4">
+                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#C8102E]/10 group-hover:border-[#C8102E]/40 transition-all duration-500 aspect-[4/3] flex items-center justify-center p-4">
                     <img
                       src={prod.image}
                       alt={prod.name}
@@ -565,7 +565,7 @@ export default function FurniturePage() {
                   </div>
                   {/* Specifications below */}
                   <div className="mt-5 px-1">
-                    <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                    <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                       {prod.category}
                     </span>
                     <h3 className="font-display text-lg md:text-xl font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
@@ -618,7 +618,7 @@ export default function FurniturePage() {
               <Reveal key={item.title} delay={i * 0.08}>
                 <div className="group cursor-pointer">
                   {/* Image box */}
-                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#D4AF37]/10 group-hover:border-[#D4AF37]/40 transition-all duration-500 aspect-[4/3]">
+                  <div className="relative overflow-hidden bg-[#F0EDE8] border border-[#C8102E]/10 group-hover:border-[#C8102E]/40 transition-all duration-500 aspect-[4/3]">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -629,10 +629,10 @@ export default function FurniturePage() {
                   {/* Label row below image */}
                   <div className="flex items-center justify-between mt-4 px-1">
                     <div>
-                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#D4AF37]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{item.tag}</span>
+                      <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#C8102E]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{item.tag}</span>
                       <h3 className="font-display text-base md:text-lg font-medium text-[#0B0B0B] mt-1 leading-snug" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{item.title}</h3>
                     </div>
-                    <div className="w-7 h-7 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
+                    <div className="w-7 h-7 rounded-full border border-[#C8102E]/30 flex items-center justify-center text-[#C8102E] opacity-0 group-hover:opacity-100 transition-all duration-400 shrink-0 ml-3">
                       <ArrowUpRight className="w-3 h-3" />
                     </div>
                   </div>
@@ -653,12 +653,12 @@ export default function FurniturePage() {
 
       {/* ══ CUSTOM DESIGN SERVICE ══ */}
       <section className="bg-[#111111] py-20 md:py-28 border-t border-[#F8F6F2]/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(212,175,55,0.03),transparent_50%)]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(200,16,46,0.03),transparent_50%)]" aria-hidden="true" />
         <div className="wrap relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left Image */}
             <Reveal className="relative lg:order-1 order-2">
-              <div className="relative aspect-[4/3] overflow-hidden border border-[#D4AF37]/25">
+              <div className="relative aspect-[4/3] overflow-hidden border border-[#C8102E]/25">
                 <img
                   src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=90"
                   alt="Furniture custom drafting process"
@@ -666,7 +666,7 @@ export default function FurniturePage() {
                 />
                 <div className="absolute inset-0 bg-[#0B0B0B]/30" />
               </div>
-              <div className="absolute -bottom-3 -left-3 w-full h-full border border-[#D4AF37]/10 pointer-events-none -z-10" />
+              <div className="absolute -bottom-3 -left-3 w-full h-full border border-[#C8102E]/10 pointer-events-none -z-10" />
             </Reveal>
 
             {/* Right Text */}
@@ -678,7 +678,7 @@ export default function FurniturePage() {
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
                   Customize Your<br />
-                  <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Own Design</em>
+                  <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Own Design</em>
                 </h2>
                 <GoldRule className="mb-8 max-w-xs" />
                 <p className="text-base text-[#A0A0A0] font-light leading-[1.9] mb-8 max-w-md" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
@@ -695,16 +695,15 @@ export default function FurniturePage() {
       </section>
 
       {/* ══ 9. CONTACT CTA ══ */}
-      <section className="relative bg-[#0B0B0B] py-20 md:py-28 overflow-hidden">
-        {/* Background texture image */}
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative bg-[#FAF6F0] py-20 md:py-28 overflow-hidden border-t border-[#0B0B0B]/10">
+        <div className="absolute inset-0 opacity-5">
           <img
             src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2400&q=80"
             alt=""
             aria-hidden="true"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/70 to-[#0B0B0B]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6F0] via-[#FAF6F0]/80 to-[#FAF6F0]" />
         </div>
 
         <div className="wrap relative z-10 text-center">
@@ -713,16 +712,16 @@ export default function FurniturePage() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2
-              className="font-display text-[clamp(2.2rem,5vw,6rem)] font-medium leading-[0.95] tracking-tight text-[#F8F6F2] mb-8 max-w-5xl mx-auto"
+              className="font-display text-[clamp(2.2rem,5vw,6rem)] font-medium leading-[0.95] tracking-tight text-[#111111] mb-8 max-w-5xl mx-auto"
               style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
             >
               Let's Create Your<br />
-              <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Dream Space</em>
+              <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Dream Space</em>
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p
-              className="text-[#A0A0A0] text-base font-light leading-[1.9] max-w-md mx-auto mb-14"
+              className="text-[#555555] text-base font-light leading-[1.9] max-w-md mx-auto mb-14"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               Our design consultants work with you from concept to completion — every piece, every surface, every detail considered.
@@ -733,7 +732,7 @@ export default function FurniturePage() {
               <GoldButton href="#/consultation">Book Consultation</GoldButton>
               <a
                 href="tel:7397623509"
-                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] text-[#A0A0A0] hover:text-[#F8F6F2] transition-colors duration-500 border border-[#F8F6F2]/10 hover:border-[#F8F6F2]/30"
+                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] font-medium uppercase tracking-[0.3em] text-[#111111] hover:text-[#C8102E] transition-colors duration-500 border border-[#0B0B0B]/20 hover:border-[#C8102E]"
                 style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
               >
                 +91 7397623509
@@ -856,7 +855,7 @@ function ShowcaseSection({ sc, index }) {
           className="max-w-2xl"
         >
           <span
-            className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-6"
+            className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-6"
             style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           >
             {sc.eyebrow}
@@ -867,7 +866,7 @@ function ShowcaseSection({ sc, index }) {
           >
             {sc.title}
           </h2>
-          <div className="h-px w-24 mb-8" style={{ background: 'linear-gradient(90deg, #D4AF37 0%, transparent 100%)' }} />
+          <div className="h-px w-24 mb-8" style={{ background: 'linear-gradient(90deg, #C8102E 0%, transparent 100%)' }} />
           <p
             className="text-base font-light leading-[1.9] mb-12 max-w-md"
             style={{ fontFamily: 'Inter, system-ui, sans-serif', color: textSecondary }}

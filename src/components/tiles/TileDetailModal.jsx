@@ -83,7 +83,7 @@ export default function TileDetailModal({ tile, onClose, onEnquire }) {
               </button>
 
               <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-black/10 text-[10px] font-semibold tracking-widest text-[#B8941F] uppercase shadow-xs">
+                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-black/10 text-[10px] font-semibold tracking-widest text-[#C8102E] uppercase shadow-xs">
                   {tile.sizeCategory || tile.size}
                 </span>
               </div>
@@ -101,7 +101,7 @@ export default function TileDetailModal({ tile, onClose, onEnquire }) {
                     }}
                     className={`relative w-20 h-16 rounded-xl overflow-hidden border-2 transition-all duration-300 shrink-0 ${
                       selectedImageIndex === i
-                        ? 'border-[#B8941F] shadow-md scale-105'
+                        ? 'border-[#C8102E] shadow-md scale-105'
                         : 'border-black/10 opacity-70 hover:opacity-100'
                     }`}
                   >
@@ -117,7 +117,7 @@ export default function TileDetailModal({ tile, onClose, onEnquire }) {
             <div>
               {/* Category & Finish Tag */}
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-semibold tracking-[0.35em] text-[#B8941F] uppercase">
+                <span className="text-[10px] font-semibold tracking-[0.35em] text-[#C8102E] uppercase">
                   {tile.category} • {tile.subCategory || 'Vitrified'}
                 </span>
                 <span className="inline-flex items-center gap-1 text-[10px] text-emerald-700 font-semibold">
@@ -190,7 +190,7 @@ export default function TileDetailModal({ tile, onClose, onEnquire }) {
                   <div className="grid grid-cols-2 gap-2">
                     {tile.features.map((feat) => (
                       <div key={feat} className="flex items-center gap-2 text-xs text-neutral-700 font-light">
-                        <Check className="w-3.5 h-3.5 text-[#B8941F] shrink-0" />
+                        <Check className="w-3.5 h-3.5 text-[#C8102E] shrink-0" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -213,7 +213,7 @@ export default function TileDetailModal({ tile, onClose, onEnquire }) {
                   onClick={handleDownloadCatalogue}
                   className="px-5 py-3.5 rounded-xl border border-black/15 text-[#0B0B0B] font-semibold text-xs tracking-wider uppercase hover:bg-neutral-100 transition-colors flex items-center justify-center gap-2"
                 >
-                  <Download className="w-4 h-4 text-[#B8941F]" />
+                  <Download className="w-4 h-4 text-[#C8102E]" />
                   Download Catalogue
                 </button>
 
@@ -222,7 +222,7 @@ export default function TileDetailModal({ tile, onClose, onEnquire }) {
                     onClose();
                     onEnquire(tile);
                   }}
-                  className="px-5 py-3.5 rounded-xl bg-[#0B0B0B] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#B8941F] shadow-md transition-all flex items-center justify-center gap-2"
+                  className="px-5 py-3.5 rounded-xl bg-[#0B0B0B] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#C8102E] shadow-md transition-all flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />
                   Enquiry Now

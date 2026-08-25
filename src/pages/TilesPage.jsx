@@ -1,159 +1,184 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TileHero from '../components/tiles/TileHero';
-import TileSizeSelector from '../components/tiles/TileSizeSelector';
+import TileCatalogSelector from '../components/tiles/TileCatalogSelector';
 import Section600x600 from '../components/tiles/Section600x600';
 import Section600x1200 from '../components/tiles/Section600x1200';
 import TileDetailModal from '../components/tiles/TileDetailModal';
 import TileEnquiryModal from '../components/tiles/TileEnquiryModal';
-import { ArrowUpRight, Sparkles, Check, Grid, Maximize2 } from 'lucide-react';
+import { Sparkles, ArrowUpRight } from 'lucide-react';
 
-const getFormatFromUrl = () => {
+const getParamsFromUrl = () => {
   const hash = decodeURIComponent(window.location.hash || '');
-  if (hash.includes('1200') || hash.includes('600*1200') || hash.includes('600x1200')) {
-    return '600x1200';
+  const queryString = hash.includes('?') ? hash.split('?')[1] : '';
+  const urlParams = new URLSearchParams(queryString);
+
+  const appParam = urlParams.get('application') || '';
+  const sizeParam = urlParams.get('size') || '';
+
+  let format = '600x600';
+  if (
+    hash.includes('1200') ||
+    hash.includes('1800') ||
+    hash.includes('2400') ||
+    hash.includes('2700') ||
+    hash.includes('3200') ||
+    hash.includes('1600') ||
+    hash.includes('slab') ||
+    sizeParam.includes('1200') ||
+    sizeParam.includes('1800') ||
+    sizeParam.includes('2400') ||
+    sizeParam.includes('2700') ||
+    sizeParam.includes('3200')
+  ) {
+    format = '600x1200';
   }
-  if (hash.includes('600*600') || hash.includes('600x600') || hash.includes('size=600')) {
-    return '600x600';
-  }
-  return '600x600';
+
+  return { format, appParam, sizeParam };
 };
 
 export default function TilesPage() {
-  const [selectedFormat, setSelectedFormat] = useState(() => getFormatFromUrl());
+  const [urlState, setUrlState] = useState(() => getParamsFromUrl());
+  const [selectedFormat, setSelectedFormat] = useState(urlState.format);
+  const [activeAppFilter, setActiveAppFilter] = useState(urlState.appParam);
+  const [activeSizeFilter, setActiveSizeFilter] = useState(urlState.sizeParam);
+
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [enquiryProduct, setEnquiryProduct] = useState(null);
 
   useEffect(() => {
-    // If no size param in hash, default scroll to top
-    if (!window.location.hash.includes('collection-view') && !window.location.hash.includes('size=')) {
-      window.scrollTo(0, 0);
-    } else if (window.location.hash.includes('collection-view')) {
-      setTimeout(() => {
-        const el = document.getElementById('collection-view');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
-    }
-
     const handleHashChange = () => {
-      const format = getFormatFromUrl();
-      setSelectedFormat(format);
+      const parsed = getParamsFromUrl();
+      setSelectedFormat(parsed.format);
+      setActiveAppFilter(parsed.appParam);
+      setActiveSizeFilter(parsed.sizeParam);
+
+      if (parsed.appParam || parsed.sizeParam || window.location.hash.includes('collection-view')) {
+        setTimeout(() => {
+          const el = document.getElementById('collection-view');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
     };
 
     window.addEventListener('hashchange', handleHashChange);
+
+    if (urlState.appParam || urlState.sizeParam || window.location.hash.includes('collection-view')) {
+      setTimeout(() => {
+        const el = document.getElementById('collection-view');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    }
+
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleSelectFormat = (formatId, autoScroll = true) => {
-    setSelectedFormat(formatId);
-    
-    // Update hash query string cleanly so refresh retains the selected size
+  const handleClearFilter = () => {
+    setActiveAppFilter('');
+    setActiveSizeFilter('');
     if (window.location.hash.startsWith('#/tiles')) {
-      window.history.replaceState(null, '', `${window.location.pathname}#/tiles?size=${formatId}`);
-    }
-
-    if (autoScroll) {
-      setTimeout(() => {
-        const el = document.getElementById('collection-view');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      window.history.replaceState(null, '', `${window.location.pathname}#/tiles`);
     }
   };
 
   return (
-    <main id="main-content" className="bg-[#F4F1EA] text-[#111111] selection:bg-[#B8941F]/30 min-h-screen">
+    <main id="main-content" className="bg-[#F4F1EA] text-[#111111] selection:bg-[#C8102E]/30 min-h-screen">
       {/* Hero Section */}
       <TileHero />
 
-      {/* Section 1: Choose Tile Size with Golden Highlighted Active Border */}
-      <TileSizeSelector
-        selectedFormat={selectedFormat}
-        onSelectFormat={(formatId) => handleSelectFormat(formatId, false)}
-        onViewProducts={() => {
-          const el = document.getElementById('collection-view');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }}
-      />
+      {/* Catalog Browser: Shop by Application + Shop by Size */}
+      <TileCatalogSelector />
 
       {/* Anchor for Smooth Scroll to Active Collection */}
-      <div id="collection-view" className="relative pt-6">
-        {/* Active Format Banner Toggle Bar */}
-        <div className="wrap">
-          <div className="p-4 rounded-2xl bg-white border border-[#D4AF37]/40 shadow-[0_10px_30px_rgba(212,175,55,0.12)] flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-3">
-              <span className="w-9 h-9 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center text-[#B8941F]">
-                {selectedFormat === '600x600' ? <Grid className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-              </span>
-              <div>
-                <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#B8941F] block">
-                  Active Display Format
-                </span>
-                <span className="text-base font-light text-[#111111] font-display" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                  Showing {selectedFormat === '600x600' ? '600 × 600 mm Vitrified Tiles' : '600 × 1200 mm Architectural Slabs'}
-                </span>
-              </div>
-            </div>
+      <div id="collection-view" className="relative pt-2">
 
-            {/* Quick Switch Buttons */}
-            <div className="flex items-center gap-2 bg-[#F4F1EA] p-1 rounded-xl border border-black/10">
-              <button
-                onClick={() => handleSelectFormat('600x600', false)}
-                className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
-                  selectedFormat === '600x600'
-                    ? 'bg-[#111111] text-white shadow-sm'
-                    : 'text-neutral-700 hover:text-black'
-                }`}
-              >
-                600 × 600
-              </button>
-              <button
-                onClick={() => handleSelectFormat('600x1200', false)}
-                className={`px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all ${
-                  selectedFormat === '600x1200'
-                    ? 'bg-[#111111] text-white shadow-sm'
-                    : 'text-neutral-700 hover:text-black'
-                }`}
-              >
-                600 × 1200
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Display ONLY the Selected Format's Collection with Smooth Animated Transitions */}
+        {/* 
+          LOGIC:
+          - Application filter active  → show BOTH sections (all sizes for that space)
+          - Size filter active          → show ONLY matching size section
+          - No filter                   → show BOTH sections
+        */}
         <AnimatePresence mode="wait">
-          {selectedFormat === '600x600' ? (
+          {activeAppFilter ? (
+            /* APPLICATION FILTER: render both sections so user sees all sizes for that space */
             <motion.div
-              key="600x600"
+              key={`app-${activeAppFilter}`}
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -25 }}
               transition={{ duration: 0.4 }}
             >
-              <Section600x600 onSelectProduct={(tile) => setSelectedProduct(tile)} />
+              <Section600x600
+                onSelectProduct={(tile) => setSelectedProduct(tile)}
+                activeAppFilter={activeAppFilter}
+                activeSizeFilter={''}
+                onClearFilter={handleClearFilter}
+              />
+              <Section600x1200
+                onSelectProduct={(tile) => setSelectedProduct(tile)}
+                activeAppFilter={activeAppFilter}
+                activeSizeFilter={''}
+                onClearFilter={handleClearFilter}
+              />
+            </motion.div>
+          ) : activeSizeFilter ? (
+            /* SIZE FILTER: render only the section matching that size */
+            <motion.div
+              key={`size-${activeSizeFilter}`}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -25 }}
+              transition={{ duration: 0.4 }}
+            >
+              {selectedFormat === '600x600' ? (
+                <Section600x600
+                  onSelectProduct={(tile) => setSelectedProduct(tile)}
+                  activeAppFilter={''}
+                  activeSizeFilter={activeSizeFilter}
+                  onClearFilter={handleClearFilter}
+                />
+              ) : (
+                <Section600x1200
+                  onSelectProduct={(tile) => setSelectedProduct(tile)}
+                  activeAppFilter={''}
+                  activeSizeFilter={activeSizeFilter}
+                  onClearFilter={handleClearFilter}
+                />
+              )}
             </motion.div>
           ) : (
+            /* NO FILTER: show both sections */
             <motion.div
-              key="600x1200"
+              key="all"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -25 }}
               transition={{ duration: 0.4 }}
             >
-              <Section600x1200 onSelectProduct={(tile) => setSelectedProduct(tile)} />
+              <Section600x600
+                onSelectProduct={(tile) => setSelectedProduct(tile)}
+                activeAppFilter={''}
+                activeSizeFilter={''}
+                onClearFilter={handleClearFilter}
+              />
+              <Section600x1200
+                onSelectProduct={(tile) => setSelectedProduct(tile)}
+                activeAppFilter={''}
+                activeSizeFilter={''}
+                onClearFilter={handleClearFilter}
+              />
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
 
       {/* Section 4: Architectural Specification & Applications */}
       <section className="py-24 md:py-32 bg-[#EFECE5] border-t border-black/10 relative overflow-hidden">
         <div className="wrap">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
             <div>
-              <span className="text-[11px] font-semibold tracking-[0.38em] text-[#B8941F] uppercase block mb-4">
+              <span className="text-[11px] font-semibold tracking-[0.38em] text-[#C8102E] uppercase block mb-4">
                 Engineering Perfection
               </span>
               <h2
@@ -161,16 +186,16 @@ export default function TilesPage() {
                 style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
               >
                 Vitrified Strength.<br />
-                <span className="italic text-[#B8941F]">Architectural Elegance.</span>
+                <span className="italic text-[#C8102E]">Architectural Elegance.</span>
               </h2>
-              <div className="w-20 h-px bg-gradient-to-r from-[#B8941F] to-transparent mb-6" />
+              <div className="w-20 h-px bg-gradient-to-r from-[#C8102E] to-transparent mb-6" />
               <p className="text-neutral-800 text-sm md:text-base font-normal leading-relaxed mb-8">
                 Our porcelain and vitrified slabs undergo high-tonnage hydraulic pressing and firing temperatures exceeding 1,200°C. The result is a non-porous surface with near-zero water absorption (&lt;0.05%), extreme stain resistance, and enduring structural stability.
               </p>
 
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div className="p-5 rounded-2xl bg-[#FAF8F4] border border-black/10 shadow-xs">
-                  <span className="text-3xl font-light font-display text-[#B8941F] block mb-1">
+                  <span className="text-3xl font-light font-display text-[#C8102E] block mb-1">
                     &lt;0.05%
                   </span>
                   <span className="text-xs uppercase tracking-wider text-neutral-800 font-semibold">
@@ -178,7 +203,7 @@ export default function TilesPage() {
                   </span>
                 </div>
                 <div className="p-5 rounded-2xl bg-[#FAF8F4] border border-black/10 shadow-xs">
-                  <span className="text-3xl font-light font-display text-[#B8941F] block mb-1">
+                  <span className="text-3xl font-light font-display text-[#C8102E] block mb-1">
                     MOHS 7+
                   </span>
                   <span className="text-xs uppercase tracking-wider text-neutral-800 font-semibold">
@@ -207,7 +232,7 @@ export default function TilesPage() {
           {/* Bespoke Customization Section */}
           <div className="p-8 md:p-14 rounded-[24px] bg-[#FAF8F4] border border-black/12 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B8941F]/10 text-[10px] font-semibold tracking-widest text-[#B8941F] uppercase mb-4 border border-[#B8941F]/20">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C8102E]/10 text-[10px] font-semibold tracking-widest text-[#C8102E] uppercase mb-4 border border-[#C8102E]/20">
                 <Sparkles className="w-3 h-3" />
                 Custom Architectural Atelier
               </span>
@@ -224,7 +249,7 @@ export default function TilesPage() {
 
             <button
               onClick={() => setEnquiryProduct({ name: 'Custom Bespoke Tiles', size: 'Bespoke Format', finish: 'Custom Glaze' })}
-              className="px-8 py-4 rounded-full bg-[#111111] text-white font-semibold text-xs tracking-[0.2em] uppercase hover:bg-[#B8941F] transition-all shadow-md shrink-0 flex items-center gap-3"
+              className="px-8 py-4 rounded-full bg-[#111111] text-white font-semibold text-xs tracking-[0.2em] uppercase hover:bg-[#C8102E] transition-all shadow-md shrink-0 flex items-center gap-3"
             >
               Request Custom Atelier Consultation
               <ArrowUpRight className="w-4 h-4" />
@@ -236,7 +261,7 @@ export default function TilesPage() {
       {/* Section 5: Bottom CTA */}
       <section className="py-28 md:py-36 bg-[#F4F1EA] relative overflow-hidden border-t border-black/10">
         <div className="wrap relative z-10 text-center max-w-4xl mx-auto">
-          <span className="text-[11px] font-semibold tracking-[0.38em] text-[#B8941F] uppercase block mb-4">
+          <span className="text-[11px] font-semibold tracking-[0.38em] text-[#C8102E] uppercase block mb-4">
             Transform Your Spaces
           </span>
           <h2
@@ -244,7 +269,7 @@ export default function TilesPage() {
             style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
           >
             Experience Premium Tiles <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#111111] via-[#B8941F] to-[#D4AF37]">
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#111111] via-[#C8102E] to-[#C8102E]">
               In Person.
             </span>
           </h2>
@@ -255,13 +280,13 @@ export default function TilesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             <button
               onClick={() => setEnquiryProduct({ name: 'Physical Sample Kit Request', size: '600x600 & 600x1200', finish: 'Assorted Swatches' })}
-              className="px-9 py-4 rounded-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase hover:bg-[#B8941F] transition-all shadow-lg hover:scale-105"
+              className="px-9 py-4 rounded-full bg-[#111111] text-white font-semibold text-xs tracking-[0.25em] uppercase hover:bg-[#C8102E] transition-all shadow-lg hover:scale-105"
             >
               Request Sample Swatch Kit
             </button>
             <a
               href="#/consultation"
-              className="px-9 py-4 rounded-full bg-[#FAF8F4] border border-black/15 text-[#111111] font-semibold text-xs tracking-[0.25em] uppercase hover:border-[#B8941F] hover:text-[#B8941F] transition-all shadow-xs"
+              className="px-9 py-4 rounded-full bg-[#FAF8F4] border border-black/15 text-[#111111] font-semibold text-xs tracking-[0.25em] uppercase hover:border-[#C8102E] hover:text-[#C8102E] transition-all shadow-xs"
             >
               Book Showroom Visit
             </a>

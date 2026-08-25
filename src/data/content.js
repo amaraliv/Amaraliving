@@ -1,6 +1,6 @@
 import furnitureHeroImg from '../assets/furniture/00_hero.jpg';
 import tilesImg from '../assets/tiles/AMARA_Image_01.jpg';
-import graniteImg from '../assets/granite/Hawk_Image_04.jpg';
+import graniteImg from '../assets/granite/AMARA_Image_10.jpg';
 import livingRoomImg from '../assets/furniture/p007_01.jpg';
 import workspaceImg from '../assets/furniture/p008_01.jpg';
 import kitchenImg from '../assets/furniture/p009_01.jpg';

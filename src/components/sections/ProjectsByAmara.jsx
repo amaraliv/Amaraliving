@@ -85,7 +85,7 @@ export default function ProjectsByAmara() {
   return (
     <section id="projects-by-amara" className="bg-[#FAF6F0] py-20 md:py-28 border-t border-[#0B0B0B]/8 relative overflow-hidden">
       {/* Background Decorative Ambient Radial Gradient */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(212,175,55,0.08)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(200,16,46,0.08)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(184,145,42,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="wrap relative z-10">
@@ -100,8 +100,8 @@ export default function ProjectsByAmara() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-2.5 mb-4"
             >
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#B8912A]/10 text-[#9A7B1E] border border-[#B8912A]/20 text-[10px] font-bold uppercase tracking-[0.35em]">
-                <Sparkles className="w-3 h-3 text-[#B8912A]" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C8102E]/10 text-[#C8102E] border border-[#C8102E]/20 text-[10px] font-bold uppercase tracking-[0.35em]">
+                <Sparkles className="w-3 h-3 text-[#C8102E]" />
                 Landmark Portfolio
               </span>
             </motion.div>
@@ -114,10 +114,10 @@ export default function ProjectsByAmara() {
               className="font-display text-[clamp(2.4rem,5vw,5.5rem)] font-medium leading-[0.98] tracking-tight text-[#0B0B0B]"
               style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
             >
-              Projects By <em style={{ color: '#B8912A', fontStyle: 'italic' }}>Amara</em>
+              Projects By <em style={{ color: '#C8102E', fontStyle: 'italic' }}>Amara</em>
             </motion.h2>
 
-            <div className="h-[2px] w-28 mt-6 mb-6" style={{ background: 'linear-gradient(90deg, #B8912A 0%, transparent 100%)' }} />
+            <div className="h-[2px] w-28 mt-6 mb-6" style={{ background: 'linear-gradient(90deg, #C8102E 0%, transparent 100%)' }} />
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -137,16 +137,16 @@ export default function ProjectsByAmara() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="self-start md:self-end p-5 rounded-2xl bg-white border border-[#D4AF37]/30 shadow-[0_10px_30px_rgba(212,175,55,0.08)] flex items-center gap-5"
+            className="self-start md:self-end p-5 rounded-2xl bg-white border border-[#C8102E]/30 shadow-[0_10px_30px_rgba(200,16,46,0.08)] flex items-center gap-5"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#B8912A]/10 border border-[#B8912A]/20 flex items-center justify-center text-[#B8912A]">
+            <div className="w-12 h-12 rounded-xl bg-[#C8102E]/10 border border-[#C8102E]/20 flex items-center justify-center text-[#C8102E]">
               <Building2 className="w-6 h-6" />
             </div>
             <div>
               <span className="text-2xl font-light text-[#0B0B0B] font-display block leading-none" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                 500+ Projects
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9A7B1E]">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C8102E]">
                 Delivered Across South India
               </span>
             </div>
@@ -162,7 +162,7 @@ export default function ProjectsByAmara() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.7, delay: index * 0.1 }}
-              className="group relative bg-white rounded-2xl overflow-hidden border border-[#0B0B0B]/10 hover:border-[#B8912A]/60 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_60px_rgba(184,145,42,0.18)] transition-all duration-500 flex flex-col justify-between"
+              className="group relative bg-white rounded-2xl overflow-hidden border border-[#0B0B0B]/10 hover:border-[#C8102E]/60 shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_60px_rgba(184,145,42,0.18)] transition-all duration-500 flex flex-col justify-between"
             >
               {/* Top Image Container */}
               <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
@@ -178,18 +178,18 @@ export default function ProjectsByAmara() {
 
                 {/* Top Badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                  <span className="px-3 py-1 rounded-full bg-[#0B0B0B]/80 backdrop-blur-md border border-[#D4AF37]/40 text-[9px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
+                  <span className="px-3 py-1 rounded-full bg-[#0B0B0B]/80 backdrop-blur-md border border-[#C8102E]/40 text-[9px] font-bold uppercase tracking-[0.2em] text-[#C8102E]">
                     {project.badge}
                   </span>
                   <span className="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[9px] font-semibold text-neutral-800 flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-[#B8912A]" />
+                    <MapPin className="w-3 h-3 text-[#C8102E]" />
                     {project.location.split(',')[0]}
                   </span>
                 </div>
 
                 {/* Bottom Overlay Title & Location */}
                 <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#D4AF37] block mb-1">
+                  <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#C8102E] block mb-1">
                     {project.category}
                   </span>
                   <h3
@@ -204,7 +204,7 @@ export default function ProjectsByAmara() {
                 <div className="absolute inset-0 bg-[#0B0B0B]/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-400 flex items-center justify-center z-20">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="px-6 py-3 rounded-full bg-[#B8912A] text-white text-xs font-bold uppercase tracking-[0.2em] shadow-xl hover:bg-[#0B0B0B] transition-all duration-300 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0"
+                    className="px-6 py-3 rounded-full bg-[#C8102E] text-white text-xs font-bold uppercase tracking-[0.2em] shadow-xl hover:bg-[#0B0B0B] transition-all duration-300 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0"
                   >
                     <Eye className="w-4 h-4" />
                     View Details
@@ -235,16 +235,16 @@ export default function ProjectsByAmara() {
                 {/* Bottom Card Footer */}
                 <div className="pt-4 border-t border-black/8 flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[10px] text-neutral-600 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#B8912A]" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#C8102E]" />
                     <span>Completed Project</span>
                   </div>
 
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1 text-[11px] font-bold tracking-wider text-[#0B0B0B] hover:text-[#B8912A] transition-colors group/btn uppercase"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold tracking-wider text-[#0B0B0B] hover:text-[#C8102E] transition-colors group/btn uppercase"
                   >
                     Explore
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 text-[#B8912A]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 text-[#C8102E]" />
                   </button>
                 </div>
               </div>
@@ -268,13 +268,13 @@ export default function ProjectsByAmara() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 30, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-3xl bg-[#FAF6F0] rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/40"
+              className="relative w-full max-w-3xl bg-[#FAF6F0] rounded-2xl overflow-hidden shadow-2xl border border-[#C8102E]/40"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/60 text-white hover:bg-[#B8912A] transition-colors"
+                className="absolute top-4 right-4 z-30 p-2 rounded-full bg-black/60 text-white hover:bg-[#C8102E] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -288,7 +288,7 @@ export default function ProjectsByAmara() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="px-3 py-1 rounded-full bg-[#B8912A] text-white text-[9px] font-bold uppercase tracking-widest inline-block mb-2">
+                  <span className="px-3 py-1 rounded-full bg-[#C8102E] text-white text-[9px] font-bold uppercase tracking-widest inline-block mb-2">
                     {selectedProject.badge}
                   </span>
                   <h3
@@ -297,7 +297,7 @@ export default function ProjectsByAmara() {
                   >
                     {selectedProject.name}
                   </h3>
-                  <p className="text-xs text-[#D4AF37] font-semibold flex items-center gap-1 mt-1">
+                  <p className="text-xs text-[#C8102E] font-semibold flex items-center gap-1 mt-1">
                     <MapPin className="w-3.5 h-3.5" />
                     {selectedProject.location}
                   </p>
@@ -307,7 +307,7 @@ export default function ProjectsByAmara() {
               {/* Modal Body */}
               <div className="p-6 md:p-8 space-y-6">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-[#9A7B1E] mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-[#C8102E] mb-2">
                     Project Overview
                   </h4>
                   <p className="text-sm text-[#333333] leading-relaxed font-light">
@@ -317,13 +317,13 @@ export default function ProjectsByAmara() {
 
                 {/* Highlights */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-[#9A7B1E] mb-3">
+                  <h4 className="text-xs font-bold uppercase tracking-[0.25em] text-[#C8102E] mb-3">
                     Amara Living Solutions Delivered
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {selectedProject.highlights.map((h) => (
                       <div key={h} className="p-3 rounded-xl bg-white border border-black/8 flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B8912A] shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#C8102E] shrink-0" />
                         <span className="text-xs font-medium text-[#222]">{h}</span>
                       </div>
                     ))}
@@ -336,7 +336,7 @@ export default function ProjectsByAmara() {
                   <a
                     href="#/consultation"
                     onClick={() => setSelectedProject(null)}
-                    className="px-6 py-3 rounded-full bg-[#111111] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#B8912A] transition-colors"
+                    className="px-6 py-3 rounded-full bg-[#111111] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#C8102E] transition-colors"
                   >
                     Book Consultation
                   </a>

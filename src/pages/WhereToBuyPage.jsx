@@ -21,7 +21,7 @@ function Reveal({ children, className = '', delay = 0 }) {
 
 function Eyebrow({ children }) {
   return (
-    <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#D4AF37] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+    <span className="block text-[10px] font-semibold uppercase tracking-[0.42em] text-[#C8102E] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
       {children}
     </span>
   );
@@ -29,7 +29,7 @@ function Eyebrow({ children }) {
 
 function GoldRule({ className = '' }) {
   return (
-    <div className={`h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent ${className}`} />
+    <div className={`h-px bg-gradient-to-r from-transparent via-[#C8102E]/50 to-transparent ${className}`} />
   );
 }
 
@@ -125,7 +125,7 @@ export default function WhereToBuyPage() {
             <Eyebrow>Where to Buy</Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-white mb-6" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
               Our Experience Centers &amp;<br />
-              <span className="italic font-normal text-[#D4AF37]">Global Contacts</span>
+              <span className="italic font-normal text-[#C8102E]">Global Contacts</span>
             </h1>
             <p className="max-w-2xl mx-auto font-body text-sm font-light leading-[1.8] text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Experience the weight of natural stone, the texture of artisanal tile, and the joinery of handcrafted hardwoods. Visit our dedicated ateliers, or connect with our domestic and international liaison teams.
@@ -140,7 +140,7 @@ export default function WhereToBuyPage() {
           <Reveal className="text-center mb-16">
             <Eyebrow>Physical Locations</Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl font-medium text-white mb-4" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-              Visit Our <em className="text-[#D4AF37] not-italic">Ateliers</em>
+              Visit Our <em className="text-[#C8102E] not-italic">Ateliers</em>
             </h2>
             <GoldRule className="max-w-xs mx-auto mt-6" />
           </Reveal>
@@ -148,7 +148,7 @@ export default function WhereToBuyPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             {SHOWROOMS.map((sr, index) => (
               <Reveal key={sr.city} delay={index * 0.1}>
-                <div className="group border border-[#F8F6F2]/8 bg-[#111111] overflow-hidden rounded-sm hover:border-[#D4AF37]/30 transition-all duration-500">
+                <div className="group border border-[#F8F6F2]/8 bg-[#111111] overflow-hidden rounded-sm hover:border-[#C8102E]/30 transition-all duration-500">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     <img
                       src={sr.image}
@@ -168,19 +168,19 @@ export default function WhereToBuyPage() {
 
                     <div className="space-y-4 border-t border-[#F8F6F2]/5 pt-6 text-xs text-[#A0A0A0] font-body">
                       <div className="flex items-start gap-3">
-                        <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                        <MapPin className="w-4 h-4 text-[#C8102E] shrink-0 mt-0.5" />
                         <span>{sr.address}</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Phone className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                        <Phone className="w-4 h-4 text-[#C8102E] shrink-0" />
                         <span>{sr.phone}</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Mail className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                        <Mail className="w-4 h-4 text-[#C8102E] shrink-0" />
                         <a href={`mailto:${sr.email}`} className="hover:text-white transition-colors">{sr.email}</a>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Clock className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                        <Clock className="w-4 h-4 text-[#C8102E] shrink-0" />
                         <span>{sr.hours}</span>
                       </div>
                     </div>
@@ -190,7 +190,7 @@ export default function WhereToBuyPage() {
                         href={sr.mapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4AF37] hover:text-white transition-colors"
+                        className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#C8102E] hover:text-white transition-colors"
                         style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                       >
                         Get Directions
@@ -211,7 +211,7 @@ export default function WhereToBuyPage() {
           <Reveal className="text-center mb-16">
             <Eyebrow>Direct Channels</Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl font-medium text-white mb-4" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-              National &amp; International <em className="text-[#D4AF37] not-italic">Contacts</em>
+              National &amp; International <em className="text-[#C8102E] not-italic">Contacts</em>
             </h2>
             <GoldRule className="max-w-xs mx-auto mt-6" />
           </Reveal>
@@ -221,14 +221,14 @@ export default function WhereToBuyPage() {
             <Reveal>
               <div className="border border-[#F8F6F2]/8 bg-[#0B0B0B] p-8 md:p-10 rounded-sm">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-10 h-10 flex items-center justify-center border border-[#D4AF37]/35 bg-[#D4AF37]/5 text-[#D4AF37]">
+                  <div className="w-10 h-10 flex items-center justify-center border border-[#C8102E]/35 bg-[#C8102E]/5 text-[#C8102E]">
                     <Compass className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="font-display text-2xl font-medium text-white leading-none" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                       National Offices
                     </h3>
-                    <p className="text-[9px] uppercase tracking-[0.25em] text-[#D4AF37] mt-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                    <p className="text-[9px] uppercase tracking-[0.25em] text-[#C8102E] mt-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                       Across India Project Support
                     </p>
                   </div>
@@ -238,18 +238,18 @@ export default function WhereToBuyPage() {
                   {CONTACTS_NATIONAL.map((contact, idx) => (
                     <div key={contact.office} className={`pt-6 ${idx === 0 ? 'pt-0' : ''}`}>
                       <h4 className="font-display text-lg font-medium text-[#F8F6F2] mb-2" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                        {contact.office} <span className="text-xs text-[#D4AF37]/75 font-body font-light tracking-wide block sm:inline sm:ml-2">({contact.location})</span>
+                        {contact.office} <span className="text-xs text-[#C8102E]/75 font-body font-light tracking-wide block sm:inline sm:ml-2">({contact.location})</span>
                       </h4>
                       <p className="text-xs text-[#A0A0A0] font-light leading-relaxed mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                         {contact.role}
                       </p>
                       <div className="grid gap-2 text-xs font-body text-[#A0A0A0] sm:grid-cols-2">
                         <div className="flex items-center gap-2">
-                          <Phone className="w-3.5 h-3.5 text-[#D4AF37]/60" />
+                          <Phone className="w-3.5 h-3.5 text-[#C8102E]/60" />
                           <span>{contact.phone}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Mail className="w-3.5 h-3.5 text-[#D4AF37]/60" />
+                          <Mail className="w-3.5 h-3.5 text-[#C8102E]/60" />
                           <a href={`mailto:${contact.email}`} className="hover:text-white transition-colors">{contact.email}</a>
                         </div>
                       </div>
@@ -263,14 +263,14 @@ export default function WhereToBuyPage() {
             <Reveal delay={0.1}>
               <div className="border border-[#F8F6F2]/8 bg-[#0B0B0B] p-8 md:p-10 rounded-sm">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-10 h-10 flex items-center justify-center border border-[#D4AF37]/35 bg-[#D4AF37]/5 text-[#D4AF37]">
+                  <div className="w-10 h-10 flex items-center justify-center border border-[#C8102E]/35 bg-[#C8102E]/5 text-[#C8102E]">
                     <Globe className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="font-display text-2xl font-medium text-white leading-none" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
                       International Liaisons
                     </h3>
-                    <p className="text-[9px] uppercase tracking-[0.25em] text-[#D4AF37] mt-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                    <p className="text-[9px] uppercase tracking-[0.25em] text-[#C8102E] mt-2 font-semibold" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                       Global Logistics &amp; Sourcing
                     </p>
                   </div>
@@ -280,18 +280,18 @@ export default function WhereToBuyPage() {
                   {CONTACTS_INTERNATIONAL.map((contact, idx) => (
                     <div key={contact.office} className={`pt-6 ${idx === 0 ? 'pt-0' : ''}`}>
                       <h4 className="font-display text-lg font-medium text-[#F8F6F2] mb-2" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                        {contact.office} <span className="text-xs text-[#D4AF37]/75 font-body font-light tracking-wide block sm:inline sm:ml-2">({contact.location})</span>
+                        {contact.office} <span className="text-xs text-[#C8102E]/75 font-body font-light tracking-wide block sm:inline sm:ml-2">({contact.location})</span>
                       </h4>
                       <p className="text-xs text-[#A0A0A0] font-light leading-relaxed mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                         {contact.role}
                       </p>
                       <div className="grid gap-2 text-xs font-body text-[#A0A0A0] sm:grid-cols-2">
                         <div className="flex items-center gap-2">
-                          <Phone className="w-3.5 h-3.5 text-[#D4AF37]/60" />
+                          <Phone className="w-3.5 h-3.5 text-[#C8102E]/60" />
                           <span>{contact.phone}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Mail className="w-3.5 h-3.5 text-[#D4AF37]/60" />
+                          <Mail className="w-3.5 h-3.5 text-[#C8102E]/60" />
                           <a href={`mailto:${contact.email}`} className="hover:text-white transition-colors">{contact.email}</a>
                         </div>
                       </div>
@@ -301,7 +301,7 @@ export default function WhereToBuyPage() {
 
                 <div className="mt-8 border-t border-[#F8F6F2]/8 pt-6">
                   <div className="flex items-center gap-3 p-4 bg-[#F8F6F2]/[0.02] border border-[#F8F6F2]/5 rounded-sm">
-                    <Sparkles className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                    <Sparkles className="w-4 h-4 text-[#C8102E] shrink-0" />
                     <p className="text-xs font-light leading-relaxed text-[#A0A0A0]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                       For customized shipping rates, sea freight logistics, or physical material swatch requests, connect with our export division at <a href="mailto:exports@amaraliv.com" className="text-white underline">exports@amaraliv.com</a>.
                     </p>

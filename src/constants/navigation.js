@@ -20,7 +20,6 @@ export const PAGE_SECTIONS = [
   'materials',
   'story',
   'furniture',
-  'surfaces',
   'testimonials',
   'contact',
 ];

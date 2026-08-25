@@ -106,7 +106,7 @@ export default function App() {
         href="https://wa.me/917397623509?text=Hello%20Amara%20Living%2C%20I%20would%20like%20to%20inquire%20about%20your%20design%20services."
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-cream border border-gold/40 shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4),0_0_20px_rgba(212,175,55,0.15)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(37,211,102,0.5),0_0_25px_rgba(212,175,55,0.25)] group"
+        className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-tr from-[#128C7E] to-[#25D366] text-cream border border-gold/40 shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4),0_0_20px_rgba(200,16,46,0.15)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-[0_15px_30px_-5px_rgba(37,211,102,0.5),0_0_25px_rgba(200,16,46,0.25)] group"
         aria-label="Chat on WhatsApp"
       >
         <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current transition-transform duration-300 group-hover:scale-105">

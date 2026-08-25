@@ -253,7 +253,7 @@ function PageIntro() {
       <div
         className="absolute bottom-0 left-0 w-[60vw] h-[60vh] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 0% 100%, rgba(212,175,55,0.13) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at 0% 100%, rgba(200,16,46,0.13) 0%, transparent 65%)',
         }}
       />
       {/* Subtle grid */}
@@ -279,7 +279,7 @@ function PageIntro() {
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
             }}
-            className="block text-[11px] font-bold uppercase tracking-[0.45em] text-[#D4AF37] mb-6"
+            className="block text-[11px] font-bold uppercase tracking-[0.45em] text-[#C8102E] mb-6"
             style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           >
             THE PEOPLE BEHIND AMARA LIVING
@@ -292,7 +292,7 @@ function PageIntro() {
             className="font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold text-white leading-[0.9] tracking-tight mb-8"
             style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
           >
-            Meet <em className="text-[#D4AF37] not-italic">Our People</em>
+            Meet <em className="text-[#C8102E] not-italic">Our People</em>
           </motion.h1>
           {/* Subtitle */}
           <motion.p
@@ -319,7 +319,7 @@ function PageIntro() {
           Scroll to explore team
         </span>
         <motion.div
-          className="w-px h-10 bg-gradient-to-b from-[#D4AF37] to-transparent"
+          className="w-px h-10 bg-gradient-to-b from-[#C8102E] to-transparent"
           animate={{ scaleY: [1, 0.3, 1] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
         />
@@ -334,15 +334,15 @@ function Timeline() {
     <section className="py-24 bg-[#0B0B0B]">
       <div className="wrap max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-16">
-          <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#D4AF37] mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+          <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#C8102E] mb-4" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             Our Journey
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-semibold text-[#FAF6F0]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-            Growing <em className="text-[#D4AF37] not-italic">Together</em>
+            Growing <em className="text-[#C8102E] not-italic">Together</em>
           </h2>
         </Reveal>
         <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#D4AF37]/40 to-transparent md:-translate-x-px" />
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#C8102E]/40 to-transparent md:-translate-x-px" />
           <div className="space-y-12">
             {COMPANY_TIMELINE.map((node, i) => {
               const isEven = i % 2 === 0;
@@ -350,13 +350,13 @@ function Timeline() {
                 <Reveal key={node.year} delay={i * 0.08}>
                   <div className={`relative flex items-start gap-6 md:gap-0 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     <div className={`flex-1 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'} pl-14 md:pl-0`}>
-                      <div className="inline-block bg-[#1A1A1A] border border-[#D4AF37]/20 rounded-2xl p-5 text-left hover:border-[#D4AF37]/50 transition-all duration-300">
-                        <span className="block text-2xl font-bold text-[#D4AF37] mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{node.year}</span>
+                      <div className="inline-block bg-[#1A1A1A] border border-[#C8102E]/20 rounded-2xl p-5 text-left hover:border-[#C8102E]/50 transition-all duration-300">
+                        <span className="block text-2xl font-bold text-[#C8102E] mb-1" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{node.year}</span>
                         <h3 className="text-base font-semibold text-[#FAF6F0] mb-2" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>{node.title}</h3>
                         <p className="text-xs font-light text-[#999] leading-[1.8]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>{node.desc}</p>
                       </div>
                     </div>
-                    <div className="absolute left-6 md:left-1/2 top-5 md:-translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#D4AF37] bg-[#0B0B0B] z-10" />
+                    <div className="absolute left-6 md:left-1/2 top-5 md:-translate-x-1/2 w-3 h-3 rounded-full border-2 border-[#C8102E] bg-[#0B0B0B] z-10" />
                     <div className="hidden md:block flex-1" />
                   </div>
                 </Reveal>
@@ -382,14 +382,14 @@ function JoinCTA() {
     <section id="careers" className="py-28 bg-[#FAF6F0] text-center">
       <div className="wrap max-w-3xl mx-auto px-4">
         <Reveal>
-          <div className="w-12 h-12 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] mx-auto mb-6">
+          <div className="w-12 h-12 rounded-full bg-[#C8102E]/10 flex items-center justify-center text-[#C8102E] mx-auto mb-6">
             <Sparkles size={20} />
           </div>
-          <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#D4AF37] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+          <span className="block text-[10px] font-bold uppercase tracking-[0.42em] text-[#C8102E] mb-5" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             Career Opportunities
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-[#0B0B0B] mb-6 leading-tight" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-            Want to Join <em className="text-[#D4AF37] not-italic">Our Team?</em>
+            Want to Join <em className="text-[#C8102E] not-italic">Our Team?</em>
           </h2>
           <p className="text-sm font-normal text-[#666] leading-[1.9] mb-10 max-w-lg mx-auto" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
             We're always looking for passionate people who believe in the power of great design, honest materials, and meaningful work.
@@ -401,8 +401,8 @@ function JoinCTA() {
             onMouseLeave={() => setMagnetPos({ x: 0, y: 0 })}
             animate={{ x: magnetPos.x, y: magnetPos.y }}
             transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
-            style={{ background: 'linear-gradient(135deg, #D4AF37, #B8912A)', boxShadow: '0 8px 32px -8px rgba(212,175,55,0.5)', fontFamily: 'Inter, system-ui, sans-serif' }}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E] focus-visible:ring-offset-2"
+            style={{ background: 'linear-gradient(135deg, #C8102E, #C8102E)', boxShadow: '0 8px 32px -8px rgba(200,16,46,0.5)', fontFamily: 'Inter, system-ui, sans-serif' }}
           >
             Get in Touch <ArrowUpRight size={14} />
           </motion.a>

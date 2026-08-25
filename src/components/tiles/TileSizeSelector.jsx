@@ -51,7 +51,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
           <div className="max-w-2xl">
             <span
               className="inline-block text-[11px] font-semibold tracking-[0.35em] uppercase mb-1.5"
-              style={{ color: '#B8941F', fontFamily: 'Inter, system-ui, sans-serif' }}
+              style={{ color: '#C8102E', fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               Format Selection
             </span>
@@ -70,20 +70,20 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
           </div>
 
           {/* Right: Architectural Material Size Selector with Compact Container Highlight */}
-          <div className="shrink-0 w-full lg:w-auto p-3.5 md:p-4 rounded-xl bg-gradient-to-b from-white via-[#FAF7F2] to-[#F5F0E6] border border-[#D4AF37]/35 shadow-[0_8px_25px_rgba(184,148,31,0.1)]">
+          <div className="shrink-0 w-full lg:w-auto p-3.5 md:p-4 rounded-xl bg-gradient-to-b from-white via-[#FAF7F2] to-[#F5F0E6] border border-[#C8102E]/35 shadow-[0_8px_25px_rgba(200,16,46,0.1)]">
             {/* Prominent Eyebrow Label */}
-            <div className="flex items-center justify-between gap-4 mb-2.5 pb-2 border-b border-[#B8941F]/15">
+            <div className="flex items-center justify-between gap-4 mb-2.5 pb-2 border-b border-[#C8102E]/15">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#B8941F] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#C8102E] animate-pulse" />
                 <span
-                  className="text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-[#B8941F]"
+                  className="text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-[#C8102E]"
                   style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                 >
                   SELECT SIZE
                 </span>
               </div>
               <span
-                className="text-[9px] md:text-[10px] font-semibold tracking-[0.18em] uppercase px-2 py-0.5 rounded-full bg-[#B8941F]/10 text-[#9E7B1A] border border-[#B8941F]/20"
+                className="text-[9px] md:text-[10px] font-semibold tracking-[0.18em] uppercase px-2 py-0.5 rounded-full bg-[#C8102E]/10 text-[#9E7B1A] border border-[#C8102E]/20"
                 style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
               >
                 2 Formats Available
@@ -104,8 +104,8 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                       cursor-pointer outline-none border flex flex-col justify-center min-w-[170px] sm:min-w-[195px] md:min-w-[210px]
                       ${
                         isActive
-                          ? 'bg-gradient-to-r from-white via-[#FFFDF8] to-[#FAF5EB] border-2 border-[#B8941F] shadow-[0_4px_18px_rgba(184,148,31,0.15)]'
-                          : 'bg-white/80 border-[#E2DDD3] hover:bg-white hover:border-[#B8941F]/50 shadow-2xs'
+                          ? 'bg-gradient-to-r from-white via-[#FFFDF8] to-[#FAF5EB] border-2 border-[#C8102E] shadow-[0_4px_18px_rgba(200,16,46,0.15)]'
+                          : 'bg-white/80 border-[#E2DDD3] hover:bg-white hover:border-[#C8102E]/50 shadow-2xs'
                       }
                     `}
                   >
@@ -114,7 +114,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                       <div className="flex items-center gap-1.5">
                         <span
                           className={`text-[9px] md:text-[10px] font-extrabold tracking-[0.2em] uppercase transition-colors duration-300 ${
-                            isActive ? 'text-[#B8941F]' : 'text-[#777777] group-hover:text-[#333333]'
+                            isActive ? 'text-[#C8102E]' : 'text-[#777777] group-hover:text-[#333333]'
                           }`}
                           style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                         >
@@ -131,7 +131,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                         </span>
                       </div>
                       {isActive && (
-                        <span className="px-1.5 py-0.5 rounded bg-[#B8941F] text-white text-[7.5px] font-bold tracking-wider uppercase shrink-0">
+                        <span className="px-1.5 py-0.5 rounded bg-[#C8102E] text-white text-[7.5px] font-bold tracking-wider uppercase shrink-0">
                           ACTIVE
                         </span>
                       )}
@@ -149,7 +149,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                       </span>
                       <span
                         className={`text-[8px] md:text-[9px] font-medium tracking-wider uppercase transition-colors duration-300 ${
-                          isActive ? 'text-[#B8941F]' : 'text-[#A0A0A0]'
+                          isActive ? 'text-[#C8102E]' : 'text-[#A0A0A0]'
                         }`}
                         style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                       >
@@ -161,7 +161,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                     {isActive && (
                       <motion.div
                         layoutId="activeSizeLine"
-                        className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#B8941F] via-[#D4AF37] to-[#B8941F] rounded-b-lg"
+                        className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#C8102E] via-[#C8102E] to-[#C8102E] rounded-b-lg"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -184,7 +184,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
           >
             {/* ── Card ── */}
             <div
-              className="group relative rounded-2xl overflow-hidden text-left shrink-0 w-full md:w-[380px] lg:w-[420px] ring-2 ring-[#D4AF37] shadow-lg"
+              className="group relative rounded-2xl overflow-hidden text-left shrink-0 w-full md:w-[380px] lg:w-[420px] ring-2 ring-[#C8102E] shadow-lg"
               style={{ background: '#fff' }}
             >
               {/* Image */}
@@ -205,14 +205,14 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                   >
                     {activeSize.title}
                   </span>
-                  <span className="w-8 h-8 rounded-full flex items-center justify-center bg-[#D4AF37] text-[#111]">
+                  <span className="w-8 h-8 rounded-full flex items-center justify-center bg-[#C8102E] text-[#111]">
                     <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
 
                 {/* Badges */}
                 <div
-                  className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#111]/80 text-[#D4AF37] text-[9px] font-semibold tracking-wider uppercase"
+                  className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#111]/80 text-[#C8102E] text-[9px] font-semibold tracking-wider uppercase"
                   style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                 >
                   <Check className="w-3 h-3" />
@@ -223,7 +223,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                     className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/80 text-[9px] font-semibold tracking-[0.15em] text-[#111] uppercase"
                     style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                   >
-                    {activeSize.id === '600x600' ? <Layers className="w-3 h-3 text-[#B8941F]" /> : <Maximize2 className="w-3 h-3 text-[#B8941F]" />}
+                    {activeSize.id === '600x600' ? <Layers className="w-3 h-3 text-[#C8102E]" /> : <Maximize2 className="w-3 h-3 text-[#C8102E]" />}
                     {activeSize.tag}
                   </span>
                 </div>
@@ -260,7 +260,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                 {/* Bottom */}
                 <div className="flex items-center justify-between pt-3 border-t border-black/[0.05]">
                   <span
-                    className="text-[9px] font-semibold tracking-[0.2em] text-[#B8941F] uppercase"
+                    className="text-[9px] font-semibold tracking-[0.2em] text-[#C8102E] uppercase"
                     style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                   >
                     {activeSize.dimensions}
@@ -268,7 +268,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                   <button
                     type="button"
                     onClick={onViewProducts}
-                    className="inline-flex items-center gap-1 text-[10px] font-bold tracking-wider text-[#111111] hover:text-[#B8941F] uppercase transition-colors"
+                    className="inline-flex items-center gap-1 text-[10px] font-bold tracking-wider text-[#111111] hover:text-[#C8102E] uppercase transition-colors"
                     style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                   >
                     View Products
@@ -283,7 +283,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
               {/* Headline */}
               <span
                 className="text-[10px] font-semibold tracking-[0.35em] uppercase block mb-2"
-                style={{ color: '#B8941F', fontFamily: 'Inter, system-ui, sans-serif' }}
+                style={{ color: '#C8102E', fontFamily: 'Inter, system-ui, sans-serif' }}
               >
                 {activeSize.dimensions} Specifications
               </span>
@@ -293,7 +293,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
               >
                 {extra.headline}
               </h3>
-              <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37] to-transparent mb-4" />
+              <div className="w-12 h-px bg-gradient-to-r from-[#C8102E] to-transparent mb-4" />
               <p
                 className="text-[13px] text-[#666] font-normal leading-[1.75] mb-6"
                 style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
@@ -309,7 +309,7 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                     className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-black/[0.06] shadow-xs"
                   >
                     <span className="w-8 h-8 rounded-lg bg-[#F8F6F2] flex items-center justify-center shrink-0">
-                      <spec.icon className="w-4 h-4 text-[#B8941F]" />
+                      <spec.icon className="w-4 h-4 text-[#C8102E]" />
                     </span>
                     <div>
                       <span
@@ -354,11 +354,11 @@ export default function TileSizeSelector({ selectedFormat, onSelectFormat, onVie
                 <button
                   type="button"
                   onClick={onViewProducts}
-                  className="px-6 py-2.5 rounded-full bg-[#111111] hover:bg-[#B8941F] text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all shadow-md shrink-0 flex items-center justify-center gap-2 group cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-[#111111] hover:bg-[#C8102E] text-white text-[10px] font-bold tracking-[0.2em] uppercase transition-all shadow-md shrink-0 flex items-center justify-center gap-2 group cursor-pointer"
                   style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                 >
                   Explore {activeSize.title} Products
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#D4AF37]" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-[#C8102E]" />
                 </button>
               </div>
             </div>

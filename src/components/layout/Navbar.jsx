@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Menu, X, ChevronDown } from 'lucide-react';
 import { useLenis } from '../../hooks/SmoothScroll';
 import { NAV_LINKS, PAGE_SECTIONS, COMPANY_DROPDOWN_LINKS, resolveNavSection } from '../../constants/navigation';
-import logoImg from '../../assets/images/amara-logo.png';
+import logoImg from '../../assets/logo/logo.png';
 import furnitureImg from '../../assets/furniture/00_hero.jpg';
 import tilesImg from '../../assets/tiles/AMARA_Image_01.jpg';
-import graniteImg from '../../assets/granite/Hawk_Image_04.jpg';
+import graniteImg from '../../assets/granite/AMARA_Image_10.jpg';
 import CompanyMegaMenu from './CompanyMegaMenu';
 
 export default function Navbar() {
@@ -130,11 +130,11 @@ export default function Navbar() {
         <nav
           className="wrap h-full flex items-center justify-between transition-all duration-500 ease-out"
         >
-          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 transform -translate-x-4 md:translate-x-0" aria-label="Amara Living home">
+          <a href={isSubpage ? '#/' : '#hero'} className="group shrink-0 flex items-center h-full" aria-label="Amara Living home">
             <img
               src={logoImg}
               alt="Amara Living"
-              className={`object-contain transition-all duration-500 ${scrolled ? 'h-20 md:h-24' : 'h-28 md:h-36'}`}
+              className={`object-contain transition-all duration-500 max-h-full py-1 ${scrolled ? 'h-14 md:h-16' : 'h-18 md:h-22'}`}
             />
           </a>
 
@@ -172,15 +172,15 @@ export default function Navbar() {
                       aria-expanded={isCompanyOpen}
                       className={`group relative font-body font-medium uppercase tracking-[0.16em] transition-all duration-500 hover:-translate-y-0.5 flex items-center gap-1.5 bg-transparent border-none cursor-pointer ${
                         scrolled ? 'text-xs xl:text-[13px]' : 'text-sm xl:text-[15px]'
-                      } ${isCompanyActive || isCompanyOpen ? 'text-[#B8912A] font-bold' : 'text-[#1A1A1A] hover:text-[#B8912A]'}`}
+                      } ${isCompanyActive || isCompanyOpen ? 'text-[#C8102E] font-bold' : 'text-[#1A1A1A] hover:text-[#C8102E]'}`}
                     >
                       {link.label}
                       <ChevronDown
                         size={14}
-                        className={`transition-transform duration-300 ${isCompanyOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}
+                        className={`transition-transform duration-300 ${isCompanyOpen ? 'rotate-180 text-[#C8102E]' : 'text-[#888]'}`}
                       />
                       <span
-                        className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#B8912A] w-full transition-transform duration-300 origin-left scale-x-0 group-hover/company:scale-x-100 ${
+                        className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#C8102E] w-full transition-transform duration-300 origin-left scale-x-0 group-hover/company:scale-x-100 ${
                           isCompanyActive || isCompanyOpen ? 'scale-x-100' : ''
                         }`}
                       />
@@ -239,13 +239,13 @@ export default function Navbar() {
                     aria-current={isActive ? 'true' : undefined}
                     className={`group relative font-body font-medium uppercase tracking-[0.16em] transition-all duration-500 hover:-translate-y-0.5 ${scrolled ? 'text-xs xl:text-[13px]' : 'text-sm xl:text-[15px]'
                       } ${isActive
-                        ? 'text-[#B8912A] font-bold'
-                        : 'text-[#1A1A1A] hover:text-[#B8912A]'
+                        ? 'text-[#C8102E] font-bold'
+                        : 'text-[#1A1A1A] hover:text-[#C8102E]'
                       }`}
                   >
                     {link.label}
                     <span
-                      className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#B8912A] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${isActive ? 'scale-x-100' : ''
+                      className={`absolute -bottom-1.5 left-0 h-[2px] bg-[#C8102E] w-full transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100 ${isActive ? 'scale-x-100' : ''
                         }`}
                     />
                   </a>
@@ -258,7 +258,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            className="lg:hidden p-2 text-[#0B0B0B] hover:text-[#B8912A] transition-colors focus:outline-none bg-transparent border-none cursor-pointer"
+            className="lg:hidden p-2 text-[#0B0B0B] hover:text-[#C8102E] transition-colors focus:outline-none bg-transparent border-none cursor-pointer"
             aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
           >
             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -283,14 +283,14 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-xs sm:max-w-sm h-full bg-[#FAF6F0] border-l border-[#B8912A]/30 p-6 flex flex-col justify-between overflow-y-auto shadow-2xl"
+              className="relative w-full max-w-xs sm:max-w-sm h-full bg-[#FAF6F0] border-l border-[#C8102E]/30 p-6 flex flex-col justify-between overflow-y-auto shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Drawer Top Header */}
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-[#0B0B0B]/10">
                   <a href="#/" onClick={() => setIsMobileMenuOpen(false)} className="block">
-                    <img src={logoImg} alt="Amara Living" className="h-16 object-contain" />
+                    <img src={logoImg} alt="Amara Living" className="h-12 sm:h-14 object-contain" />
                   </a>
                   <button
                     type="button"
@@ -309,7 +309,7 @@ export default function Navbar() {
                     <a
                       href="#/"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] py-2 transition-colors"
+                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#C8102E] py-2 transition-colors"
                       style={{ fontFamily: 'Inter, sans-serif' }}
                     >
                       Home
@@ -321,13 +321,13 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={() => setIsMobileCollectionsOpen((prev) => !prev)}
-                      className="w-full flex items-center justify-between py-2 text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] transition-colors border-none bg-transparent cursor-pointer text-left"
+                      className="w-full flex items-center justify-between py-2 text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#C8102E] transition-colors border-none bg-transparent cursor-pointer text-left"
                       style={{ fontFamily: 'Inter, sans-serif' }}
                     >
                       <span>Collections</span>
                       <ChevronDown
                         size={16}
-                        className={`transition-transform duration-300 ${isMobileCollectionsOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}
+                        className={`transition-transform duration-300 ${isMobileCollectionsOpen ? 'rotate-180 text-[#C8102E]' : 'text-[#888]'}`}
                       />
                     </button>
                     <AnimatePresence>
@@ -342,26 +342,26 @@ export default function Navbar() {
                           <a
                             href="#/tiles"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#C8102E] py-1.5 transition-colors"
                             style={{ fontFamily: 'Inter, sans-serif' }}
                           >
-                            • Premium Tiles
+                            • Amara Ceramics
                           </a>
                           <a
                             href="#/granite"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#C8102E] py-1.5 transition-colors"
                             style={{ fontFamily: 'Inter, sans-serif' }}
                           >
-                            • Natural Granites
+                            • Amara Natural Stone
                           </a>
                           <a
                             href="#/furniture"
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                            className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#C8102E] py-1.5 transition-colors"
                             style={{ fontFamily: 'Inter, sans-serif' }}
                           >
-                            • Handcrafted Furniture
+                            • Amara Furniture
                           </a>
                         </motion.div>
                       )}
@@ -373,13 +373,13 @@ export default function Navbar() {
                     <button
                       type="button"
                       onClick={() => setIsMobileCompanyOpen((prev) => !prev)}
-                      className="w-full flex items-center justify-between py-2 text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] transition-colors border-none bg-transparent cursor-pointer text-left"
+                      className="w-full flex items-center justify-between py-2 text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#C8102E] transition-colors border-none bg-transparent cursor-pointer text-left"
                       style={{ fontFamily: 'Inter, sans-serif' }}
                     >
                       <span>Company</span>
                       <ChevronDown
                         size={16}
-                        className={`transition-transform duration-300 ${isMobileCompanyOpen ? 'rotate-180 text-[#B8912A]' : 'text-[#888]'}`}
+                        className={`transition-transform duration-300 ${isMobileCompanyOpen ? 'rotate-180 text-[#C8102E]' : 'text-[#888]'}`}
                       />
                     </button>
                     <AnimatePresence>
@@ -406,7 +406,7 @@ export default function Navbar() {
                                   }, 250);
                                 }
                               }}
-                              className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#B8912A] py-1.5 transition-colors"
+                              className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#C8102E] py-1.5 transition-colors"
                               style={{ fontFamily: 'Inter, sans-serif' }}
                             >
                               • {item.label}
@@ -422,7 +422,7 @@ export default function Navbar() {
                     <a
                       href="#/where-to-buy"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] py-2 transition-colors"
+                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#C8102E] py-2 transition-colors"
                       style={{ fontFamily: 'Inter, sans-serif' }}
                     >
                       Experience Centers
@@ -441,7 +441,7 @@ export default function Navbar() {
                           el.scrollIntoView({ behavior: 'smooth' });
                         }
                       }}
-                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#B8912A] py-2 transition-colors"
+                      className="block text-sm font-bold uppercase tracking-[0.2em] text-[#0B0B0B] hover:text-[#C8102E] py-2 transition-colors"
                       style={{ fontFamily: 'Inter, sans-serif' }}
                     >
                       Contact Us
@@ -455,7 +455,7 @@ export default function Navbar() {
                 <a
                   href="#/consultation"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#B8912A] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-sm shadow-md hover:bg-[#0B0B0B] transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-[#C8102E] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-sm shadow-md hover:bg-[#0B0B0B] transition-colors"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   <span>Book Consultation</span>
@@ -487,17 +487,17 @@ export default function Navbar() {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-5xl mx-4 bg-[#FAF6F0] border border-[#B8912A]/30 p-8 md:p-14 text-center overflow-hidden rounded-sm shadow-[0_40px_80px_-20px_rgba(11,11,11,0.5)]"
+              className="relative w-full max-w-5xl mx-4 bg-[#FAF6F0] border border-[#C8102E]/30 p-8 md:p-14 text-center overflow-hidden rounded-sm shadow-[0_40px_80px_-20px_rgba(11,11,11,0.5)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Gold Ambient Radial Glow */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08),transparent_70%)] pointer-events-none" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(200,16,46,0.08),transparent_70%)] pointer-events-none" />
 
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setIsCollectionsOpen(false)}
-                className="absolute top-6 right-6 text-[#6B6B6B] hover:text-[#9A7B1E] transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 group bg-transparent border-none cursor-pointer"
+                className="absolute top-6 right-6 text-[#6B6B6B] hover:text-[#C8102E] transition-all duration-300 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 group bg-transparent border-none cursor-pointer"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 Close
@@ -506,16 +506,16 @@ export default function Navbar() {
 
               {/* Header */}
               <div className="mb-10 relative z-10">
-                <span className="block text-[10px] font-semibold uppercase tracking-[0.4em] text-[#9A7B1E] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <span className="block text-[10px] font-bold uppercase tracking-[0.4em] text-[#C8102E] mb-3" style={{ fontFamily: 'Inter, sans-serif' }}>
                   Atelier Portfolios
                 </span>
                 <h2
                   className="font-display text-3xl md:text-5xl font-medium tracking-tight text-[#0B0B0B] mb-5"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
-                  Explore Our <span className="italic text-[#B8912A]">Collections</span>
+                  Explore Amara Living <span className="italic text-[#C8102E]">Collections</span>
                 </h2>
-                <div className="h-px bg-gradient-to-r from-transparent via-[#D4AF37]/45 to-transparent w-40 mx-auto" />
+                <div className="h-px bg-gradient-to-r from-transparent via-[#C8102E]/45 to-transparent w-40 mx-auto" />
               </div>
 
               {/* Grid of 3 Cards */}
@@ -535,17 +535,17 @@ export default function Navbar() {
               >
                 {[
                   {
-                    title: 'Premium Tiles',
+                    title: 'Amara Ceramics',
                     image: tilesImg,
                     href: '#/tiles',
                   },
                   {
-                    title: 'Natural Granites',
+                    title: 'Amara Natural Stone',
                     image: graniteImg,
                     href: '#/granite',
                   },
                   {
-                    title: 'Custom Handcrafted Furniture',
+                    title: 'Amara Furniture',
                     image: furnitureImg,
                     href: '#/furniture',
                   },
@@ -560,7 +560,7 @@ export default function Navbar() {
                     <a
                       href={col.href}
                       onClick={() => setIsCollectionsOpen(false)}
-                      className="group block relative overflow-hidden bg-white border border-[#0B0B0B]/10 hover:border-[#B8912A]/60 p-5 rounded-sm transition-all duration-500 shadow-[0_8px_20px_-10px_rgba(11,11,11,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(11,11,11,0.25)] cursor-pointer"
+                      className="group block relative overflow-hidden bg-white border border-[#0B0B0B]/10 hover:border-[#C8102E]/60 p-5 rounded-sm transition-all duration-500 shadow-[0_8px_20px_-10px_rgba(11,11,11,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(11,11,11,0.25)] cursor-pointer"
                     >
                       {/* Image container */}
                       <div className="relative aspect-[4/3] overflow-hidden mb-5">
@@ -574,13 +574,13 @@ export default function Navbar() {
                       
                       {/* Collection label */}
                       <h3
-                        className="font-display text-xl font-medium text-[#0B0B0B] group-hover:text-[#9A7B1E] leading-tight min-h-[2.5rem] flex items-center justify-center transition-colors duration-500"
+                        className="font-display text-xl font-medium text-[#0B0B0B] group-hover:text-[#C8102E] leading-tight min-h-[2.5rem] flex items-center justify-center transition-colors duration-500"
                         style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                       >
                         {col.title}
                       </h3>
 
-                      <div className="mt-4 flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.2em] text-[#9A7B1E] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      <div className="mt-4 flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.2em] text-[#C8102E] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0" style={{ fontFamily: 'Inter, sans-serif' }}>
                         <span>Explore</span>
                         <ArrowUpRight className="w-3 h-3" />
                       </div>
