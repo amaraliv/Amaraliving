@@ -3,14 +3,14 @@
  * Stores predefined business questions, keyword mappings, quick action chips, and default responses.
  */
 
-export const WELCOME_MESSAGE = "👋 Hi! I'm Radhikka from Amara Living.\nHow can I help you today?";
+export const WELCOME_MESSAGE = "👋 Hi! I'm Anika from Amara Living.\nHow can I help you today?";
 
 export const DEFAULT_RESPONSE = "I'm sorry, I couldn't understand that. Please contact our support team for detailed assistance.";
 
 export const QUICK_ACTIONS = [
   "View Products",
-  "Granite Collection",
   "Tiles Collection",
+  "Granite Collection",
   "Furniture Collection",
   "Delivery",
   "Contact Us",

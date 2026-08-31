@@ -6,7 +6,7 @@ export const FOOTER_STUDIOS = [
 
 export const FOOTER_COLLECTIONS = [
   'Amara Ceramics',
-  'Amara Natural Stone',
+  'Amara Stone',
   'Amara Furniture',
 ];
 
