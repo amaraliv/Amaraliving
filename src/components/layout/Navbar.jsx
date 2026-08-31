@@ -353,7 +353,7 @@ export default function Navbar() {
                             className="block text-xs font-semibold uppercase tracking-wider text-[#444] hover:text-[#C8102E] py-1.5 transition-colors"
                             style={{ fontFamily: 'Inter, sans-serif' }}
                           >
-                            • Amara Natural Stone
+                            • Amara Stone
                           </a>
                           <a
                             href="#/furniture"
@@ -513,7 +513,7 @@ export default function Navbar() {
                   className="font-display text-3xl md:text-5xl font-medium tracking-tight text-[#0B0B0B] mb-5"
                   style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                 >
-                  Explore Amara Living <span className="italic text-[#C8102E]">Collections</span>
+                  Amara <span className="italic text-[#C8102E]">Living</span>
                 </h2>
                 <div className="h-px bg-gradient-to-r from-transparent via-[#C8102E]/45 to-transparent w-40 mx-auto" />
               </div>
@@ -535,17 +535,20 @@ export default function Navbar() {
               >
                 {[
                   {
-                    title: 'Amara Ceramics',
+                    prefix: 'Amara ',
+                    highlight: 'Ceramics',
                     image: tilesImg,
                     href: '#/tiles',
                   },
                   {
-                    title: 'Amara Natural Stone',
+                    prefix: 'Amara ',
+                    highlight: 'Stone',
                     image: graniteImg,
                     href: '#/granite',
                   },
                   {
-                    title: 'Amara Furniture',
+                    prefix: 'Amara ',
+                    highlight: 'Furniture',
                     image: furnitureImg,
                     href: '#/furniture',
                   },
@@ -566,7 +569,7 @@ export default function Navbar() {
                       <div className="relative aspect-[4/3] overflow-hidden mb-5">
                         <img
                           src={col.image}
-                          alt={col.title}
+                          alt={`${col.prefix}${col.highlight}`}
                           className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-[#0B0B0B]/10 group-hover:bg-transparent transition-all duration-500" />
@@ -574,10 +577,10 @@ export default function Navbar() {
                       
                       {/* Collection label */}
                       <h3
-                        className="font-display text-xl font-medium text-[#0B0B0B] group-hover:text-[#C8102E] leading-tight min-h-[2.5rem] flex items-center justify-center transition-colors duration-500"
+                        className="font-display text-xl font-medium text-[#0B0B0B] leading-tight min-h-[2.5rem] flex items-center justify-center transition-colors duration-500"
                         style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
                       >
-                        {col.title}
+                        {col.prefix}<span className="text-[#C8102E] ml-1">{col.highlight}</span>
                       </h3>
 
                       <div className="mt-4 flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.2em] text-[#C8102E] opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0" style={{ fontFamily: 'Inter, sans-serif' }}>

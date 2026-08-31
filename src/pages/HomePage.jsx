@@ -61,7 +61,7 @@ function GoldRule({ className = '' }) {
 /* ────────── DATA ────────── */
 const FEATURED_CATEGORIES = [
   { id: '01', label: 'Tiles', title: 'Amara Ceramics', href: '#/tiles', image: tilesCategoryImg },
-  { id: '02', label: 'Granite', title: 'Amara Natural Stone', href: '#/granite', image: graniteCategoryImg },
+  { id: '02', label: 'Granite', title: 'Amara Stone', href: '#/granite', image: graniteCategoryImg },
   { id: '03', label: 'Furniture', title: 'Amara Furniture', href: '#/furniture', image: furnitureCategoryImg },
 ];
 
@@ -97,12 +97,12 @@ const INTERIOR_SECTIONS = [
     btnLabel: 'Amara Ceramics',
   },
   {
-    eyebrow: '02 — Amara Natural Stone',
+    eyebrow: '02 — Amara Stone',
     title: 'Natural Granite & Stones',
     desc: 'Hand-selected natural granite slabs and rare stone quarries. Precision cut, mirror-polished, and finished to perfection for luxurious countertops, feature walls, and grand structures.',
     image: graniteCategoryImg,
     href: '#/granite',
-    btnLabel: 'Amara Natural Stone',
+    btnLabel: 'Amara Stone',
   },
   {
     eyebrow: '03 — Amara Furniture',

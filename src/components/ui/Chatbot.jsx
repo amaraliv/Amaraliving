@@ -215,9 +215,15 @@ export default function Chatbot() {
               className="relative px-5 py-3.5 bg-gradient-to-r from-[#F4F1EA] via-[#ECE7DC] to-[#F4F1EA] border-b border-[#C8102E]/25 flex items-center justify-between shrink-0 cursor-grab active:cursor-grabbing select-none"
             >
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#C8102E]/50 shadow-sm shrink-0">
-                  <img src={radhikkaDp} alt="Anika" className="w-full h-full object-cover" />
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
+                <div className="relative shrink-0">
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-[#C8102E]/30 bg-white shadow-xs">
+                    <img src={radhikkaDp} alt="Anika" className="w-full h-full object-cover object-top" />
+                  </div>
+                  {/* Available green dot: positioned separately above the image, half on it and half outside */}
+                  <span
+                    aria-label="Available"
+                    className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#10B981] border-2 border-white shadow-sm z-10 ring-1 ring-black/5"
+                  />
                 </div>
                 <div>
                   <h3
@@ -228,7 +234,7 @@ export default function Chatbot() {
                     <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
                   </h3>
                   <p className="text-[11px] text-[#666666] tracking-wider uppercase font-medium">
-                    Furniture • Granite • Tiles
+                    Tiles • Granite • Furniture
                   </p>
                 </div>
               </div>
@@ -285,8 +291,8 @@ export default function Chatbot() {
                         <User className="w-3.5 h-3.5" />
                       </div>
                     ) : (
-                      <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#C8102E]/40 shadow-xs">
-                        <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
+                      <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#C8102E]/30 shadow-xs bg-white">
+                        <img src={radhikkaDp} alt="Anika" className="w-full h-full object-cover object-top" />
                       </div>
                     )}
 
@@ -344,8 +350,8 @@ export default function Chatbot() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2.5"
                 >
-                  <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#C8102E]/40">
-                    <img src={radhikkaDp} alt="Radhikka" className="w-full h-full object-cover" />
+                  <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 border border-[#C8102E]/30 shadow-xs bg-white">
+                    <img src={radhikkaDp} alt="Anika" className="w-full h-full object-cover object-top" />
                   </div>
                   <div className="bg-white border border-[#E5E0D5] px-4 py-3 rounded-2xl rounded-tl-none flex items-center gap-1.5 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#C8102E] animate-pulse" />
