@@ -13,10 +13,11 @@ const APPLICATIONS = [
   { id: 'balcony',      name: 'Balcony / SOA',      label: 'Sitout Area',     highlight: false, image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80' },
   { id: 'parking',      name: 'Parking',            label: 'Heavy Load',      highlight: false, image: 'https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80' },
   { id: 'commercial',   name: 'Commercial / BPT',   label: 'Budget Friendly', highlight: true,  image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80' },
-  { id: 'wooden-room',  name: 'Wooden Room',        label: 'Wood Look',       highlight: false, image: 'https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=600&q=80' },
+  { id: 'wooden-plank', name: 'Wooden Plank',       label: 'Wood Look',       highlight: false, image: 'https://images.unsplash.com/photo-1541123437800-1bb1317badc2?auto=format&fit=crop&w=600&q=80' },
   { id: 'hotel',        name: 'Hotel / Kitchen',    label: 'Hospitality',     highlight: false, image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80' },
   { id: 'slab',         name: 'Slab',               label: 'Large Format',    highlight: true,  image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80' },
-  { id: 'elevator',     name: 'Elevator / Terrace / CCR', label: 'Cool Roof', highlight: false, image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80' },
+  { id: 'elevation',    name: 'Elevation / Exterior', label: 'Exterior Facade', highlight: false, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80' },
+  { id: 'terrace',      name: 'Terrace / Cool Roof', label: 'Cool Roof',      highlight: false, image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=600&q=80' },
 ];
 
 /* ─────────── TILE MASTER DATA ─────────── */
@@ -50,10 +51,11 @@ const APP_MAPPING = {
   "balcony": ["F", "G", "M"],
   "parking": ["L", "G", "F"],
   "commercial": ["D", "E"],
-  "wooden-room": ["M"],
+  "wooden-plank": ["M"],
   "hotel": ["A", "B", "D", "I"],
   "slab": ["A", "B", "C"],
-  "elevator": ["K"]
+  "elevation": ["A", "B", "C", "D", "H"],
+  "terrace": ["K", "G", "F"]
 };
 
 /* ─────────── PRODUCTS DATA ─────────── */
@@ -115,7 +117,7 @@ const PRODUCT_DATABASE = [
 ];
 
 /* ─────────── APPLICATION CARD ─────────── */
-function AppCard({ item, index, onClick }) {
+function AppCard({ item, index, isSelected, onClick }) {
   return (
     <motion.button
       onClick={() => onClick(item)}
@@ -126,10 +128,12 @@ function AppCard({ item, index, onClick }) {
       className="group relative flex w-full flex-col text-left transition-all duration-300 ease-out cursor-pointer"
     >
       {/* Image area */}
-      <div className={`relative h-[130px] sm:h-[140px] md:h-[150px] w-full shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-[1.02]
-        ${item.highlight 
-          ? 'ring-2 ring-[#C8102E] shadow-[0_8px_25px_-5px_rgba(200,16,46,0.35)]' 
-          : 'ring-1 ring-black/5 shadow-sm group-hover:ring-[#C8102E]/40'}
+      <div className={`relative h-[140px] sm:h-[150px] md:h-[165px] w-full shrink-0 overflow-hidden rounded-2xl transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-[1.02]
+        ${isSelected
+          ? 'ring-2 ring-[#C8102E] shadow-[0_8px_25px_-5px_rgba(200,16,46,0.45)] scale-[1.02]'
+          : item.highlight 
+            ? 'ring-2 ring-[#C8102E]/70 shadow-[0_8px_25px_-5px_rgba(200,16,46,0.35)]' 
+            : 'ring-1 ring-black/5 shadow-sm group-hover:ring-[#C8102E]/40'}
       `}>
         <img
           src={item.image}
@@ -142,22 +146,26 @@ function AppCard({ item, index, onClick }) {
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 via-black/15 to-transparent pointer-events-none" />
         <span className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/15 pointer-events-none" />
 
-        {item.highlight && (
-          <span className="absolute left-3 top-3 z-20 inline-flex items-center gap-1 rounded-full bg-[#C8102E] text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest shadow-md border border-white/20">
-            <span className="text-[10px] leading-none">★</span> Featured
+        {isSelected ? (
+          <span className="absolute left-3 top-3 z-20 inline-flex items-center gap-1 rounded-full bg-[#C8102E] text-white px-3 py-1 text-[11px] font-extrabold uppercase tracking-widest shadow-md border border-white/20">
+            Selected
           </span>
-        )}
+        ) : item.highlight ? (
+          <span className="absolute left-3 top-3 z-20 inline-flex items-center gap-1 rounded-full bg-[#C8102E] text-white px-3 py-1 text-[11px] font-extrabold uppercase tracking-widest shadow-md border border-white/20">
+            <span className="text-[11px] leading-none">★</span> Featured
+          </span>
+        ) : null}
 
-        <span className="absolute right-3 top-3 z-20 flex h-8 w-8 translate-y-[-4px] items-center justify-center rounded-full bg-white/95 text-[#1A1A1A] opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <ArrowUpRight className="h-4 w-4 text-[#C8102E] transition-transform duration-300 group-hover:rotate-45" />
+        <span className={`absolute right-3 top-3 z-20 flex h-8.5 w-8.5 items-center justify-center rounded-full bg-white/95 text-[#1A1A1A] shadow-lg backdrop-blur-md transition-all duration-300 ${isSelected ? 'opacity-100 bg-[#C8102E] text-white' : 'opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-[-4px]'}`}>
+          <ArrowUpRight className={`h-4.5 w-4.5 transition-transform duration-300 ${isSelected ? 'rotate-90 text-white' : 'group-hover:rotate-45 text-[#C8102E]'}`} />
         </span>
       </div>
 
       {/* Label plate */}
-      <div className="relative flex flex-1 items-center gap-2.5 px-1 py-2.5 transition-colors duration-300">
+      <div className="relative flex flex-1 items-center gap-3 px-1 py-3 transition-colors duration-300">
         <span
-          className={`shrink-0 text-base font-bold leading-none tabular-nums transition-colors duration-300 pt-0.5
-            ${item.highlight ? 'text-[#C8102E]' : 'text-[#A09A8F] group-hover:text-[#C8102E]'}`}
+          className={`shrink-0 text-lg sm:text-xl font-bold leading-none tabular-nums transition-colors duration-300 pt-0.5
+            ${isSelected || item.highlight ? 'text-[#C8102E]' : 'text-[#A09A8F] group-hover:text-[#C8102E]'}`}
           style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
         >
           {String(index + 1).padStart(2, '0')}
@@ -165,8 +173,8 @@ function AppCard({ item, index, onClick }) {
 
         <div className="min-w-0 flex-1">
           <p
-            className={`truncate text-base font-bold leading-tight tracking-tight transition-colors duration-300
-              ${item.highlight ? 'text-[#C8102E]' : 'text-[#1A1A1A] group-hover:text-[#C8102E]'}`}
+            className={`truncate text-lg sm:text-xl md:text-[22px] font-bold leading-tight tracking-tight transition-colors duration-300
+              ${isSelected || item.highlight ? 'text-[#C8102E]' : 'text-[#1A1A1A] group-hover:text-[#C8102E]'}`}
             style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
           >
             {item.name}
@@ -208,7 +216,7 @@ function TileGlyph({ dims, highlight }) {
   );
 }
 
-/* ─────────── TILE FORMAT ITEM (BORDERLESS / SPACE-BASED) ─────────── */
+/* ─────────── TILE FORMAT ITEM (ONLY SHAPE & TEXT) ─────────── */
 function ModalTileCard({ format, onClick }) {
   const cleanDims = format.dims.replace(' mm', '');
 
@@ -223,7 +231,7 @@ function ModalTileCard({ format, onClick }) {
       {/* 2. Dimensions & Unit */}
       <div className="mt-3 mb-1 flex flex-col items-center">
         <h4
-          className={`text-2xl sm:text-3xl font-extrabold leading-tight transition-colors ${
+          className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight transition-colors ${
             format.highlight 
               ? 'text-[#C8102E]' 
               : 'text-[#1A1A1A] group-hover:text-[#C8102E]'
@@ -233,10 +241,10 @@ function ModalTileCard({ format, onClick }) {
           {cleanDims}
         </h4>
         <p
-          className={`text-[11px] uppercase tracking-[0.22em] mt-1 ${
+          className={`text-[12px] sm:text-[13px] uppercase tracking-[0.22em] mt-1 ${
             format.highlight 
               ? 'text-[#C8102E] font-black' 
-              : 'text-[#888888] font-bold'
+              : 'text-[#777777] font-extrabold'
           }`}
         >
           {format.unit}
@@ -247,10 +255,10 @@ function ModalTileCard({ format, onClick }) {
       <div className="min-h-[28px] flex items-center justify-center mt-1">
         {format.tag ? (
           <span
-            className={`inline-block px-3 py-1 rounded-[4px] text-[9px] font-black uppercase tracking-[0.16em] transition-all duration-300 ${
+            className={`inline-block px-3 py-1 rounded-[4px] text-[10px] font-black uppercase tracking-[0.16em] transition-all duration-300 ${
               format.highlight
                 ? 'bg-[#C8102E] text-white shadow-[0_3px_10px_rgba(200,16,46,0.4)]'
-                : 'bg-[#EAE6DF] text-[#555555]'
+                : 'bg-[#EAE6DF] text-[#444444]'
             }`}
           >
             {format.tag}
@@ -259,9 +267,9 @@ function ModalTileCard({ format, onClick }) {
       </div>
 
       {/* Hover action pill */}
-      <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-1 text-[10px] font-bold text-[#C8102E] uppercase tracking-widest">
+      <div className="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-1 text-[11px] font-extrabold text-[#C8102E] uppercase tracking-widest">
         <span>View Products</span>
-        <ArrowUpRight className="w-3 h-3" />
+        <ArrowUpRight className="w-3.5 h-3.5" />
       </div>
     </div>
   );
@@ -271,16 +279,20 @@ function ModalTileCard({ format, onClick }) {
 function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
   const [copiedId, setCopiedId] = useState(null);
   const [showCatalogModal, setShowCatalogModal] = useState(false);
-  const [activeFinish, setActiveFinish] = useState('All Finishes');
+  const [activeFormat, setActiveFormat] = useState(selectedFormat);
 
-  // Derive finishes dynamically for the filter
-  const uniqueFinishes = [...new Set(PRODUCT_DATABASE.map(p => p.finish))];
-  const allFinishes = ['All Finishes', ...uniqueFinishes];
+  useEffect(() => {
+    setActiveFormat(selectedFormat);
+  }, [selectedFormat]);
 
-  // Filter products by selected finish
-  const displayProducts = activeFinish === 'All Finishes' 
-    ? PRODUCT_DATABASE 
-    : PRODUCT_DATABASE.filter(p => p.finish === activeFinish);
+  // Derive available format shapes for selectedApp category
+  const categoryFormatIds = (selectedApp?.id && selectedApp?.id !== 'all' && APP_MAPPING[selectedApp.id])
+    ? APP_MAPPING[selectedApp.id]
+    : Object.keys(TILE_FORMATS);
+
+  const categoryFormats = categoryFormatIds.map(id => TILE_FORMATS[id]).filter(Boolean);
+
+  const displayProducts = PRODUCT_DATABASE;
 
   const handleEnquire = (id) => {
     setCopiedId(id);
@@ -311,10 +323,10 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
             <span className="hidden md:inline-block w-2.5 h-2.5 rounded-full bg-[#C8102E] animate-pulse" />
             <div>
               <span className="text-[10px] font-semibold text-[#C8102E] uppercase tracking-[0.38em] block leading-none mb-1">
-                {selectedApp?.name} Surface Collection
+                {selectedApp?.name || 'Ceramic'} Surface Collection
               </span>
               <h3 className="text-lg sm:text-xl font-light text-[#111111] leading-none tracking-tight font-display" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                {selectedFormat.dims} <span className="text-xs font-normal text-neutral-600 font-sans ml-1">({selectedFormat.unit})</span>
+                {activeFormat.dims} <span className="text-xs font-normal text-neutral-600 font-sans ml-1">({activeFormat.unit})</span>
               </h3>
             </div>
           </div>
@@ -332,7 +344,7 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
       {/* ── 2. SPLIT SCREEN EDITORIAL SHOWCASE ── */}
       <div className="flex-1 flex flex-col lg:flex-row w-full h-full overflow-hidden">
         
-        {/* LEFT COLUMN: FIXED EDITORIAL CONTENT & FILTERS */}
+        {/* LEFT COLUMN: FIXED EDITORIAL CONTENT & CATEGORY LISTED SIZES */}
         <div className="w-full lg:w-[380px] xl:w-[420px] shrink-0 p-8 lg:p-10 border-r border-black/10 flex flex-col justify-between bg-[#F4F1EA] overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -341,29 +353,49 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
             </div>
             
             <h2 className="text-4xl xl:text-5xl font-light tracking-tight text-[#111111] mb-3" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-              {selectedFormat.dims}
+              {activeFormat.dims}
             </h2>
-            <p className="text-sm text-neutral-600 mb-10 leading-relaxed">
-              Discover our exclusive ceramic collection engineered for the <span className="font-semibold text-[#111111]">{selectedFormat.dims}</span> format. Impeccable craftsmanship tailored for luxury {selectedApp?.name?.toLowerCase() || 'interior'} spaces.
+            <p className="text-sm text-neutral-600 mb-8 leading-relaxed">
+              Discover our exclusive ceramic collection engineered for the <span className="font-semibold text-[#111111]">{activeFormat.dims}</span> format. Impeccable craftsmanship tailored for luxury {selectedApp?.name?.toLowerCase() || 'interior'} spaces.
             </p>
 
-            {/* Filter Section */}
+            {/* Category Listed Sizes Selector */}
             <div className="mb-10">
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">Filter by Finish</h4>
-              <div className="flex flex-col gap-1.5">
-                {allFinishes.map(finish => (
-                  <button 
-                    key={finish}
-                    onClick={() => setActiveFinish(finish)}
-                    className={`text-left px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
-                      activeFinish === finish 
-                        ? 'bg-[#111111] text-white shadow-md'
-                        : 'bg-transparent text-neutral-600 hover:bg-black/5 hover:text-[#111111]'
-                    }`}
-                  >
-                    {finish}
-                  </button>
-                ))}
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4">
+                Sizes in {selectedApp?.name || 'Category'} ({categoryFormats.length})
+              </h4>
+              <div className="flex flex-col gap-2">
+                {categoryFormats.map((fmt) => {
+                  const isSelected = activeFormat.id === fmt.id;
+                  return (
+                    <button 
+                      key={fmt.id}
+                      onClick={() => setActiveFormat(fmt)}
+                      className={`text-left px-4 py-3 rounded-xl transition-all duration-300 cursor-pointer flex items-center justify-between border ${
+                        isSelected 
+                          ? 'bg-[#111111] text-white border-[#111111] shadow-md'
+                          : 'bg-white/60 text-neutral-700 border-black/8 hover:bg-white hover:text-[#C8102E] hover:border-[#C8102E]/30'
+                      }`}
+                    >
+                      <div>
+                        <span className="text-base font-bold block leading-none" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+                          {fmt.dims}
+                        </span>
+                        <span className={`text-[10px] uppercase font-bold tracking-wider mt-1 block ${isSelected ? 'text-neutral-300' : 'text-neutral-400'}`}>
+                          {fmt.unit}
+                        </span>
+                      </div>
+
+                      {fmt.tag && (
+                        <span className={`px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider ${
+                          isSelected ? 'bg-[#C8102E] text-white' : 'bg-stone-200 text-neutral-600'
+                        }`}>
+                          {fmt.tag}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -390,7 +422,7 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
         <div className="flex-1 bg-[#FAFAF8] overflow-y-auto p-6 sm:p-8 lg:p-10" style={{ scrollbarWidth: 'none' }}>
           {displayProducts.length === 0 ? (
             <div className="h-full flex items-center justify-center text-neutral-400">
-              No products match this finish.
+              No products match this format.
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 lg:gap-8 max-w-[1400px] mx-auto pb-10">
@@ -411,7 +443,7 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
                         {product.finish}
                       </span>
                       <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-black/10 text-[10px] font-mono tracking-wider text-neutral-700 shadow-xs">
-                        {selectedFormat.unit}
+                        {activeFormat.unit}
                       </span>
                     </div>
                   </div>
@@ -460,7 +492,7 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
       <div className="px-6 sm:px-12 py-3.5 border-t border-black/10 bg-[#F4F1EA] flex items-center justify-between text-xs text-neutral-600 shrink-0">
         <div className="flex items-center gap-2.5">
           <span className="w-2 h-2 rounded-full bg-[#C8102E]" />
-          <span>Format {selectedFormat.dims} ({selectedFormat.unit}) — {displayProducts.length} Surfaces Available</span>
+          <span>Format {activeFormat.dims} ({activeFormat.unit}) — {displayProducts.length} Surfaces Available</span>
         </div>
         <button
           onClick={onClose}
@@ -493,7 +525,7 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
                 Amara Living Architectural Specs
               </h3>
               <p className="text-xs text-[#666] leading-relaxed mb-6 font-sans">
-                The official 2026 architectural specification document for {selectedFormat.dims} includes complete engineering tolerances, stain resistance certifications, and BIM/CAD files.
+                The official 2026 architectural specification document for {activeFormat.dims} includes complete engineering tolerances, stain resistance certifications, and BIM/CAD files.
               </p>
               <div className="flex flex-col gap-3">
                 <a
@@ -517,46 +549,58 @@ function ProductDisplayView({ selectedApp, selectedFormat, onBack, onClose }) {
     </motion.div>
   );
 }
+
 /* ─────────── MAIN COMPONENT ─────────── */
 export default function TileCatalogSelector() {
-  const [selectedApp, setSelectedApp] = useState(null);
+  const [selectedAppId, setSelectedAppId] = useState('living-room');
   const [selectedFormat, setSelectedFormat] = useState(null);
 
-  // Reset selected format when opening modal
-  const handleOpenApp = (app) => {
-    setSelectedApp(app);
+  const selectedApp = APPLICATIONS.find(a => a.id === selectedAppId) || null;
+
+  // Select application category and smooth scroll down to formats section
+  const handleSelectApp = (appId) => {
+    setSelectedAppId(appId);
     setSelectedFormat(null);
+    setTimeout(() => {
+      const sectionEl = document.getElementById('tile-formats-section');
+      if (sectionEl) {
+        sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
   };
 
-  // Close modal on escape
+  // Derive active formats based on category filter tab
+  const activeFormatIds = (selectedAppId && selectedAppId !== 'all' && APP_MAPPING[selectedAppId])
+    ? APP_MAPPING[selectedAppId]
+    : Object.keys(TILE_FORMATS);
+
+  // Handle ESC key for format popup view
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         if (selectedFormat) {
           setSelectedFormat(null);
-        } else {
-          setSelectedApp(null);
         }
       }
     };
-    if (selectedApp) {
-      document.addEventListener('keydown', handleKeyDown);
+    if (selectedFormat) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
-  }, [selectedApp, selectedFormat]);
+  }, [selectedFormat]);
 
   return (
     <section id="catalog-selector" className="relative bg-[#FBFBFA] pb-16 pt-8 md:pb-20 md:pt-10">
       {/* Soft ambient wash */}
       <div className="pointer-events-none absolute inset-0 opacity-60" style={{ background: 'radial-gradient(1200px 500px at 15% 0%, rgba(139,30,45,0.04), transparent 60%), radial-gradient(1000px 500px at 90% 20%, rgba(139,30,45,0.03), transparent 55%)' }} />
 
-      {/* Section Header */}
+      {/* ─────────── 1. SHOP BY APPLICATION CARDS GRID ─────────── */}
       <div className="wrap relative mb-8 md:mb-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -591,98 +635,162 @@ export default function TileCatalogSelector() {
       <div className="wrap relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {APPLICATIONS.map((item, i) => (
-            <AppCard key={item.id} item={item} index={i} onClick={handleOpenApp} />
+            <AppCard
+              key={item.id}
+              item={item}
+              index={i}
+              isSelected={selectedAppId === item.id}
+              onClick={() => handleSelectApp(item.id)}
+            />
           ))}
         </div>
       </div>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedApp && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 md:p-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => {
-                setSelectedFormat(null);
-                setSelectedApp(null);
-              }}
-              className="absolute inset-0 bg-black/65 backdrop-blur-md"
-            />
-            
-            <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 24, scale: 0.96 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-4xl bg-white rounded-3xl shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] border border-stone-200/80 flex flex-col max-h-[88vh] z-10 overflow-hidden"
-            >
-              {selectedFormat ? (
-                /* FULL SCREEN PRODUCT DISPLAY VIEW WHEN SHAPE IS CLICKED */
-                <ProductDisplayView
-                  selectedApp={selectedApp}
-                  selectedFormat={selectedFormat}
-                  onBack={() => setSelectedFormat(null)}
-                  onClose={() => {
-                    setSelectedFormat(null);
-                    setSelectedApp(null);
-                  }}
-                />
-              ) : (
-                /* AVAILABLE TILE FORMATS SELECTION VIEW */
-                <>
-                  {/* Header */}
-                  <div className="px-8 py-6 border-b border-stone-100 flex items-center justify-between bg-white rounded-t-3xl relative z-10">
-                    <div>
-                      <span className="text-[11px] font-bold text-[#C8102E] uppercase tracking-[0.25em] block mb-1" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                        Available Tile Formats
-                      </span>
-                      <h3 className="text-3xl font-bold text-[#1A1A1A] leading-tight" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
-                        {selectedApp.name} <span className="text-sm font-normal text-[#888] font-sans ml-2">({APP_MAPPING[selectedApp.id]?.length || 0} Formats)</span>
-                      </h3>
-                    </div>
-                    <button
-                      onClick={() => setSelectedApp(null)}
-                      className="p-2.5 -mr-2 text-[#777] hover:text-[#C8102E] hover:bg-stone-100 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer"
-                      aria-label="Close modal"
-                    >
-                      <X className="w-6 h-6" />
-                    </button>
-                  </div>
-
-                  {/* Body */}
-                  <div className="p-8 sm:p-10 overflow-y-auto custom-scrollbar flex-1 bg-white">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-8 gap-x-6">
-                      {APP_MAPPING[selectedApp.id]?.map(formatId => (
-                        <ModalTileCard 
-                          key={formatId} 
-                          format={TILE_FORMATS[formatId]} 
-                          onClick={setSelectedFormat}
-                        />
-                      ))}
-                      {(!APP_MAPPING[selectedApp.id] || APP_MAPPING[selectedApp.id].length === 0) && (
-                        <div className="col-span-full text-center py-12 text-[#777] text-base font-medium">
-                          No tile formats explicitly mapped for this application yet.
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Footer */}
-                  <div className="px-8 py-4 border-t border-stone-100 bg-stone-50/50 flex items-center justify-between text-xs text-[#777]">
-                    <span>Click any format shape above to view products and specifications</span>
-                    <button
-                      onClick={() => setSelectedApp(null)}
-                      className="font-semibold text-[#C8102E] hover:underline cursor-pointer"
-                    >
-                      Close Window
-                    </button>
-                  </div>
-                </>
-              )}
-            </motion.div>
+      {/* ─────────── 2. DEDICATED TILE FORMATS & SIZES SECTION ─────────── */}
+      <div id="tile-formats-section" className="wrap relative mt-16 pt-12 border-t border-stone-200/80">
+        {/* Section Header */}
+        <div className="mb-8">
+          <span className="text-[11px] font-extrabold text-[#8B1E2D] uppercase tracking-[0.35em] block mb-1">
+            Available Tile Formats & Sizes
+          </span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <h3 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A]" style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}>
+                {selectedApp ? `${selectedApp.name} Formats` : 'All Tile Formats'}
+                <span className="text-sm font-normal text-[#777] font-sans ml-3">
+                  ({activeFormatIds.length} {activeFormatIds.length === 1 ? 'Format' : 'Formats'} Available)
+                </span>
+              </h3>
+            </div>
+            <p className="text-xs text-[#666] max-w-md">
+              Click any category filter pill below to switch spaces, or click a format card below to view products.
+            </p>
           </div>
+        </div>
+
+        {/* ── CATEGORY FILTER PILLS BAR AT THE TOP ── */}
+        <div className="mb-10">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+            <button
+              onClick={() => setSelectedAppId('all')}
+              className={`px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full text-xs font-extrabold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                selectedAppId === 'all'
+                  ? 'bg-[#8B1E2D] text-white shadow-md shadow-[#8B1E2D]/25 ring-2 ring-[#8B1E2D]'
+                  : 'bg-white text-[#444] border border-stone-200 hover:bg-stone-100 hover:text-[#8B1E2D]'
+              }`}
+            >
+              {selectedAppId === 'all' && <span className="w-2 h-2 rounded-full bg-white animate-pulse" />}
+              <span>All Categories</span>
+            </button>
+
+            {APPLICATIONS.map((app) => {
+              const isActive = selectedAppId === app.id;
+              return (
+                <button
+                  key={app.id}
+                  onClick={() => handleSelectApp(app.id)}
+                  className={`px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-full text-xs font-extrabold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                    isActive
+                      ? 'bg-[#8B1E2D] text-white shadow-md shadow-[#8B1E2D]/25 ring-2 ring-[#8B1E2D]'
+                      : 'bg-white text-[#444] border border-stone-200 hover:bg-stone-100 hover:text-[#8B1E2D]'
+                  }`}
+                >
+                  {isActive && <span className="w-2 h-2 rounded-full bg-white animate-pulse" />}
+                  <span>{app.name}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── TILE FORMATS / SIZES GRID ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8 gap-x-6">
+          {activeFormatIds.map((formatId) => (
+            <ModalTileCard
+              key={formatId}
+              format={TILE_FORMATS[formatId]}
+              onClick={setSelectedFormat}
+            />
+          ))}
+          {activeFormatIds.length === 0 && (
+            <div className="col-span-full text-center py-12 text-[#777] text-base font-medium">
+              No tile formats explicitly mapped for this application yet.
+            </div>
+          )}
+        </div>
+
+        {/* Footer bar */}
+        <div className="mt-10 pt-5 border-t border-stone-200/80 flex flex-col sm:flex-row items-center justify-between text-xs text-[#777] gap-3">
+          <span className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#8B1E2D]" />
+            Click any format shape above to view products & engineering specifications
+          </span>
+          {selectedAppId !== 'all' && (
+            <button
+              onClick={() => setSelectedAppId('all')}
+              className="font-bold text-[#8B1E2D] hover:underline cursor-pointer"
+            >
+              Reset to All Categories
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* ─────────── 3. NEW SECTION: SHOP BY SIZE ─────────── */}
+      <div id="shop-by-size" className="wrap relative mt-20 pt-16 border-t border-stone-200/80">
+        {/* Section Header */}
+        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <span
+              className="mb-2 block text-[10px] font-black uppercase tracking-[0.44em] text-[#8B1E2D] md:text-[11px]"
+              style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+            >
+              Amara Ceramics — Dimension Matrix
+            </span>
+            <h2
+              className="text-[clamp(2.2rem,4.2vw,3.6rem)] font-bold leading-[1.05] tracking-tight text-[#1A1A1A]"
+              style={{ fontFamily: 'Cormorant Garamond, Georgia, serif' }}
+            >
+              Shop by <span className="italic text-[#8B1E2D]">Size</span>
+            </h2>
+          </div>
+          <p
+            className="max-w-[340px] text-[12px] font-medium leading-relaxed text-[#777]"
+            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+          >
+            Explore all available tile dimensions across our entire porcelain and vitrified catalog.
+          </p>
+        </div>
+
+        {/* All Sizes Formats Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8 gap-x-6">
+          {Object.keys(TILE_FORMATS).map((formatId) => (
+            <ModalTileCard
+              key={formatId}
+              format={TILE_FORMATS[formatId]}
+              onClick={setSelectedFormat}
+            />
+          ))}
+        </div>
+
+        {/* Footer Note */}
+        <div className="mt-12 pt-6 border-t border-stone-200/80 flex flex-col sm:flex-row items-center justify-between text-xs text-[#777] gap-3">
+          <span className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#8B1E2D]" />
+            Showing all {Object.keys(TILE_FORMATS).length} tile dimensions. Click any shape above to browse products.
+          </span>
+        </div>
+      </div>
+
+      {/* Full-screen product display showcase when a tile format shape card is clicked */}
+      <AnimatePresence>
+        {selectedFormat && (
+          <ProductDisplayView
+            selectedApp={selectedApp || { name: 'All Categories', id: 'all' }}
+            selectedFormat={selectedFormat}
+            onBack={() => setSelectedFormat(null)}
+            onClose={() => setSelectedFormat(null)}
+          />
         )}
       </AnimatePresence>
     </section>
