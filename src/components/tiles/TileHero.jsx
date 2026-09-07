@@ -14,7 +14,7 @@ export default function TileHero() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   const scrollToSize = () => {
-    const el = document.getElementById('collection-view');
+    const el = document.getElementById('catalog-selector');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
